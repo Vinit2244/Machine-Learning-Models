@@ -1,1 +1,0 @@
-This folder can be used to store all your visualisations, etc

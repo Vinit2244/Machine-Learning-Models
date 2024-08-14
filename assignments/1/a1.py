@@ -1,19 +1,20 @@
-import matplotlib.pyplot as plt
+from "../..models/linear-regression/linear-regression.py" import LinearRegression
+# import matplotlib.pyplot as plt
 
-HEADER = 0 # Index of the header row
+# HEADER = 0 # Index of the header row
 
 # ==================== Reading data in a 2D array ====================
-spotify_csv_path = "../../data/external/spotify.csv"
-spotify_data = []
-with open(spotify_csv_path, "r") as f:
-    for line in f:
-        data_row = line.strip().split(",")
-        new_data_row = list()
-        for col in data_row:
-            new_data_row.append(col.strip())
-        spotify_data.append(new_data_row)
+# spotify_csv_path = "../../data/external/spotify.csv"
+# spotify_data = []
+# with open(spotify_csv_path, "r") as f:
+#     for line in f:
+#         data_row = line.strip().split(",")
+#         new_data_row = list()
+#         for col in data_row:
+#             new_data_row.append(col.strip())
+#         spotify_data.append(new_data_row)
 
-print("Read Data")
+# print("Read Data")
 
 # ==================== Replacing $ with s in data ====================
 '''
@@ -21,21 +22,21 @@ print("Read Data")
     creating error for matplotlib to plot the graphs so 
     replacing it with s in the data.
 '''
-for row_idx, row in enumerate(spotify_data):
-    for col_idx, col in enumerate(row):
-        while "$" in col:
-            new_col = ""
-            for character in col:
-                if character == "$":
-                    new_col += "s"
-                else:
-                    new_col += character
-            col = new_col
-            spotify_data[row_idx][col_idx] = new_col
+# for row_idx, row in enumerate(spotify_data):
+#     for col_idx, col in enumerate(row):
+#         while "$" in col:
+#             new_col = ""
+#             for character in col:
+#                 if character == "$":
+#                     new_col += "s"
+#                 else:
+#                     new_col += character
+#             col = new_col
+#             spotify_data[row_idx][col_idx] = new_col
 
-print("Replaced $ with s in data")
+# print("Replaced $ with s in data")
 # ========================= Helper Functions =========================
-find_col_idx = lambda col_name: spotify_data[HEADER].index(col_name)
+# find_col_idx = lambda col_name: spotify_data[HEADER].index(col_name)
 
 # ================== Analysing Distribution of Data ==================
 '''Artsits vs No. of Songs is giving issues as there are a large number of artists'''
@@ -107,3 +108,6 @@ find_col_idx = lambda col_name: spotify_data[HEADER].index(col_name)
 # plt.savefig(explicit_vs_non_explicit_path, format='png')
 # print("Saved Explicit vs Non-Explicit Songs figure at", explicit_vs_non_explicit_path)
 # plt.show()
+
+# if __name__ == "__main__":
+    
