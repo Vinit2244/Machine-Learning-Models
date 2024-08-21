@@ -1,113 +1,221 @@
-from "../..models/linear-regression/linear-regression.py" import LinearRegression
-# import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+import os
 
-# HEADER = 0 # Index of the header row
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 
-# ==================== Reading data in a 2D array ====================
-# spotify_csv_path = "../../data/external/spotify.csv"
-# spotify_data = []
-# with open(spotify_csv_path, "r") as f:
-#     for line in f:
-#         data_row = line.strip().split(",")
-#         new_data_row = list()
-#         for col in data_row:
-#             new_data_row.append(col.strip())
-#         spotify_data.append(new_data_row)
-
-# print("Read Data")
-
-# ==================== Replacing $ with s in data ====================
 '''
-    The $ character present in the names of the songs was 
-    creating error for matplotlib to plot the graphs so 
-    replacing it with s in the data.
+    Since we have changed the base path, make sure to provide path names from the root of the project
 '''
-# for row_idx, row in enumerate(spotify_data):
-#     for col_idx, col in enumerate(row):
-#         while "$" in col:
-#             new_col = ""
-#             for character in col:
-#                 if character == "$":
-#                     new_col += "s"
-#                 else:
-#                     new_col += character
-#             col = new_col
-#             spotify_data[row_idx][col_idx] = new_col
 
-# print("Replaced $ with s in data")
-# ========================= Helper Functions =========================
-# find_col_idx = lambda col_name: spotify_data[HEADER].index(col_name)
+from models.linear_regression.linear_regression import Regression
+from models.knn.knn import KNN
 
-# ================== Analysing Distribution of Data ==================
-'''Artsits vs No. of Songs is giving issues as there are a large number of artists'''
-# # Artist vs No. of Songs
-# artists_col_idx = find_col_idx("artists")
-# artist_songs_count = dict()
-# for row in spotify_data[HEADER+1:]:
-#     artists = row[artists_col_idx].split(";")
-#     for artist in artists:
-#         # Check if artist is already in the dictionary
-#         if artist in artist_songs_count:
-#             artist_songs_count[artist] += 1
-#         else:
-#             artist_songs_count[artist] = 1
+def get_index(header, val):
+    return header.index(val)
 
-# x_axis = list(artist_songs_count.keys())    # Names of artists
-# y_axis = list(artist_songs_count.values())  # No. of songs by each artist
+def preprocess(data):
+    # Renaming the first unnamed column as index
+    data = data.rename(columns={'Unnamed: 0': 'index'})
 
-# plt.bar(x_axis, y_axis)
-# plt.xlabel("Artist")
-# plt.xticks(rotation=90) # For better readability (ChatGPT prompt: "How to write the values in the axes in matplotlib in vertical fashion")
-# plt.ylabel("No. of Songs")
-# plt.title("Artist vs No. of Songs")
-# artist_vs_n_songs_path = "./figures/artist_vs_n_songs.png"
-# # plt.savefig(artist_vs_n_songs_path, format='png')
-# plt.show()
-# # print("Saved Artist vs No. of Songs figure at", artist_vs_n_songs_path)
+    # Remove exact duplicates - if track id is same, the song is exactly the same
+    data = data.drop_duplicates("track_id")
 
-# Genre vs No. of Songs
-'''There are still a lot of genres - each with 1000 songs - so the plot is not very clear'''
-# genre_col_idx = -1
-# genre_songs_count = dict()
-# for row in spotify_data[HEADER+1:]:
-#     genre = row[genre_col_idx]
-#     # Check if genre is already in the dictionary
-#     if genre in genre_songs_count:
-#         genre_songs_count[genre] += 1
-#     else:
-#         genre_songs_count[genre] = 1
+    # Remove duplicate songs in multiple albums
+    data = data.drop_duplicates("track_name")
 
-# x_axis = list(genre_songs_count.keys())    # Names of genres
-# y_axis = list(genre_songs_count.values())  # No. of songs in each genre
+    # Removing unnecessary columns
+    unnecessary_cols = ["index", "track_id", "album_name"]
+    data = data.drop(columns=unnecessary_cols)
 
-# plt.xlabel("Genre")
-# plt.xticks(rotation=90) # For better readability (ChatGPT prompt: "How to write the values in the axes in matplotlib in vertical fashion")
-# plt.ylabel("No. of Songs")
-# plt.title("Genre vs No. of Songs")
-# plt.scatter(x_axis, y_axis, color='red')
-# genre_vs_n_songs_path = "./figures/genre_vs_n_songs.svg"
-# plt.savefig(genre_vs_n_songs_path, format='svg')
-# print("Saved Genre vs No. of Songs figure at", genre_vs_n_songs_path)
+    # Renaming all False as 0 and True as 1 in explicit column
+    data['explicit'] = data['explicit'].replace({'False': '0', 'True': '1'})
+    return data
 
-# ================== Visualising number of explicit songs ==================
-'''Almost all songs are non-explicit, so the pie plot is showing 0% for explicit songs'''
-# explicit_col_idx = find_col_idx("explicit")
-# n_explicit_songs = 0
-# n_non_explicit_songs = 0
-# for row in spotify_data[HEADER+1:]:
-#     explicit = row[explicit_col_idx]
-#     if explicit == "TRUE":
-#         n_explicit_songs += 1
-#     else:
-#         n_non_explicit_songs += 1
+def load_data():
+    # Some data points have commas in them, so we need to use quotechar to read the file
+    # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
+    try:
+        data = data = pd.read_csv("../../interim/preprocessed_spotify.csv", quotechar='"')
+    except FileNotFoundError:
+        data = pd.read_csv("../../data/external/spotify.csv", quotechar='"')
+        data = preprocess(data)
+        data.to_csv('../../data/interim/preprocessed_spotify.csv', index=False)
+    return data
 
-# y_vals = [n_explicit_songs, n_non_explicit_songs]
-# plt.pie(y_vals, labels=["Explicit Songs", "Non-Explicit Songs"], autopct='%1.1f%%')
-# plt.title("Distribution of Explicit and Non-Explicit Songs")
-# explicit_vs_non_explicit_path = "./figures/explicit_vs_non_explicit.png"
-# plt.savefig(explicit_vs_non_explicit_path, format='png')
-# print("Saved Explicit vs Non-Explicit Songs figure at", explicit_vs_non_explicit_path)
-# plt.show()
+def plot_train_test_metrics(x, y):
+    fig, axes = plt.subplots(1, len(y), figsize=(10, 5))
+    idx = 0
+    max_y = 0
+    for key, value in y.items():
+        max_mse = np.max(value[:, 0])
+        max_var = np.max(value[:, 1])
+        max_sd = np.max(value[:, 2])
+        max_y = max(max_y, max_mse, max_var, max_sd)
+        axes[idx].plot(x, value[:, 0], color='red', label='MSE')
+        axes[idx].plot(x, value[:, 1], color='blue', label='Variance')
+        axes[idx].plot(x, value[:, 2], color="green", label="Std Dev")
+        axes[idx].set_xlabel("Degree")
+        axes[idx].set_ylabel("Value")
+        axes[idx].set_title(f"MSE, Bias and Var Plot for {key.capitalize()} Set")
+        axes[idx].legend()
+        idx += 1
+    # Setting the y-axis limits to be the same for all plots for better comparison (same range)
+    for i in range(idx):
+        axes[i].set_ylim(0, max_y)
+    plt.tight_layout()
+    plt.show()
 
-# if __name__ == "__main__":
+def analyse_data():
+    data = load_data()
+
+def knn():
+    pass
+
+def linear_regression(data):
+    # Linear Regression Hyperparameters
+    lr = 0.05
+    diff_threshold = 0.0003
+    max_k = 5
+    seed = 10
+    linreg = Regression()
+    # linreg.load_model("./assignments/1/best_model_params.txt")
+    linreg.load_data(data)
+    linreg.shuffle_data()
+    linreg.split_data(80, 10, 10)
+    linreg.visualise_split()
+
+    train_metrics = np.zeros((max_k, 3))
+    test_metrics = np.zeros((max_k, 3))
+    for k in range(1, max_k + 1):
+        # Training the model
+        converged_epoch = linreg.fit(k, lr, diff_threshold, save_epoch_imgs=True, seed=seed, max_epochs=100)
+        # Train Metrics
+        print("Degree:", k)
+        print("Seed:", seed)
+        print("Converged at epoch:", converged_epoch)
+        mse_train, var_train, sd_train = linreg.get_metrics("train")
+        train_metrics[k - 1] = np.array([mse_train, var_train, sd_train])
+        print(f"Training set: MSE: {mse_train}, Variance: {var_train}, Standard Deviation {sd_train}")
+        # Test Metrics
+        mse_test, var_test, sd_test = linreg.get_metrics("test")
+        test_metrics[k - 1] = np.array([mse_test, var_test, sd_test])
+        print(f"Test set: MSE: {mse_test}, Variance: {var_test}, Standard Deviation: {sd_test}")
+        print()
+        linreg.animate(f"./assignments/1/figures/lin_reg_animation_{k}.gif")
+
+    plot_train_test_metrics([i for i in range(1, max_k + 1)], {"train": train_metrics, "test": test_metrics})
     
+    # linreg.save_best_model("./assignments/1/best_model_params.txt")
+
+def l1_linear_regression(data):
+    # L1 Regularization
+    linreg_l1 = Regression(regularization_method="l1", lamda=0.1)
+    linreg_l1.load_data(data)
+    linreg_l1.shuffle_data()
+    linreg_l1.split_data(80, 10, 10)
+    linreg_l1.visualise_split()
+
+    train_metrics = list()
+    test_metrics = list()
+    
+    for k in range(1, 21):
+        linreg_l1.fit(k, lr=1, epochs=100)
+        mse_train, var_train, sd_train = linreg_l1.get_metrics("train")
+        train_metrics.append([mse_train, var_train, sd_train])
+        print(f"Degree: {k}\nTraining set: MSE: {mse_train}, Variance: {var_train}, Standard Deviation {sd_train}")
+        mse_test, var_test, sd_test = linreg_l1.get_metrics("test")
+        test_metrics.append([mse_test, var_test, sd_test])
+        print(f"Test set: MSE: {mse_test}, Variance: {var_test}, Standard Deviation: {sd_test}")
+        print()
+        linreg_l1.visualise_train_and_fitted_curve("save", k, "l1")
+    
+    train_metrics = np.array(train_metrics)
+    test_metrics = np.array(test_metrics)
+    x_axis = [i for i in range(1, 21)]
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+    axes[0].plot(x_axis, train_metrics[:,0], color='red', label='MSE')
+    axes[0].plot(x_axis, train_metrics[:,1], color='blue', label='Variance')
+    axes[0].plot(x_axis, train_metrics[:,2], color="green", label="Std Dev")
+    axes[0].set_xlabel("Degree")
+    axes[0].set_ylabel("Value")
+    axes[0].set_title("MSE, Bias and Var Plot for Train Set")
+    axes[0].legend()
+
+    axes[1].plot(x_axis, test_metrics[:,0], color='red', label='MSE')
+    axes[1].plot(x_axis, test_metrics[:,1], color='blue', label='Variance')
+    axes[1].plot(x_axis, test_metrics[:,2], color="green", label="Std Dev")
+    axes[1].set_xlabel("Degree")
+    axes[1].set_ylabel("Value")
+    axes[1].set_title("MSE, Bias and Var Plot for Test Set")
+    axes[1].legend()
+    plt.tight_layout()
+    plt.show()
+
+def l2_linear_regression(data):
+    # L2 Regularization
+    linreg_l2 = Regression(regularization_method="l2", lamda=0.1)
+    linreg_l2.load_data(data)
+    linreg_l2.shuffle_data()
+    linreg_l2.split_data(80, 10, 10)
+    linreg_l2.visualise_split()
+
+    train_metrics = list()
+    test_metrics = list()
+
+    for k in range(1, 21):
+        linreg_l2.fit(k, lr=1, epochs=100)
+        mse_train, var_train, sd_train = linreg_l2.get_metrics("train")
+        train_metrics.append([mse_train, var_train, sd_train])
+        print(f"Degree: {k}\nTraining set: MSE: {mse_train}, Variance: {var_train}, Standard Deviation {sd_train}")
+        mse_test, var_test, sd_test = linreg_l2.get_metrics("test")
+        test_metrics.append([mse_test, var_test, sd_test])
+        print(f"Test set: MSE: {mse_test}, Variance: {var_test}, Standard Deviation: {sd_test}")
+        print()
+        linreg_l2.visualise_train_and_fitted_curve("save", k, "l2")
+
+    train_metrics = np.array(train_metrics)
+    test_metrics = np.array(test_metrics)
+    x_axis = [i for i in range(1, 21)]
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+    axes[0].plot(x_axis, train_metrics[:,0], color='red', label='MSE')
+    axes[0].plot(x_axis, train_metrics[:,1], color='blue', label='Variance')
+    axes[0].plot(x_axis, train_metrics[:,2], color="green", label="Std Dev")
+    axes[0].set_xlabel("Degree")
+    axes[0].set_ylabel("Value")
+    axes[0].set_title("MSE, Bias and Var Plot for Train Set")
+    axes[0].legend()
+
+    axes[1].plot(x_axis, test_metrics[:,0], color='red', label='MSE')
+    axes[1].plot(x_axis, test_metrics[:,1], color='blue', label='Variance')
+    axes[1].plot(x_axis, test_metrics[:,2], color="green", label="Std Dev")
+    axes[1].set_xlabel("Degree")
+    axes[1].set_ylabel("Value")
+    axes[1].set_title("MSE, Bias and Var Plot for Test Set")
+    axes[1].legend()
+    plt.tight_layout()
+    plt.show()
+
+if __name__ == "__main__":
+    '''
+        Data Analysis Part
+    '''
+    # analyse_data()
+
+    '''
+        KNN Part
+    '''
+    # knn()
+
+    '''
+        Linear Regression Part
+    '''
+    data_path = "./data/external/linreg.csv"
+    data = np.genfromtxt(data_path, delimiter=',', skip_header=True)
+    linear_regression(data)
+    data_regularisation_path = "./data/external/regularisation.csv"
+    data_regularisation = np.genfromtxt(data_regularisation_path, delimiter=',', skip_header=True)
+    # l1_linear_regression(data_regularisation)
+    # l2_linear_regression(data_regularisation)
