@@ -1,71 +1,53 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import os
-from PIL import Image
-from performance_measures.performance_measures import PerformanceMetrics
+import numpy as np                  # For array manipulation
+import matplotlib.pyplot as plt     # For plotting the data
+import os                           # For removing the temporary image file
+from PIL import Image               # For reading the image file
+from performance_measures.performance_measures import PerformanceMetrics # MSE, Variance, Standard Deviation
 
+# Class to perform linear regression, it inherits all the performance metrics from the PerformanceMetrics class
 class Regression(PerformanceMetrics):
     def __init__(self, regularization_method=None, lamda=0):
         super().__init__()
-        self.params = None # Stored in increasing order of degree
-        self.data = None
-        self.train_data = None
-        self.validation_data = None
-        self.test_data = None
-        self.min_err_test_k = None
-        self.min_err_test_params = None
-        self.min_err = None
-        self.lamda = lamda
-        self.regularization_method = regularization_method
-        self.img_arr = list()
-        self.var = None
-        self.sd = None
+        self.params = None                                      # Stored in increasing order of degree
+        self.lamda = lamda                                      # Regularization parameter
+        self.regularization_method = regularization_method      # Regularization method
+        self.img_arr = list()                                   # List to store the images for creating GIF
+        self.train_data = None                                  # Training data
+        self.test_data = None                                   # Testing data
+        self.validation_data = None                             # Validation data
+        self.var = None                                         # Variance of all data
     
+    # Returns the parameters of the model after training
+    def get_params(self):
+        return self.params
+
+    # Function to load the parameters of the model from a file
     def load_model(self, path):
         with open(path, "r") as f:
             params = f.read().split(",")
             self.k = len(params) - 1
             self.params = np.array([float(param) for param in params])
-    
-    def load_data(self, data):
-        self.data = data
-        self.var = self.variance(data[:,1])
-        self.sd = self.standard_deviation(data[:,1])
-    
-    def shuffle_data(self):
-        np.random.shuffle(self.data)
-    
-    def split_data(self, train, validation, test):
-        if train + validation + test != 100:
-            raise ValueError("Train, validation and test must sum to 100")
-        
-        n_total_samples = self.data.shape[0]
-        n_train_samples = int((train/100) * n_total_samples)
-        n_validation_samples = int((validation/100) * n_total_samples)
-        n_test_samples = int((test/100) * n_total_samples)
 
-        self.train_data = self.data[0:n_train_samples]
-        self.validation_data = self.data[n_train_samples:n_train_samples+n_validation_samples]
-        self.test_data = self.data[n_train_samples+n_validation_samples:]
+    # Function to load the data into the model
+    def load_train_test_validation_data(self, train_data, validation_data, test_data):
+        self.train_data = train_data
+        self.validation_data = validation_data
+        self.test_data = test_data
 
-    def visualise_split(self):
-        x_train = self.train_data[:,0]
-        y_train = self.train_data[:,1]
-        x_validation = self.validation_data[:,0]
-        y_validation = self.validation_data[:,1]
-        x_test = self.test_data[:,0]
-        y_test = self.test_data[:,1]
+        train_var = self.variance(self.train_data[:,1])
+        test_var = self.variance(self.test_data[:,1])
+        validation_var = self.variance(self.validation_data[:,1])
 
-        # Plotting the scatter plot of train, validation and test data split
-        plt.scatter(x_train, y_train, color='red', label='Train', s=10)
-        plt.scatter(x_validation, y_validation, color='blue', label='Validation', s=10)
-        plt.scatter(x_test, y_test, color='green', label='Test', s=10)
-        plt.xlabel("X")
-        plt.ylabel("Y")
-        plt.title("Scatter plot of train, validation and test split")
-        plt.legend()
-        plt.show()
+        train_sd = self.standard_deviation(self.train_data[:,1])
+        test_sd = self.standard_deviation(self.test_data[:,1])
+        validation_sd = self.standard_deviation(self.validation_data[:,1])
 
+        print(f"""Metrics for all three splits:\n
+                  Train:      Variance: {train_var}, Standard Deviation: {train_sd}\n
+                  Validation: Variance: {validation_var}, Standard Deviation: {validation_sd}\n
+                  Test:       Variance: {test_var}, Standard Deviation: {test_sd}\n""")
+
+    # Function to calculate the value of the polynomial at a given x
     def func(self, x):
         if self.params is None:
             raise ValueError("Model has not been initialised properly yet")
@@ -76,14 +58,18 @@ class Regression(PerformanceMetrics):
             x_powered *= x
         return y_pred
     
-    def fit(self, k, lr, threshold, save_epoch_imgs=False, seed=42, max_epochs=float('inf')):
-        self.img_arr = list()
+    # Fits the model to the data
+    def fit(self, k, lr, threshold, save_epoch_imgs=False, seed=42, max_epochs=np.inf):
+        if save_epoch_imgs:
+            self.img_arr = list()
+
         # Note here for the value of y intercept we can also use the y value of the first point for faster convergence
         np.random.seed(seed)
         self.params = np.random.rand(k + 1)
         errors = list()
         epoch = -1
-        while len(errors) < 2 or abs(errors[-1][0] - errors[-2][0]) > threshold and epoch < max_epochs:
+
+        while (len(errors) < 2) or (abs(errors[-1][0] - errors[-2][0]) > threshold) and (epoch < max_epochs):
             epoch += 1
             x = self.train_data[:,0]
             y = self.train_data[:,1]
@@ -100,6 +86,7 @@ class Regression(PerformanceMetrics):
             for i in range(k + 1):
                 final_sum = 0
                 for j in range(len(y_error)):
+                    # Calculating the derivative of the loss function
                     final_sum += y_error[j] * (x[j] ** i)
 
                 # Adding regularization term
@@ -110,62 +97,77 @@ class Regression(PerformanceMetrics):
                         final_sum += self.lamda
                     elif self.params[i] < 0:
                         final_sum -= self.lamda
-
                 elif self.regularization_method == "l2":
                     final_sum += 2 * self.lamda * self.params[i]
-
+                # Gradient Descent
                 self.params[i] = self.params[i] - lr * final_sum / len(y_error)
             if save_epoch_imgs:
-                self.visualise_fit("save in arr", k, epoch, "temp.png", errors)
-        mse, var, sd = self.get_metrics("test")
-        if self.min_err is None:
-            self.min_err = mse
-            self.min_err_test_k = k
-            self.min_err_test_params = self.params
-        elif mse < self.min_err:
-            self.min_err = mse
-            self.min_err_test_k = k
-            self.min_err_test_params = self.params
+                self.visualise_fit(self.train_data, "save in arr", epoch, "temp.png", errors)
         return epoch
 
-    def visualise_fit(self, method, k, epoch, output_path=None, errors=None):
-        x_train = self.train_data[:,0]
-        y_train = self.train_data[:,1]
-        x_axis = np.linspace(np.min(x_train), np.max(x_train), 100)
+    # Predicts the output for the given data
+    def predict(self, data):
+        y_pred = np.zeros(data.shape[0])
+        for i in range(data.shape[0]):
+            y_pred[i] = self.func(data[i])
+        return y_pred
+
+    # Function to visualise the data and the best fit line calculated
+    def visualise_fit(self, data, method, epoch=None, output_path=None, errors=None):
+        x_data = data[:,0]
+        y_data = data[:,1]
+        x_axis = np.linspace(np.min(x_data), np.max(x_data), 100)
         y_axis = np.zeros(len(x_axis))
-        for i in range(len(x_axis)):
-            y_axis[i] = self.func(x_axis[i])
-        fix, axes = plt.subplots(2, 2, figsize=(10, 10))
-        axes[0, 0].plot(x_axis, y_axis, color='black', label='Fitted curve')
-        for i in range(len(x_train))[::3]:
-            axes[0, 0].plot([x_train[i], x_train[i]], [y_train[i], self.func(x_train[i])], color="blue", linewidth=0.5)
-        axes[0, 0].scatter(x_train, y_train, color='red', label='Train', s=10)
 
-        axes[0, 0].set_xlabel("X")
-        axes[0, 0].set_ylabel("Y")
-        axes[0, 0].set_title("Scatter plot of train split with fitted curve")
-        axes[0, 0].legend()
+        for idx, x_val in enumerate(x_axis):
+            y_axis[idx] = self.func(x_val)
 
-        errors = np.array(errors)
-        x_axis = np.arange(0, epoch + 1)
-        axes[0, 1].plot(x_axis, errors[:,0], color='red', label='MSE')
-        axes[0, 1].set_xlabel("Epoch")
-        axes[0, 1].set_ylabel("Value")
-        axes[0, 1].set_title("MSE for Train Set")
+        if epoch != None:
+            fig, axes = plt.subplots(2, 2, figsize=(10, 10))
+            fig.suptitle(f"Epoch: {epoch}")
+            axes[0, 0].plot(x_axis, y_axis, color='black', label='Fitted curve')
+            for i in range(len(x_data))[::3]:
+                axes[0, 0].plot([x_data[i], x_data[i]], [y_data[i], self.func(x_data[i])], color="blue", linewidth=0.5)
+            axes[0, 0].scatter(x_data, y_data, color='red', label='Data', s=10)
 
-        axes[1, 0].plot([0, epoch], [self.var, self.var], color='#AAAAFF', label='Variance of all data')
-        axes[1, 0].plot(x_axis, errors[:,1], color='#0000FF', label='Var')
-        axes[1, 0].set_xlabel("Epoch")
-        axes[1, 0].set_ylabel("Value")
-        axes[1, 0].set_title("Var for Train Set")
-        axes[1, 0].legend()
+            axes[0, 0].set_xlabel("X")
+            axes[0, 0].set_ylabel("Y")
+            axes[0, 0].set_title("Scatter plot of data with fitted curve")
+            axes[0, 0].legend()
 
-        axes[1, 1].plot([0, epoch], [self.sd, self.sd], color='#AAFFAA', label='SD of all data')
-        axes[1, 1].plot(x_axis, errors[:,2], color="#00FF00", label="SD")
-        axes[1, 1].set_xlabel("Epoch")
-        axes[1, 1].set_ylabel("Value")
-        axes[1, 1].set_title("SD for Train Set")
-        axes[1, 1].legend()
+            errors = np.array(errors)
+            x_axis = np.arange(0, epoch + 1)
+            axes[0, 1].plot(x_axis, errors[:,0], color='red', label='MSE')
+            axes[0, 1].set_xlabel("Epoch")
+            axes[0, 1].set_ylabel("Value")
+            axes[0, 1].set_title("MSE")
+
+            data_var = self.variance(y_data)
+            axes[1, 0].plot([0, epoch], [data_var, data_var], color='#AAAAFF', label='Variance of all data', linestyle='--')
+            axes[1, 0].plot(x_axis, errors[:,1], color='#0000FF', label='Var')
+            axes[1, 0].set_xlabel("Epoch")
+            axes[1, 0].set_ylabel("Value")
+            axes[1, 0].set_title("Var")
+            axes[1, 0].legend()
+
+            data_sd = self.standard_deviation(y_data)
+            axes[1, 1].plot([0, epoch], [data_sd, data_sd], color='#AAFFAA', label='SD of all data', linestyle='--')
+            axes[1, 1].plot(x_axis, errors[:,2], color="#00FF00", label="SD")
+            axes[1, 1].set_xlabel("Epoch")
+            axes[1, 1].set_ylabel("Value")
+            axes[1, 1].set_title("SD")
+            axes[1, 1].legend()
+        else:
+            fix, axis = plt.subplots(1, 1, figsize=(5, 5))
+            axis.plot(x_axis, y_axis, color='black', label='Fitted curve')
+            for i in range(len(x_data))[::3]:
+                axis.plot([x_data[i], x_data[i]], [y_data[i], self.func(x_data[i])], color="blue", linewidth=0.5)
+            axis.scatter(x_data, y_data, color='red', label='Train', s=10)
+
+            axis.set_xlabel("X")
+            axis.set_ylabel("Y")
+            axis.set_title("Scatter plot of data with fitted curve")
+            axis.legend()
 
         if method == "show":
             plt.show()
@@ -184,6 +186,7 @@ class Regression(PerformanceMetrics):
         
         plt.close()
 
+    # Returns the metrics for the given split
     def get_metrics(self, split):
         split = split.strip().lower()
         x = None
@@ -197,15 +200,14 @@ class Regression(PerformanceMetrics):
         elif split == "test":
             x = self.test_data[:,0]
             y = self.test_data[:,1]
-        y_pred = np.zeros(len(x))
-        for i in range(len(x)):
-            y_pred[i] = self.func(x[i])
+        y_pred = self.predict(x)
         mse = round(self.MSE(y, y_pred), 4)
         var = round(self.variance(y_pred), 4)
         sd = round(self.standard_deviation(y_pred), 4)
         return mse, var, sd
     
-    def save_best_model(self, path):
+    # Saves the trained model's parameters to a file
+    def save_model(self, path):
         with open(path, 'w') as f:
             final_string = ""
             for param in self.params:
@@ -213,7 +215,10 @@ class Regression(PerformanceMetrics):
             final_string = final_string[:-1]
             f.write(final_string)
 
-    def animate(self, output_path):
+    # Creates GIF out of the images stored in the img_arr
+    def animate_training(self, output_path):
+        if self.img_arr is None:
+            raise ValueError("No images have been stored yet, run the fit function with save_epoch_imgs=True")
         self.img_arr[0].save(output_path,
                save_all=True,
                append_images=self.img_arr[1:],
