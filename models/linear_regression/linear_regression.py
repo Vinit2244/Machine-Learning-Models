@@ -86,7 +86,7 @@ class Regression(PerformanceMetrics):
             for i in range(k + 1):
                 final_sum = 0
                 for j in range(len(y_error)):
-                    # Calculating the derivative of the loss function
+                    # Calculating graient
                     final_sum += y_error[j] * (x[j] ** i)
 
                 # Adding regularization term
@@ -100,7 +100,7 @@ class Regression(PerformanceMetrics):
                 elif self.regularization_method == "l2":
                     final_sum += 2 * self.lamda * self.params[i]
                 # Gradient Descent
-                self.params[i] = self.params[i] - lr * final_sum / len(y_error)
+                self.params[i] -= lr * final_sum / len(y_error)
             if save_epoch_imgs:
                 self.visualise_fit(self.train_data, "save in arr", epoch, "temp.png", errors)
         return epoch

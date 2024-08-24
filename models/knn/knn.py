@@ -11,16 +11,21 @@ class KNN(PerformanceMetrics):
         self.to_predict = None  # Column name to predict
         self.features = None    # Features to use for prediction
         self.cols = None        # Column names
+        self.true_vals = None   # True values of the variable to predict
+        self.predicted_vals = None  # Predicted values of the variable to predict
     
+    # Getter and Setter for variable to predict
     def set_predict_var(self, column_name):
         self.to_predict = column_name
     
     def get_predict_var(self):
         return self.to_predict
     
+    # Set the features to use for making predictions
     def use_for_prediction(self, features):
         self.features = features
 
+    # Returns the list of features used for making predictions
     def get_features_used_for_prediction(self):
         return self.features
 
@@ -38,78 +43,107 @@ class KNN(PerformanceMetrics):
     def set_dist_metric(self, new_dist_metric):
         self.dist_metric = new_dist_metric
 
-    def load_train_data(self, headers, data):
+    # Load the training, testing and validation data
+    def load_train_test_val_data(self, headers, train_data, test_data, validation_data):
         self.cols = headers
-        self.train_data = data
+        self.train_data = train_data
+        self.test_data = test_data
+        self.validation_data = validation_data
 
-    # x1 and x2 are both numpy arrays of equal length
-    def calc_distance(self, x1, x2):
+    # Calculate the distance between a single data point and an array of data points
+    def calc_distance(self, x1, x2_arr):
         if self.dist_metric == "manhattan":
-            return np.sum(np.abs(x1 - x2))
+            return np.sum(np.abs(x2_arr - x1), axis=1)
         elif self.dist_metric == "euclidean":
-            return np.sqrt(np.sum((x1 - x2)**2))
+            return np.linalg.norm(x2_arr - x1, axis=1)
         elif self.dist_metric == "cosine":
-            return np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
+            vector_norm = np.linalg.norm(x1)
+            vectors_array_norm = np.linalg.norm(x2_arr, axis=1)
+            dot_products = np.dot(x2_arr, x1)
+            return dot_products / (vector_norm * vectors_array_norm)
         else:
             raise ValueError("Invalid distance metric")
-        
-    def predict_single(self, test_point, train_data, labels_train_data):
-        distances = []
-        for idx, train_point in enumerate(train_data):
-            distances.append((self.calc_distance(test_point, train_point), idx))
-        
-        top_k_labels_idx = np.int32(np.array(sorted(distances)[:self.k]))[:, -1].flatten().tolist()
-        top_k_labels = [labels_train_data[i] for i in top_k_labels_idx]
-        '''
-            The below line of code is given by ChatGPT
-            Prompt: given a list of labels find the most common label in the list in 1 line of code
-        '''
-        # =============================================================================
-        return max(set(top_k_labels), key=top_k_labels.count)
-        # =============================================================================
 
-    
+    # Fit the model
+    def fit(self):
+        pass
+
     # Assumes the order and number of columns (except the label column) in test data is the same as in train data
-    def predict(self, test_data):
-        # Refining training and testing data points
+    def predict(self, type_of_data):
         features_to_use_idx = [self.cols.index(feature) for feature in self.features]
         filtered_train_data = self.train_data[:, features_to_use_idx]
-        labels_train_data = self.train_data[:, -1]
-        filtered_test_data = test_data[:, features_to_use_idx]
+        filtered_to_predict_data = None
+        train_data_labels = self.train_data[:, -1]
 
-        batch_size = 500
+        if type_of_data == "test":
+            # Refining testing data points
+            filtered_to_predict_data = self.test_data[:, features_to_use_idx]
+            self.true_vals = self.test_data[:, -1]
+        elif type_of_data == "validation":
+            # Refining validation data points
+            filtered_to_predict_data = self.validation_data[:, features_to_use_idx]
+            self.true_vals = self.validation_data[:, -1]
 
-        print(filtered_test_data.shape, filtered_train_data.shape)
+        # Converting them to float32 for optimisation
+        filtered_train_data = np.float32(filtered_train_data)
+        filtered_to_predict_data = np.float32(filtered_to_predict_data)
 
-        n_test = filtered_test_data.shape[0]
-        n_train = filtered_train_data.shape[0]
-        distance_matrix = np.zeros((n_test, n_train))
+        predictions = []
+        for data_point in filtered_to_predict_data:
+            distances = self.calc_distance(data_point, filtered_train_data)
 
-        # Iterate over test points in batches
-        for i in range(0, n_test, batch_size):
-            # Select the current batch of test points
-            test_batch = filtered_test_data[i:i + batch_size]
-
-            # Compute the distance for the current test batch against all train points
-            # Broadcasting to create a 3D array of differences
-            diff = test_batch[:, np.newaxis, :] - filtered_train_data[np.newaxis, :, :]
+            distance_label_pairs = list(zip(distances, train_data_labels))
+            sorted_pairs = sorted(distance_label_pairs, key=lambda x: x[0])
+            top_k_labels = [label for _, label in sorted_pairs[:self.k]]
             
-            # Now diff has shape (batch_size, n_train, n_features)
-            
-            # Apply the custom distance function in a vectorized way
-            for k in range(diff.shape[0]):  # Iterating over the test batch
-                distance_matrix[i + k, :] = np.apply_along_axis(
-                    lambda x: self.calc_distance(x, np.zeros_like(x)),
-                    1,
-                    diff[k]
-                )
+            '''
+                The below line of code is given by ChatGPT
+                Prompt: given a list of labels find the most common label in the list in 1 line of code
+            '''
+            # =============================================================================
+            most_frequent_label = max(set(top_k_labels), key=top_k_labels.count)
+            # =============================================================================
+            predictions.append(most_frequent_label)
+        
+        self.predicted_vals = np.array(predictions)
+        return predictions
 
-        print(distance_matrix.shape)
-        # # If you need all differences in a single array
-        # all_differences = np.concatenate(all_differences, axis=1)
+    def get_metrics(self):
+        if self.predicted_vals is None or self.true_vals is None:
+            raise ValueError("Predictions have not been made yet - run the model atleast once before getting metrics")
 
-        # predictions = []
-        # for data_point in filtered_test_data:
-        #     predictions.append(self.predict_single(data_point, filtered_train_data, labels_train_data.tolist()))
+        list_of_classes = list(set(self.true_vals))
 
-        # return predictions
+        # Calculate the confusion matrix for each of the classes
+        list_of_confusion_matrices = []
+
+        for cls in list_of_classes:
+            list_of_confusion_matrices.append(self.confusion_matrix(cls, self.true_vals, self.predicted_vals))
+
+        # Pool the confusion matrices: Summing the matrices cell wise
+        pooled_confusion_matrix = np.sum(list_of_confusion_matrices, axis=0)
+        
+        # Calculate the accuracy of the model
+        accuracy = self.accuracy(self.true_vals, self.predicted_vals)
+
+        list_of_individual_precisions = self.precision(list_of_confusion_matrices)
+        list_of_individual_recalls = self.recall(list_of_confusion_matrices)
+        list_of_individual_f1_scores = self.f1_score(list_of_individual_precisions, list_of_individual_recalls)
+
+        macro_precision = np.mean(np.array(list_of_individual_precisions))
+        macro_recall = np.mean(np.array(list_of_individual_recalls))
+        macro_f1_score = np.mean(np.array(list_of_individual_f1_scores))
+
+        micro_precision = self.precision([pooled_confusion_matrix])[0]
+        micro_recall = self.recall([pooled_confusion_matrix])[0]
+        micro_f1_score = self.f1_score([micro_precision], [micro_recall])[0]
+
+        return {
+            "accuracy": accuracy,
+            "macro_precision": macro_precision,
+            "macro_recall": macro_recall,
+            "macro_f1_score": macro_f1_score,
+            "micro_precision": micro_precision,
+            "micro_recall": micro_recall,
+            "micro_f1_score": micro_f1_score
+        }

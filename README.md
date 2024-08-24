@@ -1,6 +1,6 @@
 # Statistical Methods in Artificial Intelligence (Monsoon '24)
 
-Name:
+Name: Vinit Mehta
 
-Roll Number:
+Roll Number: 2022111001
 
