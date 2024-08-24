@@ -75,7 +75,7 @@ def visualise_split(train_data, test_data, validation_data, path_to_save=None):
         plt.title("Scatter plot of train, validation and test split")
         plt.legend()
         plt.savefig(path_to_save, bbox_inches='tight')
-        # plt.show()
+        plt.close()
 
 # Preprocess the data
 def preprocess(data, preprocessed_data_file_path):
@@ -672,28 +672,28 @@ if __name__ == "__main__":
     '''
         Data Preprocessing and reading Part
     '''
-    # data_analysis_file_path = './data/external/spotify.csv' 
-    # data_analysis_preprocessed_data_file_path = './data/interim/1/preprocessed_spotify.csv'
-    # # Some data points have commas in them, so we need to use quotechar to read the file
-    # # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-    # try:
-    #     # Checking if preprocessed data is already present
-    #     data_for_analysis = pd.read_csv(data_analysis_preprocessed_data_file_path, quotechar='"')
-    # except FileNotFoundError:
-    #     data_for_analysis = pd.read_csv(data_analysis_file_path, quotechar='"')
-    #     data_for_analysis = preprocess(data_for_analysis, data_analysis_preprocessed_data_file_path)
-    # print("Read data for data analysis")
-    # '''
-    #     Data Analysis Part
-    # '''
-    # analyse_data(data_for_analysis)
-    # print("Data Analysis done\n")
+    data_analysis_file_path = './data/external/spotify.csv' 
+    data_analysis_preprocessed_data_file_path = './data/interim/1/preprocessed_spotify.csv'
+    # Some data points have commas in them, so we need to use quotechar to read the file
+    # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
+    try:
+        # Checking if preprocessed data is already present
+        data_for_analysis = pd.read_csv(data_analysis_preprocessed_data_file_path, quotechar='"')
+    except FileNotFoundError:
+        data_for_analysis = pd.read_csv(data_analysis_file_path, quotechar='"')
+        data_for_analysis = preprocess(data_for_analysis, data_analysis_preprocessed_data_file_path)
+    print("Read data for data analysis")
+    '''
+        Data Analysis Part
+    '''
+    analyse_data(data_for_analysis)
+    print("Data Analysis done\n")
 
-    # '''
-    #     KNN Part
-    # '''
-    # knn()
-    # print("KNN done\n")
+    '''
+        KNN Part
+    '''
+    knn()
+    print("KNN done\n")
 
     '''
         Linear Regression Part
