@@ -665,35 +665,35 @@ def linear_regression(data, max_k=1, regularisation_method=None, lamda=0):
         If you wanna save the best model, uncomment the below
     '''
     # =============================================================================
-    # save_params(best_params, f"./assignments/1/best_model_params_{regularisation_method}.txt")
+    save_params(f"./assignments/1/best_model_params_{regularisation_method}.txt", best_params.tolist())
     # =============================================================================
 
 if __name__ == "__main__":
     '''
         Data Preprocessing and reading Part
     '''
-    data_analysis_file_path = './data/external/spotify.csv' 
-    data_analysis_preprocessed_data_file_path = './data/interim/1/preprocessed_spotify.csv'
-    # Some data points have commas in them, so we need to use quotechar to read the file
-    # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-    try:
-        # Checking if preprocessed data is already present
-        data_for_analysis = pd.read_csv(data_analysis_preprocessed_data_file_path, quotechar='"')
-    except FileNotFoundError:
-        data_for_analysis = pd.read_csv(data_analysis_file_path, quotechar='"')
-        data_for_analysis = preprocess(data_for_analysis, data_analysis_preprocessed_data_file_path)
-    print("Read data for data analysis")
-    '''
-        Data Analysis Part
-    '''
-    analyse_data(data_for_analysis)
-    print("Data Analysis done\n")
+    # data_analysis_file_path = './data/external/spotify.csv' 
+    # data_analysis_preprocessed_data_file_path = './data/interim/1/preprocessed_spotify.csv'
+    # # Some data points have commas in them, so we need to use quotechar to read the file
+    # # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
+    # try:
+    #     # Checking if preprocessed data is already present
+    #     data_for_analysis = pd.read_csv(data_analysis_preprocessed_data_file_path, quotechar='"')
+    # except FileNotFoundError:
+    #     data_for_analysis = pd.read_csv(data_analysis_file_path, quotechar='"')
+    #     data_for_analysis = preprocess(data_for_analysis, data_analysis_preprocessed_data_file_path)
+    # print("Read data for data analysis")
+    # '''
+    #     Data Analysis Part
+    # '''
+    # analyse_data(data_for_analysis)
+    # print("Data Analysis done\n")
 
-    '''
-        KNN Part
-    '''
-    knn()
-    print("KNN done\n")
+    # '''
+    #     KNN Part
+    # '''
+    # knn()
+    # print("KNN done\n")
 
     '''
         Linear Regression Part
