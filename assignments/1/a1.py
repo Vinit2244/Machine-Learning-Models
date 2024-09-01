@@ -10,7 +10,7 @@ import itertools
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 
 '''
     The code for importing file from sibling directories has been referenced using ChatGPT
@@ -339,7 +339,7 @@ def read_dataset(data_set):
         return headers, train_data2, test_data2, validate_data2
 
 def sklearn_model(k, train_data_set_size=80):
-    data = pd.read_csv('./assignments/data/interim/1/preprocessed_spotify.csv')
+    data = pd.read_csv('./data/external/spotify.csv')
     data = data.drop(columns=['Unnamed: 0', 'track_id', 'artists', 'album_name', 'track_name'])
 
     label_encoders = {}
@@ -385,7 +385,8 @@ def knn():
     all_numeric_features = ["popularity", "duration_ms", "danceability", "energy", "key", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo"]
     combinations_to_use = [
         all_numeric_features,
-        ['Energy', 'Danceability', 'Loudness', 'Acousticness', 'Instrumentalness']
+        ['danceability', 'energy', 'loudness', 'acousticness', 'instrumentalness'],
+        ["popularity", "danceability", "energy", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo"]
     ]
     # Did not have time to run this code, but this is the code to generate all possible combinations of features
     # combinations_to_use = generate_all_combinations(all_numeric_features)
@@ -459,7 +460,7 @@ def knn():
         print(f"Model: {top_10_models[i]}, Combination: {top_10_combinations[i]}, Accuracy: {top_10_accuracies[i]}, Time: {top_10_times[i]} seconds")
 
     # Plottig k vs accuracy plot
-    distance_metric_of_choice = "cosine"
+    distance_metric_of_choice = "euclidean"
     accuracies_to_plot = []
     for k in k_values:
         for idx, model in enumerate(models):
@@ -472,7 +473,7 @@ def knn():
     plt.title(f"K vs Accuracy for {distance_metric_of_choice.capitalize()} Distance Metric")
     plt.xlabel("K")
     plt.ylabel("Accuracy")
-    plt.savefig("./assignments/1/figures/knn/k_vs_accuracy.png")
+    plt.savefig(f"./assignments/1/figures/knn/k_vs_accuracy{distance_metric_of_choice}.png")
     print("K vs Accuracy plot saved.")
     plt.close()
 

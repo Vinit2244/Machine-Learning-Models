@@ -1,0 +1,540 @@
+Read data for data analysis
+Data Analysis done
+
+Starting with dataset 1
+
+                k = 5, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        23.798%
+
+                            Precision
+                                    Macro:  0.20413781013389215    
+                                    Micro:  0.23797881010594624
+
+                            Recall 
+                                    Macro:   0.2168371179787249
+                                    Micro:   0.23797881010594624
+
+                            F1 Score
+                                    Macro:   0.19760545874172208
+                                    Micro:   0.23797881005594623
+
+                Time taken: 142.0373 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 5, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        26.297%
+
+                            Precision
+                                    Macro:  0.22379811457686238    
+                                    Micro:  0.26297201847323737
+
+                            Recall 
+                                    Macro:   0.24297676551125907
+                                    Micro:   0.26297201847323737
+
+                            F1 Score
+                                    Macro:   0.21637679991086575
+                                    Micro:   0.26297201842323736
+
+                Time taken: 140.5756 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 5, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.19%
+
+                            Precision
+                                    Macro:  0.0017562911089982981    
+                                    Micro:  0.001901657158380849
+
+                            Recall 
+                                    Macro:   0.0019800318419486832
+                                    Micro:   0.001901657158380849
+
+                            F1 Score
+                                    Macro:   0.0013660780320535009
+                                    Micro:   0.0019016571083808503
+
+                Time taken: 141.2814 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 10, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        26.229%
+
+                            Precision
+                                    Macro:  0.22426491213848598    
+                                    Micro:  0.2622928552023871
+
+                            Recall 
+                                    Macro:   0.22317861354517676
+                                    Micro:   0.2622928552023871
+
+                            F1 Score
+                                    Macro:   0.21375224401456946
+                                    Micro:   0.2622928551523871
+
+                Time taken: 141.1715 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 10, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        28.049%
+
+                            Precision
+                                    Macro:  0.23997412838112603    
+                                    Micro:  0.2804944308611752
+
+                            Recall 
+                                    Macro:   0.23385014319674138
+                                    Micro:   0.2804944308611752
+
+                            F1 Score
+                                    Macro:   0.22707444607511423
+                                    Micro:   0.2804944308111752
+
+                Time taken: 137.6263 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 10, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.122%
+
+                            Precision
+                                    Macro:  0.001391691185102412    
+                                    Micro:  0.0012224938875305456
+
+                            Recall 
+                                    Macro:   0.0016955407799917647
+                                    Micro:   0.0012224938875305456
+
+                            F1 Score
+                                    Macro:   0.0013359825465566082
+                                    Micro:   0.0012224938375305476
+
+                Time taken: 136.416 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 15, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        26.582%
+
+                            Precision
+                                    Macro:  0.22580616333639805    
+                                    Micro:  0.26582450421080867
+
+                            Recall 
+                                    Macro:   0.2188828199171795
+                                    Micro:   0.26582450421080867
+
+                            F1 Score
+                                    Macro:   0.21127018783198603
+                                    Micro:   0.26582450416080866
+
+                Time taken: 137.2896 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 15, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        28.851%
+
+                            Precision
+                                    Macro:  0.24812466680615428    
+                                    Micro:  0.28850855745720877
+
+                            Recall 
+                                    Macro:   0.24609988755458306
+                                    Micro:   0.28850855745720877
+
+                            F1 Score
+                                    Macro:   0.23378494313059406
+                                    Micro:   0.28850855740720877
+
+                Time taken: 136.8453 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 15, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.095%
+
+                            Precision
+                                    Macro:  0.001351578599439716    
+                                    Micro:  0.0009508285791904245
+
+                            Recall 
+                                    Macro:   0.004941411611769717
+                                    Micro:   0.0009508285791904245
+
+                            F1 Score
+                                    Macro:   0.0018054012287471567
+                                    Micro:   0.0009508285291904271
+
+                Time taken: 136.6381 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 20, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        27.004%
+
+                            Precision
+                                    Macro:  0.22835403120047357    
+                                    Micro:  0.27003531649008056
+
+                            Recall 
+                                    Macro:   0.2213247509586031
+                                    Micro:   0.27003531649008056
+
+                            F1 Score
+                                    Macro:   0.21253698751340452
+                                    Micro:   0.27003531644008055
+
+                Time taken: 137.5684 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 20, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        29.707%
+
+                            Precision
+                                    Macro:  0.25494530402742216    
+                                    Micro:  0.2970660146699226
+
+                            Recall 
+                                    Macro:   0.24989264272721592
+                                    Micro:   0.2970660146699226
+
+                            F1 Score
+                                    Macro:   0.23944945178002539
+                                    Micro:   0.2970660146199226
+
+                Time taken: 137.031 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 20, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.081%
+
+                            Precision
+                                    Macro:  0.0009865653374992963    
+                                    Micro:  0.0008149959250203638
+
+                            Recall 
+                                    Macro:   0.0021259348525887547
+                                    Micro:   0.0008149959250203638
+
+                            F1 Score
+                                    Macro:   0.0012496619183307294
+                                    Micro:   0.0008149958750203669
+
+                Time taken: 136.6045 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        27.234%
+
+                            Precision
+                                    Macro:  0.22987226081118758    
+                                    Micro:  0.2723444716109716
+
+                            Recall 
+                                    Macro:   0.2206226651857725
+                                    Micro:   0.2723444716109716
+
+                            F1 Score
+                                    Macro:   0.2124840353885202
+                                    Micro:   0.2723444715609716
+
+                Time taken: 136.8406 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        29.87%
+
+                            Precision
+                                    Macro:  0.25497324554275497    
+                                    Micro:  0.29869600651996336
+
+                            Recall 
+                                    Macro:   0.2456942060233776
+                                    Micro:   0.29869600651996336
+
+                            F1 Score
+                                    Macro:   0.23727358880638527
+                                    Micro:   0.29869600646996336
+
+                Time taken: 137.0076 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.095%
+
+                            Precision
+                                    Macro:  0.0011603215497433784    
+                                    Micro:  0.0009508285791904245
+
+                            Recall 
+                                    Macro:   0.0022806839178311595
+                                    Micro:   0.0009508285791904245
+
+                            F1 Score
+                                    Macro:   0.0014040690447819856
+                                    Micro:   0.0009508285291904271
+
+                Time taken: 136.779 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        27.411%
+
+                            Precision
+                                    Macro:  0.2298950068132334    
+                                    Micro:  0.27411029611518234
+
+                            Recall 
+                                    Macro:   0.21849016465034077
+                                    Micro:   0.27411029611518234
+
+                            F1 Score
+                                    Macro:   0.207434191926622
+                                    Micro:   0.27411029606518234
+
+                Time taken: 137.4403 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        30.359%
+
+                            Precision
+                                    Macro:  0.2554532889731672    
+                                    Micro:  0.3035859820700855
+
+                            Recall 
+                                    Macro:   0.24286861778042426
+                                    Micro:   0.3035859820700855
+
+                            F1 Score
+                                    Macro:   0.2307308309986288
+                                    Micro:   0.3035859820200855
+
+                Time taken: 137.2335 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.109%
+
+                            Precision
+                                    Macro:  0.001289720808648704    
+                                    Micro:  0.001086661233360485
+
+                            Recall 
+                                    Macro:   0.004500684151541468
+                                    Micro:   0.001086661233360485
+
+                            F1 Score
+                                    Macro:   0.0018785305049939707
+                                    Micro:   0.0010866611833604874
+
+                Time taken: 136.8824 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        26.555%
+
+                            Precision
+                                    Macro:  0.2220036601706156    
+                                    Micro:  0.26555283890246856
+
+                            Recall 
+                                    Macro:   0.20687154910962685
+                                    Micro:   0.26555283890246856
+
+                            F1 Score
+                                    Macro:   0.19491773225192663
+                                    Micro:   0.26555283885246855
+
+                Time taken: 138.5775 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        29.775%
+
+                            Precision
+                                    Macro:  0.2504600475004202    
+                                    Micro:  0.29774517794077293
+
+                            Recall 
+                                    Macro:   0.24007791839104048
+                                    Micro:   0.29774517794077293
+
+                            F1 Score
+                                    Macro:   0.22063126510422432
+                                    Micro:   0.2977451778907729
+
+                Time taken: 137.8418 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.081%
+
+                            Precision
+                                    Macro:  0.0007550469008635134    
+                                    Micro:  0.0008149959250203638
+
+                            Recall 
+                                    Macro:   0.002476654595380787
+                                    Micro:   0.0008149959250203638
+
+                            F1 Score
+                                    Macro:   0.0010266484535656718
+                                    Micro:   0.0008149958750203669
+
+                Time taken: 137.4652 seconds
+                ---------------------------------------------------------------------
+
+
+Top 10 Models
+
+Model: (50, 'manhattan'), Combination: 0, Accuracy: 30.359, Time: 137.23345303535461 seconds
+Model: (25, 'manhattan'), Combination: 0, Accuracy: 29.87, Time: 137.00760507583618 seconds
+Model: (100, 'manhattan'), Combination: 0, Accuracy: 29.775, Time: 137.8417558670044 seconds
+Model: (20, 'manhattan'), Combination: 0, Accuracy: 29.707, Time: 137.03096294403076 seconds
+Model: (15, 'manhattan'), Combination: 0, Accuracy: 28.851, Time: 136.84533095359802 seconds
+Model: (10, 'manhattan'), Combination: 0, Accuracy: 28.049, Time: 137.6263017654419 seconds
+Model: (50, 'euclidean'), Combination: 0, Accuracy: 27.411, Time: 137.44031500816345 seconds
+Model: (25, 'euclidean'), Combination: 0, Accuracy: 27.234, Time: 136.84059286117554 seconds
+Model: (20, 'euclidean'), Combination: 0, Accuracy: 27.004, Time: 137.5683560371399 seconds
+Model: (15, 'euclidean'), Combination: 0, Accuracy: 26.582, Time: 137.28964591026306 seconds
+K vs Accuracy plot saved.
+
+Starting with dataset 2
+
+    k = 50, Distance Metric = manhattan
+    Validation Metrics for Dataset 2
+
+                Accuracy:        25.889%
+
+                Precision
+                        Macro:  0.24767903363198737
+                        Micro:  0.25889499566097524
+
+                Recall
+                        Macro:  0.22653461635929076
+                        Micro:  0.25889499566097524
+
+                F1 Score
+                        Macro:  0.21598178854117686
+                        Micro:  0.25889499561097523
+
+    Time taken: 205.0981 seconds
+    ---------------------------------------------------------------------
+
+Starting with training set size vs time taken
+
+Current training set size:  80
+Best Model Time Taken: 137.16516304016113
+Initial Model Time Taken: 139.16811609268188
+Sklearn Model Time Taken: 7.082566738128662
+Current training set size:  70
+Best Model Time Taken: 177.02338099479675
+Initial Model Time Taken: 178.13948273658752
+Sklearn Model Time Taken: 9.54890489578247
+Current training set size:  60
+Best Model Time Taken: 199.04782891273499
+Initial Model Time Taken: 199.13092613220215
+Sklearn Model Time Taken: 11.824296951293945
+Current training set size:  50
+Best Model Time Taken: 201.9287371635437
+Initial Model Time Taken: 202.87961220741272
+Sklearn Model Time Taken: 12.139055252075195
+Current training set size:  40
+Best Model Time Taken: 194.00040483474731
+Initial Model Time Taken: 197.9622061252594
+Sklearn Model Time Taken: 12.63984489440918
+Current training set size:  30
+Best Model Time Taken: 166.4523320198059
+Initial Model Time Taken: 166.44911098480225
+Sklearn Model Time Taken: 12.995084047317505
+Current training set size:  20
+Best Model Time Taken: 124.7127673625946
+Initial Model Time Taken: 125.37728476524353
+Sklearn Model Time Taken: 10.539993047714233
+Current training set size:  10
+Best Model Time Taken: 66.71172404289246
+Initial Model Time Taken: 68.33467960357666
+Sklearn Model Time Taken: 7.26337194442749
+Training set size vs time taken plot saved.
+KNN done
+
