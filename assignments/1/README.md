@@ -26,7 +26,8 @@
 - Some features are strongly related (e.g., `Energy` and `Loudness`). **We might not need both for classification.**
 - Features with low correlation to others may not be as important.
 
-### 2. Pair Plot<h3 style="color: orange;">3. Average Features by Genre Plot</h3>
+### <h3 style="color: orange;">2. Pair Plot</h3>
+### <h3 style="color: orange;">3. Average Features by Genre Plot</h3>
 
 **Key Observations:**
 - **Distributions**:
@@ -41,7 +42,7 @@
 - Some features show clear patterns that can help in classifying genres (e.g., high danceability with high valence might indicate pop songs).
 - Outliers and skewed data suggest the need for scaling or normalization.
 
-### <h3 style="color: orange;">3. Average Features by Genre Plot</h3>
+### <h3 style="color: orange;">4. Average Features by Genre Plot</h3>
 
 **Key Observations:**
 - **Distinct Patterns by Genre**:
@@ -61,7 +62,7 @@
   - Some genres show significant outliers (e.g., extreme values in `Instrumentalness` for genres like `ambient`). These could affect model performance if not handled properly.
 
 
-### <h3 style="color: orange;">4. Distribution of Track Popularity</h3>
+### <h3 style="color: orange;">5. Distribution of Track Popularity</h3>
 
 **Key Observations:**
 - **Skewed Distribution**: Most tracks have a popularity score below 0, with a sharp decline as popularity increases.
@@ -71,7 +72,7 @@
 - **Target for Normalization**: The skewness suggests that popularity might need normalization to improve model performance.
 - **Popularity Clusters**: The multiple peaks might represent different categories of track popularity (e.g., niche, mainstream).
 
-### <h3 style="color: orange;">5. Box Plot of Audio Features</h3>
+### <h3 style="color: orange;">6. Box Plot of Audio Features</h3>
 
 **Key Observations:**
 - **Outliers**: Features like `duration_ms`, `loudness`, and `instrumentalness` have significant outliers, indicating some  tracks that are very different from the rest in terms of these feautures.
@@ -82,7 +83,7 @@
 - **Handling Outliers**: The presence of many outliers suggests the need for careful outlier treatment to avoid skewing model predictions.
 - **Feature Importance**: Features with wide variation may be more useful for genre classification, while those with little variation might contribute less.
 
-### <h3 style="color: orange;">6. Histograms of Audio Features</h3>
+### <h3 style="color: orange;">7. Histograms of Audio Features</h3>
 
 **Key Observations:**
 - **Skewed Distributions**: Many features, like `acousticness` and `instrumentalness`, are highly skewed, with most tracks having low values and a few having extremely high values.
@@ -92,7 +93,7 @@
 - **Potential for Feature Engineering**: Skewed features might benefit from transformations (e.g., log or square root) to make them more useful for classification.
 - **Clusters**: The presence of distinct peaks in some features might indicate the existence of subgroups within genres that could be worth exploring further.
 
-### <h3 style="color: orange;">7. Genre Distribution</h3>
+### <h3 style="color: orange;">8. Genre Distribution</h3>
 
 **Key Observations:**
 - **Imbalanced Dataset**: The distribution of genres is not uniform; some genres have many tracks, while others have very few.

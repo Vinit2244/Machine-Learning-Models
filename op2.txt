@@ -929,16 +929,16 @@ Starting with dataset 1
 
 Top 10 Models
 
-Model: (25, 'manhattan'), Combination: 1, Accuracy: 28.973, Time: 136.95294284820557 seconds
-Model: (20, 'manhattan'), Combination: 1, Accuracy: 28.96, Time: 136.5644907951355 seconds
-Model: (50, 'manhattan'), Combination: 1, Accuracy: 28.362, Time: 137.73358988761902 seconds
-Model: (15, 'manhattan'), Combination: 1, Accuracy: 28.362, Time: 137.65692830085754 seconds
-Model: (100, 'manhattan'), Combination: 1, Accuracy: 28.294, Time: 137.479975938797 seconds
-Model: (10, 'manhattan'), Combination: 1, Accuracy: 27.52, Time: 136.6441309452057 seconds
-Model: (20, 'euclidean'), Combination: 1, Accuracy: 26.813, Time: 137.76015782356262 seconds
-Model: (50, 'euclidean'), Combination: 1, Accuracy: 26.732, Time: 138.37442088127136 seconds
-Model: (25, 'euclidean'), Combination: 1, Accuracy: 26.732, Time: 136.537522315979 seconds
-Model: (15, 'euclidean'), Combination: 1, Accuracy: 26.718, Time: 137.29018378257751 seconds
+Model: (25, 'manhattan'), Combination: 2, Accuracy: 28.973, Time: 136.95294284820557 seconds
+Model: (20, 'manhattan'), Combination: 2, Accuracy: 28.96, Time: 136.5644907951355 seconds
+Model: (50, 'manhattan'), Combination: 2, Accuracy: 28.362, Time: 137.73358988761902 seconds
+Model: (15, 'manhattan'), Combination: 2, Accuracy: 28.362, Time: 137.65692830085754 seconds
+Model: (100, 'manhattan'), Combination: 2, Accuracy: 28.294, Time: 137.479975938797 seconds
+Model: (10, 'manhattan'), Combination: 2, Accuracy: 27.52, Time: 136.6441309452057 seconds
+Model: (20, 'euclidean'), Combination: 2, Accuracy: 26.813, Time: 137.76015782356262 seconds
+Model: (50, 'euclidean'), Combination: 2, Accuracy: 26.732, Time: 138.37442088127136 seconds
+Model: (25, 'euclidean'), Combination: 2, Accuracy: 26.732, Time: 136.537522315979 seconds
+Model: (15, 'euclidean'), Combination: 2, Accuracy: 26.718, Time: 137.29018378257751 seconds
 K vs Accuracy plot saved.
 
 Starting with dataset 2

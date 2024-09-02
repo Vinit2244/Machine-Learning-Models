@@ -91,7 +91,7 @@ def k_means(k, data):
     plt.close()
 
     '''
-        After inspecting the graph I determined the elbow point at k = 5
+        After inspecting the graph I determined the elbow point at k = 5 or 6
     '''
     k_kmeans1 = 5 # Or we can keep 11 as well, check with other ppl when they are done with this part
     print(f"{BLUE}For k_kmeans1{RESET}\n")
@@ -102,19 +102,11 @@ def k_means(k, data):
 def gmm(k, data):
     gmm_model = GMM(k)
     gmm_model.load_data(data)
-    pass
 
 # Implements the PCA algorithm for 5.1, 5.2 and 5.3
 def pca(n_components, data):
     pca_model = PCA(n_components)
-
-    # Note that to make the PCA model generalised it only takes input as 2D numpy array
-    data = data.tolist()
-    pca_data = []
-    for row in data:
-        pca_data.append(row[1].tolist())
-    pca_data = np.array(pca_data)
-    pca_model.load_data(pca_data)
+    pca_model.load_data(data)
     pca_model.fit()
     transformed_data = pca_model.transform()
     if pca_model.checkPCA():
@@ -151,17 +143,20 @@ if __name__ == "__main__":
     data_path = './data/external/word-embeddings.feather' # Path to the word embeddings file
     df = pd.read_feather(data_path)                       # First column is the word, second column is the embedding (as a numpy array) of 512 length
     data = df.to_numpy()
-    print(data[:,0])
+    processed_data = []
+    for row in data:
+        processed_data.append(row[1].tolist())
+    processed_data = np.array(processed_data)
     # --------------------------- 3.1 & 3.2 ---------------------------
-    # n_clusters = 10
-    # k_means(n_clusters, data)
+    n_clusters = 10
+    # k_means(n_clusters, processed_data)
 
     # --------------------------- 4.1 & 4.2 ---------------------------
-    # gmm(n_clusters, data)
+    gmm(n_clusters, processed_data)
 
     # --------------------------- 5.1, 5.2 & 5.3 ---------------------------
     # n_components = 2
-    # pca(n_components, data)
+    # pca(n_components, processed_data)
 
     # n_components = 3
-    # pca(n_components, data)
+    # pca(n_components, processed_data)
