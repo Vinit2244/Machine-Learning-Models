@@ -81,5 +81,5 @@ class KMeans:
         for data_idx, data_point in enumerate(self.data):
             cluster_label = self.cluster_labels[data_idx]
             cluster_center = self.cluster_centers[cluster_label]
-            cost += np.linalg.norm(data_point[1] - cluster_center)
+            cost += np.linalg.norm(data_point[1] - cluster_center) ** 2
         return cost
