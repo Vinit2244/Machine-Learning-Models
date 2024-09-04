@@ -1,7 +1,7 @@
 import numpy as np
 
 class PCA:
-    def __init__(self, n_components):
+    def __init__(self, n_components=2):
         self.n_components = n_components
         self.data = None
         self.principle_components = None
@@ -10,9 +10,8 @@ class PCA:
 
     def load_data(self, data):
         self.data = data
-        # self.principle_components = np.full((self.n_components, self.data.shape[1]), np.nan)
 
-    def fit(self):
+    def get_eigenvalues_eigenvectors(self):
         # Centering the data
         self.mean_of_data = np.mean(self.data, axis=0)
         X_centered = self.data - self.mean_of_data
@@ -26,7 +25,13 @@ class PCA:
         # Sort eigenvectors by eigenvalues in descending order
         sorted_indices = np.argsort(eigenvalues)
         sorted_indices_desc = sorted_indices[::-1]
-        sorted_eigenvectors = eigenvectors.T[sorted_indices_desc]
+        sorted_eigenvectors = np.complex64(eigenvectors.T[sorted_indices_desc]).real
+        sorted_eigenvalues = np.complex64(eigenvalues[sorted_indices_desc]).real
+        
+        return sorted_eigenvalues, sorted_eigenvectors
+
+    def fit(self):
+        sorted_eigenvalues, sorted_eigenvectors = self.get_eigenvalues_eigenvectors()
         
         # Select the top n_components eigenvectors
         self.principle_components = np.complex128(sorted_eigenvectors[:self.n_components]).real # First converting complex to real

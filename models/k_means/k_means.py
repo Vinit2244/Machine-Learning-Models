@@ -2,11 +2,12 @@ import numpy as np
 import random
 
 class KMeans:
-    def __init__(self, k):
+    def __init__(self, k, init_method="kmeans"):
         self.k = k          # Number of clusters
         self.data = None
         self.cluster_labels = None
         self.cluster_centers = None
+        self.init_method = init_method
     
     # Load all the data
     def load_data(self, data):
@@ -21,14 +22,40 @@ class KMeans:
     # Initialise random k cluster centers
     def initialise_clusters(self, seed=None):
         if seed is not None:
-            random.seed(seed)
-        # Selecting k random index between 0 and # of data points
-        indexes = random.sample(range(0, self.data.shape[0]), self.k)
+                np.random.seed(seed)
+        
+        if self.init_method == "kmeans": # K-Means
+            # Selecting k random index between 0 and # of data points
+            indexes = random.sample(range(0, self.data.shape[0]), self.k)
 
-        # Assigning cluster center labels and cluster center values
-        for cluster_number, index in enumerate(indexes):
-            self.cluster_labels[index] = cluster_number
-            self.cluster_centers[cluster_number] = self.data[index]
+            # Assigning cluster center labels and cluster center values
+            for cluster_number, index in enumerate(indexes):
+                self.cluster_labels[index] = cluster_number
+                self.cluster_centers[cluster_number] = self.data[index]
+
+        elif self.init_method == "kmeans_pp": # K-Means++
+            # Choose the first cluster center randomly
+            first_center_index = np.random.choice(range(self.data.shape[0]))
+            self.cluster_centers[0] = self.data[first_center_index]
+            self.cluster_labels[first_center_index] = 0
+
+            # Choose the remaining k-1 cluster centers based on distance ^ 2 probability
+            for cluster_number in range(1, self.k):
+                distances = np.empty(self.data.shape[0])
+                for i in range(self.data.shape[0]):
+                    # Calculate the distance between the current data point and all the chosen cluster centers
+                    distance_to_centers = self.calc_distance(self.data[i], self.cluster_centers[:cluster_number])
+                    
+                    # Find the minimum distance, i.e., the distance to the nearest cluster center
+                    distances[i] = np.min(distance_to_centers)
+
+                # Select the next cluster center with a probability proportional to the squared distance
+                probabilities = distances ** 2
+                probabilities /= probabilities.sum()
+
+                next_center_index = np.random.choice(range(self.data.shape[0]), p=probabilities)
+                self.cluster_centers[cluster_number] = self.data[next_center_index]
+                self.cluster_labels[next_center_index] = cluster_number
 
     # Assigns each data point to a cluster until convergence
     def fit(self, seed=None):
