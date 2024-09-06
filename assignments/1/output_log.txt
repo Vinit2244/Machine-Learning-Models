@@ -15,21 +15,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        23.947%
+                            Accuracy:        23.811%
 
                             Precision
-                                    Macro:  0.20646391335741876    
-                                    Micro:  0.2394729693018169
+                                    Macro:  0.20236381189156186    
+                                    Micro:  0.2381146427601163
 
                             Recall 
-                                    Macro:   0.2135630977061349
-                                    Micro:   0.2394729693018169
+                                    Macro:   0.2122635413090504
+                                    Micro:   0.2381146427601163
 
                             F1 Score
-                                    Macro:   0.2006750491498185
-                                    Micro:   0.2394729692518169
+                                    Macro:   0.1979739033120021
+                                    Micro:   0.23811464271011631
 
-                Time taken: 148.2135 seconds
+                Time taken: 142.9982 seconds
                 ---------------------------------------------------------------------
 
 
@@ -37,21 +37,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        26.066%
+                            Accuracy:        25.822%
 
                             Precision
-                                    Macro:  0.2272414285350861    
-                                    Micro:  0.26066286335234634
+                                    Macro:  0.22030263647808343    
+                                    Micro:  0.25821787557728526
 
                             Recall 
-                                    Macro:   0.23349944253718097
-                                    Micro:   0.26066286335234634
+                                    Macro:   0.2362928994400993
+                                    Micro:   0.25821787557728526
 
                             F1 Score
-                                    Macro:   0.2188142858186164
-                                    Micro:   0.26066286330234634
+                                    Macro:   0.21605569457016316
+                                    Micro:   0.25821787552728526
 
-                Time taken: 147.267 seconds
+                Time taken: 139.7961 seconds
                 ---------------------------------------------------------------------
 
 
@@ -59,21 +59,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        0.136%
+                            Accuracy:        0.204%
 
                             Precision
-                                    Macro:  0.0014963215232234694    
-                                    Micro:  0.0013583265417006064
+                                    Macro:  0.0020529083937361756    
+                                    Micro:  0.0020374898125509098
 
                             Recall 
-                                    Macro:   0.0029077240886564563
-                                    Micro:   0.0013583265417006064
+                                    Macro:   0.0024856654188227315
+                                    Micro:   0.0020374898125509098
 
                             F1 Score
-                                    Macro:   0.0014395210698310592
-                                    Micro:   0.0013583264917006082
+                                    Macro:   0.0017168906124827672
+                                    Micro:   0.002037489762550911
 
-                Time taken: 142.6379 seconds
+                Time taken: 139.5127 seconds
                 ---------------------------------------------------------------------
 
 
@@ -81,21 +81,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        25.876%
+                            Accuracy:        25.822%
 
                             Precision
-                                    Macro:  0.2223905607605584    
-                                    Micro:  0.25876120619396553
+                                    Macro:  0.21941224054372205    
+                                    Micro:  0.25821787557728526
 
                             Recall 
-                                    Macro:   0.21304398734687793
-                                    Micro:   0.25876120619396553
+                                    Macro:   0.21365017430650063
+                                    Micro:   0.25821787557728526
 
                             F1 Score
-                                    Macro:   0.21052786029484225
-                                    Micro:   0.2587612061439655
+                                    Macro:   0.2093101135075652
+                                    Micro:   0.25821787552728526
 
-                Time taken: 144.1226 seconds
+                Time taken: 140.0363 seconds
                 ---------------------------------------------------------------------
 
 
@@ -103,21 +103,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        27.914%
+                            Accuracy:        27.846%
 
                             Precision
-                                    Macro:  0.2430393188511852    
-                                    Micro:  0.2791361043194746
+                                    Macro:  0.23789560291086587    
+                                    Micro:  0.2784569410486243
 
                             Recall 
-                                    Macro:   0.23254805156141065
-                                    Micro:   0.2791361043194746
+                                    Macro:   0.23300892395105133
+                                    Micro:   0.2784569410486243
 
                             F1 Score
-                                    Macro:   0.2303313460141045
-                                    Micro:   0.2791361042694746
+                                    Macro:   0.22812812797999799
+                                    Micro:   0.2784569409986243
 
-                Time taken: 142.6057 seconds
+                Time taken: 139.9751 seconds
                 ---------------------------------------------------------------------
 
 
@@ -125,21 +125,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        0.122%
+                            Accuracy:        0.068%
 
                             Precision
-                                    Macro:  0.0017598750952659565    
-                                    Micro:  0.0012224938875305456
+                                    Macro:  0.0009045030009582855    
+                                    Micro:  0.0006791632708503032
 
                             Recall 
-                                    Macro:   0.0031266529405674093
-                                    Micro:   0.0012224938875305456
+                                    Macro:   0.0010221969432166224
+                                    Micro:   0.0006791632708503032
 
                             F1 Score
-                                    Macro:   0.0020192804160546374
-                                    Micro:   0.0012224938375305476
+                                    Macro:   0.0009458793319308445
+                                    Micro:   0.0006791632208503069
 
-                Time taken: 141.2367 seconds
+                Time taken: 137.3643 seconds
                 ---------------------------------------------------------------------
 
 
@@ -147,21 +147,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        26.379%
+                            Accuracy:        26.759%
 
                             Precision
-                                    Macro:  0.22652587945760266    
-                                    Micro:  0.26378701439825775
+                                    Macro:  0.22769266596613427    
+                                    Micro:  0.2675903287150195
 
                             Recall 
-                                    Macro:   0.2166622731347687
-                                    Micro:   0.26378701439825775
+                                    Macro:   0.22182254578536886
+                                    Micro:   0.2675903287150195
 
                             F1 Score
-                                    Macro:   0.21290362755523132
-                                    Micro:   0.26378701434825774
+                                    Macro:   0.21586191169007016
+                                    Micro:   0.2675903286650195
 
-                Time taken: 141.0627 seconds
+                Time taken: 140.3011 seconds
                 ---------------------------------------------------------------------
 
 
@@ -169,21 +169,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        28.81%
+                            Accuracy:        29.177%
 
                             Precision
-                                    Macro:  0.249403712371356    
-                                    Micro:  0.2881010594946986
+                                    Macro:  0.24989307764370916    
+                                    Micro:  0.29176854115729023
 
                             Recall 
-                                    Macro:   0.2424266724131417
-                                    Micro:   0.2881010594946986
+                                    Macro:   0.24849172578694909
+                                    Micro:   0.29176854115729023
 
                             F1 Score
-                                    Macro:   0.23562761105792626
-                                    Micro:   0.2881010594446986
+                                    Macro:   0.23884494953704433
+                                    Micro:   0.2917685411072902
 
-                Time taken: 141.4651 seconds
+                Time taken: 141.7011 seconds
                 ---------------------------------------------------------------------
 
 
@@ -191,21 +191,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        0.095%
+                            Accuracy:        0.109%
 
                             Precision
-                                    Macro:  0.0013989125613679228    
-                                    Micro:  0.0009508285791904245
+                                    Macro:  0.0015068339945644238    
+                                    Micro:  0.001086661233360485
 
                             Recall 
-                                    Macro:   0.003979802358280739
-                                    Micro:   0.0009508285791904245
+                                    Macro:   0.010052692525807835
+                                    Micro:   0.001086661233360485
 
                             F1 Score
-                                    Macro:   0.0016578778910325033
-                                    Micro:   0.0009508285291904271
+                                    Macro:   0.001860302667642421
+                                    Micro:   0.0010866611833604874
 
-                Time taken: 140.9216 seconds
+                Time taken: 140.9419 seconds
                 ---------------------------------------------------------------------
 
 
@@ -213,21 +213,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        26.773%
+                            Accuracy:        26.963%
 
                             Precision
-                                    Macro:  0.22697184530005243    
-                                    Micro:  0.26772616136918953
+                                    Macro:  0.22790893156037692    
+                                    Micro:  0.26962781852757034
 
                             Recall 
-                                    Macro:   0.21398102117392426
-                                    Micro:   0.26772616136918953
+                                    Macro:   0.21811389252037824
+                                    Micro:   0.26962781852757034
 
                             F1 Score
-                                    Macro:   0.21086165874874102
-                                    Micro:   0.2677261613191895
+                                    Macro:   0.21355838167549884
+                                    Micro:   0.26962781847757034
 
-                Time taken: 145.8654 seconds
+                Time taken: 141.7866 seconds
                 ---------------------------------------------------------------------
 
 
@@ -235,21 +235,21 @@ Starting with dataset 1
                 Validation Metrics for Dataset 1
                 Combination index used: 0
 
-                            Accuracy:        29.449%
+                            Accuracy:        29.489%
 
                             Precision
-                                    Macro:  0.25131053617737376    
-                                    Micro:  0.2944851942406915
+                                    Macro:  0.2524885711588656    
+                                    Micro:  0.29489269220320163
 
                             Recall 
-                                    Macro:   0.24068050495362542
-                                    Micro:   0.2944851942406915
+                                    Macro:   0.24886517904825978
+                                    Micro:   0.29489269220320163
 
                             F1 Score
-                                    Macro:   0.23525219991642365
-                                    Micro:   0.29448519419069147
+                                    Macro:   0.2392699321939086
+                                    Micro:   0.29489269215320163
 
-                Time taken: 150.6825 seconds
+                Time taken: 142.1593 seconds
                 ---------------------------------------------------------------------
 
 
@@ -260,1058 +260,1726 @@ Starting with dataset 1
                             Accuracy:        0.109%
 
                             Precision
-                                    Macro:  0.001538243599226102    
+                                    Macro:  0.0012682429829398796    
                                     Micro:  0.001086661233360485
 
                             Recall 
-                                    Macro:   0.0034289356109489235
+                                    Macro:   0.0015883081146539821
                                     Micro:   0.001086661233360485
 
                             F1 Score
-                                    Macro:   0.0018734842254916446
+                                    Macro:   0.0013713630987133665
                                     Micro:   0.0010866611833604874
 
-                Time taken: 147.6685 seconds
+                Time taken: 140.8476 seconds
                 ---------------------------------------------------------------------
 
 
+                k = 25, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
+                            Accuracy:        27.221%
 
+                            Precision
+                                    Macro:  0.2292923418506445    
+                                    Micro:  0.27220863895680153
 
+                            Recall 
+                                    Macro:   0.21919345555543984
+                                    Micro:   0.27220863895680153
 
+                            F1 Score
+                                    Macro:   0.21237645682614595
+                                    Micro:   0.2722086389068015
 
+                Time taken: 141.8802 seconds
+                ---------------------------------------------------------------------
 
-LINEAR REGRESSION OUTPUT:
-Read data for linear regression
-Metrics for all three splits:
 
-                  Train:      Variance: 1.2500992882945645, Standard Deviation: 1.118078390943392
+                k = 25, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Validation: Variance: 0.8348813705537592, Standard Deviation: 0.9137184306742199
+                            Accuracy:        29.788%
 
-                  Test:       Variance: 0.8470991154565592, Standard Deviation: 0.9203798756255807
+                            Precision
+                                    Macro:  0.25294586672827796    
+                                    Micro:  0.297881010594943
 
-Degree: 1
+                            Recall 
+                                    Macro:   0.24318419403858724
+                                    Micro:   0.297881010594943
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.23594146089251777
+                                    Micro:   0.297881010544943
 
-                  Seed: 42
+                Time taken: 139.6701 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 56
 
-                  Final Parameters: [0.90957423 1.50833441]
+                k = 25, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.3774, Variance: 0.7652, Standard Deviation 0.8748
+                            Accuracy:        0.095%
 
-                  Test set:     MSE: 0.2336, Variance: 0.8601, Standard Deviation: 0.9274
+                            Precision
+                                    Macro:  0.0011418207326240046    
+                                    Micro:  0.0009508285791904245
 
------------------------------------------------------------------------------------------------------------------
-Degree: 2
+                            Recall 
+                                    Macro:   0.0014679001588969733
+                                    Micro:   0.0009508285791904245
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.0012424941656775164
+                                    Micro:   0.0009508285291904271
 
-                  Seed: 42
+                Time taken: 141.6992 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 66
 
-                  Final Parameters: [0.62455704 1.67709186 0.89519173]
+                k = 50, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.2605, Variance: 0.8495, Standard Deviation 0.9217
+                            Accuracy:        27.302%
 
-                  Test set:     MSE: 0.0977, Variance: 0.8161, Standard Deviation: 0.9034
+                            Precision
+                                    Macro:  0.22884052093259297    
+                                    Micro:  0.2730236348818219
 
------------------------------------------------------------------------------------------------------------------
-Degree: 3
+                            Recall 
+                                    Macro:   0.2239858515380496
+                                    Micro:   0.2730236348818219
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.2060967624548767
+                                    Micro:   0.2730236348318219
 
-                  Seed: 42
+                Time taken: 140.8902 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 100
 
-                  Final Parameters: [0.58892553 1.18596163 1.16082394 1.05554934]
+                k = 50, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.1519, Variance: 0.9983, Standard Deviation 0.9992
+                            Accuracy:        30.223%
 
-                  Test set:     MSE: 0.0754, Variance: 0.9892, Standard Deviation: 0.9946
+                            Precision
+                                    Macro:  0.2550008511054787    
+                                    Micro:  0.30222765552838493
 
------------------------------------------------------------------------------------------------------------------
-Degree: 4
+                            Recall 
+                                    Macro:   0.24679235851898834
+                                    Micro:   0.30222765552838493
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.23129256332131554
+                                    Micro:   0.3022276554783849
 
-                  Seed: 42
+                Time taken: 140.7332 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 84
 
-                  Final Parameters: [0.58974711 1.20810323 1.01860372 1.05695479 0.22442908]
+                k = 50, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.1557, Variance: 1.0034, Standard Deviation 1.0017
+                            Accuracy:        0.109%
 
-                  Test set:     MSE: 0.0706, Variance: 0.9801, Standard Deviation: 0.99
+                            Precision
+                                    Macro:  0.001289720808648704    
+                                    Micro:  0.001086661233360485
 
------------------------------------------------------------------------------------------------------------------
-Degree: 5
+                            Recall 
+                                    Macro:   0.0033108069178154863
+                                    Micro:   0.001086661233360485
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.0017419158116251734
+                                    Micro:   0.0010866611833604874
 
-                  Seed: 42
+                Time taken: 140.3402 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 100
 
-                  Final Parameters: [0.56203452 1.07230376 1.11509397 0.92317732 0.34147501 0.57942204]
+                k = 100, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.1093, Variance: 1.0521, Standard Deviation 1.0257
+                            Accuracy:        26.406%
 
-                  Test set:     MSE: 0.0644, Variance: 1.0259, Standard Deviation: 1.0129
+                            Precision
+                                    Macro:  0.22104099792000792    
+                                    Micro:  0.26405867970659785
 
------------------------------------------------------------------------------------------------------------------
-Degree: 6
+                            Recall 
+                                    Macro:   0.20686069489750875
+                                    Micro:   0.26405867970659785
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.19327552988027186
+                                    Micro:   0.26405867965659785
 
-                  Seed: 42
+                Time taken: 143.2934 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 100
 
-                  Final Parameters: [0.56409682 1.06958664 1.10544636 0.9270426  0.32852941 0.58746965
- 0.02733994]
+                k = 100, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.1097, Variance: 1.0531, Standard Deviation 1.0262
+                            Accuracy:        29.788%
 
-                  Test set:     MSE: 0.0651, Variance: 1.0275, Standard Deviation: 1.0137
+                            Precision
+                                    Macro:  0.24992055680738418    
+                                    Micro:  0.297881010594943
 
------------------------------------------------------------------------------------------------------------------
-Degree: 7
+                            Recall 
+                                    Macro:   0.235164437833084
+                                    Micro:   0.297881010594943
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.21974871772688861
+                                    Micro:   0.297881010544943
 
-                  Seed: 42
+                Time taken: 139.6364 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 84
 
-                  Final Parameters: [0.53668354 1.0054269  1.12619273 0.69369833 0.45523299 0.27328811
- 0.24770324 1.00784612]
+                k = 100, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Training set: MSE: 0.0638, Variance: 1.0725, Standard Deviation 1.0356
+                            Accuracy:        0.095%
 
-                  Test set:     MSE: 0.0515, Variance: 1.01, Standard Deviation: 1.005
+                            Precision
+                                    Macro:  0.0011398102713889666    
+                                    Micro:  0.0009508285791904245
 
------------------------------------------------------------------------------------------------------------------
-Degree: 8
+                            Recall 
+                                    Macro:   0.0035212825306375315
+                                    Micro:   0.0009508285791904245
 
-                  Method: None
+                            F1 Score
+                                    Macro:   0.0016104350435020118
+                                    Micro:   0.0009508285291904271
 
-                  Seed: 42
+                Time taken: 141.1328 seconds
+                ---------------------------------------------------------------------
 
-                  Converged at epoch: 93
+Read data for data analysis
+Data Analysis done
 
-                  Final Parameters: [0.54891264 0.96333675 1.06722774 0.73237997 0.3488883  0.36718372
- 0.10334656 1.14758158 0.50885272]
+Starting with dataset 1
 
-                  Training set: MSE: 0.0676, Variance: 1.0915, Standard Deviation 1.0448
+                k = 5, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.058, Variance: 1.0354, Standard Deviation: 1.0175
+                            Accuracy:        9.984%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 9
+                            Precision
+                                    Macro:  0.08113641240548901    
+                                    Micro:  0.09983700081499457
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.08163626944155312
+                                    Micro:   0.09983700081499457
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0748963721297142
+                                    Micro:   0.09983700076499456
 
-                  Converged at epoch: 59
+                Time taken: 136.6922 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.5496232  0.96523146 1.01438696 0.61864531 0.37271113 0.18507352
- 0.20698979 0.90864217 0.6898772  0.76865969]
 
-                  Training set: MSE: 0.0473, Variance: 1.0848, Standard Deviation 1.0416
+                k = 5, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0462, Variance: 0.99, Standard Deviation: 0.995
+                            Accuracy:        9.929%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 10
+                            Precision
+                                    Macro:  0.08206432644199012    
+                                    Micro:  0.09929367019831432
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.0839419865142753
+                                    Micro:   0.09929367019831432
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.07544556433568533
+                                    Micro:   0.09929367014831432
 
-                  Converged at epoch: 61
+                Time taken: 136.0859 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.54972392 0.96165356 1.01502045 0.62084366 0.36954996 0.19144122
- 0.20005342 0.91864357 0.67922746 0.78222302 0.04060074]
 
-                  Training set: MSE: 0.0473, Variance: 1.0896, Standard Deviation 1.0438
+                k = 5, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0475, Variance: 0.9957, Standard Deviation: 0.9978
+                            Accuracy:        0.285%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 11
+                            Precision
+                                    Macro:  0.00257036481923734    
+                                    Micro:  0.0028524857375712732
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.002720657943737432
+                                    Micro:   0.0028524857375712732
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0020019545178209105
+                                    Micro:   0.0028524856875712743
 
-                  Converged at epoch: 44
+                Time taken: 135.8495 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.53568932 0.94709455 0.99347801 0.54312216 0.39848259 0.07261241
- 0.27899017 0.76362601 0.80654403 0.5901158  0.21677219 0.83811511]
 
-                  Training set: MSE: 0.0298, Variance: 1.0828, Standard Deviation 1.0406
+                k = 10, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0295, Variance: 0.919, Standard Deviation: 0.9587
+                            Accuracy:        12.225%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 12
+                            Precision
+                                    Macro:  0.09960413235589982    
+                                    Micro:  0.12224938875305458
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.09245601394916679
+                                    Micro:   0.12224938875305458
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0916153481040439
+                                    Micro:   0.12224938870305457
 
-                  Converged at epoch: 50
+                Time taken: 135.9978 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.55320488 0.91659465 0.96531313 0.56689076 0.33156493 0.1381718
- 0.17850342 0.86651175 0.67334001 0.72971149 0.04915414 1.01619702
- 0.81923832]
 
-                  Training set: MSE: 0.0387, Variance: 1.1168, Standard Deviation 1.0568
+                k = 10, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0517, Variance: 1.0021, Standard Deviation: 1.001
+                            Accuracy:        12.062%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 13
+                            Precision
+                                    Macro:  0.09808773014616946    
+                                    Micro:  0.12061939690301385
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.09340847373132444
+                                    Micro:   0.12061939690301385
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09081886146401295
+                                    Micro:   0.12061939685301384
 
-                  Converged at epoch: 45
+                Time taken: 135.4555 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.55127474 0.91692953 0.95627196 0.55585908 0.33344138 0.11793679
- 0.19186691 0.83750358 0.69803399 0.69153512 0.08539991 0.96793443
- 0.86774129 0.22754782]
 
-                  Training set: MSE: 0.0335, Variance: 1.1183, Standard Deviation 1.0575
+                k = 10, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0453, Variance: 0.9818, Standard Deviation: 0.9908
+                            Accuracy:        0.231%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 14
+                            Precision
+                                    Macro:  0.001963589199367925    
+                                    Micro:  0.002309155120891031
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.001404318072131704
+                                    Micro:   0.002309155120891031
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0014024308974950716
+                                    Micro:   0.002309155070891032
 
-                  Converged at epoch: 56
+                Time taken: 135.4085 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.54551896 0.90573974 0.97792318 0.55170769 0.34579891 0.12291584
- 0.19225177 0.85212884 0.68621599 0.71640795 0.0610953  1.00399597
- 0.83023181 0.27613426 0.13644953]
 
-                  Training set: MSE: 0.0327, Variance: 1.1324, Standard Deviation 1.0641
+                k = 15, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0482, Variance: 0.9957, Standard Deviation: 0.9978
+                            Accuracy:        13.162%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 15
+                            Precision
+                                    Macro:  0.1084260280484495    
+                                    Micro:  0.13162184189078877
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.09765810688329685
+                                    Micro:   0.13162184189078877
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09784092868328916
+                                    Micro:   0.13162184184078876
 
-                  Converged at epoch: 50
+                Time taken: 135.4736 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.5459931  0.90987554 0.96375682 0.54792723 0.34044566 0.1112294
- 0.1973008  0.83241003 0.70180672 0.68812701 0.08751927 0.96624727
- 0.86817149 0.22765533 0.18701773 0.22089087]
 
-                  Training set: MSE: 0.0289, Variance: 1.133, Standard Deviation 1.0644
+                k = 15, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0416, Variance: 0.9749, Standard Deviation: 0.9874
+                            Accuracy:        13.04%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 16
+                            Precision
+                                    Macro:  0.10722038656836937    
+                                    Micro:  0.13039934800325823
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.09761866291752386
+                                    Micro:   0.13039934800325823
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09722815907581778
+                                    Micro:   0.13039934795325822
 
-                  Converged at epoch: 62
+                Time taken: 135.4614 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.53834772 0.89466203 0.99055089 0.53731679 0.35812296 0.11016258
- 0.20209578 0.84220795 0.69311114 0.70973424 0.06480638 1.00084385
- 0.83048001 0.27682378 0.13284385 0.28669077 0.2052211 ]
 
-                  Training set: MSE: 0.0285, Variance: 1.1434, Standard Deviation 1.0693
+                k = 15, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0453, Variance: 0.9874, Standard Deviation: 0.9937
+                            Accuracy:        0.136%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 17
+                            Precision
+                                    Macro:  0.0011838998586668947    
+                                    Micro:  0.0013583265417006064
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.00127428906833125
+                                    Micro:   0.0013583265417006064
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0010379802748179006
+                                    Micro:   0.0013583264917006082
 
-                  Converged at epoch: 40
+                Time taken: 135.3174 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.54933636 0.90932621 0.93461375 0.54339999 0.31999767 0.10071724
- 0.1889814  0.81487124 0.70594444 0.66247645 0.10430952 0.93117536
- 0.8981912  0.18156292 0.23133218 0.16183838 0.33816518 0.51391975]
 
-                  Training set: MSE: 0.0246, Variance: 1.1354, Standard Deviation 1.0655
+                k = 20, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0336, Variance: 0.9431, Standard Deviation: 0.9711
+                            Accuracy:        13.203%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 18
+                            Precision
+                                    Macro:  0.108152023166824    
+                                    Micro:  0.13202933985329893
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.09703933307702167
+                                    Micro:   0.13202933985329893
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09596160815970808
+                                    Micro:   0.13202933980329892
 
-                  Converged at epoch: 56
+                Time taken: 135.1764 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.53929564 0.89169069 0.97212564 0.52812251 0.34695369 0.09558435
- 0.20037406 0.82217794 0.70097613 0.68369467 0.0823343  0.96791258
- 0.85803627 0.23584867 0.17115607 0.23625278 0.25540156 0.61169084
- 0.3413484 ]
 
-                  Training set: MSE: 0.0246, Variance: 1.1498, Standard Deviation 1.0723
+                k = 20, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0396, Variance: 0.9658, Standard Deviation: 0.9828
+                            Accuracy:        13.366%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 19
+                            Precision
+                                    Macro:  0.10908293925850704    
+                                    Micro:  0.13365933170333966
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.096829117798158
+                                    Micro:   0.13365933170333966
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09629992699223586
+                                    Micro:   0.13365933165333965
 
-                  Converged at epoch: 45
+                Time taken: 135.2727 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.54558675 0.89992825 0.94255702 0.53509033 0.32501763 0.09588749
- 0.19013092 0.81400555 0.70314947 0.66577406 0.09745093 0.93887432
- 0.88698731 0.1940273  0.21532725 0.17958924 0.31672626 0.53765422
- 0.42235925 0.32360382]
 
-                  Training set: MSE: 0.0223, Variance: 1.1481, Standard Deviation 1.0715
+                k = 20, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0322, Variance: 0.9393, Standard Deviation: 0.9692
+                            Accuracy:        0.068%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 20
+                            Precision
+                                    Macro:  0.0005266999552155869    
+                                    Micro:  0.0006791632708503032
 
-                  Method: None
+                            Recall 
+                                    Macro:   0.0014860658172803976
+                                    Micro:   0.0006791632708503032
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0006332287550213564
+                                    Micro:   0.0006791632208503069
 
-                  Converged at epoch: 62
+                Time taken: 135.5826 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [0.53074827 0.88185394 0.98600047 0.51163305 0.36072217 0.08030747
- 0.21110851 0.81042971 0.70774211 0.67651722 0.08448713 0.96605976
- 0.85486988 0.24010186 0.16179825 0.24755049 0.23876186 0.63120076
- 0.31607437 0.44727561 0.43868168]
 
-                  Training set: MSE: 0.0225, Variance: 1.1577, Standard Deviation 1.076
+                k = 25, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0382, Variance: 0.9585, Standard Deviation: 0.979
+                            Accuracy:        12.891%
 
------------------------------------------------------------------------------------------------------------------
+                            Precision
+                                    Macro:  0.1056637194999483    
+                                    Micro:  0.12890518880738755
 
-Best Parameters: [0.53568932 0.94709455 0.99347801 0.54312216 0.39848259 0.07261241
- 0.27899017 0.76362601 0.80654403 0.5901158  0.21677219 0.83811511]
+                            Recall 
+                                    Macro:   0.09110533954190521
+                                    Micro:   0.12890518880738755
 
-Linear regression done
+                            F1 Score
+                                    Macro:   0.09223650639888228
+                                    Micro:   0.12890518875738755
 
-Read data for regularisation
-Metrics for all three splits:
+                Time taken: 135.5513 seconds
+                ---------------------------------------------------------------------
 
-                  Train:      Variance: 0.25210548446880365, Standard Deviation: 0.502101069973769
 
-                  Validation: Variance: 0.16863140372683852, Standard Deviation: 0.41064754197101744
+                k = 25, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test:       Variance: 0.1749483744274399, Standard Deviation: 0.4182683043543222
+                            Accuracy:        13.203%
 
-Degree: 1
+                            Precision
+                                    Macro:  0.1078913312786157    
+                                    Micro:  0.13202933985329893
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.09778401687060283
+                                    Micro:   0.13202933985329893
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09531926964590236
+                                    Micro:   0.13202933980329892
 
-                  Converged at epoch: 60
+                Time taken: 135.2833 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.55590893 -0.11362422]
 
-                  Training set: MSE: 0.2353, Variance: 0.0044, Standard Deviation 0.0662
+                k = 25, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.158, Variance: 0.0045, Standard Deviation: 0.067
+                            Accuracy:        0.041%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 2
+                            Precision
+                                    Macro:  0.00037177740612289866    
+                                    Micro:  0.0004074979625101819
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0005085538329588607
+                                    Micro:   0.0004074979625101819
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0004214538167727827
+                                    Micro:   0.00040749791251018806
 
-                  Converged at epoch: 49
+                Time taken: 135.4537 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.23836118 -0.00164341  0.97923438]
 
-                  Training set: MSE: 0.0465, Variance: 0.1026, Standard Deviation 0.3204
+                k = 50, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0217, Variance: 0.0917, Standard Deviation: 0.3028
+                            Accuracy:        13.991%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 3
+                            Precision
+                                    Macro:  0.11426670234071057    
+                                    Micro:  0.13990763379516247
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.10557208355130822
+                                    Micro:   0.13990763379516247
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09712253260518446
+                                    Micro:   0.13990763374516246
 
-                  Converged at epoch: 46
+                Time taken: 135.6753 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.23354053  0.00125591  0.98045664 -0.03937924]
 
-                  Training set: MSE: 0.0437, Variance: 0.1085, Standard Deviation 0.3295
+                k = 50, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0201, Variance: 0.0968, Standard Deviation: 0.3112
+                            Accuracy:        13.896%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 4
+                            Precision
+                                    Macro:  0.11390089591551454    
+                                    Micro:  0.13895680521597203
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.09488678129766355
+                                    Micro:   0.13895680521597203
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09588465420336752
+                                    Micro:   0.13895680516597203
 
-                  Converged at epoch: 42
+                Time taken: 135.8764 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.20190307  0.05288705  0.86386321 -0.00674782  0.35043396]
 
-                  Training set: MSE: 0.0243, Variance: 0.15, Standard Deviation 0.3873
+                k = 50, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0115, Variance: 0.1234, Standard Deviation: 0.3513
+                            Accuracy:        0.041%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 5
+                            Precision
+                                    Macro:  0.0002888516115777139    
+                                    Micro:  0.0004074979625101819
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0008685676827207322
+                                    Micro:   0.0004074979625101819
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.00033156857379402165
+                                    Micro:   0.00040749791251018806
 
-                  Converged at epoch: 35
+                Time taken: 135.612 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 2.12601388e-01  1.44098113e-01  8.45064053e-01  7.81403172e-04
-  3.23011639e-01 -1.64564938e-01]
 
-                  Training set: MSE: 0.0231, Variance: 0.1564, Standard Deviation 0.3955
+                k = 100, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0127, Variance: 0.1221, Standard Deviation: 0.3495
+                            Accuracy:        13.95%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 6
+                            Precision
+                                    Macro:  0.11477855580836366    
+                                    Micro:  0.13950013583265228
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.10366944324472865
+                                    Micro:   0.13950013583265228
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09408562773396774
+                                    Micro:   0.13950013578265227
 
-                  Converged at epoch: 37
+                Time taken: 135.5 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.98224226e-01  1.44617252e-01  8.01759403e-01 -1.55452489e-06
-  2.73455622e-01 -1.23098568e-01  2.02942217e-01]
 
-                  Training set: MSE: 0.0183, Variance: 0.1784, Standard Deviation 0.4224
+                k = 100, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.011, Variance: 0.1322, Standard Deviation: 0.3636
+                            Accuracy:        14.222%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 7
+                            Precision
+                                    Macro:  0.11642320770263956    
+                                    Micro:  0.1422167889160535
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.09803529087761095
+                                    Micro:   0.1422167889160535
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.09496470143205661
+                                    Micro:   0.1422167888660535
 
-                  Converged at epoch: 35
+                Time taken: 135.4766 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.18406094  0.11146509  0.83297706 -0.00179734  0.3292647  -0.20437276
-  0.27708076  0.24563587]
 
-                  Training set: MSE: 0.016, Variance: 0.1872, Standard Deviation 0.4327
+                k = 100, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 1
 
-                  Test set:     MSE: 0.0082, Variance: 0.1468, Standard Deviation: 0.3832
+                            Accuracy:        0.027%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 8
+                            Precision
+                                    Macro:  0.00020476369798507504    
+                                    Micro:  0.00027166530834012127
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0007283134602522462
+                                    Micro:   0.00027166530834012127
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0002535241895419535
+                                    Micro:   0.00027166525834013047
 
-                  Converged at epoch: 38
+                Time taken: 135.8128 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.77545280e-01  1.17014746e-01  7.26004088e-01 -5.08286912e-04
-  1.90937721e-01 -9.33367091e-02  1.16835698e-01  3.68947395e-01
-  6.80930010e-01]
 
-                  Training set: MSE: 0.0159, Variance: 0.2233, Standard Deviation 0.4726
+                k = 5, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0125, Variance: 0.1425, Standard Deviation: 0.3774
+                            Accuracy:        23.567%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 9
+                            Precision
+                                    Macro:  0.2012673693678186    
+                                    Micro:  0.2356696549850552
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.20548168373958053
+                                    Micro:   0.2356696549850552
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.19417294983661212
+                                    Micro:   0.2356696549350552
 
-                  Converged at epoch: 34
+                Time taken: 136.7058 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.16523691  0.13349359  0.74475751 -0.00080768  0.22803637 -0.14008986
-  0.16780671  0.33695425  0.74414502  0.18092293]
 
-                  Training set: MSE: 0.015, Variance: 0.2405, Standard Deviation 0.4905
+                k = 5, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0108, Variance: 0.159, Standard Deviation: 0.3988
+                            Accuracy:        24.654%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 10
+                            Precision
+                                    Macro:  0.2127319682872897    
+                                    Micro:  0.24653626731866005
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.22053334542867467
+                                    Micro:   0.24653626731866005
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.20571876705153824
+                                    Micro:   0.24653626726866004
 
-                  Converged at epoch: 34
+                Time taken: 142.5903 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.16870784  0.13434556  0.72848567 -0.00471493  0.20414247 -0.11917136
-  0.13823139  0.36484504  0.70909006  0.21557838  0.15669544]
 
-                  Training set: MSE: 0.0168, Variance: 0.2408, Standard Deviation 0.4908
+                k = 5, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0129, Variance: 0.152, Standard Deviation: 0.3899
+                            Accuracy:        0.19%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 11
+                            Precision
+                                    Macro:  0.0021746459276090063    
+                                    Micro:  0.001901657158380849
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0019170536930762114
+                                    Micro:   0.001901657158380849
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0015441340894447658
+                                    Micro:   0.0019016571083808503
 
-                  Converged at epoch: 34
+                Time taken: 139.166 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.48426303e-01  1.24052832e-01  7.39014868e-01 -6.43659882e-04
-  2.37020571e-01 -1.65568747e-01  1.89521905e-01  2.95341773e-01
-  7.77577915e-01  1.31158357e-01  2.42661951e-01  3.70940740e-01]
 
-                  Training set: MSE: 0.0154, Variance: 0.2548, Standard Deviation 0.5048
+                k = 10, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.01, Variance: 0.1762, Standard Deviation: 0.4197
+                            Accuracy:        26.338%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 12
+                            Precision
+                                    Macro:  0.22594417583394255    
+                                    Micro:  0.2633795164357476
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.22002217605761862
+                                    Micro:   0.2633795164357476
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.2147569270519667
+                                    Micro:   0.2633795163857476
 
-                  Converged at epoch: 43
+                Time taken: 137.3156 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.77769632e-01  4.13478044e-02  6.71590121e-01 -3.76546952e-04
-  1.23761936e-01 -6.95223602e-02  4.14429283e-02  3.63829869e-01
-  5.96938529e-01  2.37369847e-01  2.80814126e-02  5.16343286e-01
-  8.51811836e-01]
 
-                  Training set: MSE: 0.0236, Variance: 0.2362, Standard Deviation 0.486
+                k = 10, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0213, Variance: 0.1248, Standard Deviation: 0.3532
+                            Accuracy:        27.52%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 13
+                            Precision
+                                    Macro:  0.23693387485457673    
+                                    Micro:  0.2751969573485428
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.23140680238117756
+                                    Micro:   0.2751969573485428
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.22505296473183448
+                                    Micro:   0.2751969572985428
 
-                  Converged at epoch: 44
+                Time taken: 136.6441 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.17940549  0.03382583  0.6705393   0.00161546  0.12146992 -0.06681379
-  0.03837541  0.35875859  0.59329421  0.23279002  0.02394276  0.51224044
-  0.84719901 -0.00387429]
 
-                  Training set: MSE: 0.0233, Variance: 0.2355, Standard Deviation 0.4853
+                k = 10, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.021, Variance: 0.1243, Standard Deviation: 0.3526
+                            Accuracy:        0.177%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 14
+                            Precision
+                                    Macro:  0.0021207844211471477    
+                                    Micro:  0.0017658245042107882
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.002424475964188218
+                                    Micro:   0.0017658245042107882
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.001883417752558239
+                                    Micro:   0.0017658244542107897
 
-                  Converged at epoch: 48
+                Time taken: 138.2283 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.93296762e-01  5.80903949e-04  6.65620797e-01  1.33739383e-03
-  1.02336624e-01 -4.60411273e-02  7.79544227e-03  3.57584539e-01
-  5.52143737e-01  2.42793075e-01 -2.94471339e-03  5.33915202e-01
-  7.83732506e-01 -2.82504009e-03  1.32339350e-01]
 
-                  Training set: MSE: 0.0248, Variance: 0.2175, Standard Deviation 0.4663
+                k = 15, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0239, Variance: 0.1109, Standard Deviation: 0.3331
+                            Accuracy:        26.718%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 15
+                            Precision
+                                    Macro:  0.22865889932359304    
+                                    Micro:  0.26718283075250926
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.21577361942413992
+                                    Micro:   0.26718283075250926
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21416780960645249
+                                    Micro:   0.26718283070250926
 
-                  Converged at epoch: 48
+                Time taken: 137.2902 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.93418111e-01  4.31521549e-04  6.65709354e-01  1.21220374e-03
-  1.02433870e-01 -4.61701636e-02  7.91120104e-03  3.57440834e-01
-  5.52283261e-01  2.42627860e-01 -2.77694852e-03  5.33722586e-01
-  7.83933289e-01 -3.05105445e-03  1.32578679e-01  1.89555098e-04]
 
-                  Training set: MSE: 0.0247, Variance: 0.2181, Standard Deviation 0.467
+                k = 15, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0238, Variance: 0.1112, Standard Deviation: 0.3335
+                            Accuracy:        28.362%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 16
+                            Precision
+                                    Macro:  0.24368917598255727    
+                                    Micro:  0.2836185819070866
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.23114780017665557
+                                    Micro:   0.2836185819070866
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.22817746192791433
+                                    Micro:   0.2836185818570866
 
-                  Converged at epoch: 48
+                Time taken: 137.6569 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.20356339 -0.0021096   0.67060421 -0.0028624   0.09587786 -0.04581263
- -0.00142768  0.37815957  0.5233248   0.27558627 -0.00213412  0.5797993
-  0.72953906 -0.00075557  0.06301627  0.00233159  0.16657321]
 
-                  Training set: MSE: 0.0283, Variance: 0.2034, Standard Deviation 0.451
+                k = 15, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0286, Variance: 0.0988, Standard Deviation: 0.3143
+                            Accuracy:        0.122%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 17
+                            Precision
+                                    Macro:  0.001525189195141999    
+                                    Micro:  0.0012224938875305456
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0012744694314401179
+                                    Micro:   0.0012224938875305456
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0013212854091336243
+                                    Micro:   0.0012224938375305476
 
-                  Converged at epoch: 47
+                Time taken: 139.7 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 1.95471704e-01 -2.42890806e-03  6.63310259e-01 -5.36101451e-03
-  9.78905085e-02 -4.86583595e-02  1.57554385e-03  3.66964823e-01
-  5.44029509e-01  2.55657589e-01  3.40765653e-03  5.50281813e-01
-  7.70809576e-01  5.59457739e-04  1.16316196e-01 -4.79365358e-04
-  2.33622132e-01  1.65952305e-01]
 
-                  Training set: MSE: 0.0256, Variance: 0.2206, Standard Deviation 0.4697
+                k = 20, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0244, Variance: 0.1106, Standard Deviation: 0.3325
+                            Accuracy:        26.813%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 18
+                            Precision
+                                    Macro:  0.22864437946306018    
+                                    Micro:  0.2681336593316997
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.21391715285600119
+                                    Micro:   0.2681336593316997
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21172080570371088
+                                    Micro:   0.2681336592816997
 
-                  Converged at epoch: 45
+                Time taken: 137.7602 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.20332781 -0.0027504   0.6749381  -0.00258464  0.10168516 -0.05996959
-  0.0044847   0.39154767  0.52844913  0.29169878  0.00149872  0.59886288
-  0.73104406 -0.00341812  0.06175445  0.00338182  0.16185543  0.26358668
-  0.26282553]
 
-                  Training set: MSE: 0.0297, Variance: 0.21, Standard Deviation 0.4583
+                k = 20, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0287, Variance: 0.0999, Standard Deviation: 0.316
+                            Accuracy:        28.96%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 19
+                            Precision
+                                    Macro:  0.2490538285407086    
+                                    Micro:  0.28959521869056926
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.23705292242689477
+                                    Micro:   0.28959521869056926
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.232658727195603
+                                    Micro:   0.28959521864056925
 
-                  Converged at epoch: 48
+                Time taken: 136.5645 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.20289685 -0.00278715  0.66852462 -0.00334628  0.09411946 -0.05315664
-  0.00547025  0.3724422   0.52198769  0.27145775  0.0046928   0.57722003
-  0.72758741 -0.0017773   0.06033621  0.0029383   0.16286571  0.2356277
-  0.26671483  0.03650839]
 
-                  Training set: MSE: 0.0288, Variance: 0.2154, Standard Deviation 0.4641
+                k = 20, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0276, Variance: 0.1018, Standard Deviation: 0.319
+                            Accuracy:        0.122%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 20
+                            Precision
+                                    Macro:  0.0015680332320308003    
+                                    Micro:  0.0012224938875305456
 
-                  Method: l1
+                            Recall 
+                                    Macro:   0.0016264872828984907
+                                    Micro:   0.0012224938875305456
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.001495888581445619
+                                    Micro:   0.0012224938375305476
 
-                  Converged at epoch: 43
+                Time taken: 136.6988 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 2.07273212e-01 -5.25503796e-03  6.85641211e-01 -6.93835828e-04
-  1.08949380e-01 -8.52064616e-02  6.37370391e-03  4.06688338e-01
-  5.23767453e-01  3.14718199e-01  5.73304627e-03  6.30804780e-01
-  7.09508900e-01 -2.88895634e-03  2.95010986e-02 -8.28600184e-04
-  1.16934256e-01  3.31707888e-01  2.02880601e-01  1.52146003e-01
-  3.32822446e-01]
 
-                  Training set: MSE: 0.0341, Variance: 0.212, Standard Deviation 0.4604
+                k = 25, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-                  Test set:     MSE: 0.0315, Variance: 0.0946, Standard Deviation: 0.3075
+                            Accuracy:        26.732%
 
------------------------------------------------------------------------------------------------------------------
+                            Precision
+                                    Macro:  0.2270515669040693    
+                                    Micro:  0.2673186634066793
 
-Best Parameters: [ 0.18406094  0.11146509  0.83297706 -0.00179734  0.3292647  -0.20437276
-  0.27708076  0.24563587]
+                            Recall 
+                                    Macro:   0.21571824155379457
+                                    Micro:   0.2673186634066793
 
-L1 regularisation done
-Metrics for all three splits:
+                            F1 Score
+                                    Macro:   0.21008819698570724
+                                    Micro:   0.2673186633566793
 
-                  Train:      Variance: 0.22588909741203583, Standard Deviation: 0.47527791597341845
+                Time taken: 136.5375 seconds
+                ---------------------------------------------------------------------
 
-                  Validation: Variance: 0.2688919758462248, Standard Deviation: 0.5185479494185903
 
-                  Test:       Variance: 0.2787240710577602, Standard Deviation: 0.5279432460575286
+                k = 25, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
-Degree: 1
+                            Accuracy:        28.973%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.2486678088935707    
+                                    Micro:  0.28973105134473937
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.24295942476826696
+                                    Micro:   0.28973105134473937
 
-                  Converged at epoch: 63
+                            F1 Score
+                                    Macro:   0.2320294892072234
+                                    Micro:   0.28973105129473936
 
-                  Final Parameters: [ 0.52770952 -0.15134441]
+                Time taken: 136.9529 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.2075, Variance: 0.0075, Standard Deviation 0.0864
 
-                  Test set:     MSE: 0.2643, Variance: 0.009, Standard Deviation: 0.0951
+                k = 25, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 2
+                            Accuracy:        0.095%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.0015128682951650282    
+                                    Micro:  0.0009508285791904245
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.001463091189905552
+                                    Micro:   0.0009508285791904245
 
-                  Converged at epoch: 56
+                            F1 Score
+                                    Macro:   0.0014155445556720738
+                                    Micro:   0.0009508285291904271
 
-                  Final Parameters: [0.28375164 0.00828949 0.83693132]
+                Time taken: 137.2004 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.0552, Variance: 0.0701, Standard Deviation 0.2647
 
-                  Test set:     MSE: 0.0739, Variance: 0.0824, Standard Deviation: 0.287
+                k = 50, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 3
+                            Accuracy:        26.732%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.22780898720085435    
+                                    Micro:  0.2673186634066793
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.21152032389231523
+                                    Micro:   0.2673186634066793
 
-                  Converged at epoch: 50
+                            F1 Score
+                                    Macro:   0.20352849149433397
+                                    Micro:   0.2673186633566793
 
-                  Final Parameters: [ 0.2777389   0.02531837  0.84139531 -0.08477646]
+                Time taken: 138.3744 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.049, Variance: 0.0789, Standard Deviation 0.281
 
-                  Test set:     MSE: 0.0637, Variance: 0.0955, Standard Deviation: 0.309
+                k = 50, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 4
+                            Accuracy:        28.362%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.24194943227261698    
+                                    Micro:  0.2836185819070866
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.23689522751451914
+                                    Micro:   0.2836185819070866
 
-                  Converged at epoch: 48
+                            F1 Score
+                                    Macro:   0.21952824232642484
+                                    Micro:   0.2836185818570866
 
-                  Final Parameters: [ 0.23965822  0.06466629  0.74015859 -0.02382191  0.39352665]
+                Time taken: 137.7336 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.0255, Variance: 0.1214, Standard Deviation 0.3484
 
-                  Test set:     MSE: 0.0294, Variance: 0.152, Standard Deviation: 0.3898
+                k = 50, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 5
+                            Accuracy:        0.068%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.0010932910406404098    
+                                    Micro:  0.0006791632708503032
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.001009388955940277
+                                    Micro:   0.0006791632708503032
 
-                  Converged at epoch: 42
+                            F1 Score
+                                    Macro:   0.0009679713953355335
+                                    Micro:   0.0006791632208503069
 
-                  Final Parameters: [ 0.2413721   0.12947808  0.73364919  0.03520186  0.36247621 -0.22144989]
+                Time taken: 137.5418 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.0229, Variance: 0.1316, Standard Deviation 0.3628
 
-                  Test set:     MSE: 0.0244, Variance: 0.1699, Standard Deviation: 0.4122
+                k = 100, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 6
+                            Accuracy:        25.632%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.21572610126229028    
+                                    Micro:  0.2563162184189044
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.19061597084267493
+                                    Micro:   0.2563162184189044
 
-                  Converged at epoch: 41
+                            F1 Score
+                                    Macro:   0.18783182474751442
+                                    Micro:   0.2563162183689044
 
-                  Final Parameters: [ 0.22988386  0.14814987  0.6932517   0.0648433   0.31488546 -0.18689146
-  0.25575881]
+                Time taken: 137.7654 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.0178, Variance: 0.1565, Standard Deviation 0.3956
 
-                  Test set:     MSE: 0.0163, Variance: 0.2105, Standard Deviation: 0.4588
+                k = 100, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 7
+                            Accuracy:        28.294%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.23930064371172693    
+                                    Micro:  0.2829394186362363
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.2262579611049148
+                                    Micro:   0.2829394186362363
 
-                  Converged at epoch: 40
+                            F1 Score
+                                    Macro:   0.21176461336607835
+                                    Micro:   0.2829394185862363
 
-                  Final Parameters: [ 0.21802093  0.11438422  0.71940625  0.00892998  0.35522185 -0.25321578
-  0.30757616  0.27035659]
+                Time taken: 137.48 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.016, Variance: 0.1587, Standard Deviation 0.3984
 
-                  Test set:     MSE: 0.0151, Variance: 0.2024, Standard Deviation: 0.4499
+                k = 100, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 2
 
------------------------------------------------------------------------------------------------------------------
-Degree: 8
+                            Accuracy:        0.054%
 
-                  Method: l2
+                            Precision
+                                    Macro:  0.0009853696074439086    
+                                    Micro:  0.0005433306166802425
 
-                  Seed: 42
+                            Recall 
+                                    Macro:   0.0009608710740906144
+                                    Micro:   0.0005433306166802425
 
-                  Converged at epoch: 42
+                            F1 Score
+                                    Macro:   0.0009208244154040469
+                                    Micro:   0.0005433305666802472
 
-                  Final Parameters: [ 0.21334457  0.12100669  0.63289894  0.05595924  0.25587989 -0.17916444
-  0.19815551  0.35290594  0.58530995]
+                Time taken: 137.5386 seconds
+                ---------------------------------------------------------------------
 
-                  Training set: MSE: 0.0155, Variance: 0.1917, Standard Deviation 0.4379
 
-                  Test set:     MSE: 0.0149, Variance: 0.2828, Standard Deviation: 0.5318
+Top 10 Models
 
------------------------------------------------------------------------------------------------------------------
-Degree: 9
+Model: (25, 'manhattan'), Combination: 2, Accuracy: 28.973, Time: 136.95294284820557 seconds
+Model: (20, 'manhattan'), Combination: 2, Accuracy: 28.96, Time: 136.5644907951355 seconds
+Model: (50, 'manhattan'), Combination: 2, Accuracy: 28.362, Time: 137.73358988761902 seconds
+Model: (15, 'manhattan'), Combination: 2, Accuracy: 28.362, Time: 137.65692830085754 seconds
+Model: (100, 'manhattan'), Combination: 2, Accuracy: 28.294, Time: 137.479975938797 seconds
+Model: (10, 'manhattan'), Combination: 2, Accuracy: 27.52, Time: 136.6441309452057 seconds
+Model: (20, 'euclidean'), Combination: 2, Accuracy: 26.813, Time: 137.76015782356262 seconds
+Model: (50, 'euclidean'), Combination: 2, Accuracy: 26.732, Time: 138.37442088127136 seconds
+Model: (25, 'euclidean'), Combination: 2, Accuracy: 26.732, Time: 136.537522315979 seconds
+Model: (15, 'euclidean'), Combination: 2, Accuracy: 26.718, Time: 137.29018378257751 seconds
+K vs Accuracy plot saved.
 
-                  Method: l2
+Starting with dataset 2
 
-                  Seed: 42
+    k = 25, Distance Metric = manhattan
+    Validation Metrics for Dataset 2
 
-                  Converged at epoch: 40
+                Accuracy:        25.571%
 
-                  Final Parameters: [ 0.2031193   0.11542327  0.65092483  0.02989975  0.28089624 -0.21836768
-  0.23191412  0.31617292  0.63377873  0.21719449]
+                Precision
+                        Macro:  0.2449917365816475
+                        Micro:  0.25571304599363365
 
-                  Training set: MSE: 0.0141, Variance: 0.1963, Standard Deviation 0.4431
+                Recall
+                        Macro:  0.2245443516368141
+                        Micro:  0.25571304599363365
 
-                  Test set:     MSE: 0.0111, Variance: 0.2725, Standard Deviation: 0.522
+                F1 Score
+                        Macro:  0.21859323664307106
+                        Micro:  0.25571304594363364
 
------------------------------------------------------------------------------------------------------------------
-Degree: 10
+    Time taken: 207.2425 seconds
+    ---------------------------------------------------------------------
 
-                  Method: l2
+Starting with training set size vs time taken
 
-                  Seed: 42
+Current training set size:  80
+Best Model Time Taken: 137.41210317611694
+Initial Model Time Taken: 137.71442699432373
 
-                  Converged at epoch: 42
+Read data for data analysis
+Data Analysis done
 
-                  Final Parameters: [ 0.20403779  0.10997477  0.6249247   0.03872395  0.25411898 -0.19777979
-  0.20147166  0.33374284  0.59277885  0.24162024  0.19970648]
+Starting with dataset 1
 
-                  Training set: MSE: 0.0155, Variance: 0.2037, Standard Deviation 0.4513
+                k = 5, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0154, Variance: 0.3026, Standard Deviation: 0.5501
+                            Accuracy:        23.798%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 11
+                            Precision
+                                    Macro:  0.20413781013389215    
+                                    Micro:  0.23797881010594624
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.2168371179787249
+                                    Micro:   0.23797881010594624
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.19760545874172208
+                                    Micro:   0.23797881005594623
 
-                  Converged at epoch: 41
+                Time taken: 142.0373 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.18917214  0.10467539  0.638385    0.00801436  0.28230746 -0.24407809
-  0.24300712  0.28148632  0.64966643  0.17888762  0.26486012  0.36083484]
 
-                  Training set: MSE: 0.0139, Variance: 0.211, Standard Deviation 0.4593
+                k = 5, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0102, Variance: 0.2782, Standard Deviation: 0.5275
+                            Accuracy:        26.297%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 12
+                            Precision
+                                    Macro:  0.22379811457686238    
+                                    Micro:  0.26297201847323737
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.24297676551125907
+                                    Micro:   0.26297201847323737
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21637679991086575
+                                    Micro:   0.26297201842323736
 
-                  Converged at epoch: 49
+                Time taken: 140.5756 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.21087275  0.06265248  0.56907071  0.0193889   0.20662255 -0.18579793
-  0.14929692  0.33013853  0.51170592  0.2562578   0.13406141  0.44810349
-  0.67253997]
 
-                  Training set: MSE: 0.0197, Variance: 0.2093, Standard Deviation 0.4575
+                k = 5, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0295, Variance: 0.3596, Standard Deviation: 0.5996
+                            Accuracy:        0.19%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 13
+                            Precision
+                                    Macro:  0.0017562911089982981    
+                                    Micro:  0.001901657158380849
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.0019800318419486832
+                                    Micro:   0.001901657158380849
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0013660780320535009
+                                    Micro:   0.0019016571083808503
 
-                  Converged at epoch: 50
+                Time taken: 141.2814 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.2130834   0.06039028  0.56518975  0.01974679  0.20390089 -0.18239412
-  0.14575309  0.33028934  0.50407097  0.25798304  0.1285791   0.44919094
-  0.66156868 -0.03158806]
 
-                  Training set: MSE: 0.0199, Variance: 0.2074, Standard Deviation 0.4554
+                k = 10, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0308, Variance: 0.3614, Standard Deviation: 0.6012
+                            Accuracy:        26.229%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 14
+                            Precision
+                                    Macro:  0.22426491213848598    
+                                    Micro:  0.2622928552023871
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.22317861354517676
+                                    Micro:   0.2622928552023871
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21375224401456946
+                                    Micro:   0.2622928551523871
 
-                  Converged at epoch: 54
+                Time taken: 141.1715 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.22287482  0.03888377  0.55007388  0.01372405  0.19008382 -0.17160879
-  0.12583715  0.33269545  0.46534689  0.27062807  0.0953894   0.46332939
-  0.60371677  0.00648146  0.1883924 ]
 
-                  Training set: MSE: 0.0216, Variance: 0.2006, Standard Deviation 0.4479
+                k = 10, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0381, Variance: 0.3765, Standard Deviation: 0.6136
+                            Accuracy:        28.049%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 15
+                            Precision
+                                    Macro:  0.23997412838112603    
+                                    Micro:  0.2804944308611752
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.23385014319674138
+                                    Micro:   0.2804944308611752
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.22707444607511423
+                                    Micro:   0.2804944308111752
 
-                  Converged at epoch: 54
+                Time taken: 137.6263 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.22335688  0.03828736  0.55048665  0.01334761  0.19039247 -0.17187015
-  0.1260662   0.33251122  0.46551141  0.27050432  0.09549747  0.46325875
-  0.60377197  0.00646159  0.18839513  0.00571294]
 
-                  Training set: MSE: 0.0214, Variance: 0.1995, Standard Deviation 0.4466
+                k = 10, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0367, Variance: 0.3722, Standard Deviation: 0.6101
+                            Accuracy:        0.122%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 16
+                            Precision
+                                    Macro:  0.001391691185102412    
+                                    Micro:  0.0012224938875305456
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.0016955407799917647
+                                    Micro:   0.0012224938875305456
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0013359825465566082
+                                    Micro:   0.0012224938375305476
 
-                  Converged at epoch: 57
+                Time taken: 136.416 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.23131783  0.01748705  0.54463418  0.00427001  0.184016   -0.16701572
-  0.11327564  0.33326908  0.43691811  0.28089375  0.06870272  0.47708535
-  0.55659702  0.04029394  0.14301425  0.04901133  0.20341761]
 
-                  Training set: MSE: 0.0233, Variance: 0.1931, Standard Deviation 0.4395
+                k = 15, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0446, Variance: 0.3901, Standard Deviation: 0.6246
+                            Accuracy:        26.582%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 17
+                            Precision
+                                    Macro:  0.22580616333639805    
+                                    Micro:  0.26582450421080867
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.2188828199171795
+                                    Micro:   0.26582450421080867
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21127018783198603
+                                    Micro:   0.26582450416080866
 
-                  Converged at epoch: 55
+                Time taken: 137.2896 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.2247538   0.02891805  0.54402097  0.00619518  0.18555454 -0.17537506
-  0.12133494  0.32661094  0.45777425  0.26665252  0.09069106  0.45912513
-  0.59451636  0.00731794  0.18229181  0.007674    0.25296728  0.23747293]
 
-                  Training set: MSE: 0.0211, Variance: 0.1978, Standard Deviation 0.4448
+                k = 15, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0311, Variance: 0.3547, Standard Deviation: 0.5955
+                            Accuracy:        28.851%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 18
+                            Precision
+                                    Macro:  0.24812466680615428    
+                                    Micro:  0.28850855745720877
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.24609988755458306
+                                    Micro:   0.28850855745720877
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.23378494313059406
+                                    Micro:   0.28850855740720877
 
-                  Converged at epoch: 58
+                Time taken: 136.8453 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.23191134  0.00603439  0.54283384 -0.00705735  0.18428958 -0.17499073
-  0.11326988  0.32339002  0.43325669  0.27376653  0.06696595  0.47066352
-  0.54940561  0.03992467  0.13758686  0.05112558  0.19546136  0.28739179
-  0.25393777]
 
-                  Training set: MSE: 0.0229, Variance: 0.1909, Standard Deviation 0.4369
+                k = 15, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.04, Variance: 0.3805, Standard Deviation: 0.6168
+                            Accuracy:        0.095%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 19
+                            Precision
+                                    Macro:  0.001351578599439716    
+                                    Micro:  0.0009508285791904245
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.004941411611769717
+                                    Micro:   0.0009508285791904245
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.0018054012287471567
+                                    Micro:   0.0009508285291904271
 
-                  Converged at epoch: 56
+                Time taken: 136.6381 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.22812858  0.01406849  0.54395213 -0.00330379  0.18386734 -0.17782521
-  0.11587217  0.3253366   0.44527331  0.27117425  0.07683093  0.46746661
-  0.57165281  0.02516705  0.15749913  0.03176973  0.22149644  0.26660133
-  0.28679305  0.14434364]
 
-                  Training set: MSE: 0.0217, Variance: 0.1941, Standard Deviation 0.4406
+                k = 20, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0317, Variance: 0.3566, Standard Deviation: 0.5972
+                            Accuracy:        27.004%
 
------------------------------------------------------------------------------------------------------------------
-Degree: 20
+                            Precision
+                                    Macro:  0.22835403120047357    
+                                    Micro:  0.27003531649008056
 
-                  Method: l2
+                            Recall 
+                                    Macro:   0.2213247509586031
+                                    Micro:   0.27003531649008056
 
-                  Seed: 42
+                            F1 Score
+                                    Macro:   0.21253698751340452
+                                    Micro:   0.27003531644008055
 
-                  Converged at epoch: 60
+                Time taken: 137.5684 seconds
+                ---------------------------------------------------------------------
 
-                  Final Parameters: [ 0.23377286 -0.01079769  0.54526421 -0.0221981   0.18893467 -0.18293175
-  0.11473687  0.31233524  0.42478675  0.2690877   0.05956112  0.46868787
-  0.52842003  0.05162266  0.11712287  0.069896    0.16679094  0.31044317
-  0.21590557  0.2075997   0.29184642]
 
-                  Training set: MSE: 0.0232, Variance: 0.1868, Standard Deviation 0.4322
+                k = 20, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
 
-                  Test set:     MSE: 0.0406, Variance: 0.3853, Standard Deviation: 0.6208
+                            Accuracy:        29.707%
 
------------------------------------------------------------------------------------------------------------------
+                            Precision
+                                    Macro:  0.25494530402742216    
+                                    Micro:  0.2970660146699226
 
-Best Parameters: [ 0.18917214  0.10467539  0.638385    0.00801436  0.28230746 -0.24407809
-  0.24300712  0.28148632  0.64966643  0.17888762  0.26486012  0.36083484]
+                            Recall 
+                                    Macro:   0.24989264272721592
+                                    Micro:   0.2970660146699226
 
-L2 regularisation done
+                            F1 Score
+                                    Macro:   0.23944945178002539
+                                    Micro:   0.2970660146199226
+
+                Time taken: 137.031 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 20, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.081%
+
+                            Precision
+                                    Macro:  0.0009865653374992963    
+                                    Micro:  0.0008149959250203638
+
+                            Recall 
+                                    Macro:   0.0021259348525887547
+                                    Micro:   0.0008149959250203638
+
+                            F1 Score
+                                    Macro:   0.0012496619183307294
+                                    Micro:   0.0008149958750203669
+
+                Time taken: 136.6045 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        27.234%
+
+                            Precision
+                                    Macro:  0.22987226081118758    
+                                    Micro:  0.2723444716109716
+
+                            Recall 
+                                    Macro:   0.2206226651857725
+                                    Micro:   0.2723444716109716
+
+                            F1 Score
+                                    Macro:   0.2124840353885202
+                                    Micro:   0.2723444715609716
+
+                Time taken: 136.8406 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        29.87%
+
+                            Precision
+                                    Macro:  0.25497324554275497    
+                                    Micro:  0.29869600651996336
+
+                            Recall 
+                                    Macro:   0.2456942060233776
+                                    Micro:   0.29869600651996336
+
+                            F1 Score
+                                    Macro:   0.23727358880638527
+                                    Micro:   0.29869600646996336
+
+                Time taken: 137.0076 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 25, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.095%
+
+                            Precision
+                                    Macro:  0.0011603215497433784    
+                                    Micro:  0.0009508285791904245
+
+                            Recall 
+                                    Macro:   0.0022806839178311595
+                                    Micro:   0.0009508285791904245
+
+                            F1 Score
+                                    Macro:   0.0014040690447819856
+                                    Micro:   0.0009508285291904271
+
+                Time taken: 136.779 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        27.411%
+
+                            Precision
+                                    Macro:  0.2298950068132334    
+                                    Micro:  0.27411029611518234
+
+                            Recall 
+                                    Macro:   0.21849016465034077
+                                    Micro:   0.27411029611518234
+
+                            F1 Score
+                                    Macro:   0.207434191926622
+                                    Micro:   0.27411029606518234
+
+                Time taken: 137.4403 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        30.359%
+
+                            Precision
+                                    Macro:  0.2554532889731672    
+                                    Micro:  0.3035859820700855
+
+                            Recall 
+                                    Macro:   0.24286861778042426
+                                    Micro:   0.3035859820700855
+
+                            F1 Score
+                                    Macro:   0.2307308309986288
+                                    Micro:   0.3035859820200855
+
+                Time taken: 137.2335 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 50, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.109%
+
+                            Precision
+                                    Macro:  0.001289720808648704    
+                                    Micro:  0.001086661233360485
+
+                            Recall 
+                                    Macro:   0.004500684151541468
+                                    Micro:   0.001086661233360485
+
+                            F1 Score
+                                    Macro:   0.0018785305049939707
+                                    Micro:   0.0010866611833604874
+
+                Time taken: 136.8824 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = euclidean
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        26.555%
+
+                            Precision
+                                    Macro:  0.2220036601706156    
+                                    Micro:  0.26555283890246856
+
+                            Recall 
+                                    Macro:   0.20687154910962685
+                                    Micro:   0.26555283890246856
+
+                            F1 Score
+                                    Macro:   0.19491773225192663
+                                    Micro:   0.26555283885246855
+
+                Time taken: 138.5775 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = manhattan
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        29.775%
+
+                            Precision
+                                    Macro:  0.2504600475004202    
+                                    Micro:  0.29774517794077293
+
+                            Recall 
+                                    Macro:   0.24007791839104048
+                                    Micro:   0.29774517794077293
+
+                            F1 Score
+                                    Macro:   0.22063126510422432
+                                    Micro:   0.2977451778907729
+
+                Time taken: 137.8418 seconds
+                ---------------------------------------------------------------------
+
+
+                k = 100, Distance Metric = cosine
+                Validation Metrics for Dataset 1
+                Combination index used: 0
+
+                            Accuracy:        0.081%
+
+                            Precision
+                                    Macro:  0.0007550469008635134    
+                                    Micro:  0.0008149959250203638
+
+                            Recall 
+                                    Macro:   0.002476654595380787
+                                    Micro:   0.0008149959250203638
+
+                            F1 Score
+                                    Macro:   0.0010266484535656718
+                                    Micro:   0.0008149958750203669
+
+                Time taken: 137.4652 seconds
+                ---------------------------------------------------------------------
+
+
+Top 10 Models
+
+Model: (50, 'manhattan'), Combination: 0, Accuracy: 30.359, Time: 137.23345303535461 seconds
+Model: (25, 'manhattan'), Combination: 0, Accuracy: 29.87, Time: 137.00760507583618 seconds
+Model: (100, 'manhattan'), Combination: 0, Accuracy: 29.775, Time: 137.8417558670044 seconds
+Model: (20, 'manhattan'), Combination: 0, Accuracy: 29.707, Time: 137.03096294403076 seconds
+Model: (15, 'manhattan'), Combination: 0, Accuracy: 28.851, Time: 136.84533095359802 seconds
+Model: (10, 'manhattan'), Combination: 0, Accuracy: 28.049, Time: 137.6263017654419 seconds
+Model: (50, 'euclidean'), Combination: 0, Accuracy: 27.411, Time: 137.44031500816345 seconds
+Model: (25, 'euclidean'), Combination: 0, Accuracy: 27.234, Time: 136.84059286117554 seconds
+Model: (20, 'euclidean'), Combination: 0, Accuracy: 27.004, Time: 137.5683560371399 seconds
+Model: (15, 'euclidean'), Combination: 0, Accuracy: 26.582, Time: 137.28964591026306 seconds
+K vs Accuracy plot saved.
+
+Starting with dataset 2
+
+    k = 50, Distance Metric = manhattan
+    Validation Metrics for Dataset 2
+
+                Accuracy:        25.889%
+
+                Precision
+                        Macro:  0.24767903363198737
+                        Micro:  0.25889499566097524
+
+                Recall
+                        Macro:  0.22653461635929076
+                        Micro:  0.25889499566097524
+
+                F1 Score
+                        Macro:  0.21598178854117686
+                        Micro:  0.25889499561097523
+
+    Time taken: 205.0981 seconds
+    ---------------------------------------------------------------------
+
+Starting with training set size vs time taken
+
+Current training set size:  80
+Best Model Time Taken: 137.16516304016113
+Initial Model Time Taken: 139.16811609268188
+Sklearn Model Time Taken: 7.082566738128662
+Current training set size:  70
+Best Model Time Taken: 177.02338099479675
+Initial Model Time Taken: 178.13948273658752
+Sklearn Model Time Taken: 9.54890489578247
+Current training set size:  60
+Best Model Time Taken: 199.04782891273499
+Initial Model Time Taken: 199.13092613220215
+Sklearn Model Time Taken: 11.824296951293945
+Current training set size:  50
+Best Model Time Taken: 201.9287371635437
+Initial Model Time Taken: 202.87961220741272
+Sklearn Model Time Taken: 12.139055252075195
+Current training set size:  40
+Best Model Time Taken: 194.00040483474731
+Initial Model Time Taken: 197.9622061252594
+Sklearn Model Time Taken: 12.63984489440918
+Current training set size:  30
+Best Model Time Taken: 166.4523320198059
+Initial Model Time Taken: 166.44911098480225
+Sklearn Model Time Taken: 12.995084047317505
+Current training set size:  20
+Best Model Time Taken: 124.7127673625946
+Initial Model Time Taken: 125.37728476524353
+Sklearn Model Time Taken: 10.539993047714233
+Current training set size:  10
+Best Model Time Taken: 66.71172404289246
+Initial Model Time Taken: 68.33467960357666
+Sklearn Model Time Taken: 7.26337194442749
+Training set size vs time taken plot saved.
+KNN done
+
