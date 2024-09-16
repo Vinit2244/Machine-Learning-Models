@@ -1,0 +1,47 @@
+Scree plot saved
+
+spotify_n_components = 9
+
+Dataset reduced to 9 dimensions
+
+    k = 50, Distance Metric = manhattan
+    Validation Metrics for Reduced Spotify Dataset
+
+                Accuracy:        26.08%
+
+                Precision
+                        Macro:  0.21873952954765305    
+                        Micro:  0.26079869600651645
+
+                Recall 
+                        Macro:   0.20644566166407
+                        Micro:   0.26079869600651645
+
+                F1 Score
+                        Macro:   0.19569370507932393
+                        Micro:   0.26079869595651645
+
+    Time taken: 139.1953 seconds
+    ---------------------------------------------------------------------
+
+
+    k = 50, Distance Metric = manhattan
+    Validation Metrics for Reduced Spotify Dataset
+
+                Accuracy:        29.829%
+
+                Precision
+                        Macro:  0.2511816739876239    
+                        Micro:  0.29828850855745315
+
+                Recall 
+                        Macro:   0.2435570587149391
+                        Micro:   0.29828850855745315
+
+                F1 Score
+                        Macro:   0.2280859234835276
+                        Micro:   0.29828850850745314
+
+    Time taken: 141.2249 seconds
+    ---------------------------------------------------------------------
+

@@ -33,7 +33,7 @@ class KMeans:
                 self.cluster_labels[index] = cluster_number
                 self.cluster_centers[cluster_number] = self.data[index]
 
-        elif self.init_method == "kmeans_pp": # K-Means++
+        elif self.init_method == "kmeans++": # K-Means++
             # Choose the first cluster center randomly
             first_center_index = np.random.choice(range(self.data.shape[0]))
             self.cluster_centers[0] = self.data[first_center_index]

@@ -7,6 +7,7 @@ import time
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import scipy.cluster.hierarchy as hc
+from sklearn.mixture import GaussianMixture
 
 # Colors for printing for better readability
 BLUE = "\033[34m"
@@ -20,22 +21,26 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 from models.k_means.k_means import KMeans
 from models.gmm.gmm import GMM
 from models.pca.pca import PCA
+from models.knn.knn import KNN
 
 # Data params dictionaries contain all the parameters that are set manually through inspection
 test_data_params = {
+    "n_clusters":    3,         # For testing purposes
     "type":          "test data",
     "data_path":     "./data/external/temp_data_k_means.csv",
     "train_percent": 100,       # Unsupervised learning
     "test_percent":  0,
     "val_percent":   0,
     "shuffle":       False,
-    "seed":          None,
+    "seed":          42,
     "max_k":         15,        # Decided upon the value of 15 after watching the graph till various points (max = 200) (no. of data points in data)
-    "init_method":   "kmeans",  # Can be kmeans or kmeans_pp
+    "init_method":   "kmeans",  # Can be kmeans or kmeans++
     "k_kmeans1":     3,         # Based on visual inspection of the k vs MCSS plot deciding the number of clusters (elbow point)
+    "k_gmm1":        3,         # Based on visual instpection AIC BIC plot
     "k2":            3,         # Based on visual inspection of the PCA plots deciding the number of clusters
     "op_dim":        2,         # Based on visual inspection of the scree plot deciding the number of optimal dimensions
     "k_kmeans3":     3,         # Based on visual inspection of the k vs MCSS plot on reduced dataset deciding the number of clusters (elbow point)
+    "k_gmm3":        3,         # Based on visual instpection AIC BIC plot on reduced dataset
     "label_idx":     2,         # Column Index of the label in the data
     "k_kmeans":      3,         # Based on interpreting the clustered labels deciding the number of clusters
     "linkage":       "ward",    # Based on interpreting the dendrograms deciding the best linkage method
@@ -44,19 +49,22 @@ test_data_params = {
 }
 
 original_data_params = {
+    "n_clusters":    5, # For testing purposes
     "type":          "original assignment data",
     "data_path":     "./data/external/word-embeddings.feather",
     "train_percent": 100,       # Unsupervised learning
     "test_percent":  0,
     "val_percent":   0,
     "shuffle":       False,
-    "seed":          None,
+    "seed":          42,
     "max_k":         15,        # Decided upon the value of 15 after watching the graph till various points (max = 200) (no. of data points in data)
-    "init_method":   "kmeans",  # Can be kmeans or kmeans_pp
+    "init_method":   "kmeans",  # Can be kmeans or kmeans++
     "k_kmeans1":     5,         # Based on visual inspection of the k vs MCSS plot deciding the number of clusters (elbow point)
-    "k2":            5,         # Based on visual inspection of the PCA plots deciding the number of clusters
+    "k_gmm1":        1,         # Based on visual inspection of AIC BIC plot
+    "k2":            3,         # Based on visual inspection of the PCA plots deciding the number of clusters
     "op_dim":        4,         # Based on visual inspection of the scree plot deciding the number of optimal dimensions
-    "k_kmeans3":     6,         # Based on visual inspection of the k vs MCSS plot on reduced dataset deciding the number of clusters (elbow point)
+    "k_kmeans3":     4,         # Based on visual inspection of the k vs MCSS plot on reduced dataset deciding the number of clusters (elbow point)
+    "k_gmm3":        4,         # Based on visual inspection of the AIC BIC plot on reduced dataset deciding the number of clusters
     "label_idx":     0,         # Column Index of the label in the data
     "k_kmeans":      5,         # Based on interpreting the clustered labels deciding the number of clusters
     "linkage":       "ward",    # Based on interpreting the dendrograms deciding the best linkage method
@@ -64,20 +72,46 @@ original_data_params = {
     "k_best2":       5,
 }
 
+spotify_data_params = {
+    "pca_n_components" : 9, # Decided after examining the scree plot
+    "file_path" : './data/external/spotify.csv' ,
+    "preprocessed_file_path" : './data/interim/2/preprocessed_spotify',
+    "best_k_spotify" : 50,
+    "best_distance_metric_spotify" : "manhattan",
+}
+
 # Reads the data from the given path and returns it as a numpy array after processing
 def read_data(data_path):
-    # First column is the word, second column is the embedding (as a numpy array) of 512 length
+    """
+        Reads the data from the given path and returns it as a numpy array after processing,
+        Assuming that .csv is the test file and .feather is the original data file. Custom
+        function for the particular dataset at hand - cannot be used for other datasets, unless
+        the dataset is in the same format
+
+        Parameters
+        ==========
+            data_path (str): Path to the data file
+
+        Returns
+        =======
+            original_data (numpy array): The original data read from the file
+            processed_data (numpy array): Data after removing the label column
+    """
     if data_path.endswith('.csv'):
+        # First 2 columns are data ('x' & 'y') and the last column is the label for the test dataset
         df = pd.read_csv(data_path)
         original_data = df.to_numpy()
         processed_data = []
+        # Removing the last column which is the label and keeping only 'x' & 'y' in processed data
         for row in original_data:
             processed_data.append(row[:-1:].tolist())
         processed_data = np.array(processed_data)
     elif data_path.endswith('.feather'):
+        # First column is the word, second column is the embedding (as a numpy array) of 512 length for word-embeddings.feather
         df = pd.read_feather(data_path)
         original_data = df.to_numpy()
         processed_data = []
+        # Removing the first column which is the word and keeping only the embedding in processed data
         for row in original_data:
             processed_data.append(row[1].tolist())
         processed_data = np.array(processed_data)
@@ -85,16 +119,37 @@ def read_data(data_path):
 
 # Returns the train, test, val split (in that order)
 def split_data(data, train_percent, test_percent, val_percent=None, shuffle=True, seed=42):
+    """
+        Returns the train, test, val split (in that order)
+
+        Parameters
+        ==========
+            data[n_points, n_features] (numpy array): The data to be split
+            train_percent (int): Percentage of data for training
+            test_percent (int): Percentage of data for testing
+            val_percent (int): Percentage of data for validation
+            shuffle (bool): Whether to shuffle the data before splitting
+            seed (int): Seed for shuffling
+
+        Returns
+        =======
+            train_data[n_train, n_features] (numpy array): Data for training
+            test_data[n_test, n_features] (numpy array): Data for testing
+            val_data[n_val, n_features] (numpy array): Data for validation
+    """
     if train_percent + test_percent > 100:
         raise ValueError("Train and Test percentages should not sum to more than 100")
+    
     if val_percent is None:
         val_percent = 100 - train_percent - test_percent
-    else:
-        if train_percent + test_percent + val_percent > 100:
-            raise ValueError("Train, Test and Validation percentages should not sum to more than 100")
+    elif train_percent + test_percent + val_percent > 100:
+        raise ValueError("Train, Test and Validation percentages should not sum to more than 100")
+    
     if shuffle:
         np.random.seed(seed)
         np.random.shuffle(data)
+    
+    # Calculating the number of data points for each split
     n_train = int(train_percent * len(data) / 100)
     n_test = int(test_percent * len(data) / 100)
     n_val = int(val_percent * len(data) / 100)
@@ -102,12 +157,30 @@ def split_data(data, train_percent, test_percent, val_percent=None, shuffle=True
     train_data = data[:n_train]
     test_data = data[n_train:n_train + n_test]
     val_data = data[n_train + n_test:]
+
     return train_data, test_data, val_data
 
 # Runs a KMeans model with the given inputs and prints statistics
 def run_k_means_model(k, train_data, seed=None, init_method="kmeans", print_op=True):
+    """
+        Runs a KMeans model with the given inputs and prints statistics
+
+        Parameters
+        ==========
+            k (int): Number of clusters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            seed (int): Seed for shuffling
+            init_method (str): Method to initialize the centroids (kmeans or kmeans++)
+            print_op (bool): Whether to print the statistics or not
+
+        Returns
+        =======
+            k_means_model (KMeans): The trained KMeans model
+    """
     k_means_model = KMeans(k, init_method=init_method)
     k_means_model.load_data(train_data)
+
+    # Fitting the model and recording time taken to fit along with the number of epochs taken
     start_time = time.time()
     epochs_taken = k_means_model.fit(seed)
     end_time = time.time()
@@ -119,9 +192,24 @@ def run_k_means_model(k, train_data, seed=None, init_method="kmeans", print_op=T
         print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
     return k_means_model
 
-# Implements the KMeans algorithm for 3.1 and 3.2
-def k_means_elbow_method(train_data, save_as, max_k=15, init_method="kmeans"):
-    # 3.2
+# Runs KMeans model for different k values and plots the elbow plot
+def draw_elbow_plot(train_data, save_as, max_k=15, init_method="kmeans", seed=None):
+    """
+        Draws the elbow plot for the given data
+
+        Parameters
+        ==========
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            save_as (str): Name to save the plot
+            max_k (int): Maximum value of k to consider
+            init_method (str): Method to initialize the centroids
+            seed (int): Seed for shuffling
+        
+        Returns
+        =======
+            None
+    """
+
     '''
         Source: https://www.analyticsvidhya.com/blog/2021/01/in-depth-intuition-of-k-means-clustering-algorithm-in-machine-learning/
 
@@ -129,11 +217,13 @@ def k_means_elbow_method(train_data, save_as, max_k=15, init_method="kmeans"):
         especially for those with high dimensionality or clusters of irregular shapes.
         Hence if you see the graph it is very difficult to identify the elbow point.
     '''
+
+    # For each value of k, run the KMeans model and store the final cost (WCSS)
     k_arr = range(1, max_k + 1)
     final_cost_arr = []
     for k in k_arr:
         print(f"{BLUE}k = {k}{RESET}")
-        trained_k_means_model = run_k_means_model(k, train_data, seed=None, init_method=init_method)
+        trained_k_means_model = run_k_means_model(k, train_data, seed=seed, init_method=init_method)
         final_cost_arr.append(round(trained_k_means_model.getCost(), 5))
 
     # Plotting k vs final cost
@@ -141,79 +231,127 @@ def k_means_elbow_method(train_data, save_as, max_k=15, init_method="kmeans"):
     plt.plot(k_arr, final_cost_arr, 'o-')
     plt.xlabel('k')
     plt.ylabel('Final WCSS Cost')
-    # plt.ylim(bottom=0)
     plt.title('k vs Final WCSS Cost')
+    plt.grid(True)
     plt.savefig(f'./assignments/2/figures/k_means/{save_as}.png')
     print(f"{GREEN}{save_as} plot saved{RESET}\n")
     plt.close()
 
-# Runs a GMM model with the given inputs and prints statistics
-def run_gmm_model(k, train_data):
-    gmm_model = GMM(k)
-    gmm_model.load_data(train_data)
-    start_time = time.time()
-    epochs_taken = gmm_model.fit()
-    end_time = time.time()
-    print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
-    print(f"\t{GREEN}Epochs taken to fit: {epochs_taken}{RESET}")
-    overall_likelihood = round(gmm_model.getLikelihood(), 5)
-    print(f"\t{GREEN}Final Likelihood: {overall_likelihood}{RESET}")
-    print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
-    return gmm_model
+# Runs a scikit learn GMM model with the given inputs and prints statistics
+def run_gmm_model(k, train_data, seed=None, model_type="sklearn"):
+    if model_type == "sklearn":
+        if seed is None:
+            gmm_model = GaussianMixture(k)
+        else:
+            gmm_model = GaussianMixture(k, random_state=seed)
+        start_time = time.time()
+        gmm_model.fit(train_data)
+        gmm_model.predict(train_data)
+        end_time = time.time()
+        print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
+        overall_log_likelihood = round(gmm_model.score(train_data) * train_data.shape[0], 5)
+        print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
+        print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+        return gmm_model
+    else:
+        gmm_model = GMM(k, seed)
+        gmm_model.load_data(train_data)
+        start_time = time.time()
+        gmm_model.fit()
+        end_time = time.time()
+        print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
+        overall_log_likelihood = round(gmm_model.get_log_likelihood(), 5)
+        print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
+        print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+        return gmm_model
 
-# Implements the GMM algorithm for 4.1 and 4.2
-def gmm_aic_bic_method(max_k, train_data, save_as):
-    # 4.2
-    '''
-        Source: https://www.youtube.com/watch?v=4al2LfJz6Q8
-    '''
+# Implements AIB and BIC graph for scikit-learn GMM
+def gmm_aic_bic_method(max_k, train_data, save_as, seed=None, model_type="sklearn"):
+    """
+        Implements AIB and BIC graph for GMM
+
+        Parameters
+        ==========
+            max_k (int): Maximum value of k to consider
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            save_as (str): Name to save the plot
+            seed (int): Seed for shuffling
+            model_type (str): Type of model to use (sklearn or custom)
+        
+        Returns
+        =======
+            None
+    """
+
+    # Running GMM model for different k values and storing AIC and BIC values
     k_arr = range(1, max_k + 1)
     aic_arr = []
     bic_arr = []
     for k in k_arr:
-        print(f"{BLUE}k = {k}{RESET}")
-        trained_gmm_model = run_gmm_model(k, train_data)
-        overall_likelihood = round(trained_gmm_model.getLikelihood(), 5)
-        aic = (2 * k) - (2 * np.log(overall_likelihood + 1e-10))
-        bic = (k * np.log(train_data.shape[0] + 1e-10)) - (2 * np.log(overall_likelihood + 1e-10))
-        aic_arr.append(round(aic, 5))
-        bic_arr.append(round(bic, 5))
+        print(f"{BLUE}k = {k}{RESET}") 
+        trained_gmm_model = run_gmm_model(k, train_data, seed, model_type)
+        if model_type == "sklearn":
+            aic_arr.append(trained_gmm_model.aic(train_data))
+            bic_arr.append(trained_gmm_model.bic(train_data))
+        else:
+            overall_log_likelihood = trained_gmm_model.get_log_likelihood()
+            aic = (2 * k) - (2 * overall_log_likelihood)
+            bic = (k * np.log(train_data.shape[0])) - (2 * overall_log_likelihood)
+            aic_arr.append(aic)
+            bic_arr.append(bic)
 
     # Plotting k vs aic and bic
     plt.figure(figsize=(10, 6))
     plt.plot(k_arr, aic_arr, 'o-', label='AIC', color='red')
     plt.plot(k_arr, bic_arr, 'o-', label='BIC', color='blue')
     plt.xlabel('k')
+    plt.grid(True)
     plt.ylabel('AIC/BIC')
-    # plt.ylim(bottom=0)
+    plt.legend()
     plt.title('k vs AIC/BIC')
     plt.savefig(f'./assignments/2/figures/gmm/{save_as}.png')
     print(f"{GREEN}{save_as} plot saved{RESET}\n")
     plt.close()
 
-# Implements the PCA algorithm for 5.1, 5.2 and 5.3
-def pca(n_components, data):
+# Implements the PCA algorithm
+def run_pca_model(n_components, data):
+    """
+        Implements the PCA algorithm and plots the transformed data for 2 and 3 components
+
+        Parameters
+        ==========
+            n_components (int): Number of components to reduce to
+            data[n_points, n_features] (numpy array): Data to fit the model
+
+        Returns
+        =======
+            transformed_data[n_points, n_components] (numpy array): Transformed data
+    """
+    # Running PCA model
     pca_model = PCA(n_components)
     pca_model.load_data(data)
     pca_model.fit()
+    # Transforming the data
     transformed_data = pca_model.transform()
+
+    # Checking if PCA transformation was successful
     if pca_model.checkPCA():
         print(f"{GREEN}PCA transformation for {n_components} components successful{RESET}")
     else:
         print(f"{RED}PCA transformation for {n_components} unsuccessful{RESET}")
         return
+    
+    # Plotting the transformed data
     if n_components == 2:
-        # Plotting the transformed data
         plt.scatter(transformed_data[:, 0], transformed_data[:, 1])
         plt.xlabel('Principal Component 1')
         plt.ylabel('Principal Component 2')
         plt.title('Principal Component Analysis')
-        # plt.show()
         plt.savefig('./assignments/2/figures/pca/pca_2.png')
         print(f"{GREEN}PCA plot saved{RESET}\n")
         plt.close()
+
     elif n_components == 3:
-        # Plotting the transformed data
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
         ax.scatter(transformed_data[:, 0], transformed_data[:, 1], transformed_data[:, 2])
@@ -221,22 +359,49 @@ def pca(n_components, data):
         ax.set_ylabel('Principal Component 2')
         ax.set_zlabel('Principal Component 3')
         plt.title('Principal Component Analysis')
-        # plt.show()
         plt.savefig('./assignments/2/figures/pca/pca_3.png')
         print(f"{GREEN}PCA plot saved{RESET}\n")
         plt.close()
+    return transformed_data
 
-# Plots scree plot for deciding optimal number of dimensions for PCA
+# Plots scree plot and cumulative scree plot for deciding optimal number of dimensions for PCA
 def draw_scree_plot(train_data, save_as):
+    """
+        Plots scree plot and cumulative scree plot for deciding optimal number of dimensions for PCA
+
+        Parameters
+        ==========
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            save_as (str): Name to save the plot
+
+        Returns
+        =======
+            None
+    """
+    # Running PCA model
     pca_model = PCA()
-    pca_model.load_data(train_data)
-    eigenvalues, eigenvectors = pca_model.get_eigenvalues_eigenvectors()
-    max_val = 21
+    pca_model.load_data(train_data) 
+    eigenvalues, eigenvectors = pca_model.get_eigenvalues_eigenvectors() # Gets all the eigenvalues and eigenvectors
+    max_val = 21                                           # Max number of principal components to consider for plotting
+    fig, axes = plt.subplots(1, 2, figsize=(15, 6))
     x_axis = range(1, len(eigenvalues) + 1)
-    plt.plot(x_axis[:max_val], eigenvalues[:max_val], 'o-')
-    plt.xlabel('Principal Component')
-    plt.ylabel('Eigenvalue')
-    plt.title('Scree Plot')
+    # Plotting the scree plot
+    axes[0].plot(x_axis[:max_val], eigenvalues[:max_val], 'o-', color='red')
+    axes[0].set_xlabel('Principal Component')
+    axes[0].set_ylabel('Eigenvalue')
+    axes[0].set_title('Scree Plot')
+
+    # Plotting cumulative eigenvalue plot
+    total_sum = sum(eigenvalues)
+    x_axis = range(1, len(eigenvalues) + 1)
+    y_axis = [total_sum]
+    for eigenvalue in eigenvalues[:-1:]:
+        y_axis.append(total_sum - eigenvalue)
+        total_sum -= eigenvalue
+    axes[1].plot(x_axis[:max_val], y_axis[:max_val], 'o-', color='blue')
+    axes[1].set_xlabel('Principal Component')
+    axes[1].set_ylabel('Cumulative Eigenvalue')
+    axes[1].set_title('Cumulative Scree Plot')
     plt.savefig(f'./assignments/2/figures/{save_as}')
     print(f"{GREEN}Scree plot saved{RESET}\n")
 
@@ -280,10 +445,6 @@ def preprocess_spotify_dataset(data, preprocessed_data_file_path):
     # Remove duplicate songs in multiple albums
     data = data.drop_duplicates("track_name")
 
-    # Removing unnecessary columns and non-numeric columns
-    unnecessary_cols = ["index", "track_id", "album_name", "artists", "track_name", "explicit", "track_genre"]
-    data = data.drop(columns=unnecessary_cols)
-
     # Z-score normalization
     cols_to_normalise = ["popularity", "duration_ms", "danceability", "energy", "key", "loudness", "speechiness", "acousticness", "instrumentalness", "liveness", "valence", "tempo"]
     for col in cols_to_normalise:
@@ -291,150 +452,376 @@ def preprocess_spotify_dataset(data, preprocessed_data_file_path):
         std = data[col].std()
         data[col] = (data[col] - mean) / std
 
+    # Removing unnecessary columns and non-numeric columns
+    data2 = data.copy()
+    unnecessary_cols = ["index", "track_id", "album_name", "artists", "track_name", "explicit"]
+    data_with_track_genre = data2.drop(columns=unnecessary_cols)
+
+    unnecessary_cols = ["index", "track_id", "album_name", "artists", "track_name", "explicit", "track_genre"]
+    data_without_track_genre = data.drop(columns=unnecessary_cols)
+
     # Storing the preprocessed data for future use
-    data.to_csv(preprocessed_data_file_path, index=False)
-    return data
+    data_with_track_genre.to_csv(preprocessed_data_file_path+"_with_track_genre.csv", index=False)
+    data_without_track_genre.to_csv(preprocessed_data_file_path+"_without_track_genre.csv", index=False)
+
+    return data_with_track_genre, data_without_track_genre
+
+def spotify_dataset():
+    # ------------------------- 9.1 + 9.2 - PCA + KNN + Evaluation ------------------------
+    try:
+        # Checking if preprocessed data is already present
+        spotify_data_with_track_genre = pd.read_csv(spotify_data_params["preprocessed_file_path"] + "_with_track_genre.csv", quotechar='"')
+        spotify_data_without_track_genre = pd.read_csv(spotify_data_params["preprocessed_file_path"] + "_without_track_genre.csv", quotechar='"')
+    except FileNotFoundError:
+        spotify_data = pd.read_csv(spotify_data_params["file_path"], quotechar='"')
+        spotify_data_with_track_genre, spotify_data_without_track_genre = preprocess_spotify_dataset(spotify_data, spotify_data_params["preprocessed_file_path"])
+    
+    header_with_track_genre = spotify_data_with_track_genre.columns.tolist()
+    header_without_track_genre = spotify_data_without_track_genre.columns.tolist()
+
+    spotify_data_with_track_genre = spotify_data_with_track_genre.to_numpy()
+    spotify_data_without_track_genre = spotify_data_without_track_genre.to_numpy()
+    draw_scree_plot(spotify_data_without_track_genre, save_as="spotify_dataset/scree_plot_9_1.png")
+
+    # Dimentionality reduction based on the optimal number of dimensions determined above
+    print(f"{MAGENTA}spotify_n_components = {spotify_data_params['pca_n_components']}{RESET}\n") # On interpreting the scree plot for the spotify dataset we identify the optimal number of dimensions
+    reduced_dataset_header_without_track_genre = [f"component_{i + 1}" for i in range(spotify_data_params["pca_n_components"])]
+    reduced_dataset_header_with_track_genre = reduced_dataset_header_without_track_genre.copy()
+    reduced_dataset_header_with_track_genre.append(header_with_track_genre[-1])
+
+    pca_model_spotify = PCA(spotify_data_params["pca_n_components"])
+    pca_model_spotify.load_data(spotify_data_without_track_genre)
+    pca_model_spotify.fit()
+    reduced_dataset_spotify_without_track_genre = pca_model_spotify.transform()
+    print(f"{GREEN}Dataset reduced to {spotify_data_params['pca_n_components']} dimensions{RESET}")
+
+    # Associating reduced dataset with corresponding labels
+    reduced_dataset_spotify_with_track_genre = np.hstack((reduced_dataset_spotify_without_track_genre, spotify_data_with_track_genre[:, -1:]))
+
+    # Running KNN model on the reduced dataset
+    train_data, test_data, val_data = split_data(reduced_dataset_spotify_with_track_genre, 80, 10, shuffle=True)
+    knn_model = KNN(spotify_data_params["best_k_spotify"], spotify_data_params["best_distance_metric_spotify"])
+    knn_model.load_train_test_val_data(reduced_dataset_header_with_track_genre, train_data, test_data, val_data)
+    knn_model.set_predict_var("track_genre")
+    knn_model.use_for_prediction(reduced_dataset_header_without_track_genre)
+    start_time = time.time()
+    knn_model.fit()
+    knn_model.predict("validation")
+    metrics = knn_model.get_metrics()
+    end_time = time.time()
+    time_diff = end_time - start_time
+
+    # Printing metrics
+    print(f"""
+    {BLUE}k = {spotify_data_params["best_k_spotify"]}, Distance Metric = {spotify_data_params["best_distance_metric_spotify"]}
+    Validation Metrics for Reduced Spotify Dataset{RESET}\n
+                {GREEN}Accuracy:        {round(metrics['accuracy'] * 100, 3)}%\n
+                Precision
+                        Macro:  {metrics['macro_precision']}    
+                        Micro:  {metrics['micro_precision']}\n
+                Recall 
+                        Macro:   {metrics['macro_recall']}
+                        Micro:   {metrics['micro_recall']}\n
+                F1 Score
+                        Macro:   {metrics['macro_f1_score']}
+                        Micro:   {metrics['micro_f1_score']}\n
+    Time taken: {round(time_diff, 4)} seconds
+    ---------------------------------------------------------------------{RESET}\n""")
+    reduced_dataset_time = round(time_diff, 4)
+
+    # Running KNN model on the complete dataset
+    train_data, test_data, val_data = split_data(spotify_data_with_track_genre, 80, 10, shuffle=True)
+    knn_model = KNN(spotify_data_params["best_k_spotify"], spotify_data_params["best_distance_metric_spotify"])
+    knn_model.load_train_test_val_data(header_with_track_genre, train_data, test_data, val_data)
+    knn_model.set_predict_var("track_genre")
+    knn_model.use_for_prediction(header_without_track_genre)
+    start_time = time.time()
+    knn_model.fit()
+    knn_model.predict("validation")
+    metrics = knn_model.get_metrics()
+    end_time = time.time()
+    time_diff = end_time - start_time
+
+    # Printing metrics
+    print(f"""
+    {BLUE}k = {spotify_data_params["best_k_spotify"]}, Distance Metric = {spotify_data_params["best_distance_metric_spotify"]}
+    Validation Metrics for Complete Spotify Dataset{RESET}\n
+                {GREEN}Accuracy:        {round(metrics['accuracy'] * 100, 3)}%\n
+                Precision
+                        Macro:  {metrics['macro_precision']}    
+                        Micro:  {metrics['micro_precision']}\n
+                Recall 
+                        Macro:   {metrics['macro_recall']}
+                        Micro:   {metrics['micro_recall']}\n
+                F1 Score
+                        Macro:   {metrics['macro_f1_score']}
+                        Micro:   {metrics['micro_f1_score']}\n
+    Time taken: {round(time_diff, 4)} seconds
+    ---------------------------------------------------------------------{RESET}\n""")
+    complete_dataset_time = round(time_diff, 4)
+
+    # Plotting the inference time comparison
+    x_axis = ["Reduced Dataset", "Complete Dataset"]
+    y_axis = [reduced_dataset_time, complete_dataset_time]
+    plt.figure(figsize=(10, 6))
+    plt.bar(x_axis, y_axis)
+    plt.xlabel('Dataset')
+    plt.ylabel('Inference Time (s)')
+    plt.title('Inference Time Comparison')
+    plt.savefig('./assignments/2/figures/spotify_dataset/inference_time_comparison.png')
+    print(f"{GREEN}Inference Time Comparison plot saved{RESET}\n")
+
+def hierarchical_clustering(params, original_data, train_data):
+    # Single linkage: based on the minimum distance between points in the clusters
+    plot_dendrogram(params["type"], original_data, train_data, method='single', save_as='dendrogram_single')
+
+    # Complete linkage: based on the maximum distance between points in the clusters
+    plot_dendrogram(params["type"], original_data, train_data, method='complete', save_as='dendrogram_complete')
+
+    # Average linkage: based on the average distance between all points in the clusters
+    plot_dendrogram(params["type"], original_data, train_data, method='average', save_as='dendrogram_average')
+
+    # Ward method: minimizes the total variance within clusters (sum of squared differences)
+    plot_dendrogram(params["type"], original_data, train_data, method='ward', save_as='dendrogram_ward')
+
+    # Centroid linkage: based on the distance between the centroids (means) of the clusters
+    plot_dendrogram(params["type"], original_data, train_data, method='centroid', save_as='dendrogram_centroid')
+
+    # Median linkage: similar to centroid, but uses the median rather than the mean
+    plot_dendrogram(params["type"], original_data, train_data, method='median', save_as='dendrogram_median')
+
+    # On interpreting the dendrograms we identify the best linkage method
+    print(f"{MAGENTA}Linkage = {params["linkage"]}{RESET}\n")
+
+    Z = hc.linkage(train_data, method=params["linkage"], metric='euclidean')
+    # For kbest1 (K-Means)
+    clusters_kbest1 = hc.fcluster(Z, t=params["k_best1"], criterion='maxclust')
+
+    # For kbest2 (GMM)
+    clusters_kbest2 = hc.fcluster(Z, t=params["k_best2"], criterion='maxclust')
+
+    clustered_values_kbest1 = get_cluster_values(params["k_best1"], clusters_kbest1, original_data, params["label_idx"])
+    clustered_values_kbest2 = get_cluster_values(params["k_best2"], clusters_kbest2, original_data, params["label_idx"])
+    
+    print(f"{BLUE}Clustered labels for k_best1 = {params["k_best1"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_kbest1):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+
+    print(f"{BLUE}Clustered labels for k_best2 = {params["k_best2"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_kbest2):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+
+def draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as):
+    """
+        Draws the loading plot for PCA
+
+        Parameters
+        ==========
+            original_data[n_points, n_features] (numpy array): Original data
+            transformed_data[n_points, n_components] (numpy array): Transformed data
+        
+        Returns
+        =======
+            None
+    """
+    fig, axes = plt.subplots(transformed_data.shape[1], 1, figsize=(15, 8))
+
+    for component_idx in range(transformed_data.shape[1]):
+        axes[component_idx].scatter(transformed_data[:, component_idx], np.zeros_like(transformed_data[:, component_idx]), color='blue', s=2)
+        for data_point_idx, data_point in enumerate(transformed_data):
+            label = original_data[data_point_idx][0]
+            axes[component_idx].text(data_point[component_idx], 0, label, rotation=90, fontsize=6)
+        axes[component_idx].set_xlabel(f'Principal Component {component_idx + 1}')
+    plt.savefig(f'./assignments/2/figures/pca/{save_as}.png')
+    plt.close()
+    print(f"{GREEN}{save_as} plot saved{RESET}\n")
+
+# Runs PCA to reduce the dimensions to 2 and 3 for visual analysis
+def pca(original_data, train_data):
+    """
+        Runs PCA to reduce the dimensions to 2 and 3 for visual analysis and determining the value of k2
+
+        Parameters
+        ==========
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+
+        Returns
+        =======
+            None
+    """
+    n_components = 2
+    transformed_data = run_pca_model(n_components, train_data)
+    draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as="component_wise_labelled_scatter_plot_2")
+
+    n_components = 3
+    transformed_data = run_pca_model(n_components, train_data)
+    draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as="component_wise_labelled_scatter_plot_3")
+
+def k_means(params, train_data):
+    """
+        Implements the KMeans algorithm, draws elbow plot and decides value for k_kmeans1
+
+        Parameters
+        ==========
+            params (dict): Dictionary containing all the parameters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+
+        Returns
+        =======
+            None
+    """
+    # Drawing the elbow plot
+    draw_elbow_plot(train_data, save_as="elbow_plot_full_dataset", max_k=params["max_k"], init_method=params["init_method"], seed=params["seed"])
+
+    # On interpreting the elbow plot we identify the value of k_kmeans1
+    print(f"{MAGENTA}Inferred value of k_kmeans1 = {params["k_kmeans1"]}{RESET}\n")
+
+    # Running the KMeans model with the value of k_kmeans1
+    print(f"{BLUE}KMeans with k = {params["k_kmeans1"]}{RESET}")
+    run_k_means_model(params["k_kmeans1"], train_data, seed=params["seed"], init_method=params["init_method"])
+
+def k_means_cluster_analysis(params, train_data, original_data):
+    trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False)
+    clustered_values_k_kmeans1 = get_cluster_values(params["k_kmeans1"], trained_model_k_kmeans1.cluster_labels, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k = {params["k_kmeans1"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_k_kmeans1):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+
+    print("------------------------------------------------------------------------------------------------------")
+
+    trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False)
+    clustered_values_k2 = get_cluster_values(params["k2"], trained_model_k2.cluster_labels, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k = {params["k2"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_k2):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+
+    print("------------------------------------------------------------------------------------------------------")
+
+    trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False)
+    clustered_values_k_kmeans3 = get_cluster_values(params["k_kmeans3"], trained_model_k_kmeans3.cluster_labels, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k = {params["k_kmeans3"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_k_kmeans3):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+
+    x_axis = [f"k_kmeans1 = {params["k_kmeans1"]}", f"k2 = {params["k2"]}", f"k_kmeans3 = {params["k_kmeans3"]}"]
+    y_axis = [trained_model_k_kmeans1.getCost(), trained_model_k2.getCost(), trained_model_k_kmeans3.getCost()]
+    plt.figure(figsize=(10, 6))
+    plt.plot(x_axis, y_axis)
+    plt.xlabel('k')
+    plt.ylabel('Final WCSS Cost')
+    plt.title('k vs Final WCSS Cost')
+    plt.savefig('./assignments/2/figures/k_means/k_vs_final_cost_7.1.png')
+    print(f"{GREEN}k vs Final WCSS Cost plot saved{RESET}\n")
+
+    # On interpreting the clusters we identify the value of k_kmeans
+    print(f"{MAGENTA}k_kmeans = {params["k_kmeans"]}{RESET}\n")
 
 if __name__ == "__main__":
     params = original_data_params
 
+    # Original Data contains label column as well and Preprocessed Data does not contain the label column
     original_data, preprocessed_data = read_data(params["data_path"])
+    # Data Splitting
     train_data, test_data, val_data = split_data(preprocessed_data, params["train_percent"], params["test_percent"], shuffle=params["shuffle"])
 
-    # # --------------------------- 3.1 & 3.2 ---------------------------
-    # k_means_elbow_method(train_data, save_as="k_vs_final_cost_3.2", max_k=params["max_k"], init_method=params["init_method"])
-    # print(f"{MAGENTA}k_kmeans1 = {params["k_kmeans1"]}{RESET}\n")
-    # print(f"{BLUE}For 3.2 with k = {params["k_kmeans1"]}{RESET}")
-    # run_k_means_model(params["k_kmeans1"], train_data, seed=params["seed"], init_method=params["init_method"])
+    # =================================================================
+    #                           3.1 & 3.2   
+    # =================================================================
+    # k_means(params, train_data)
 
-    # # # --------------------------- 4.1 & 4.2 ---------------------------
-    # # gmm_aic_bic_method(params["max_k"], train_data, save_as="k_vs_aic_bic_4.2")
+    # =================================================================
+    #                           4.1 & 4.2   
+    # =================================================================
+    # try:
+    #     print("Running my GMM class for arbitrary value of k")
+    #     raise(ValueError)
+    #     gmm_model = GMM(10)
+    #     gmm_model.load_data(train_data)
+    #     gmm_model.fit()
+    #     overall_log_likelihood = gmm_model.get_log_likelihood()
 
-    # # ------------------------- 5.1, 5.2 & 5.3 ------------------------
-    # n_components = 2
-    # pca(n_components, train_data)
+    #     print(f"{GREEN}My GMM Class worked{RESET}")
+    #     print("Plotting AIC BIC graph using my GMM Class\n")
 
-    # n_components = 3
-    # pca(n_components, train_data)
+    #     gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_my_class", seed=params["seed"], model_type="my")
 
-    # # ------------------------- 6.1 - Performing KMeans clustering with k = k2 -------------------------
-    # print(f"{MAGENTA}k2 = {params["k2"]}{RESET}\n")
-    # print(f"{BLUE}For 6.1 with k = {params["k2"]}{RESET}\n")
+    #     print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
+        
+    #     print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
+    #     trained_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"])
+    # except ValueError:
+    #     print(f"{RED}My GMM Class did not work, so now using sklearn GMM class{RESET}")
+
+    #     print("Running my GMM class for arbitrary value of k")
+    #     gmm_model = GaussianMixture(10)
+    #     gmm_model.fit(train_data)
+    #     gmm_model.predict(train_data)
+    #     overall_log_likelihood = gmm_model.score(train_data) * train_data.shape[0]
+
+    #     print(f"{GREEN}sklearn GMM Class worked{RESET}")
+    #     print("Plotting AIC BIC graph using sklearn GMM Class\n")
+
+    #     gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_sklearn_class", seed=params["seed"], model_type="sklearn")
+
+    #     # Lower values of AIC and BIC are better
+    #     print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
+
+    #     print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
+    #     trained_sklearn_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"], model_type="sklearn")
+
+    # =================================================================
+    #                         5.1, 5.2 & 5.3   
+    # =================================================================
+    # pca(original_data, train_data)
+
+    # print(f"{MAGENTA}Inferred value of k2 = {params["k2"]}{RESET}\n")
+
+    # =================================================================
+    #          6.1 & 6.2 - Scree plot, reduced dataset, k_kmeans3
+    # =================================================================
+    # print(f"{BLUE}KMeans with k = {params["k2"]}{RESET}\n")
     # run_k_means_model(params["k2"], train_data, seed=params["seed"], init_method=params["init_method"])
 
-    # # ------------------------- 6.2 - Scree plot, reduced dataset k_kmeans3, clustering with k = k_kmeans3 -------------------------
-    # print(f"{BLUE}For 6.2{RESET}\n")
     # # Scree Plot
-    # draw_scree_plot(train_data, save_as="pca/scree_plot_6_2.png")
+    # draw_scree_plot(train_data, save_as="pca/scree_plot_full_dataset.png")
 
     # # Reducing the dataset to the optimal dimensions
-    # print(f"{MAGENTA}op_dim = {params["op_dim"]}{RESET}\n")
+    # print(f"{MAGENTA}Inferred value of op_dim = {params["op_dim"]}{RESET}\n")
+
     # pca_model = PCA(params["op_dim"])
     # pca_model.load_data(train_data)
     # pca_model.fit()
     # reduced_dataset = pca_model.transform()
     # print(f"{GREEN}Dataset reduced to {params["op_dim"]} dimensions{RESET}")
 
-    # # Finding the optimal number of clusters for the reduced dataset
-    # k_means_elbow_method(reduced_dataset, save_as="k_vs_final_cost_6.2", max_k=params["max_k"], init_method=params["init_method"])
-    # print(f"{MAGENTA}k_kmeans3 = {params["k_kmeans3"]}{RESET}\n")
-    # print(f"{BLUE}For 6.2 with k = {params["k_kmeans3"]}{RESET}\n")
+    # # Elbow plot for reduced dataset to find optimal number of clusters from reduced dataset
+    # draw_elbow_plot(reduced_dataset, save_as="elbow_point_reduced_dataset", max_k=params["max_k"], init_method=params["init_method"])
+
+    # print(f"{MAGENTA}Inferred value of k_kmeans3 = {params["k_kmeans3"]}{RESET}\n")
+    # print(f"{BLUE}KMeans with k = {params["k_kmeans3"]}{RESET}\n")
     # run_k_means_model(params["k_kmeans3"], reduced_dataset, seed=params["seed"], init_method=params["init_method"])
 
+    # print(f"{BLUE}GMM using k = {params["k2"]}{RESET}")
+    # # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="my")
+    # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="sklearn")
+
+    # gmm_aic_bic_method(params["max_k"], reduced_dataset, save_as="aic_bic_plot_reduced_dataset", seed=params["seed"], model_type="sklearn")
+    # print(f"{MAGENTA}Inferred value of k_gmm3 = {params["k_gmm3"]}{RESET}\n")
+
+    # print(f"{BLUE}GMM with k = {params["k_gmm3"]}{RESET}\n")
+    # # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
+    # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
+
     # # ------------------------- 7.1 - K-means cluster analysis -------------------------
-    # trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False)
-    # clustered_values_k_kmeans1 = get_cluster_values(params["k_kmeans1"], trained_model_k_kmeans1.cluster_labels, original_data, params["label_idx"])
-    # print(f"{BLUE}Clustered labels for k = {params["k_kmeans1"]}{RESET}")
-    # for cluster_idx, cluster in enumerate(clustered_values_k_kmeans1):
-    #     print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
-    #     print(f"{cluster}\n")
-
-    # print("------------------------------------------------------------------------------------------------------")
-
-    # trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False)
-    # clustered_values_k2 = get_cluster_values(params["k2"], trained_model_k2.cluster_labels, original_data, params["label_idx"])
-    # print(f"{BLUE}Clustered labels for k = {params["k2"]}{RESET}")
-    # for cluster_idx, cluster in enumerate(clustered_values_k2):
-    #     print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
-    #     print(f"{cluster}\n")
-
-    # print("------------------------------------------------------------------------------------------------------")
-
-    # trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False)
-    # clustered_values_k_kmeans3 = get_cluster_values(params["k_kmeans3"], trained_model_k_kmeans3.cluster_labels, original_data, params["label_idx"])
-    # print(f"{BLUE}Clustered labels for k = {params["k_kmeans3"]}{RESET}")
-    # for cluster_idx, cluster in enumerate(clustered_values_k_kmeans3):
-    #     print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
-    #     print(f"{cluster}\n")
-
-    # x_axis = [f"k_kmeans1 = {params["k_kmeans1"]}", f"k2 = {params["k2"]}", f"k_kmeans3 = {params["k_kmeans3"]}"]
-    # y_axis = [trained_model_k_kmeans1.getCost(), trained_model_k2.getCost(), trained_model_k_kmeans3.getCost()]
-    # plt.figure(figsize=(10, 6))
-    # plt.plot(x_axis, y_axis)
-    # plt.xlabel('k')
-    # plt.ylabel('Final WCSS Cost')
-    # plt.title('k vs Final WCSS Cost')
-    # plt.savefig('./assignments/2/figures/k_means/k_vs_final_cost_7.1.png')
-    # print(f"{GREEN}k vs Final WCSS Cost plot saved{RESET}\n")
-
-    # # On interpreting the clusters we identify the value of k_kmeans
-    # print(f"{MAGENTA}k_kmeans = {params["k_kmeans"]}{RESET}\n")
+    k_means_cluster_analysis(params, train_data, original_data)
 
     # # ------------------------- 8 - Hierarchical Clustering ------------------------
-    # # Single linkage: based on the minimum distance between points in the clusters
-    # plot_dendrogram(params["type"], original_data, train_data, method='single', save_as='dendrogram_single')
+    # hierarchical_clustering(params, original_data, train_data)
 
-    # # Complete linkage: based on the maximum distance between points in the clusters
-    # plot_dendrogram(params["type"], original_data, train_data, method='complete', save_as='dendrogram_complete')
-
-    # # Average linkage: based on the average distance between all points in the clusters
-    # plot_dendrogram(params["type"], original_data, train_data, method='average', save_as='dendrogram_average')
-
-    # # Ward method: minimizes the total variance within clusters (sum of squared differences)
-    # plot_dendrogram(params["type"], original_data, train_data, method='ward', save_as='dendrogram_ward')
-
-    # # Centroid linkage: based on the distance between the centroids (means) of the clusters
-    # plot_dendrogram(params["type"], original_data, train_data, method='centroid', save_as='dendrogram_centroid')
-
-    # # Median linkage: similar to centroid, but uses the median rather than the mean
-    # plot_dendrogram(params["type"], original_data, train_data, method='median', save_as='dendrogram_median')
-
-    # # On interpreting the dendrograms we identify the best linkage method
-    # print(f"{MAGENTA}Linkage = {params["linkage"]}{RESET}\n")
-
-    # Z = hc.linkage(train_data, method=params["linkage"], metric='euclidean')
-    # # For kbest1 (K-Means)
-    # clusters_kbest1 = hc.fcluster(Z, t=params["k_best1"], criterion='maxclust')
-
-    # # For kbest2 (GMM)
-    # clusters_kbest2 = hc.fcluster(Z, t=params["k_best2"], criterion='maxclust')
-
-    # clustered_values_kbest1 = get_cluster_values(params["k_best1"], clusters_kbest1, original_data, params["label_idx"])
-    # clustered_values_kbest2 = get_cluster_values(params["k_best2"], clusters_kbest2, original_data, params["label_idx"])
-    
-    # print(f"{BLUE}Clustered labels for k_best1 = {params["k_best1"]}{RESET}")
-    # for cluster_idx, cluster in enumerate(clustered_values_kbest1):
-    #     print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
-    #     print(f"{cluster}\n")
-
-    # print(f"{BLUE}Clustered labels for k_best2 = {params["k_best2"]}{RESET}")
-    # for cluster_idx, cluster in enumerate(clustered_values_kbest1):
-    #     print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
-    #     print(f"{cluster}\n")
-
-    # ------------------------- 9 - Spotify Dataset ------------------------
-    # ------------------------- 9.1 - PCA + KNN ------------------------
-    # Dataset 1 - spotify.csv
-    spotify_data_file_path = './data/external/spotify.csv' 
-    spotify_preprocessed_data_file_path = './data/interim/2/preprocessed_spotify.csv'
-    # Some data points have commas in them, so we need to use quotechar to read the file
-    # Source: https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
-    try:
-        # Checking if preprocessed data is already present
-        spotify_data = pd.read_csv(spotify_preprocessed_data_file_path, quotechar='"')
-    except FileNotFoundError:
-        spotify_data = pd.read_csv(spotify_data_file_path, quotechar='"')
-        spotify_data = preprocess_spotify_dataset(spotify_data, spotify_preprocessed_data_file_path)
-    headers = list(spotify_data.columns)
-    data = spotify_data.to_numpy()
-    draw_scree_plot(data, save_as="spotify_dataset/scree_plot_9_1.png")
+    # # ------------------------- 9 - Spotify Dataset ------------------------
+    # spotify_dataset()
