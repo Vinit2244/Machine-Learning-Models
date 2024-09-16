@@ -22,7 +22,7 @@ class KMeans:
     # Initialise random k cluster centers
     def initialise_clusters(self, seed=None):
         if seed is not None:
-                np.random.seed(seed)
+            random.seed(seed)
         
         if self.init_method == "kmeans": # K-Means
             # Selecting k random index between 0 and # of data points

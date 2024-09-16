@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import scipy.cluster.hierarchy as hc
 from sklearn.mixture import GaussianMixture
+from wordcloud import WordCloud
+from sklearn.metrics import silhouette_score
 
 # Colors for printing for better readability
 BLUE = "\033[34m"
@@ -43,9 +45,10 @@ test_data_params = {
     "k_gmm3":        3,         # Based on visual instpection AIC BIC plot on reduced dataset
     "label_idx":     2,         # Column Index of the label in the data
     "k_kmeans":      3,         # Based on interpreting the clustered labels deciding the number of clusters
+    "k_gmm":         3,         # Based on interpreting the clustered labels deciding the number of clusters
     "linkage":       "ward",    # Based on interpreting the dendrograms deciding the best linkage method
-    "k_best1":       3,
-    "k_best2":       3,
+    "k_best1":       3,         # == k_kmeans
+    "k_best2":       3,         # == k_gmm
 }
 
 original_data_params = {
@@ -67,9 +70,10 @@ original_data_params = {
     "k_gmm3":        4,         # Based on visual inspection of the AIC BIC plot on reduced dataset deciding the number of clusters
     "label_idx":     0,         # Column Index of the label in the data
     "k_kmeans":      5,         # Based on interpreting the clustered labels deciding the number of clusters
+    "k_gmm":         4,         # Based on interpreting the clustered labels deciding the number of clusters
     "linkage":       "ward",    # Based on interpreting the dendrograms deciding the best linkage method
-    "k_best1":       5,
-    "k_best2":       5,
+    "k_best1":       5,         # == k_kmeans
+    "k_best2":       4,         # == k_gmm
 }
 
 spotify_data_params = {
@@ -79,6 +83,44 @@ spotify_data_params = {
     "best_k_spotify" : 50,
     "best_distance_metric_spotify" : "manhattan",
 }
+
+# Plots the word cloud for the given clusters
+def plot_word_cloud(clusters, params, k=None, n_rows=2, n_cols=2, save_as="word_cloud", width=800, height=400, background_color='white', max_font_size=100, min_font_size=10, colormap='viridis', max_words=1000, collocations=False):
+    wordcloud = WordCloud(
+        width=width, height=height,
+        background_color=background_color,
+        max_font_size=max_font_size,
+        min_font_size=min_font_size,
+        colormap=colormap,
+        max_words=max_words,
+        collocations=collocations
+    )
+
+    if n_rows == 1 and n_cols == 1:
+        wordcloud.generate(' '.join(clusters[0]))
+        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.axis('off')
+        plt.title(f'Word Cloud for Cluster 1')
+        plt.savefig(f'./assignments/2/figures/{save_as}.png')
+        plt.close()
+        return
+
+    fig, axes = plt.subplots(n_rows, n_cols, figsize=(8, 7))
+
+    for cluster_idx, cluster in enumerate(clusters):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+        row_idx = cluster_idx // 2
+        col_idx = cluster_idx % 2
+        wordcloud.generate(' '.join(cluster))
+        axes[row_idx, col_idx].imshow(wordcloud, interpolation='bilinear')
+        axes[row_idx, col_idx].axis('off')
+        axes[row_idx, col_idx].set_title(f'\n\nCluster {cluster_idx + 1}')
+
+    plt.suptitle(f"Word Clouds for {k} = {params[k]} Clusters")
+    plt.tight_layout()
+    plt.savefig(f'./assignments/2/figures/{save_as}.png')
+    plt.close()
 
 # Reads the data from the given path and returns it as a numpy array after processing
 def read_data(data_path):
@@ -238,7 +280,7 @@ def draw_elbow_plot(train_data, save_as, max_k=15, init_method="kmeans", seed=No
     plt.close()
 
 # Runs a scikit learn GMM model with the given inputs and prints statistics
-def run_gmm_model(k, train_data, seed=None, model_type="sklearn"):
+def run_gmm_model(k, train_data, seed=None, model_type="sklearn", print_op=True):
     if model_type == "sklearn":
         if seed is None:
             gmm_model = GaussianMixture(k)
@@ -248,10 +290,11 @@ def run_gmm_model(k, train_data, seed=None, model_type="sklearn"):
         gmm_model.fit(train_data)
         gmm_model.predict(train_data)
         end_time = time.time()
-        print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
-        overall_log_likelihood = round(gmm_model.score(train_data) * train_data.shape[0], 5)
-        print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
-        print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+        if print_op:
+            print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
+            overall_log_likelihood = round(gmm_model.score(train_data) * train_data.shape[0], 5)
+            print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
+            print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
         return gmm_model
     else:
         gmm_model = GMM(k, seed)
@@ -259,10 +302,11 @@ def run_gmm_model(k, train_data, seed=None, model_type="sklearn"):
         start_time = time.time()
         gmm_model.fit()
         end_time = time.time()
-        print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
-        overall_log_likelihood = round(gmm_model.get_log_likelihood(), 5)
-        print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
-        print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+        if print_op:
+            print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
+            overall_log_likelihood = round(gmm_model.get_log_likelihood(), 5)
+            print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
+            print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
         return gmm_model
 
 # Implements AIB and BIC graph for scikit-learn GMM
@@ -423,15 +467,15 @@ def get_cluster_values(k, cluster_assignment, original_data, label_idx):
     return clusters
 
 # Plots the dendrogram for hierarchical clustering
-def plot_dendrogram(type, original_data, preprocessed_data, method, save_as):
-    Z = hc.linkage(preprocessed_data, method=method, metric="euclidean")
+def plot_dendrogram(type, original_data, preprocessed_data, method, metric, save_as):
+    Z = hc.linkage(preprocessed_data, method=method, metric=metric)
     if type == "original assignment data":
         custom_labels = original_data[:, 0].tolist()
     elif type == "test data":
         custom_labels = original_data[:, 2].tolist()
     fig = plt.figure(figsize=(25, 10))
     dn = hc.dendrogram(Z, labels=custom_labels)
-    plt.savefig(f'./assignments/2/figures/hierarchical/{save_as}.png')
+    plt.savefig(f'./assignments/2/figures/hierarchical_clustering/{save_as}.png')
     print(f"{GREEN}{save_as} plot saved{RESET}\n")
 
 # For preprocessing the spotify dataset
@@ -572,26 +616,18 @@ def spotify_dataset():
     print(f"{GREEN}Inference Time Comparison plot saved{RESET}\n")
 
 def hierarchical_clustering(params, original_data, train_data):
-    # Single linkage: based on the minimum distance between points in the clusters
-    plot_dendrogram(params["type"], original_data, train_data, method='single', save_as='dendrogram_single')
+    distance_metrics=['euclidean', 'cityblock', 'cosine'] # cityblock is same as manhattan distance metric
+    methods=['single', 'complete', 'average', 'ward', 'centroid', 'median']
 
-    # Complete linkage: based on the maximum distance between points in the clusters
-    plot_dendrogram(params["type"], original_data, train_data, method='complete', save_as='dendrogram_complete')
-
-    # Average linkage: based on the average distance between all points in the clusters
-    plot_dendrogram(params["type"], original_data, train_data, method='average', save_as='dendrogram_average')
-
-    # Ward method: minimizes the total variance within clusters (sum of squared differences)
-    plot_dendrogram(params["type"], original_data, train_data, method='ward', save_as='dendrogram_ward')
-
-    # Centroid linkage: based on the distance between the centroids (means) of the clusters
-    plot_dendrogram(params["type"], original_data, train_data, method='centroid', save_as='dendrogram_centroid')
-
-    # Median linkage: similar to centroid, but uses the median rather than the mean
-    plot_dendrogram(params["type"], original_data, train_data, method='median', save_as='dendrogram_median')
+    for method in methods:
+        if method == "ward" or method == "centroid" or method == "median": # Ward, centroid and median method works only with euclidean distance metric
+            plot_dendrogram(params["type"], original_data, train_data, method=method, metric='euclidean', save_as=f'dendrogram_{method}_euclidean')
+            continue
+        for metric in distance_metrics:
+            plot_dendrogram(params["type"], original_data, train_data, method=method, metric=metric, save_as=f'dendrogram_{method}_{metric}')
 
     # On interpreting the dendrograms we identify the best linkage method
-    print(f"{MAGENTA}Linkage = {params["linkage"]}{RESET}\n")
+    print(f"{MAGENTA}Inferred best Linkage method = {params["linkage"]}{RESET}\n")
 
     Z = hc.linkage(train_data, method=params["linkage"], metric='euclidean')
     # For kbest1 (K-Means)
@@ -608,10 +644,16 @@ def hierarchical_clustering(params, original_data, train_data):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
+    plot_word_cloud(clustered_values_kbest1, params, "k_best1", n_rows=3, n_cols=2, save_as="hierarchical_clustering/word_cloud_k_best1")
+    print(f"{GREEN}Word Cloud for k_best1 saved{RESET}\n")
+
     print(f"{BLUE}Clustered labels for k_best2 = {params["k_best2"]}{RESET}")
     for cluster_idx, cluster in enumerate(clustered_values_kbest2):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
+
+    plot_word_cloud(clustered_values_kbest2, params, "k_best2", save_as="hierarchical_clustering/word_cloud_k_best2", colormap="winter")
+    print(f"{GREEN}Word Cloud for k_best2 saved{RESET}\n")
 
 def draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as):
     """
@@ -683,43 +725,118 @@ def k_means(params, train_data):
     run_k_means_model(params["k_kmeans1"], train_data, seed=params["seed"], init_method=params["init_method"])
 
 def k_means_cluster_analysis(params, train_data, original_data):
-    trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False)
+    inertial_scores = list()
+    silhouette_scores = list()
+    
+    trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False, seed=params["seed"])
+
+    inertial_scores.append(trained_model_k_kmeans1.getCost())
+    silhouette_scores.append(silhouette_score(train_data, trained_model_k_kmeans1.cluster_labels))
+    
     clustered_values_k_kmeans1 = get_cluster_values(params["k_kmeans1"], trained_model_k_kmeans1.cluster_labels, original_data, params["label_idx"])
-    print(f"{BLUE}Clustered labels for k = {params["k_kmeans1"]}{RESET}")
+    print(f"{BLUE}Clustered labels for k_kmeans1 = {params["k_kmeans1"]}{RESET}")
     for cluster_idx, cluster in enumerate(clustered_values_k_kmeans1):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
+    plot_word_cloud(clustered_values_k_kmeans1, params, "k_kmeans1", n_rows=3, n_cols=2, save_as="cluster_analysis/word_cloud_k_kmeans1", colormap="plasma")
+
     print("------------------------------------------------------------------------------------------------------")
 
-    trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False)
+    trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False, seed=params["seed"])
+
+    inertial_scores.append(trained_model_k2.getCost())
+    silhouette_scores.append(silhouette_score(train_data, trained_model_k2.cluster_labels))
+
     clustered_values_k2 = get_cluster_values(params["k2"], trained_model_k2.cluster_labels, original_data, params["label_idx"])
-    print(f"{BLUE}Clustered labels for k = {params["k2"]}{RESET}")
+    print(f"{BLUE}Clustered labels for k2 = {params["k2"]}{RESET}")
     for cluster_idx, cluster in enumerate(clustered_values_k2):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
+    plot_word_cloud(clustered_values_k2, params, "k2", save_as="cluster_analysis/word_cloud_k2_kmeans", colormap="winter")
+
     print("------------------------------------------------------------------------------------------------------")
 
-    trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False)
+    trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False, seed=params["seed"])
+
+    inertial_scores.append(trained_model_k_kmeans3.getCost())
+    silhouette_scores.append(silhouette_score(train_data, trained_model_k_kmeans3.cluster_labels))
+
     clustered_values_k_kmeans3 = get_cluster_values(params["k_kmeans3"], trained_model_k_kmeans3.cluster_labels, original_data, params["label_idx"])
-    print(f"{BLUE}Clustered labels for k = {params["k_kmeans3"]}{RESET}")
+    print(f"{BLUE}Clustered labels for k_kmeans3 = {params["k_kmeans3"]}{RESET}")
     for cluster_idx, cluster in enumerate(clustered_values_k_kmeans3):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
-    x_axis = [f"k_kmeans1 = {params["k_kmeans1"]}", f"k2 = {params["k2"]}", f"k_kmeans3 = {params["k_kmeans3"]}"]
-    y_axis = [trained_model_k_kmeans1.getCost(), trained_model_k2.getCost(), trained_model_k_kmeans3.getCost()]
-    plt.figure(figsize=(10, 6))
-    plt.plot(x_axis, y_axis)
-    plt.xlabel('k')
-    plt.ylabel('Final WCSS Cost')
-    plt.title('k vs Final WCSS Cost')
-    plt.savefig('./assignments/2/figures/k_means/k_vs_final_cost_7.1.png')
-    print(f"{GREEN}k vs Final WCSS Cost plot saved{RESET}\n")
+    plot_word_cloud(clustered_values_k_kmeans3, params, "k_kmeans3", save_as="cluster_analysis/word_cloud_k_kmeans3")
+
+    print("------------------------------------------------------------------------------------------------------")
 
     # On interpreting the clusters we identify the value of k_kmeans
     print(f"{MAGENTA}k_kmeans = {params["k_kmeans"]}{RESET}\n")
+
+    # Plotting inertial scores and silhouette scores
+    fig, axes = plt.subplots(1, 2, figsize=(15, 7))
+
+    x_axis = np.array([params["k_kmeans1"], params["k2"], params["k_kmeans3"]])
+    idxs = np.argsort(x_axis)
+    x_axis = x_axis[idxs]
+    y_axis1 = np.array(inertial_scores)[idxs]
+    y_axis2 = np.array(silhouette_scores)[idxs]
+
+    axes[0].plot(x_axis, y_axis1, 'o-', label='Inertial Scores', color='red')
+    axes[0].set_xlabel('k')
+    axes[0].set_ylabel('Inertia Scores')
+    axes[0].set_title('k vs Inertia Scores')
+    axes[0].grid(True)
+    axes[1].plot(x_axis, y_axis2, 'o-', label='Silhouette Scores', color='blue')
+    axes[1].set_xlabel('k')
+    axes[1].set_ylabel('Silhouette Scores')
+    axes[1].set_title('k vs Silhouette Scores')
+    axes[1].grid(True)
+    plt.tight_layout()
+    plt.savefig('./assignments/2/figures/cluster_analysis/k_vs_scores_kmeans3.png')
+    print(f"{GREEN}k vs Scores plot saved{RESET}\n")
+
+def gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn"):
+    trained_model_k_gmm1 = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+    predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k_gmm1.predict_proba(train_data)]
+
+    clustered_values_k_gmm1 = get_cluster_values(params["k_gmm1"], predicted_clusters, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k_gmm1 = {params["k_gmm1"]}{RESET}")
+    print(f"\n{GREEN}Cluster 1{RESET}:")
+    print(f"{clustered_values_k_gmm1[0]}\n")
+
+    plot_word_cloud(clustered_values_k_gmm1, params, "k_gmm1", width=1000, height=500, n_rows=1, n_cols=1, save_as="cluster_analysis/word_cloud_k_gmm1", colormap="plasma")
+
+    print("------------------------------------------------------------------------------------------------------")
+
+    trained_model_k2 = run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+    predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k2.predict_proba(train_data)]
+    clustered_values_k2 = get_cluster_values(params["k2"], predicted_clusters, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k2 = {params["k2"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_k2):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+    plot_word_cloud(clustered_values_k2, params, "k2", save_as="cluster_analysis/word_cloud_k2_gmm", colormap="winter")
+
+    print("------------------------------------------------------------------------------------------------------")
+
+    trained_model_k_gmm3 = run_gmm_model(params["k_gmm3"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+    predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k_gmm3.predict_proba(train_data)]
+    clustered_values_k_gmm3 = get_cluster_values(params["k_gmm3"], predicted_clusters, original_data, params["label_idx"])
+    print(f"{BLUE}Clustered labels for k_gmm3 = {params["k_gmm3"]}{RESET}")
+    for cluster_idx, cluster in enumerate(clustered_values_k_gmm3):
+        print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
+        print(f"{cluster}\n")
+    
+    plot_word_cloud(clustered_values_k_gmm3, params, "k_gmm3", save_as="cluster_analysis/word_cloud_k_gmm3", colormap="viridis")
+
+    print("------------------------------------------------------------------------------------------------------")
+
+    # On interpreting the clusters we identify the value of k_gmm
+    print(f"{MAGENTA}k_gmm = {params["k_gmm"]}{RESET}\n")
 
 if __name__ == "__main__":
     params = original_data_params
@@ -817,11 +934,20 @@ if __name__ == "__main__":
     # # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
     # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
 
-    # # ------------------------- 7.1 - K-means cluster analysis -------------------------
-    k_means_cluster_analysis(params, train_data, original_data)
+    # =================================================================
+    #               7.1, 7.2 & 7.3 - Cluster Analysis
+    # =================================================================
+    # k_means_cluster_analysis(params, train_data, original_data)
+    # print(f"{MAGENTA}Inferred value of k_kmeans = {params["k_kmeans"]}{RESET}\n")
+    # gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn")
+    # print(f"{MAGENTA}Inferred value of k_gmm = {params["k_gmm"]}{RESET}\n")
 
-    # # ------------------------- 8 - Hierarchical Clustering ------------------------
+    # =================================================================
+    #                  8 - Hierarchical Clustering
+    # =================================================================
     # hierarchical_clustering(params, original_data, train_data)
 
-    # # ------------------------- 9 - Spotify Dataset ------------------------
+    # =================================================================
+    #                  9.1 & 9.2 - Spotify Dataset
+    # =================================================================
     # spotify_dataset()
