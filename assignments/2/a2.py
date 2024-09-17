@@ -80,11 +80,19 @@ original_data_params = {
 }
 
 spotify_data_params = {
-    "pca_n_components" : 9, # Decided after examining the scree plot
+    "opt_dim" : 9, # Decided after examining the scree plot
     "file_path" : './data/external/spotify.csv' ,
     "preprocessed_file_path" : './data/interim/2/preprocessed_spotify',
     "best_k_spotify" : 50,
     "best_distance_metric_spotify" : "manhattan",
+    "a1_acc": 0.30233,
+    "a1_p_macro": 0.2550008511054787,
+    "a1_p_micro": 0.30222765552838493,
+    "a1_r_macro": 0.24679235851898834,
+    "a1_r_micro": 0.30222765552838493,
+    "a1_f1_macro": 0.23129256332131554,
+    "a1_f1_micro": 0.3022276554783849,
+    "a1_time_taken": 140.7332,
 }
 
 # Plots the word cloud for the given clusters
@@ -646,19 +654,20 @@ def spotify_dataset():
 
     spotify_data_with_track_genre = spotify_data_with_track_genre.to_numpy()
     spotify_data_without_track_genre = spotify_data_without_track_genre.to_numpy()
-    draw_scree_plot(spotify_data_without_track_genre, save_as="spotify_dataset/scree_plot_9_1.png")
+    draw_scree_plot(spotify_data_without_track_genre, save_as="spotify_dataset/scree_plot_spotify_dataset.png")
 
     # Dimentionality reduction based on the optimal number of dimensions determined above
-    print(f"{MAGENTA}spotify_n_components = {spotify_data_params['pca_n_components']}{RESET}\n") # On interpreting the scree plot for the spotify dataset we identify the optimal number of dimensions
-    reduced_dataset_header_without_track_genre = [f"component_{i + 1}" for i in range(spotify_data_params["pca_n_components"])]
+    print(f"{MAGENTA}Inferred Optimal Dimensions = {spotify_data_params['opt_dim']}{RESET}\n") # On interpreting the scree plot for the spotify dataset we identify the optimal number of dimensions
+    
+    reduced_dataset_header_without_track_genre = [f"component_{i + 1}" for i in range(spotify_data_params["opt_dim"])]
     reduced_dataset_header_with_track_genre = reduced_dataset_header_without_track_genre.copy()
     reduced_dataset_header_with_track_genre.append(header_with_track_genre[-1])
 
-    pca_model_spotify = PCA(spotify_data_params["pca_n_components"])
+    pca_model_spotify = PCA(spotify_data_params["opt_dim"])
     pca_model_spotify.load_data(spotify_data_without_track_genre)
     pca_model_spotify.fit()
     reduced_dataset_spotify_without_track_genre = pca_model_spotify.transform()
-    print(f"{GREEN}Dataset reduced to {spotify_data_params['pca_n_components']} dimensions{RESET}")
+    print(f"{GREEN}Dataset reduced to {spotify_data_params['opt_dim']} dimensions{RESET}")
 
     # Associating reduced dataset with corresponding labels
     reduced_dataset_spotify_with_track_genre = np.hstack((reduced_dataset_spotify_without_track_genre, spotify_data_with_track_genre[:, -1:]))
@@ -692,52 +701,51 @@ def spotify_dataset():
                         Micro:   {metrics['micro_f1_score']}\n
     Time taken: {round(time_diff, 4)} seconds
     ---------------------------------------------------------------------{RESET}\n""")
-    reduced_dataset_time = round(time_diff, 4)
 
-    # Running KNN model on the complete dataset
-    train_data, test_data, val_data = split_data(spotify_data_with_track_genre, 80, 10, shuffle=True)
-    knn_model = KNN(spotify_data_params["best_k_spotify"], spotify_data_params["best_distance_metric_spotify"])
-    knn_model.load_train_test_val_data(header_with_track_genre, train_data, test_data, val_data)
-    knn_model.set_predict_var("track_genre")
-    knn_model.use_for_prediction(header_without_track_genre)
-    start_time = time.time()
-    knn_model.fit()
-    knn_model.predict("validation")
-    metrics = knn_model.get_metrics()
-    end_time = time.time()
-    time_diff = end_time - start_time
+    a2_acc = round(metrics['accuracy'], 5)
+    a2_p_macro = metrics['macro_precision']
+    a2_p_micro = metrics['micro_precision']
+    a2_r_macro = metrics['macro_recall']
+    a2_r_micro = metrics['micro_recall']
+    a2_f1_macro = metrics['macro_f1_score']
+    a2_f1_micro = metrics['micro_f1_score']
+    a2_time_taken = round(time_diff, 4)
 
-    # Printing metrics
-    print(f"""
-    {BLUE}k = {spotify_data_params["best_k_spotify"]}, Distance Metric = {spotify_data_params["best_distance_metric_spotify"]}
-    Validation Metrics for Complete Spotify Dataset{RESET}\n
-                {GREEN}Accuracy:        {round(metrics['accuracy'] * 100, 3)}%\n
-                Precision
-                        Macro:  {metrics['macro_precision']}    
-                        Micro:  {metrics['micro_precision']}\n
-                Recall 
-                        Macro:   {metrics['macro_recall']}
-                        Micro:   {metrics['micro_recall']}\n
-                F1 Score
-                        Macro:   {metrics['macro_f1_score']}
-                        Micro:   {metrics['micro_f1_score']}\n
-    Time taken: {round(time_diff, 4)} seconds
-    ---------------------------------------------------------------------{RESET}\n""")
-    complete_dataset_time = round(time_diff, 4)
+    # Plotting parallel coordinates plot for the reduced dataset and original dataset
+    first_coords = [spotify_data_params["a1_acc"], spotify_data_params["a1_p_macro"], spotify_data_params["a1_p_micro"], spotify_data_params["a1_r_macro"], spotify_data_params["a1_r_micro"], spotify_data_params["a1_f1_macro"], spotify_data_params["a1_f1_micro"]]
+    second_coords = [a2_acc, a2_p_macro, a2_p_micro, a2_r_macro, a2_r_micro, a2_f1_macro, a2_f1_micro]
+    labels = ["Accuracy", "Precision Macro", "Precision Micro", "Recall Macro", "Recall Micro", "F1 Score Macro", "F1 Score Micro"]
 
-    # Plotting the inference time comparison
-    x_axis = ["Reduced Dataset", "Complete Dataset"]
-    y_axis = [reduced_dataset_time, complete_dataset_time]
-    plt.figure(figsize=(10, 6))
-    plt.bar(x_axis, y_axis)
-    plt.xlabel('Dataset')
-    plt.ylabel('Inference Time (s)')
-    plt.title('Inference Time Comparison')
-    plt.savefig('./assignments/2/figures/spotify_dataset/inference_time_comparison.png')
+    colors = ['red', 'green', 'blue', 'yellow', 'cyan', 'pink', 'purple']
+
+    for i in range(len(first_coords)):
+        plt.plot([1, 2], [first_coords[i], second_coords[i]], label=labels[i], c=colors[i], alpha=0.5)
+    plt.xlabel('Datasets')
+    plt.ylabel('Values')
+    plt.legend()
+    plt.savefig('./assignments/2/figures/spotify_dataset/parallel_coordinates_plot.png')
+    print(f"{GREEN}Parallel Coordinates plot saved{RESET}\n")
     plt.close()
-    print(f"{GREEN}Inference Time Comparison plot saved{RESET}\n")
+
+    print(f"{BLUE}Time Taken{RESET}\n")
+    print(f"{MAGENTA}Reduced Dataset: {a2_time_taken} s{RESET}")
+    print(f"{MAGENTA}Original Dataset: {spotify_data_params['a1_time_taken']} s{RESET}\n")
 
 def visualise_hierarchical_clusters(train_data, clusters, save_as=None):
+    """
+        Visualises the hierarchical clustering by performing the following steps:
+            1. Plot the clusters in 2D and 3D using PCA
+
+        Parameters
+        ==========
+            train_data[n_train, n_features] (numpy array): Data for training
+            clusters (list): List of clusters where each cluster is a list of labels
+            save_as (str): Name to save the plot
+
+        Returns
+        =======
+            None
+    """
     pca_model = PCA(2)
     pca_model.load_data(train_data)
     pca_model.fit()
@@ -1223,7 +1231,22 @@ def plot_gmm_clusters(transformed_data, k, save_as):
     plt.close()
     # ==============================================================================
 
-def compare_kmeans_gmm(params, train_data, original_data):
+def compare_kmeans_gmm(params, train_data):
+    """
+        Compares the KMeans and GMM Clustering by performing the following steps:
+            1. Plotting the clusters for KMeans and GMM
+            2. Comparing the clusters for KMeans and GMM
+
+        Parameters
+        ==========
+            params (dict): Dictionary containing all the parameters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            original_data[n_points, n_features] (numpy array): Original data
+        
+        Returns
+        =======
+            None
+    """
     pca_model = PCA(2)
     pca_model.load_data(train_data)
     pca_model.fit()
@@ -1250,8 +1273,8 @@ if __name__ == "__main__":
     # =================================================================
     try:
         print("Running my GMM class for arbitrary value of k")
-        raise(ValueError)
         gmm_model = GMM(10)
+        raise(ValueError)
         gmm_model.load_data(train_data)
         gmm_model.fit()
         overall_log_likelihood = gmm_model.get_log_likelihood()
@@ -1318,15 +1341,15 @@ if __name__ == "__main__":
     run_k_means_model(params["k_kmeans3"], reduced_dataset, seed=params["seed"], init_method=params["init_method"])
 
     print(f"{BLUE}GMM using k = {params["k2"]}{RESET}\n")
-    # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="my")
-    run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="sklearn")
+    run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="my")
+    # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="sklearn")
 
     gmm_aic_bic_method(params["max_k"], reduced_dataset, save_as="aic_bic_plot_reduced_dataset", seed=params["seed"], model_type="sklearn")
     print(f"{MAGENTA}Inferred value of k_gmm3 = {params["k_gmm3"]}{RESET}\n")
 
     print(f"{BLUE}GMM with k = {params["k_gmm3"]}{RESET}\n")
-    # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
-    run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
+    run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
+    # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
 
     # =================================================================
     #               7.1, 7.2 & 7.3 - Cluster Analysis
@@ -1336,7 +1359,7 @@ if __name__ == "__main__":
     print(f"{MAGENTA}Inferred value of k_kmeans = {params["k_kmeans"]}{RESET}\n")
     gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn")
     print(f"{MAGENTA}Inferred value of k_gmm = {params["k_gmm"]}{RESET}\n")
-    compare_kmeans_gmm(params, train_data, original_data)
+    compare_kmeans_gmm(params, train_data)
 
     # =================================================================
     #                  8 - Hierarchical Clustering
@@ -1346,4 +1369,6 @@ if __name__ == "__main__":
     # =================================================================
     #                  9.1 & 9.2 - Spotify Dataset
     # =================================================================
-    # spotify_dataset()
+    spotify_dataset()
+
+    print("\n\nAssignment 2 Completed Yay!!\n")

@@ -1,0 +1,820 @@
+k = 1
+	Time taken to fit: 0.00269 s
+	Epochs taken to fit: 2
+	Final Cost: 4527.93664
+
+------------------------------------------------------------------------------------------------------
+
+k = 2
+	Time taken to fit: 0.01392 s
+	Epochs taken to fit: 14
+	Final Cost: 4256.25862
+
+------------------------------------------------------------------------------------------------------
+
+k = 3
+	Time taken to fit: 0.01299 s
+	Epochs taken to fit: 12
+	Final Cost: 4147.23549
+
+------------------------------------------------------------------------------------------------------
+
+k = 4
+	Time taken to fit: 0.01401 s
+	Epochs taken to fit: 11
+	Final Cost: 4051.61853
+
+------------------------------------------------------------------------------------------------------
+
+k = 5
+	Time taken to fit: 0.01239 s
+	Epochs taken to fit: 8
+	Final Cost: 3985.8318
+
+------------------------------------------------------------------------------------------------------
+
+k = 6
+	Time taken to fit: 0.01333 s
+	Epochs taken to fit: 7
+	Final Cost: 4003.33606
+
+------------------------------------------------------------------------------------------------------
+
+k = 7
+	Time taken to fit: 0.02443 s
+	Epochs taken to fit: 14
+	Final Cost: 3889.34299
+
+------------------------------------------------------------------------------------------------------
+
+k = 8
+	Time taken to fit: 0.01964 s
+	Epochs taken to fit: 9
+	Final Cost: 3814.75977
+
+------------------------------------------------------------------------------------------------------
+
+k = 9
+	Time taken to fit: 0.02199 s
+	Epochs taken to fit: 9
+	Final Cost: 3780.09922
+
+------------------------------------------------------------------------------------------------------
+
+k = 10
+	Time taken to fit: 0.02551 s
+	Epochs taken to fit: 9
+	Final Cost: 3797.31519
+
+------------------------------------------------------------------------------------------------------
+
+k = 11
+	Time taken to fit: 0.02252 s
+	Epochs taken to fit: 6
+	Final Cost: 3721.49634
+
+------------------------------------------------------------------------------------------------------
+
+k = 12
+	Time taken to fit: 0.02628 s
+	Epochs taken to fit: 7
+	Final Cost: 3739.57142
+
+------------------------------------------------------------------------------------------------------
+
+k = 13
+	Time taken to fit: 0.03082 s
+	Epochs taken to fit: 8
+	Final Cost: 3627.04726
+
+------------------------------------------------------------------------------------------------------
+
+k = 14
+	Time taken to fit: 0.02788 s
+	Epochs taken to fit: 5
+	Final Cost: 3629.92638
+
+------------------------------------------------------------------------------------------------------
+
+k = 15
+	Time taken to fit: 0.02988 s
+	Epochs taken to fit: 5
+	Final Cost: 3565.94889
+
+------------------------------------------------------------------------------------------------------
+
+elbow_plot_full_dataset plot saved
+
+Inferred value of k_kmeans1 = 5
+
+KMeans with k = 5
+
+	Time taken to fit: 0.025 s
+	Epochs taken to fit: 19
+	Final Cost: 3985.62187
+
+------------------------------------------------------------------------------------------------------
+
+Running my GMM class for arbitrary value of k
+My GMM Class did not work, so now using sklearn GMM class
+Running my GMM class for arbitrary value of k
+sklearn GMM Class worked
+Plotting AIC BIC graph using sklearn GMM Class
+
+k = 1
+	Time taken to fit: 0.01664 s
+	Final Log Likelihood: 375255.27444
+
+------------------------------------------------------------------------------------------------------
+
+k = 2
+	Time taken to fit: 0.0325 s
+	Final Log Likelihood: 484293.24255
+
+------------------------------------------------------------------------------------------------------
+
+k = 3
+	Time taken to fit: 0.04829 s
+	Final Log Likelihood: 522696.84323
+
+------------------------------------------------------------------------------------------------------
+
+k = 4
+	Time taken to fit: 0.06471 s
+	Final Log Likelihood: 534988.5144
+
+------------------------------------------------------------------------------------------------------
+
+k = 5
+	Time taken to fit: 0.08011 s
+	Final Log Likelihood: 544313.61828
+
+------------------------------------------------------------------------------------------------------
+
+k = 6
+	Time taken to fit: 0.10661 s
+	Final Log Likelihood: 554111.86432
+
+------------------------------------------------------------------------------------------------------
+
+k = 7
+	Time taken to fit: 0.12184 s
+	Final Log Likelihood: 563357.75238
+
+------------------------------------------------------------------------------------------------------
+
+k = 8
+	Time taken to fit: 0.15245 s
+	Final Log Likelihood: 572958.74148
+
+------------------------------------------------------------------------------------------------------
+
+k = 9
+	Time taken to fit: 0.14782 s
+	Final Log Likelihood: 576080.07966
+
+------------------------------------------------------------------------------------------------------
+
+k = 10
+	Time taken to fit: 0.18074 s
+	Final Log Likelihood: 580115.9525
+
+------------------------------------------------------------------------------------------------------
+
+k = 11
+	Time taken to fit: 0.19759 s
+	Final Log Likelihood: 583185.02493
+
+------------------------------------------------------------------------------------------------------
+
+k = 12
+	Time taken to fit: 0.22254 s
+	Final Log Likelihood: 585333.46701
+
+------------------------------------------------------------------------------------------------------
+
+k = 13
+	Time taken to fit: 0.23965 s
+	Final Log Likelihood: 586189.79571
+
+------------------------------------------------------------------------------------------------------
+
+k = 14
+	Time taken to fit: 0.25059 s
+	Final Log Likelihood: 587154.48407
+
+------------------------------------------------------------------------------------------------------
+
+k = 15
+	Time taken to fit: 0.24118 s
+	Final Log Likelihood: 587667.16042
+
+------------------------------------------------------------------------------------------------------
+
+aic_bic_plot_original_dataset plot saved
+
+Inferred value of k_gmm1 = 1
+
+GMM with k = 1
+
+	Time taken to fit: 0.01901 s
+	Final Log Likelihood: 375255.27444
+
+------------------------------------------------------------------------------------------------------
+
+PCA transformation for 2 components successful
+PCA plot saved
+
+component_wise_labelled_scatter_plot_2 plot saved
+
+KMeans Clustering plot for k = 3 saved
+
+KMeans Clustering plot for k = 4 saved
+
+PCA transformation for 3 components successful
+PCA plot saved
+
+component_wise_labelled_scatter_plot_3 plot saved
+
+KMeans Clustering plot for k = 3 saved
+
+KMeans Clustering plot for k = 4 saved
+
+Inferred value of k2 = 3
+
+KMeans with k = 3
+
+	Time taken to fit: 0.01004 s
+	Epochs taken to fit: 7
+	Final Cost: 4188.69577
+
+------------------------------------------------------------------------------------------------------
+
+Scree plot saved
+
+Inferred value of op_dim = 4
+
+Dataset reduced to 4 dimensions
+k = 1
+	Time taken to fit: 0.00128 s
+	Epochs taken to fit: 2
+	Final Cost: 861.6088
+
+------------------------------------------------------------------------------------------------------
+
+k = 2
+	Time taken to fit: 0.00915 s
+	Epochs taken to fit: 13
+	Final Cost: 595.44138
+
+------------------------------------------------------------------------------------------------------
+
+k = 3
+	Time taken to fit: 0.00867 s
+	Epochs taken to fit: 11
+	Final Cost: 500.63421
+
+------------------------------------------------------------------------------------------------------
+
+k = 4
+	Time taken to fit: 0.0186 s
+	Epochs taken to fit: 25
+	Final Cost: 405.67769
+
+------------------------------------------------------------------------------------------------------
+
+k = 5
+	Time taken to fit: 0.01354 s
+	Epochs taken to fit: 16
+	Final Cost: 334.45743
+
+------------------------------------------------------------------------------------------------------
+
+k = 6
+	Time taken to fit: 0.00785 s
+	Epochs taken to fit: 6
+	Final Cost: 300.82312
+
+------------------------------------------------------------------------------------------------------
+
+k = 7
+	Time taken to fit: 0.00966 s
+	Epochs taken to fit: 7
+	Final Cost: 257.75485
+
+------------------------------------------------------------------------------------------------------
+
+k = 8
+	Time taken to fit: 0.0117 s
+	Epochs taken to fit: 8
+	Final Cost: 237.34343
+
+------------------------------------------------------------------------------------------------------
+
+k = 9
+	Time taken to fit: 0.01274 s
+	Epochs taken to fit: 8
+	Final Cost: 216.06572
+
+------------------------------------------------------------------------------------------------------
+
+k = 10
+	Time taken to fit: 0.02547 s
+	Epochs taken to fit: 24
+	Final Cost: 212.16197
+
+------------------------------------------------------------------------------------------------------
+
+k = 11
+	Time taken to fit: 0.01734 s
+	Epochs taken to fit: 12
+	Final Cost: 187.6835
+
+------------------------------------------------------------------------------------------------------
+
+k = 12
+	Time taken to fit: 0.01686 s
+	Epochs taken to fit: 11
+	Final Cost: 169.9714
+
+------------------------------------------------------------------------------------------------------
+
+k = 13
+	Time taken to fit: 0.01681 s
+	Epochs taken to fit: 10
+	Final Cost: 178.28207
+
+------------------------------------------------------------------------------------------------------
+
+k = 14
+	Time taken to fit: 0.02141 s
+	Epochs taken to fit: 15
+	Final Cost: 154.8401
+
+------------------------------------------------------------------------------------------------------
+
+k = 15
+	Time taken to fit: 0.01591 s
+	Epochs taken to fit: 6
+	Final Cost: 148.74704
+
+------------------------------------------------------------------------------------------------------
+
+elbow_point_reduced_dataset plot saved
+
+Inferred value of k_kmeans3 = 6
+
+KMeans with k = 6
+
+	Time taken to fit: 0.00924 s
+	Epochs taken to fit: 8
+	Final Cost: 307.34476
+
+------------------------------------------------------------------------------------------------------
+
+GMM using k = 3
+
+	Time taken to fit: 0.05188 s
+	Final Log Likelihood: 522696.84323
+
+------------------------------------------------------------------------------------------------------
+
+k = 1
+	Time taken to fit: 0.00164 s
+	Final Log Likelihood: -1113.89606
+
+------------------------------------------------------------------------------------------------------
+
+k = 2
+	Time taken to fit: 0.0015 s
+	Final Log Likelihood: -1058.75723
+
+------------------------------------------------------------------------------------------------------
+
+k = 3
+	Time taken to fit: 0.00327 s
+	Final Log Likelihood: -1003.62421
+
+------------------------------------------------------------------------------------------------------
+
+k = 4
+	Time taken to fit: 0.0031 s
+	Final Log Likelihood: -967.78703
+
+------------------------------------------------------------------------------------------------------
+
+k = 5
+	Time taken to fit: 0.00353 s
+	Final Log Likelihood: -953.75092
+
+------------------------------------------------------------------------------------------------------
+
+k = 6
+	Time taken to fit: 0.00864 s
+	Final Log Likelihood: -926.90208
+
+------------------------------------------------------------------------------------------------------
+
+k = 7
+	Time taken to fit: 0.00611 s
+	Final Log Likelihood: -909.4248
+
+------------------------------------------------------------------------------------------------------
+
+k = 8
+	Time taken to fit: 0.00671 s
+	Final Log Likelihood: -889.48471
+
+------------------------------------------------------------------------------------------------------
+
+k = 9
+	Time taken to fit: 0.01406 s
+	Final Log Likelihood: -867.60016
+
+------------------------------------------------------------------------------------------------------
+
+k = 10
+	Time taken to fit: 0.00626 s
+	Final Log Likelihood: -860.33302
+
+------------------------------------------------------------------------------------------------------
+
+k = 11
+	Time taken to fit: 0.00682 s
+	Final Log Likelihood: -848.62001
+
+------------------------------------------------------------------------------------------------------
+
+k = 12
+	Time taken to fit: 0.00813 s
+	Final Log Likelihood: -820.13027
+
+------------------------------------------------------------------------------------------------------
+
+k = 13
+	Time taken to fit: 0.01064 s
+	Final Log Likelihood: -800.94622
+
+------------------------------------------------------------------------------------------------------
+
+k = 14
+	Time taken to fit: 0.00745 s
+	Final Log Likelihood: -802.30139
+
+------------------------------------------------------------------------------------------------------
+
+k = 15
+	Time taken to fit: 0.01281 s
+	Final Log Likelihood: -777.43524
+
+------------------------------------------------------------------------------------------------------
+
+aic_bic_plot_reduced_dataset plot saved
+
+Inferred value of k_gmm3 = 4
+
+GMM with k = 4
+
+	Time taken to fit: 0.00294 s
+	Final Log Likelihood: -967.78703
+
+------------------------------------------------------------------------------------------------------
+
+Clustered labels for k_kmeans1 = 5
+
+Cluster 1:
+['table', 'fishing', 'mug', 'gym', 'passport', 'roof', 'stairs', 'rifle', 'pencil', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'sun', 'bucket', 'feet', 'boat', 'basket', 'fruit', 'laptop', 'door', 'calendar', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'tree', 'envelope', 'skate', 'dustbin', 'rain', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'tomato', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'pant', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'toaster', 'potato', 'shoe', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+
+Cluster 2:
+['saturn']
+
+
+Cluster 3:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'climb', 'kneel', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'tattoo', 'earth', 'fingerprints', 'tank', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut', 'sunny']
+
+
+Cluster 4:
+['needle', 'eraser', 'brush', 'feather', 'spoon', 'scream', 'pear', 'flute', 'scissor', 'badminton', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'arrow', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 5:
+['deer', 'panda', 'ape', 'rose', 'helicopter', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'puppet', 'lake', 'monkey', 'cow', 'starfish', 'plant', 'puppy', 'peacock', 'fish', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'beetle', 'snake', 'airplane', 'dragonfly', 'butterfly', 'elephant', 'windmill', 'crocodile']
+
+
+Cluster 1:
+['table', 'fishing', 'mug', 'gym', 'passport', 'roof', 'stairs', 'rifle', 'pencil', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'sun', 'bucket', 'feet', 'boat', 'basket', 'fruit', 'laptop', 'door', 'calendar', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'tree', 'envelope', 'skate', 'dustbin', 'rain', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'tomato', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'pant', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'toaster', 'potato', 'shoe', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+
+Cluster 2:
+['saturn']
+
+
+Cluster 3:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'climb', 'kneel', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'tattoo', 'earth', 'fingerprints', 'tank', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut', 'sunny']
+
+
+Cluster 4:
+['needle', 'eraser', 'brush', 'feather', 'spoon', 'scream', 'pear', 'flute', 'scissor', 'badminton', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'arrow', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 5:
+['deer', 'panda', 'ape', 'rose', 'helicopter', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'puppet', 'lake', 'monkey', 'cow', 'starfish', 'plant', 'puppy', 'peacock', 'fish', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'beetle', 'snake', 'airplane', 'dragonfly', 'butterfly', 'elephant', 'windmill', 'crocodile']
+
+------------------------------------------------------------------------------------------------------
+Clustered labels for k2 = 3
+
+Cluster 1:
+['drive', 'sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'smile', 'bullet', 'bury', 'download', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'kneel', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'clap', 'pull', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'tattoo', 'earth', 'tank', 'enter', 'key', 'zip', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut', 'sunny', 'radio']
+
+
+Cluster 2:
+['panda', 'ape', 'sit', 'cat', 'mug', 'eat', 'gym', 'rifle', 'cow', 'pencil', 'bed', 'dig', 'run', 'van', 'microphone', 'sun', 'feet', 'peacock', 'fruit', 'laptop', 'calendar', 'chair', 'ant', 'calculator', 'bee', 'television', 'camera', 'tomato', 'car', 'lantern', 'elephant', 'pant', 'potato']
+
+
+Cluster 3:
+['deer', 'rose', 'helicopter', 'needle', 'eraser', 'table', 'carrot', 'brick', 'fishing', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'brush', 'feather', 'spoon', 'frog', 'puppet', 'lake', 'climb', 'scream', 'monkey', 'passport', 'roof', 'stairs', 'starfish', 'plant', 'microwave', 'notebook', 'knit', 'sweater', 'cigarette', 'baseball', 'jacket', 'bench', 'bucket', 'puppy', 'boat', 'pear', 'basket', 'fish', 'saturn', 'flute', 'scissor', 'grape', 'door', 'badminton', 'mouse', 'ladder', 'finger', 'candle', 'igloo', 'goldfish', 'bird', 'clock', 'oven', 'spiderman', 'pillow', 'tree', 'beetle', 'envelope', 'skate', 'hammer', 'toothbrush', 'screwdriver', 'snake', 'fingerprints', 'teaspoon', 'length', 'dustbin', 'rain', 'airplane', 'ambulance', 'pizza', 'throne', 'swim', 'tent', 'dragonfly', 'parachute', 'butterfly', 'sword', 'loudspeaker', 'telephone', 'stove', 'rainy', 'knife', 'toothpaste', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'toaster', 'comb', 'crocodile', 'shoe', 'walk', 'keyboard', 'fork', 'truck', 'suitcase', 'paintbrush']
+
+
+Cluster 1:
+['drive', 'sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'smile', 'bullet', 'bury', 'download', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'kneel', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'clap', 'pull', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'tattoo', 'earth', 'tank', 'enter', 'key', 'zip', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut', 'sunny', 'radio']
+
+
+Cluster 2:
+['panda', 'ape', 'sit', 'cat', 'mug', 'eat', 'gym', 'rifle', 'cow', 'pencil', 'bed', 'dig', 'run', 'van', 'microphone', 'sun', 'feet', 'peacock', 'fruit', 'laptop', 'calendar', 'chair', 'ant', 'calculator', 'bee', 'television', 'camera', 'tomato', 'car', 'lantern', 'elephant', 'pant', 'potato']
+
+
+Cluster 3:
+['deer', 'rose', 'helicopter', 'needle', 'eraser', 'table', 'carrot', 'brick', 'fishing', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'brush', 'feather', 'spoon', 'frog', 'puppet', 'lake', 'climb', 'scream', 'monkey', 'passport', 'roof', 'stairs', 'starfish', 'plant', 'microwave', 'notebook', 'knit', 'sweater', 'cigarette', 'baseball', 'jacket', 'bench', 'bucket', 'puppy', 'boat', 'pear', 'basket', 'fish', 'saturn', 'flute', 'scissor', 'grape', 'door', 'badminton', 'mouse', 'ladder', 'finger', 'candle', 'igloo', 'goldfish', 'bird', 'clock', 'oven', 'spiderman', 'pillow', 'tree', 'beetle', 'envelope', 'skate', 'hammer', 'toothbrush', 'screwdriver', 'snake', 'fingerprints', 'teaspoon', 'length', 'dustbin', 'rain', 'airplane', 'ambulance', 'pizza', 'throne', 'swim', 'tent', 'dragonfly', 'parachute', 'butterfly', 'sword', 'loudspeaker', 'telephone', 'stove', 'rainy', 'knife', 'toothpaste', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'toaster', 'comb', 'crocodile', 'shoe', 'walk', 'keyboard', 'fork', 'truck', 'suitcase', 'paintbrush']
+
+------------------------------------------------------------------------------------------------------
+Clustered labels for k_kmeans3 = 6
+
+Cluster 1:
+['drive', 'rose', 'dive', 'sit', 'table', 'brick', 'fishing', 'smile', 'bullet', 'grass', 'forest', 'lake', 'face', 'kneel', 'kiss', 'roof', 'stairs', 'bed', 'plant', 'notebook', 'baseball', 'hollow', 'bench', 'bucket', 'feet', 'boat', 'basket', 'fruit', 'laptop', 'door', 'chair', 'ladder', 'igloo', 'clock', 'oven', 'pillow', 'tree', 'skate', 'tattoo', 'dustbin', 'rain', 'tank', 'ambulance', 'throne', 'swim', 'tent', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'shoe', 'walk', 'keyboard', 'sunny', 'truck', 'suitcase']
+
+
+Cluster 2:
+['eraser', 'brush', 'mug', 'spoon', 'passport', 'pencil', 'microwave', 'knit', 'sweater', 'cigarette', 'microphone', 'jacket', 'flute', 'calendar', 'badminton', 'candle', 'calculator', 'envelope', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'television', 'parachute', 'sword', 'loudspeaker', 'telephone', 'knife', 'toothpaste', 'toaster', 'comb', 'fork', 'radio', 'paintbrush']
+
+
+Cluster 3:
+['saturn', 'goldfish']
+
+
+Cluster 4:
+['sing', 'listen', 'flame', 'knock', 'exit', 'bury', 'download', 'postcard', 'hard', 'fight', 'call', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'clap', 'pull', 'sleep', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'earth', 'enter', 'key', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut']
+
+
+Cluster 5:
+['panda', 'ape', 'cat', 'eat', 'gym', 'rifle', 'cow', 'dig', 'run', 'van', 'sun', 'peacock', 'ant', 'bee', 'camera', 'tomato', 'car', 'lantern', 'elephant', 'pant', 'potato']
+
+
+Cluster 6:
+['deer', 'helicopter', 'needle', 'carrot', 'bear', 'spider', 'shark', 'giraffe', 'lizard', 'feather', 'bend', 'frog', 'puppet', 'fly', 'climb', 'scream', 'monkey', 'starfish', 'puppy', 'pear', 'fish', 'scissor', 'grape', 'mouse', 'finger', 'bird', 'spiderman', 'beetle', 'snake', 'fingerprints', 'airplane', 'pizza', 'zip', 'dragonfly', 'butterfly', 'windmill', 'arrow', 'crocodile']
+
+
+Cluster 1:
+['drive', 'rose', 'dive', 'sit', 'table', 'brick', 'fishing', 'smile', 'bullet', 'grass', 'forest', 'lake', 'face', 'kneel', 'kiss', 'roof', 'stairs', 'bed', 'plant', 'notebook', 'baseball', 'hollow', 'bench', 'bucket', 'feet', 'boat', 'basket', 'fruit', 'laptop', 'door', 'chair', 'ladder', 'igloo', 'clock', 'oven', 'pillow', 'tree', 'skate', 'tattoo', 'dustbin', 'rain', 'tank', 'ambulance', 'throne', 'swim', 'tent', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'shoe', 'walk', 'keyboard', 'sunny', 'truck', 'suitcase']
+
+
+Cluster 2:
+['eraser', 'brush', 'mug', 'spoon', 'passport', 'pencil', 'microwave', 'knit', 'sweater', 'cigarette', 'microphone', 'jacket', 'flute', 'calendar', 'badminton', 'candle', 'calculator', 'envelope', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'television', 'parachute', 'sword', 'loudspeaker', 'telephone', 'knife', 'toothpaste', 'toaster', 'comb', 'fork', 'radio', 'paintbrush']
+
+
+Cluster 3:
+['saturn', 'goldfish']
+
+
+Cluster 4:
+['sing', 'listen', 'flame', 'knock', 'exit', 'bury', 'download', 'postcard', 'hard', 'fight', 'call', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'clap', 'pull', 'sleep', 'clean', 'sad', 'empty', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'book', 'earth', 'enter', 'key', 'happy', 'loud', 'love', 'cook', 'recycle', 'cut']
+
+
+Cluster 5:
+['panda', 'ape', 'cat', 'eat', 'gym', 'rifle', 'cow', 'dig', 'run', 'van', 'sun', 'peacock', 'ant', 'bee', 'camera', 'tomato', 'car', 'lantern', 'elephant', 'pant', 'potato']
+
+
+Cluster 6:
+['deer', 'helicopter', 'needle', 'carrot', 'bear', 'spider', 'shark', 'giraffe', 'lizard', 'feather', 'bend', 'frog', 'puppet', 'fly', 'climb', 'scream', 'monkey', 'starfish', 'puppy', 'pear', 'fish', 'scissor', 'grape', 'mouse', 'finger', 'bird', 'spiderman', 'beetle', 'snake', 'fingerprints', 'airplane', 'pizza', 'zip', 'dragonfly', 'butterfly', 'windmill', 'arrow', 'crocodile']
+
+------------------------------------------------------------------------------------------------------
+k vs Scores plot saved
+
+Inferred value of k_kmeans = 3
+
+Clustered labels for k_gmm1 = 1
+
+Cluster 1:
+['drive', 'sing', 'deer', 'panda', 'ape', 'listen', 'rose', 'dive', 'flame', 'helicopter', 'sit', 'knock', 'cat', 'needle', 'eraser', 'table', 'carrot', 'exit', 'brick', 'fishing', 'smile', 'bear', 'spider', 'bullet', 'shark', 'grass', 'giraffe', 'bury', 'download', 'forest', 'lizard', 'brush', 'mug', 'feather', 'eat', 'postcard', 'hard', 'spoon', 'bend', 'frog', 'fight', 'puppet', 'call', 'fly', 'gym', 'lake', 'face', 'climb', 'kneel', 'scream', 'monkey', 'kiss', 'passport', 'selfie', 'roof', 'stairs', 'rifle', 'catch', 'cow', 'hit', 'pencil', 'bed', 'starfish', 'paint', 'plant', 'far', 'microwave', 'dig', 'cry', 'notebook', 'run', 'clap', 'pull', 'sleep', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'hollow', 'jacket', 'bench', 'sun', 'bucket', 'puppy', 'clean', 'feet', 'boat', 'pear', 'basket', 'sad', 'empty', 'peacock', 'fish', 'saturn', 'slide', 'flute', 'fruit', 'drink', 'scissor', 'grape', 'laptop', 'door', 'draw', 'calendar', 'badminton', 'chair', 'mouse', 'ladder', 'pray', 'arrest', 'finger', 'email', 'candle', 'ant', 'buy', 'igloo', 'goldfish', 'bird', 'clock', 'oven', 'calculator', 'spiderman', 'bee', 'burn', 'pillow', 'fire', 'close', 'angry', 'lazy', 'scary', 'tree', 'hang', 'beetle', 'envelope', 'skate', 'hammer', 'toothbrush', 'book', 'screwdriver', 'snake', 'tattoo', 'earth', 'fingerprints', 'teaspoon', 'length', 'dustbin', 'rain', 'tank', 'airplane', 'ambulance', 'pizza', 'enter', 'television', 'throne', 'key', 'swim', 'tent', 'camera', 'zip', 'tomato', 'dragonfly', 'parachute', 'butterfly', 'car', 'sword', 'loudspeaker', 'happy', 'lantern', 'telephone', 'loud', 'elephant', 'love', 'pant', 'stove', 'rainy', 'knife', 'cook', 'toothpaste', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'recycle', 'toaster', 'potato', 'comb', 'cut', 'crocodile', 'shoe', 'walk', 'keyboard', 'fork', 'sunny', 'radio', 'truck', 'suitcase', 'paintbrush']
+
+------------------------------------------------------------------------------------------------------
+Clustered labels for k2 = 3
+
+Cluster 1:
+['needle', 'eraser', 'table', 'fishing', 'brush', 'mug', 'feather', 'spoon', 'puppet', 'passport', 'stairs', 'pencil', 'bed', 'microwave', 'notebook', 'knit', 'sweater', 'cigarette', 'microphone', 'jacket', 'bench', 'bucket', 'flute', 'scissor', 'laptop', 'door', 'calendar', 'badminton', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'toothbrush', 'screwdriver', 'fingerprints', 'teaspoon', 'length', 'dustbin', 'television', 'throne', 'tent', 'sword', 'loudspeaker', 'telephone', 'stove', 'knife', 'toothpaste', 'wheel', 'toaster', 'comb', 'keyboard', 'fork', 'suitcase', 'paintbrush']
+
+
+Cluster 2:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'climb', 'kneel', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'baseball', 'hollow', 'puppy', 'clean', 'basket', 'sad', 'empty', 'fish', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'skate', 'hammer', 'book', 'tattoo', 'earth', 'rain', 'tank', 'pizza', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'rainy', 'cook', 'basketball', 'arrow', 'recycle', 'cut', 'shoe', 'walk', 'sunny', 'radio', 'truck']
+
+
+Cluster 3:
+['deer', 'panda', 'ape', 'rose', 'helicopter', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'gym', 'lake', 'monkey', 'roof', 'rifle', 'cow', 'starfish', 'plant', 'van', 'sun', 'feet', 'boat', 'pear', 'peacock', 'saturn', 'fruit', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'airplane', 'ambulance', 'camera', 'tomato', 'dragonfly', 'parachute', 'butterfly', 'car', 'lantern', 'elephant', 'pant', 'bicycle', 'windmill', 'potato', 'crocodile']
+
+
+Cluster 1:
+['needle', 'eraser', 'table', 'fishing', 'brush', 'mug', 'feather', 'spoon', 'puppet', 'passport', 'stairs', 'pencil', 'bed', 'microwave', 'notebook', 'knit', 'sweater', 'cigarette', 'microphone', 'jacket', 'bench', 'bucket', 'flute', 'scissor', 'laptop', 'door', 'calendar', 'badminton', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'toothbrush', 'screwdriver', 'fingerprints', 'teaspoon', 'length', 'dustbin', 'television', 'throne', 'tent', 'sword', 'loudspeaker', 'telephone', 'stove', 'knife', 'toothpaste', 'wheel', 'toaster', 'comb', 'keyboard', 'fork', 'suitcase', 'paintbrush']
+
+
+Cluster 2:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'call', 'fly', 'face', 'climb', 'kneel', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'baseball', 'hollow', 'puppy', 'clean', 'basket', 'sad', 'empty', 'fish', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'skate', 'hammer', 'book', 'tattoo', 'earth', 'rain', 'tank', 'pizza', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'rainy', 'cook', 'basketball', 'arrow', 'recycle', 'cut', 'shoe', 'walk', 'sunny', 'radio', 'truck']
+
+
+Cluster 3:
+['deer', 'panda', 'ape', 'rose', 'helicopter', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'gym', 'lake', 'monkey', 'roof', 'rifle', 'cow', 'starfish', 'plant', 'van', 'sun', 'feet', 'boat', 'pear', 'peacock', 'saturn', 'fruit', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'airplane', 'ambulance', 'camera', 'tomato', 'dragonfly', 'parachute', 'butterfly', 'car', 'lantern', 'elephant', 'pant', 'bicycle', 'windmill', 'potato', 'crocodile']
+
+------------------------------------------------------------------------------------------------------
+Clustered labels for k_gmm3 = 4
+
+Cluster 1:
+['needle', 'eraser', 'brush', 'feather', 'spoon', 'pencil', 'knit', 'sweater', 'flute', 'scissor', 'badminton', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 2:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'puppet', 'call', 'fly', 'face', 'climb', 'kneel', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'hollow', 'puppy', 'clean', 'sad', 'empty', 'fish', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'hammer', 'book', 'tattoo', 'earth', 'fingerprints', 'tank', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'cook', 'arrow', 'recycle', 'cut', 'walk', 'sunny']
+
+
+Cluster 3:
+['deer', 'panda', 'ape', 'rose', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'monkey', 'cow', 'starfish', 'plant', 'sun', 'pear', 'peacock', 'saturn', 'fruit', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'beetle', 'snake', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'potato', 'crocodile']
+
+
+Cluster 4:
+['helicopter', 'table', 'fishing', 'mug', 'gym', 'lake', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'van', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'feet', 'boat', 'basket', 'laptop', 'door', 'calendar', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'tree', 'envelope', 'skate', 'dustbin', 'rain', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'windmill', 'toaster', 'shoe', 'keyboard', 'radio', 'truck', 'suitcase']
+
+
+Cluster 1:
+['needle', 'eraser', 'brush', 'feather', 'spoon', 'pencil', 'knit', 'sweater', 'flute', 'scissor', 'badminton', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 2:
+['drive', 'sing', 'listen', 'dive', 'flame', 'sit', 'knock', 'exit', 'brick', 'smile', 'bullet', 'bury', 'download', 'eat', 'postcard', 'hard', 'bend', 'fight', 'puppet', 'call', 'fly', 'face', 'climb', 'kneel', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'dig', 'cry', 'run', 'clap', 'pull', 'sleep', 'hollow', 'puppy', 'clean', 'sad', 'empty', 'fish', 'slide', 'drink', 'draw', 'pray', 'arrest', 'email', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'hammer', 'book', 'tattoo', 'earth', 'fingerprints', 'tank', 'enter', 'key', 'swim', 'zip', 'happy', 'loud', 'love', 'cook', 'arrow', 'recycle', 'cut', 'walk', 'sunny']
+
+
+Cluster 3:
+['deer', 'panda', 'ape', 'rose', 'cat', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'frog', 'monkey', 'cow', 'starfish', 'plant', 'sun', 'pear', 'peacock', 'saturn', 'fruit', 'grape', 'mouse', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'beetle', 'snake', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'potato', 'crocodile']
+
+
+Cluster 4:
+['helicopter', 'table', 'fishing', 'mug', 'gym', 'lake', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'van', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'feet', 'boat', 'basket', 'laptop', 'door', 'calendar', 'chair', 'ladder', 'finger', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'tree', 'envelope', 'skate', 'dustbin', 'rain', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'rainy', 'basketball', 'wheel', 'bicycle', 'windmill', 'toaster', 'shoe', 'keyboard', 'radio', 'truck', 'suitcase']
+
+------------------------------------------------------------------------------------------------------
+k_gmm = 4
+
+k vs Scores plot saved
+
+Inferred value of k_gmm = 4
+
+KMeans Clustering plot for k = 3 saved
+
+Comparison plots between K-Means and GMM plotted
+dendrogram_single_euclidean plot saved
+
+dendrogram_single_cityblock plot saved
+
+dendrogram_single_cosine plot saved
+
+dendrogram_complete_euclidean plot saved
+
+dendrogram_complete_cityblock plot saved
+
+dendrogram_complete_cosine plot saved
+
+dendrogram_average_euclidean plot saved
+
+dendrogram_average_cityblock plot saved
+
+dendrogram_average_cosine plot saved
+
+dendrogram_ward_euclidean plot saved
+
+dendrogram_centroid_euclidean plot saved
+
+dendrogram_median_euclidean plot saved
+
+Inferred best Linkage method = ward
+
+Hierarchical Clustering plot PCA 2 saved
+
+Hierarchical Clustering plot PCA 3 saved
+
+Hierarchical Clustering plot PCA 2 saved
+
+Hierarchical Clustering plot PCA 3 saved
+
+Clustered labels for k_best1 = 4
+
+Cluster 1:
+['sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'brick', 'smile', 'bury', 'download', 'hard', 'bend', 'fight', 'face', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'door', 'draw', 'pray', 'arrest', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'tattoo', 'earth', 'enter', 'key', 'swim', 'happy', 'loud', 'love', 'cook', 'cut']
+
+
+Cluster 2:
+['deer', 'panda', 'ape', 'sit', 'cat', 'eraser', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'feather', 'eat', 'frog', 'puppet', 'fly', 'gym', 'kneel', 'monkey', 'cow', 'pencil', 'starfish', 'plant', 'dig', 'run', 'clap', 'pull', 'sun', 'puppy', 'feet', 'pear', 'peacock', 'fish', 'fruit', 'grape', 'finger', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'fingerprints', 'rain', 'zip', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'rainy', 'potato', 'crocodile', 'shoe', 'sunny']
+
+
+Cluster 3:
+['brush', 'spoon', 'scissor', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 4:
+['drive', 'rose', 'helicopter', 'needle', 'table', 'fishing', 'bullet', 'mug', 'postcard', 'call', 'lake', 'climb', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'boat', 'basket', 'saturn', 'flute', 'laptop', 'calendar', 'badminton', 'chair', 'mouse', 'ladder', 'email', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'skate', 'book', 'dustbin', 'tank', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'recycle', 'toaster', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+
+Cluster 1:
+['sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'brick', 'smile', 'bury', 'download', 'hard', 'bend', 'fight', 'face', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'door', 'draw', 'pray', 'arrest', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'tattoo', 'earth', 'enter', 'key', 'swim', 'happy', 'loud', 'love', 'cook', 'cut']
+
+
+Cluster 2:
+['deer', 'panda', 'ape', 'sit', 'cat', 'eraser', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'feather', 'eat', 'frog', 'puppet', 'fly', 'gym', 'kneel', 'monkey', 'cow', 'pencil', 'starfish', 'plant', 'dig', 'run', 'clap', 'pull', 'sun', 'puppy', 'feet', 'pear', 'peacock', 'fish', 'fruit', 'grape', 'finger', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'fingerprints', 'rain', 'zip', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'rainy', 'potato', 'crocodile', 'shoe', 'sunny']
+
+
+Cluster 3:
+['brush', 'spoon', 'scissor', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 4:
+['drive', 'rose', 'helicopter', 'needle', 'table', 'fishing', 'bullet', 'mug', 'postcard', 'call', 'lake', 'climb', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'boat', 'basket', 'saturn', 'flute', 'laptop', 'calendar', 'badminton', 'chair', 'mouse', 'ladder', 'email', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'skate', 'book', 'dustbin', 'tank', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'recycle', 'toaster', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+Word Cloud for k_best1 saved
+
+Clustered labels for k_best2 = 4
+
+Cluster 1:
+['sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'brick', 'smile', 'bury', 'download', 'hard', 'bend', 'fight', 'face', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'door', 'draw', 'pray', 'arrest', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'tattoo', 'earth', 'enter', 'key', 'swim', 'happy', 'loud', 'love', 'cook', 'cut']
+
+
+Cluster 2:
+['deer', 'panda', 'ape', 'sit', 'cat', 'eraser', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'feather', 'eat', 'frog', 'puppet', 'fly', 'gym', 'kneel', 'monkey', 'cow', 'pencil', 'starfish', 'plant', 'dig', 'run', 'clap', 'pull', 'sun', 'puppy', 'feet', 'pear', 'peacock', 'fish', 'fruit', 'grape', 'finger', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'fingerprints', 'rain', 'zip', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'rainy', 'potato', 'crocodile', 'shoe', 'sunny']
+
+
+Cluster 3:
+['brush', 'spoon', 'scissor', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 4:
+['drive', 'rose', 'helicopter', 'needle', 'table', 'fishing', 'bullet', 'mug', 'postcard', 'call', 'lake', 'climb', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'boat', 'basket', 'saturn', 'flute', 'laptop', 'calendar', 'badminton', 'chair', 'mouse', 'ladder', 'email', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'skate', 'book', 'dustbin', 'tank', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'recycle', 'toaster', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+
+Cluster 1:
+['sing', 'listen', 'dive', 'flame', 'knock', 'exit', 'brick', 'smile', 'bury', 'download', 'hard', 'bend', 'fight', 'face', 'scream', 'kiss', 'selfie', 'catch', 'hit', 'paint', 'far', 'cry', 'sleep', 'hollow', 'clean', 'sad', 'empty', 'slide', 'drink', 'door', 'draw', 'pray', 'arrest', 'buy', 'burn', 'fire', 'close', 'angry', 'lazy', 'scary', 'hang', 'tattoo', 'earth', 'enter', 'key', 'swim', 'happy', 'loud', 'love', 'cook', 'cut']
+
+
+Cluster 2:
+['deer', 'panda', 'ape', 'sit', 'cat', 'eraser', 'carrot', 'bear', 'spider', 'shark', 'grass', 'giraffe', 'forest', 'lizard', 'feather', 'eat', 'frog', 'puppet', 'fly', 'gym', 'kneel', 'monkey', 'cow', 'pencil', 'starfish', 'plant', 'dig', 'run', 'clap', 'pull', 'sun', 'puppy', 'feet', 'pear', 'peacock', 'fish', 'fruit', 'grape', 'finger', 'ant', 'goldfish', 'bird', 'spiderman', 'bee', 'tree', 'beetle', 'snake', 'fingerprints', 'rain', 'zip', 'tomato', 'dragonfly', 'butterfly', 'elephant', 'pant', 'rainy', 'potato', 'crocodile', 'shoe', 'sunny']
+
+
+Cluster 3:
+['brush', 'spoon', 'scissor', 'hammer', 'toothbrush', 'screwdriver', 'teaspoon', 'length', 'sword', 'knife', 'toothpaste', 'comb', 'fork', 'paintbrush']
+
+
+Cluster 4:
+['drive', 'rose', 'helicopter', 'needle', 'table', 'fishing', 'bullet', 'mug', 'postcard', 'call', 'lake', 'climb', 'passport', 'roof', 'stairs', 'rifle', 'bed', 'microwave', 'notebook', 'knit', 'van', 'sweater', 'cigarette', 'microphone', 'baseball', 'jacket', 'bench', 'bucket', 'boat', 'basket', 'saturn', 'flute', 'laptop', 'calendar', 'badminton', 'chair', 'mouse', 'ladder', 'email', 'candle', 'igloo', 'clock', 'oven', 'calculator', 'pillow', 'envelope', 'skate', 'book', 'dustbin', 'tank', 'airplane', 'ambulance', 'pizza', 'television', 'throne', 'tent', 'camera', 'parachute', 'car', 'loudspeaker', 'lantern', 'telephone', 'stove', 'basketball', 'wheel', 'bicycle', 'windmill', 'arrow', 'recycle', 'toaster', 'walk', 'keyboard', 'radio', 'truck', 'suitcase']
+
+Word Cloud for k_best2 saved
+
+Scree plot saved
+
+Inferred Optimal Dimensions = 3
+
+Dataset reduced to 3 dimensions
+
+    k = 50, Distance Metric = manhattan
+    Validation Metrics for Reduced Spotify Dataset
+
+                Accuracy:        11.804%
+
+                Precision
+                        Macro:  0.0950664193081687    
+                        Micro:  0.1180385764737827
+
+                Recall 
+                        Macro:   0.07951672079690295
+                        Micro:   0.1180385764737827
+
+                F1 Score
+                        Macro:   0.08041287554429412
+                        Micro:   0.1180385764237827
+
+    Time taken: 139.016 seconds
+    ---------------------------------------------------------------------
+
+Parallel Coordinates plot saved
+
+Time Taken
+
+Reduced Dataset: 139.016 s
+Original Dataset: 140.7332 s
+
+
+
+Assignment 2 Completed Yay!!
+

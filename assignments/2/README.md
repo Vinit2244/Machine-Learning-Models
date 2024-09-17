@@ -6,31 +6,33 @@
 
 ## **Table of Contents**
 3. [K-Means](#KMeans)
-    - [Elbow Plot 512 dim](#ElbowPlot512)
-    - [K-Means clustering using k = k_means1](#KMeansKMeans1)
+  - [Elbow Plot 512 dim](#ElbowPlot512)
+  - [K-Means clustering using k = k_means1](#KMeansKMeans1)
 4. [GMM](#GMM)
-    - [Optimal Number of Clusters for 512 dimensions using GMM](#GMM512)
-    - [AIC and BIC in GMM](#AICBIC)
-    - [GMM clustering using k = k_gmm1](#GMMKGMM1)
+  - [Optimal Number of Clusters for 512 dimensions using GMM](#GMM512)
+  - [AIC and BIC in GMM](#AICBIC)
+  - [GMM clustering using k = k_gmm1](#GMMKGMM1)
 5. [PCA](#PCA)
-   - [Visualising Dimensionality Reduction](#VisualisingReducedDataset)
-   - [Data Analysis](#DataAnalysis)
-   - [K-Means using k=k_2](#KMeansK2)
+  - [Visualising Dimensionality Reduction](#VisualisingReducedDataset)
+  - [Data Analysis](#DataAnalysis)
+  - [K-Means using k=k_2](#KMeansK2)
 6. [PCA + K-Means](#PCAKMeans)
-    - [Scree Plot for determining optimal number of dimensions](#ScreePlotFullDataset)
-    - [Elbow plot for reduced Dataset](#ElbowPlotReducedDataset)
-    - [K-Means using k=k_kmeans3](#KMeansKMeans3)
-    - [GMM using k_2](#GMMK2)
-    - [PCA + GMM](#PCAGMM)
-    - [GMM using k_gmm3](#GMMGMM3)
+  - [Scree Plot for determining optimal number of dimensions](#ScreePlotFullDataset)
+  - [Elbow plot for reduced Dataset](#ElbowPlotReducedDataset)
+  - [K-Means using k=k_kmeans3](#KMeansKMeans3)
+  - [GMM using k_2](#GMMK2)
+  - [PCA + GMM](#PCAGMM)
+  - [GMM using k_gmm3](#GMMGMM3)
 7. [Cluster Analysis](#ClusterAnalysis)
-    - [K-Means Cluster Analysis](#KMeansClusterAnalysis)
-    - [GMM Cluster Analysis](#GMMClusterAnalysis)
-    - [GMM and K-Means Comparison](#GMMKMeans)
+  - [K-Means Cluster Analysis](#KMeansClusterAnalysis)
+  - [GMM Cluster Analysis](#GMMClusterAnalysis)
+  - [GMM and K-Means Comparison](#GMMKMeans)
 8. [Hierarchical Clustering](#HC)
-    - [](#)
-    - [](#)
+  - [Dendrogram Plots](#Dendrograms)
+  - [Comparing GMM, K-Means and HC](#GMMKMeansHC)
 9. [Nearest Neighbor Search - Spotify Dataset](#Spotify)
+  - [PCA + KNN](#PCAKNN)
+  - [KNN on reduced dataset using the best_k and best_metric obtained in A1](#Evaluation)
 
 > <span style="color: green;"> Everywhere in the assignment K-Means algorithm has been initialised as K-Means++</span>
 
@@ -42,8 +44,13 @@
 
 ## **3.2 Optimal Number of Clusters for 512 dimensions using K-Means**
 
+<center>
+
 ![Elbow Plot full Dataset](./figures/k_means/elbow_plot_full_dataset.png)
+
 *Figure 1: Elbow plot for the original 512 dimensional dataset for k upto 15*
+
+</center>
 
 An **elbow plot** helps determine the optimal number of clusters for K-means clustering by plotting the within-cluster sum of squares (WCSS) against the number of clusters. The optimal `K` is typically found at the "elbow" point, where adding more clusters yields only marginal improvements.
 
@@ -63,7 +70,7 @@ where:
 
 ### K-Means clustering using $k = k_{kmeans1}$
 Output:
-```bash
+```
 KMeans with k = 5
 
         Time taken to fit: 0.01569 s
@@ -90,12 +97,21 @@ My custom Gaussian Mixture Model (GMM) class encountered several issues during i
 
 To compare, I have used sklearn's GMM implementation, which provided expected results and highlighted the issues in my custom implementation.
 
+I solved the above issue by initialising the covariance matrices to identity, and whenever division by 0 error was encountered, I have just set the value to 0 instead of dividing it by epsilon (explode).
+
+My GMM class still does not work for high dimension data because the sklearn GMM class applies some sophesticated techniques/algorithms to handle the case when covariance matrix leads to singular matrix but we can't apply those right now in this assignment - but my model works well and in parallel to the sklearn's model for lower dimentional data.
+
 <p id="AICBIC"></p>
 
 ### **AIC and BIC in Gaussian Mixture Models (GMM)**
 
+<center>
+
 ![AIC BIC score plot for original dataset](./figures/gmm/aic_bic_plot_original_dataset.png)
+
 *Figure 2: k vs AIC BIC plot for original datset with 512 dimensions for k upto 15*
+
+</center>
 
 **Akaike Information Criterion (AIC)** and **Bayesian Information Criterion (BIC)** are used for model selection in Gaussian Mixture Models (GMMs) to <span style="color: green;">balance goodness of fit</span> with <span style="color: red;">model complexity</span>.
 
@@ -119,7 +135,7 @@ Both criteria help in selecting the model with the best trade-off between fit an
 
 ### GMM clustering using $k = k_{gmm1}$
 Output:
-```bash
+```
 GMM with k = 1
 
         Time taken to fit: 0.01748 s
@@ -164,6 +180,10 @@ GMM with k = 1
 
 By looking the the distribution of lables on each of the principle components we can identify what quality/property does each of the principle components signify based on the inference of the distribution of the words(labels) and their shared characteristics.
 
+- **PC 1**: Represents a spectrum between tangible physical objects (positive values) and abstract concepts or emotional states/actions (negative values).
+- **PC 2**: Highlights the contrast between natural/animate elements and synthetic/inanimate objects or controlled actions.
+- **PC 3**: Positive values (e.g., "pencil", "mug", "chair") cluster everyday objects, while negative values (e.g., "spider", "shark", "monkey") group animals, possibly associated with danger or fear. Neutral values (e.g., "knock", "smile", "paint") fall between these extremes, possibly representing abstract or ambiguous categories.
+
 ### Examining 2D and 3D plot to identify approximate number of clusters
 
 From mere visualisation of fig. 3 and fig. 4 I can say there are either 3 or 4 clusters. To further strengthen my claim I tried running K-Means on the reduced dataset with once $k=3$ and once with $k=4$ and here are the results:
@@ -200,7 +220,7 @@ From mere visualisation of fig. 3 and fig. 4 I can say there are either 3 or 4 c
 
 ## **6.1 K-Means using $k=k_2$**
 Output:
-```bash
+```
 KMeans with k = 3
 
         Time taken to fit: 0.01064 s
@@ -218,8 +238,13 @@ KMeans with k = 3
 
 ### Scree Plot for determining optimal number of dimensions
 
+<center>
+
 ![Scree plot for original dataset](./figures/pca/scree_plot_full_dataset.png)
+
 *Figure 11: Principle component vs Eigenvalue plot upto top 21 eigenvalues*
+
+</center>
 
 > From fig 11 (left) we can see that the graph flattens out starting from PC 5 hence we take optimal number of dimensions to be 4
 
@@ -227,8 +252,13 @@ KMeans with k = 3
 
 ### Elbow plot for reduced Dataset
 
+<center>
+
 ![Elbow plot for reduced dataset](./figures/k_means/elbow_point_reduced_dataset.png)
+
 *Figure 12: Elbow plot for reduced dataset for k values upto 15*
+
+</center>
 
 > From fig 12 we can see that the elbow point comes at 6 for the reduced dataset hence $k_{kmeans3}=6$
 
@@ -236,7 +266,7 @@ KMeans with k = 3
 
 ### K-Means using $k=k_{kmeans3}$
 Output:
-```bash
+```
 KMeans with k = 6
 
         Time taken to fit: 0.0109 s
@@ -250,7 +280,7 @@ KMeans with k = 6
 
 ## 6.3 GMM using $k_2$
 Output:
-```bash
+```
 GMM using k = 3
 
         Time taken to fit: 0.05756 s
@@ -262,8 +292,13 @@ GMM using k = 3
 <p id="PCAGMM"></p>
 
 ## 6.4 PCA + GMM
+<center>
+
 ![AIC BIC plot for reduced dataset](./figures/gmm/aic_bic_plot_reduced_dataset.png)
+
 *Figure 13: AIC BIC plot for reduced Dataset with dimensions = 4*
+
+</center>
 
 > From the plot we can see that both AIC and BIC are minimum (almost) for $k = 4$, hence $k_{gmm3} = 4$
 
@@ -271,7 +306,7 @@ GMM using k = 3
 
 ### GMM using $k_{gmm3}$
 Output:
-```bash
+```
 GMM with k = 4
 
         Time taken to fit: 0.00355 s
@@ -389,6 +424,8 @@ $$d_{centroid}(C_i, C_j) = \|\bar{x}_i - \bar{x}_j\|^2$$
 
 where $\bar{x}_i$ is the centroid of cluster $C_i$
 
+<p id="Dendrograms"> </p>
+
 #### <u>Below are all the dendrograms produced:</u>
 
 <center>
@@ -433,6 +470,8 @@ where $\bar{x}_i$ is the centroid of cluster $C_i$
 
 > On inspecting all the above dendrograms we can see that the best linkage method is `ward`
 
+<p id="GMMKMeansHC"> </p>
+
 ### Further Visualising the clusters form using $k_{best1}$ and $k_{best2}$
 
 #### For k = k_best1
@@ -474,3 +513,84 @@ where $\bar{x}_i$ is the centroid of cluster $C_i$
 </div>
 
 > We can clearly see that these clusters differ significantly from the K-Means or GMM clusters since it has too much overalap.
+
+---
+
+<p id="Spotify"></p>
+
+## Nearest Neighbor Search - Spotify Dataset
+
+<p id="PCAKNN"></p>
+
+<center>
+
+![Scree Plot of Spotify Dataset](./figures/spotify_dataset/scree_plot_spotify_dataset.png)
+
+*Figure 42: Scree plot of the complete original Spotify Dataset*
+
+</center>
+
+> From the Scree plot we can clearly see that the plot flattens out after k = 4, hence we take the optimal number of dimensions to reduce to as 3
+
+<p id="Evaluation"></p>
+
+### KNN on reduced dataset using the best_k and best_metric obtained in A1
+
+In A1 we obtained $best_k$ = 50 and $best_{metric}$ = Manhattan
+
+Metrics obtained for the complete spotify dataset in A1 are as follows:
+```
+k = 50, Distance Metric = manhattan
+Validation Metrics for Dataset 1
+Combination index used: 0
+
+            Accuracy:        30.223%
+
+            Precision
+                    Macro:  0.2550008511054787    
+                    Micro:  0.30222765552838493
+
+            Recall 
+                    Macro:   0.24679235851898834
+                    Micro:   0.30222765552838493
+
+            F1 Score
+                    Macro:   0.23129256332131554
+                    Micro:   0.3022276554783849
+
+Time taken: 140.7332 seconds
+```
+
+On running KNN with $best_k$ and $best_{metric}$, we get the following metrics:
+```
+k = 50, Distance Metric = manhattan
+Validation Metrics for Reduced Spotify Dataset
+
+            Accuracy:        11.913%
+
+            Precision
+                    Macro:  0.09577378269523396    
+                    Micro:  0.11912523770714317
+
+            Recall 
+                    Macro:   0.07898379417975336
+                    Micro:   0.11912523770714317
+
+            F1 Score
+                    Macro:   0.08156311217681901
+                    Micro:   0.11912523765714317
+
+Time taken: 140.2929 seconds
+```
+
+Hence if we plot them on a graph we get the following:
+
+<center>
+
+![Change in metrics of spotify dataset](./figures/spotify_dataset/parallel_coordinates_plot.png)
+
+*Plot depicting the change in metrics values of reduced dataset wrt original dataset*
+
+</center>
+
+Note that here on x-axis 1 represents original dataset and 2 represents reduced dataset.
