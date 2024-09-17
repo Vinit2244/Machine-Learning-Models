@@ -10,6 +10,9 @@ import scipy.cluster.hierarchy as hc
 from sklearn.mixture import GaussianMixture
 from wordcloud import WordCloud
 from sklearn.metrics import silhouette_score
+from matplotlib.animation import FuncAnimation
+import imageio
+from matplotlib.patches import Ellipse
 
 # Colors for printing for better readability
 BLUE = "\033[34m"
@@ -61,18 +64,18 @@ original_data_params = {
     "shuffle":       False,
     "seed":          42,
     "max_k":         15,        # Decided upon the value of 15 after watching the graph till various points (max = 200) (no. of data points in data)
-    "init_method":   "kmeans",  # Can be kmeans or kmeans++
+    "init_method":   "kmeans++",  # Can be kmeans or kmeans++
     "k_kmeans1":     5,         # Based on visual inspection of the k vs MCSS plot deciding the number of clusters (elbow point)
     "k_gmm1":        1,         # Based on visual inspection of AIC BIC plot
     "k2":            3,         # Based on visual inspection of the PCA plots deciding the number of clusters
     "op_dim":        4,         # Based on visual inspection of the scree plot deciding the number of optimal dimensions
-    "k_kmeans3":     4,         # Based on visual inspection of the k vs MCSS plot on reduced dataset deciding the number of clusters (elbow point)
+    "k_kmeans3":     6,         # Based on visual inspection of the k vs MCSS plot on reduced dataset deciding the number of clusters (elbow point)
     "k_gmm3":        4,         # Based on visual inspection of the AIC BIC plot on reduced dataset deciding the number of clusters
     "label_idx":     0,         # Column Index of the label in the data
-    "k_kmeans":      5,         # Based on interpreting the clustered labels deciding the number of clusters
+    "k_kmeans":      3,         # Based on interpreting the clustered labels deciding the number of clusters
     "k_gmm":         4,         # Based on interpreting the clustered labels deciding the number of clusters
     "linkage":       "ward",    # Based on interpreting the dendrograms deciding the best linkage method
-    "k_best1":       5,         # == k_kmeans
+    "k_best1":       4,         # == k_kmeans
     "k_best2":       4,         # == k_gmm
 }
 
@@ -86,6 +89,30 @@ spotify_data_params = {
 
 # Plots the word cloud for the given clusters
 def plot_word_cloud(clusters, params, k=None, n_rows=2, n_cols=2, save_as="word_cloud", width=800, height=400, background_color='white', max_font_size=100, min_font_size=10, colormap='viridis', max_words=1000, collocations=False):
+    """
+        Plots the word cloud for the given clusters
+
+        Parameters
+        ==========
+            clusters (list): List of clusters where each cluster is a list of words
+            params (dict): Dictionary containing the parameters
+            k (int): Number of clusters
+            n_rows (int): Number of rows in the plot
+            n_cols (int): Number of columns in the plot
+            save_as (str): Name to save the plot
+            width (int): Width of the plot
+            height (int): Height of the plot
+            background_color (str): Background color of the plot
+            max_font_size (int): Maximum font size in the plot
+            min_font_size (int): Minimum font size in the plot
+            colormap (str): Colormap for the plot
+            max_words (int): Maximum number of words to display
+            collocations (bool): Whether to consider collocations or not
+
+        Returns
+        =======
+            None
+    """
     wordcloud = WordCloud(
         width=width, height=height,
         background_color=background_color,
@@ -110,8 +137,8 @@ def plot_word_cloud(clusters, params, k=None, n_rows=2, n_cols=2, save_as="word_
     for cluster_idx, cluster in enumerate(clusters):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
-        row_idx = cluster_idx // 2
-        col_idx = cluster_idx % 2
+        row_idx = cluster_idx // n_cols
+        col_idx = cluster_idx % n_cols
         wordcloud.generate(' '.join(cluster))
         axes[row_idx, col_idx].imshow(wordcloud, interpolation='bilinear')
         axes[row_idx, col_idx].axis('off')
@@ -276,11 +303,26 @@ def draw_elbow_plot(train_data, save_as, max_k=15, init_method="kmeans", seed=No
     plt.title('k vs Final WCSS Cost')
     plt.grid(True)
     plt.savefig(f'./assignments/2/figures/k_means/{save_as}.png')
-    print(f"{GREEN}{save_as} plot saved{RESET}\n")
     plt.close()
+    print(f"{GREEN}{save_as} plot saved{RESET}\n")
 
 # Runs a scikit learn GMM model with the given inputs and prints statistics
 def run_gmm_model(k, train_data, seed=None, model_type="sklearn", print_op=True):
+    """
+        Runs a GMM model with the given inputs and prints statistics
+
+        Parameters
+        ==========
+            k (int): Number of clusters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            seed (int): Seed for shuffling
+            model_type (str): Type of model to use (sklearn or custom)
+            print_op (bool): Whether to print the statistics or not
+
+        Returns
+        =======
+            gmm_model (GaussianMixture): The trained GMM model
+    """
     if model_type == "sklearn":
         if seed is None:
             gmm_model = GaussianMixture(k)
@@ -354,8 +396,8 @@ def gmm_aic_bic_method(max_k, train_data, save_as, seed=None, model_type="sklear
     plt.legend()
     plt.title('k vs AIC/BIC')
     plt.savefig(f'./assignments/2/figures/gmm/{save_as}.png')
-    print(f"{GREEN}{save_as} plot saved{RESET}\n")
     plt.close()
+    print(f"{GREEN}{save_as} plot saved{RESET}\n")
 
 # Implements the PCA algorithm
 def run_pca_model(n_components, data):
@@ -379,11 +421,11 @@ def run_pca_model(n_components, data):
     transformed_data = pca_model.transform()
 
     # Checking if PCA transformation was successful
-    if pca_model.checkPCA():
+    if pca_model.checkPCA(transformed_data):
         print(f"{GREEN}PCA transformation for {n_components} components successful{RESET}")
     else:
         print(f"{RED}PCA transformation for {n_components} unsuccessful{RESET}")
-        return
+        raise(ValueError)
     
     # Plotting the transformed data
     if n_components == 2:
@@ -392,8 +434,8 @@ def run_pca_model(n_components, data):
         plt.ylabel('Principal Component 2')
         plt.title('Principal Component Analysis')
         plt.savefig('./assignments/2/figures/pca/pca_2.png')
-        print(f"{GREEN}PCA plot saved{RESET}\n")
         plt.close()
+        print(f"{GREEN}PCA plot saved{RESET}\n")
 
     elif n_components == 3:
         fig = plt.figure()
@@ -403,9 +445,21 @@ def run_pca_model(n_components, data):
         ax.set_ylabel('Principal Component 2')
         ax.set_zlabel('Principal Component 3')
         plt.title('Principal Component Analysis')
-        plt.savefig('./assignments/2/figures/pca/pca_3.png')
-        print(f"{GREEN}PCA plot saved{RESET}\n")
+        '''
+            The following code for creating gif animation is given by ChatGPT
+            Prompt: Given a 3D plot in matplotlib generate a gif of the plot rotating it
+        '''
+        # ==============================================================================
+        def update(frame):
+            ax.view_init(elev=30, azim=frame)
+            return ax,
+
+        frames = np.arange(0, 360, 2)
+        ani = FuncAnimation(fig, update, frames=frames, interval=50)
+        ani.save('./assignments/2/figures/pca/pca_3.gif', writer='pillow')
+        # ==============================================================================
         plt.close()
+        print(f"{GREEN}PCA plot saved{RESET}\n")
     return transformed_data
 
 # Plots scree plot and cumulative scree plot for deciding optimal number of dimensions for PCA
@@ -447,10 +501,26 @@ def draw_scree_plot(train_data, save_as):
     axes[1].set_ylabel('Cumulative Eigenvalue')
     axes[1].set_title('Cumulative Scree Plot')
     plt.savefig(f'./assignments/2/figures/{save_as}')
+    plt.close()
     print(f"{GREEN}Scree plot saved{RESET}\n")
 
 # Given the cluster assignment, original data and the label index (index of column which represents label), returns the clusters of labels
 def get_cluster_values(k, cluster_assignment, original_data, label_idx):
+    """
+        Given the cluster assignment, original data and the label index (index of column which represents label),
+        returns the clusters corresponding to each label
+
+        Parameters
+        ==========
+            k (int): Number of clusters
+            cluster_assignment[n_points] (list): Cluster assignment for each data point
+            original_data[n_points, n_features] (numpy array): Original data
+            label_idx (int): Index of column which represents label
+        
+        Returns
+        =======
+            clusters (list): List of clusters where each cluster is a list of labels
+    """
     # Normalizing the cluster numbers to start from 0 since the numbers returned by hierarchical clustering start from 1
     min_val = min(cluster_assignment)
     cluster_assignment = [val - min_val for val in cluster_assignment]
@@ -468,6 +538,22 @@ def get_cluster_values(k, cluster_assignment, original_data, label_idx):
 
 # Plots the dendrogram for hierarchical clustering
 def plot_dendrogram(type, original_data, preprocessed_data, method, metric, save_as):
+    """
+        Plots the dendrogram for hierarchical clustering
+
+        Parameters
+        ==========
+            type (str): Type of data (original assignment data or test data)
+            original_data[n_points, n_features] (numpy array): Original data
+            preprocessed_data[n_points, n_features] (numpy array): Preprocessed data
+            method (str): Method to use for hierarchical clustering
+            metric (str): Metric to use for hierarchical clustering
+            save_as (str): Name to save the plot
+        
+        Returns
+        =======
+            None
+    """
     Z = hc.linkage(preprocessed_data, method=method, metric=metric)
     if type == "original assignment data":
         custom_labels = original_data[:, 0].tolist()
@@ -476,10 +562,30 @@ def plot_dendrogram(type, original_data, preprocessed_data, method, metric, save
     fig = plt.figure(figsize=(25, 10))
     dn = hc.dendrogram(Z, labels=custom_labels)
     plt.savefig(f'./assignments/2/figures/hierarchical_clustering/{save_as}.png')
+    plt.close()
     print(f"{GREEN}{save_as} plot saved{RESET}\n")
 
 # For preprocessing the spotify dataset
 def preprocess_spotify_dataset(data, preprocessed_data_file_path):
+    """
+        Preprocesses the spotify dataset by performing the following steps:
+            1. Renaming the first unnamed column as index
+            2. Remove exact duplicates - if track id is same, the song is exactly the same
+            3. Remove duplicate songs in multiple albums
+            4. Z-score normalization
+            5. Removing unnecessary columns and non-numeric columns
+            6. Storing the preprocessed data for future use
+        
+        Parameters
+        ==========
+            data (pandas DataFrame): The original data
+            preprocessed_data_file_path (str): Path to store the preprocessed data
+        
+        Returns
+        =======
+            data_with_track_genre (pandas DataFrame): Preprocessed data with track genre
+            data_without_track_genre (pandas DataFrame): Preprocessed data without track genre
+    """
     # Renaming the first unnamed column as index
     data = data.rename(columns={'Unnamed: 0': 'index'})
 
@@ -511,7 +617,22 @@ def preprocess_spotify_dataset(data, preprocessed_data_file_path):
     return data_with_track_genre, data_without_track_genre
 
 def spotify_dataset():
-    # ------------------------- 9.1 + 9.2 - PCA + KNN + Evaluation ------------------------
+    """
+        Implements the Spotify dataset analysis by performing the following steps:
+            1. Preprocess the data
+            2. Draw the scree plot
+            3. Reduce the dataset to optimal number of dimensions
+            4. Run KNN model on the reduced dataset
+            5. Run KNN model on the complete dataset
+        
+        Parameters
+        ==========
+            None
+        
+        Returns
+        =======
+            None
+    """
     try:
         # Checking if preprocessed data is already present
         spotify_data_with_track_genre = pd.read_csv(spotify_data_params["preprocessed_file_path"] + "_with_track_genre.csv", quotechar='"')
@@ -613,9 +734,75 @@ def spotify_dataset():
     plt.ylabel('Inference Time (s)')
     plt.title('Inference Time Comparison')
     plt.savefig('./assignments/2/figures/spotify_dataset/inference_time_comparison.png')
+    plt.close()
     print(f"{GREEN}Inference Time Comparison plot saved{RESET}\n")
 
+def visualise_hierarchical_clusters(train_data, clusters, save_as=None):
+    pca_model = PCA(2)
+    pca_model.load_data(train_data)
+    pca_model.fit()
+    transformed_data = pca_model.transform()
+    plt.scatter(transformed_data[:, 0], transformed_data[:, 1], c=clusters, cmap='viridis')
+    plt.xlabel('Principal Component 1')
+    plt.ylabel('Principal Component 2')
+    plt.title('Hierarchical Clustering')
+    if save_as is not None:
+        plt.savefig(f'./assignments/2/figures/hierarchical_clustering/{save_as}_pca_2.png')
+    else:
+        plt.show()
+    plt.close()
+
+    print(f"{GREEN}Hierarchical Clustering plot PCA 2 saved{RESET}\n")
+
+    pca_model = PCA(3)
+    pca_model.load_data(train_data)
+    pca_model.fit()
+    transformed_data = pca_model.transform()
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(transformed_data[:, 0], transformed_data[:, 1], transformed_data[:, 2], c=clusters, cmap='viridis')
+    ax.set_xlabel('Principal Component 1')
+    ax.set_ylabel('Principal Component 2')
+    ax.set_zlabel('Principal Component 3')
+    plt.title('Hierarchical Clustering')
+    if save_as is not None:
+        '''
+            The following code for creating gif animation is given by ChatGPT
+            Prompt: Given a 3D plot in matplotlib generate a gif of the plot rotating it
+        '''
+        # ==============================================================================
+        def update(frame):
+            ax.view_init(elev=30, azim=frame)
+            return ax,
+
+        frames = np.arange(0, 360, 2)
+        ani = FuncAnimation(fig, update, frames=frames, interval=50)
+        ani.save(f'./assignments/2/figures/hierarchical_clustering/{save_as}_pca_3.gif', writer='pillow')
+        # ==============================================================================
+    else:
+        plt.show()
+    plt.close()
+
+    print(f"{GREEN}Hierarchical Clustering plot PCA 3 saved{RESET}\n")
+
 def hierarchical_clustering(params, original_data, train_data):
+    """
+        Implements the Hierarchical Clustering algorithm by performing the following steps:
+            1. Plot the dendrogram for different linkage methods and distance metrics
+            2. Infer the best linkage method
+            3. Cluster the data for the best linkage method and distance metric
+            4. Plot the word cloud for the clusters
+        
+        Parameters
+        ==========
+            params (dict): Dictionary containing the parameters
+            original_data[n_points, n_features] (numpy array): Original data
+            train_data[n_train, n_features] (numpy array): Data for training
+        
+        Returns
+        =======
+            None
+    """
     distance_metrics=['euclidean', 'cityblock', 'cosine'] # cityblock is same as manhattan distance metric
     methods=['single', 'complete', 'average', 'ward', 'centroid', 'median']
 
@@ -632,9 +819,11 @@ def hierarchical_clustering(params, original_data, train_data):
     Z = hc.linkage(train_data, method=params["linkage"], metric='euclidean')
     # For kbest1 (K-Means)
     clusters_kbest1 = hc.fcluster(Z, t=params["k_best1"], criterion='maxclust')
+    visualise_hierarchical_clusters(train_data, clusters_kbest1, save_as="k_best1")
 
     # For kbest2 (GMM)
     clusters_kbest2 = hc.fcluster(Z, t=params["k_best2"], criterion='maxclust')
+    visualise_hierarchical_clusters(train_data, clusters_kbest2, save_as="k_best2")
 
     clustered_values_kbest1 = get_cluster_values(params["k_best1"], clusters_kbest1, original_data, params["label_idx"])
     clustered_values_kbest2 = get_cluster_values(params["k_best2"], clusters_kbest2, original_data, params["label_idx"])
@@ -644,7 +833,7 @@ def hierarchical_clustering(params, original_data, train_data):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
-    plot_word_cloud(clustered_values_kbest1, params, "k_best1", n_rows=3, n_cols=2, save_as="hierarchical_clustering/word_cloud_k_best1")
+    plot_word_cloud(clustered_values_kbest1, params, "k_best1", save_as="hierarchical_clustering/word_cloud_k_best1")
     print(f"{GREEN}Word Cloud for k_best1 saved{RESET}\n")
 
     print(f"{BLUE}Clustered labels for k_best2 = {params["k_best2"]}{RESET}")
@@ -680,8 +869,65 @@ def draw_individual_component_labelled_scatter_plot(original_data, transformed_d
     plt.close()
     print(f"{GREEN}{save_as} plot saved{RESET}\n")
 
+def plot_k_means_clusters(transformed_data, k, save_as=None):
+    """
+        Plots the KMeans Clustering (Image for 2D and GIF for 3D)
+
+        Parameters
+        ==========
+            transformed_data[n_points, n_components] (numpy array): Transformed data
+            k (int): Number of clusters
+            save_as (str): Name to save the plot
+        
+        Returns
+        =======
+            None
+    """
+    k_means_model = KMeans(k, init_method="kmeans++")
+    k_means_model.load_data(transformed_data)
+    k_means_model.fit()
+    k_means_model.predict(transformed_data)
+    if transformed_data.shape[1] == 2:
+        plt.scatter(transformed_data[:, 0], transformed_data[:, 1], c=k_means_model.cluster_labels)
+        plt.scatter(k_means_model.cluster_centers[:, 0], k_means_model.cluster_centers[:, 1], c='red', s=100, marker='x')
+        plt.xlabel('Principal Component 1')
+        plt.ylabel('Principal Component 2')
+        plt.title('KMeans Clustering')
+        if save_as is not None:
+            plt.savefig(f'./assignments/2/figures/k_means/{save_as}.png')
+        else:
+            plt.show()
+    elif transformed_data.shape[1] == 3:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(transformed_data[:, 0], transformed_data[:, 1], transformed_data[:, 2], c=k_means_model.cluster_labels)
+        ax.scatter(k_means_model.cluster_centers[:, 0], k_means_model.cluster_centers[:, 1], k_means_model.cluster_centers[:, 2], c='red', s=100, marker='x')
+        ax.set_xlabel('Principal Component 1')
+        ax.set_ylabel('Principal Component 2')
+        ax.set_zlabel('Principal Component 3')
+        plt.title('KMeans Clustering')
+        if save_as is not None:
+            '''
+                The following code for creating gif animation is given by ChatGPT
+                Prompt: Given a 3D plot in matplotlib generate a gif of the plot rotating it
+            '''
+            # ==============================================================================
+            def update(frame):
+                ax.view_init(elev=30, azim=frame)
+                return ax,
+
+            frames = np.arange(0, 360, 2)
+            ani = FuncAnimation(fig, update, frames=frames, interval=50)
+            ani.save(f'./assignments/2/figures/k_means/{save_as}.gif', writer='pillow')
+            # ==============================================================================
+        else:
+            plt.show()
+    
+    plt.close()
+    print(f"{GREEN}KMeans Clustering plot for k = {k} saved{RESET}\n")
+
 # Runs PCA to reduce the dimensions to 2 and 3 for visual analysis
-def pca(original_data, train_data):
+def pca(original_data, train_data, save=False):
     """
         Runs PCA to reduce the dimensions to 2 and 3 for visual analysis and determining the value of k2
 
@@ -696,10 +942,22 @@ def pca(original_data, train_data):
     n_components = 2
     transformed_data = run_pca_model(n_components, train_data)
     draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as="component_wise_labelled_scatter_plot_2")
+    if save == True:
+        plot_k_means_clusters(transformed_data, 3, save_as="visualising_clusters_pca_2_k_3")
+        plot_k_means_clusters(transformed_data, 4, save_as="visualising_clusters_pca_2_k_4")
+    else:
+        plot_k_means_clusters(transformed_data, 3)
+        plot_k_means_clusters(transformed_data, 4)
 
     n_components = 3
     transformed_data = run_pca_model(n_components, train_data)
     draw_individual_component_labelled_scatter_plot(original_data, transformed_data, save_as="component_wise_labelled_scatter_plot_3")
+    if save == True:
+        plot_k_means_clusters(transformed_data, 3, save_as="visualising_clusters_pca_3_k_3")
+        plot_k_means_clusters(transformed_data, 4, save_as="visualising_clusters_pca_3_k_4")
+    else:
+        plot_k_means_clusters(transformed_data, 3)
+        plot_k_means_clusters(transformed_data, 4)
 
 def k_means(params, train_data):
     """
@@ -721,14 +979,29 @@ def k_means(params, train_data):
     print(f"{MAGENTA}Inferred value of k_kmeans1 = {params["k_kmeans1"]}{RESET}\n")
 
     # Running the KMeans model with the value of k_kmeans1
-    print(f"{BLUE}KMeans with k = {params["k_kmeans1"]}{RESET}")
+    print(f"{BLUE}KMeans with k = {params["k_kmeans1"]}{RESET}\n")
     run_k_means_model(params["k_kmeans1"], train_data, seed=params["seed"], init_method=params["init_method"])
 
 def k_means_cluster_analysis(params, train_data, original_data):
+    """
+        Implements the KMeans Cluster Analysis by performing the following steps:
+            1. Cluster Analysis for different values of k
+            2. Plotting inertial scores and silhouette scores
+
+        Parameters
+        ==========
+            params (dict): Dictionary containing all the parameters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            original_data[n_points, n_features] (numpy array): Original data
+        
+        Returns
+        =======
+            None
+    """
     inertial_scores = list()
     silhouette_scores = list()
     
-    trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False, seed=params["seed"])
+    trained_model_k_kmeans1 = run_k_means_model(params["k_kmeans1"], train_data, print_op=False, seed=params["seed"], init_method=params["init_method"])
 
     inertial_scores.append(trained_model_k_kmeans1.getCost())
     silhouette_scores.append(silhouette_score(train_data, trained_model_k_kmeans1.cluster_labels))
@@ -743,7 +1016,7 @@ def k_means_cluster_analysis(params, train_data, original_data):
 
     print("------------------------------------------------------------------------------------------------------")
 
-    trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False, seed=params["seed"])
+    trained_model_k2 = run_k_means_model(params["k2"], train_data, print_op=False, seed=params["seed"], init_method=params["init_method"])
 
     inertial_scores.append(trained_model_k2.getCost())
     silhouette_scores.append(silhouette_score(train_data, trained_model_k2.cluster_labels))
@@ -758,7 +1031,7 @@ def k_means_cluster_analysis(params, train_data, original_data):
 
     print("------------------------------------------------------------------------------------------------------")
 
-    trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False, seed=params["seed"])
+    trained_model_k_kmeans3 = run_k_means_model(params["k_kmeans3"], train_data, print_op=False, seed=params["seed"], init_method=params["init_method"])
 
     inertial_scores.append(trained_model_k_kmeans3.getCost())
     silhouette_scores.append(silhouette_score(train_data, trained_model_k_kmeans3.cluster_labels))
@@ -769,12 +1042,9 @@ def k_means_cluster_analysis(params, train_data, original_data):
         print(f"\n{GREEN}Cluster {cluster_idx + 1}{RESET}:")
         print(f"{cluster}\n")
 
-    plot_word_cloud(clustered_values_k_kmeans3, params, "k_kmeans3", save_as="cluster_analysis/word_cloud_k_kmeans3")
+    plot_word_cloud(clustered_values_k_kmeans3, params, "k_kmeans3", n_rows=2, n_cols=3, save_as="cluster_analysis/word_cloud_k_kmeans3")
 
     print("------------------------------------------------------------------------------------------------------")
-
-    # On interpreting the clusters we identify the value of k_kmeans
-    print(f"{MAGENTA}k_kmeans = {params["k_kmeans"]}{RESET}\n")
 
     # Plotting inertial scores and silhouette scores
     fig, axes = plt.subplots(1, 2, figsize=(15, 7))
@@ -796,11 +1066,46 @@ def k_means_cluster_analysis(params, train_data, original_data):
     axes[1].set_title('k vs Silhouette Scores')
     axes[1].grid(True)
     plt.tight_layout()
-    plt.savefig('./assignments/2/figures/cluster_analysis/k_vs_scores_kmeans3.png')
+    plt.savefig('./assignments/2/figures/cluster_analysis/k_vs_scores_kmeans.png')
+    plt.close()
     print(f"{GREEN}k vs Scores plot saved{RESET}\n")
 
 def gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn"):
+    """
+        Implements the GMM Cluster Analysis by performing the following steps:
+            1. Cluster Analysis for different values of k
+            2. Plotting word clouds for the clusters
+
+        Parameters
+        ==========
+            params (dict): Dictionary containing all the parameters
+            train_data[n_train, n_features] (numpy array): Data to fit the model
+            original_data[n_points, n_features] (numpy array): Original data
+            model_type (str): Type of model to use (my or sklearn)
+
+        Returns
+        =======
+            None
+    """
+    inertial_scores = list()
+    silhouette_scores = list()
+
+    def compute_inertia(X, labels, means):
+        inertia = 0
+        for i in range(len(means)):
+            cluster_points = X[labels == i]
+            inertia += np.sum((cluster_points - means[i]) ** 2)
+        return inertia
+
     trained_model_k_gmm1 = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+    
+    
+    if model_type == "sklearn":
+        inertial_scores.append(compute_inertia(train_data, trained_model_k_gmm1.predict(train_data), trained_model_k_gmm1.means_))
+        if params["k_gmm1"] > 1:
+            silhouette_scores.append(silhouette_score(train_data, trained_model_k_gmm1.predict(train_data)))
+        else:
+            silhouette_scores.append(0)
     predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k_gmm1.predict_proba(train_data)]
 
     clustered_values_k_gmm1 = get_cluster_values(params["k_gmm1"], predicted_clusters, original_data, params["label_idx"])
@@ -813,6 +1118,11 @@ def gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn"
     print("------------------------------------------------------------------------------------------------------")
 
     trained_model_k2 = run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+
+    if model_type == "sklearn":
+        inertial_scores.append(compute_inertia(train_data, trained_model_k2.predict(train_data), trained_model_k2.means_))
+        silhouette_scores.append(silhouette_score(train_data, trained_model_k2.predict(train_data)))
+
     predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k2.predict_proba(train_data)]
     clustered_values_k2 = get_cluster_values(params["k2"], predicted_clusters, original_data, params["label_idx"])
     print(f"{BLUE}Clustered labels for k2 = {params["k2"]}{RESET}")
@@ -824,6 +1134,11 @@ def gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn"
     print("------------------------------------------------------------------------------------------------------")
 
     trained_model_k_gmm3 = run_gmm_model(params["k_gmm3"], train_data, seed=params["seed"], model_type=model_type, print_op=False)
+
+    if model_type == "sklearn":
+        inertial_scores.append(compute_inertia(train_data, trained_model_k_gmm3.predict(train_data), trained_model_k_gmm3.means_))
+        silhouette_scores.append(silhouette_score(train_data, trained_model_k_gmm3.predict(train_data)))
+
     predicted_clusters = [int(np.argmax(cluster)) for cluster in trained_model_k_gmm3.predict_proba(train_data)]
     clustered_values_k_gmm3 = get_cluster_values(params["k_gmm3"], predicted_clusters, original_data, params["label_idx"])
     print(f"{BLUE}Clustered labels for k_gmm3 = {params["k_gmm3"]}{RESET}")
@@ -838,6 +1153,85 @@ def gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn"
     # On interpreting the clusters we identify the value of k_gmm
     print(f"{MAGENTA}k_gmm = {params["k_gmm"]}{RESET}\n")
 
+    # Plotting inertial scores and silhouette scores
+    fig, axes = plt.subplots(1, 2, figsize=(15, 7))
+
+    x_axis = np.array([params["k_gmm1"], params["k2"], params["k_gmm3"]])
+    idxs = np.argsort(x_axis)
+    x_axis = x_axis[idxs]
+    y_axis1 = np.array(inertial_scores)[idxs]
+    y_axis2 = np.array(silhouette_scores)[idxs]
+
+    axes[0].plot(x_axis, y_axis1, 'o-', label='Inertial Scores', color='red')
+    axes[0].set_xlabel('k')
+    axes[0].set_ylabel('Inertia Scores')
+    axes[0].set_title('k vs Inertia Scores')
+    axes[0].grid(True)
+    axes[1].plot(x_axis, y_axis2, 'o-', label='Silhouette Scores', color='blue')
+    axes[1].set_xlabel('k')
+    axes[1].set_ylabel('Silhouette Scores')
+    axes[1].set_title('k vs Silhouette Scores')
+    axes[1].grid(True)
+    plt.tight_layout()
+    plt.savefig('./assignments/2/figures/cluster_analysis/k_vs_scores_gmm.png')
+    plt.close()
+    print(f"{GREEN}k vs Scores plot saved{RESET}\n")
+
+def plot_gmm_clusters(transformed_data, k, save_as):
+    '''
+        The following code for plotting and visualising GMM clusters is given by ChatGPT
+        Prompt: Given a 2D plot of data points, plot the GMM clusters
+    '''
+    # ==============================================================================
+    # Plot the GMM ellipses
+    def plot_gmm_ellipses(gmm, ax):
+        for i in range(gmm.n_components):
+            # Get the mean and covariance matrix of the ith Gaussian component
+            mean = gmm.means_[i]
+            cov = gmm.covariances_[i]
+
+            # Calculate the eigenvalues and eigenvectors
+            v, w = np.linalg.eigh(cov)
+            v = 2.0 * np.sqrt(2.0) * np.sqrt(v)  # Adjust for ellipse width and height
+            u = w[0] / np.linalg.norm(w[0])
+            angle = np.arctan2(u[1], u[0]) * 180.0 / np.pi
+
+            # Create and add the ellipse to the plot
+            ell = Ellipse(xy=mean, width=v[0], height=v[1], angle=angle, color='r', alpha=0.3)
+            ax.add_patch(ell)
+    
+    gmm = GaussianMixture(n_components=k, random_state=0)
+    gmm.fit(transformed_data)
+
+    # Predict the cluster labels
+    labels = gmm.predict(transformed_data)
+
+    # Plotting
+    plt.figure(figsize=(10, 8))
+
+    # Scatter plot of data points with cluster labels
+    plt.scatter(transformed_data[:, 0], transformed_data[:, 1], c=labels, cmap='viridis', marker='o', s=50, edgecolor='k')
+    plt.title('GMM Clusters')
+    plt.xlabel('Feature 1')
+    plt.ylabel('Feature 2')
+
+    plot_gmm_ellipses(gmm, plt.gca())
+
+    plt.colorbar(label='Cluster Label')
+    plt.grid(True)
+    plt.savefig(f'./assignments/2/figures/gmm/{save_as}.png')
+    plt.close()
+    # ==============================================================================
+
+def compare_kmeans_gmm(params, train_data, original_data):
+    pca_model = PCA(2)
+    pca_model.load_data(train_data)
+    pca_model.fit()
+    transformed_data = pca_model.transform()
+    plot_k_means_clusters(transformed_data, params["k_kmeans"], save_as="../cluster_analysis/kmeans_k_kmeans")
+    plot_gmm_clusters(transformed_data, params["k_gmm"], save_as="../cluster_analysis/gmm_k_gmm")
+    print(f"{GREEN}Comparison plots between K-Means and GMM plotted{RESET}")
+
 if __name__ == "__main__":
     params = original_data_params
 
@@ -849,103 +1243,105 @@ if __name__ == "__main__":
     # =================================================================
     #                           3.1 & 3.2   
     # =================================================================
-    # k_means(params, train_data)
+    k_means(params, train_data)
 
     # =================================================================
     #                           4.1 & 4.2   
     # =================================================================
-    # try:
-    #     print("Running my GMM class for arbitrary value of k")
-    #     raise(ValueError)
-    #     gmm_model = GMM(10)
-    #     gmm_model.load_data(train_data)
-    #     gmm_model.fit()
-    #     overall_log_likelihood = gmm_model.get_log_likelihood()
+    try:
+        print("Running my GMM class for arbitrary value of k")
+        raise(ValueError)
+        gmm_model = GMM(10)
+        gmm_model.load_data(train_data)
+        gmm_model.fit()
+        overall_log_likelihood = gmm_model.get_log_likelihood()
 
-    #     print(f"{GREEN}My GMM Class worked{RESET}")
-    #     print("Plotting AIC BIC graph using my GMM Class\n")
+        print(f"{GREEN}My GMM Class worked{RESET}")
+        print("Plotting AIC BIC graph using my GMM Class\n")
 
-    #     gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_my_class", seed=params["seed"], model_type="my")
+        gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_my_class", seed=params["seed"], model_type="my")
 
-    #     print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
+        print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
         
-    #     print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
-    #     trained_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"])
-    # except ValueError:
-    #     print(f"{RED}My GMM Class did not work, so now using sklearn GMM class{RESET}")
+        print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
+        trained_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"])
+    except ValueError:
+        print(f"{RED}My GMM Class did not work, so now using sklearn GMM class{RESET}")
 
-    #     print("Running my GMM class for arbitrary value of k")
-    #     gmm_model = GaussianMixture(10)
-    #     gmm_model.fit(train_data)
-    #     gmm_model.predict(train_data)
-    #     overall_log_likelihood = gmm_model.score(train_data) * train_data.shape[0]
+        print("Running my GMM class for arbitrary value of k")
+        gmm_model = GaussianMixture(10)
+        gmm_model.fit(train_data)
+        gmm_model.predict(train_data)
+        overall_log_likelihood = gmm_model.score(train_data) * train_data.shape[0]
 
-    #     print(f"{GREEN}sklearn GMM Class worked{RESET}")
-    #     print("Plotting AIC BIC graph using sklearn GMM Class\n")
+        print(f"{GREEN}sklearn GMM Class worked{RESET}")
+        print("Plotting AIC BIC graph using sklearn GMM Class\n")
 
-    #     gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_sklearn_class", seed=params["seed"], model_type="sklearn")
+        gmm_aic_bic_method(params["max_k"], train_data, save_as="aic_bic_plot_original_dataset", seed=params["seed"], model_type="sklearn")
 
-    #     # Lower values of AIC and BIC are better
-    #     print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
+        # Lower values of AIC and BIC are better
+        print(f"{MAGENTA}Inferred value of k_gmm1 = {params["k_gmm1"]}{RESET}\n")
 
-    #     print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
-    #     trained_sklearn_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"], model_type="sklearn")
+        print(f"{BLUE}GMM with k = {params["k_gmm1"]}{RESET}\n")
+        trained_sklearn_gmm_model = run_gmm_model(params["k_gmm1"], train_data, seed=params["seed"], model_type="sklearn")
 
     # =================================================================
     #                         5.1, 5.2 & 5.3   
     # =================================================================
-    # pca(original_data, train_data)
+    pca(original_data, train_data, save=True)
 
-    # print(f"{MAGENTA}Inferred value of k2 = {params["k2"]}{RESET}\n")
+    print(f"{MAGENTA}Inferred value of k2 = {params["k2"]}{RESET}\n")
 
     # =================================================================
     #          6.1 & 6.2 - Scree plot, reduced dataset, k_kmeans3
     # =================================================================
-    # print(f"{BLUE}KMeans with k = {params["k2"]}{RESET}\n")
-    # run_k_means_model(params["k2"], train_data, seed=params["seed"], init_method=params["init_method"])
+    print(f"{BLUE}KMeans with k = {params["k2"]}{RESET}\n")
+    run_k_means_model(params["k2"], train_data, seed=params["seed"], init_method=params["init_method"])
 
-    # # Scree Plot
-    # draw_scree_plot(train_data, save_as="pca/scree_plot_full_dataset.png")
+    # Scree Plot
+    draw_scree_plot(train_data, save_as="pca/scree_plot_full_dataset.png")
 
-    # # Reducing the dataset to the optimal dimensions
-    # print(f"{MAGENTA}Inferred value of op_dim = {params["op_dim"]}{RESET}\n")
+    # Reducing the dataset to the optimal dimensions
+    print(f"{MAGENTA}Inferred value of op_dim = {params["op_dim"]}{RESET}\n")
 
-    # pca_model = PCA(params["op_dim"])
-    # pca_model.load_data(train_data)
-    # pca_model.fit()
-    # reduced_dataset = pca_model.transform()
-    # print(f"{GREEN}Dataset reduced to {params["op_dim"]} dimensions{RESET}")
+    pca_model = PCA(params["op_dim"])
+    pca_model.load_data(train_data)
+    pca_model.fit()
+    reduced_dataset = pca_model.transform()
+    print(f"{GREEN}Dataset reduced to {params["op_dim"]} dimensions{RESET}")
 
-    # # Elbow plot for reduced dataset to find optimal number of clusters from reduced dataset
-    # draw_elbow_plot(reduced_dataset, save_as="elbow_point_reduced_dataset", max_k=params["max_k"], init_method=params["init_method"])
+    # Elbow plot for reduced dataset to find optimal number of clusters from reduced dataset
+    draw_elbow_plot(reduced_dataset, save_as="elbow_point_reduced_dataset", max_k=params["max_k"], init_method=params["init_method"])
 
-    # print(f"{MAGENTA}Inferred value of k_kmeans3 = {params["k_kmeans3"]}{RESET}\n")
-    # print(f"{BLUE}KMeans with k = {params["k_kmeans3"]}{RESET}\n")
-    # run_k_means_model(params["k_kmeans3"], reduced_dataset, seed=params["seed"], init_method=params["init_method"])
+    print(f"{MAGENTA}Inferred value of k_kmeans3 = {params["k_kmeans3"]}{RESET}\n")
+    print(f"{BLUE}KMeans with k = {params["k_kmeans3"]}{RESET}\n")
+    run_k_means_model(params["k_kmeans3"], reduced_dataset, seed=params["seed"], init_method=params["init_method"])
 
-    # print(f"{BLUE}GMM using k = {params["k2"]}{RESET}")
-    # # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="my")
-    # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="sklearn")
+    print(f"{BLUE}GMM using k = {params["k2"]}{RESET}\n")
+    # run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="my")
+    run_gmm_model(params["k2"], train_data, seed=params["seed"], model_type="sklearn")
 
-    # gmm_aic_bic_method(params["max_k"], reduced_dataset, save_as="aic_bic_plot_reduced_dataset", seed=params["seed"], model_type="sklearn")
-    # print(f"{MAGENTA}Inferred value of k_gmm3 = {params["k_gmm3"]}{RESET}\n")
+    gmm_aic_bic_method(params["max_k"], reduced_dataset, save_as="aic_bic_plot_reduced_dataset", seed=params["seed"], model_type="sklearn")
+    print(f"{MAGENTA}Inferred value of k_gmm3 = {params["k_gmm3"]}{RESET}\n")
 
-    # print(f"{BLUE}GMM with k = {params["k_gmm3"]}{RESET}\n")
-    # # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
-    # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
+    print(f"{BLUE}GMM with k = {params["k_gmm3"]}{RESET}\n")
+    # run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="my")
+    run_gmm_model(params["k_gmm3"], reduced_dataset, seed=params["seed"], model_type="sklearn")
 
     # =================================================================
     #               7.1, 7.2 & 7.3 - Cluster Analysis
     # =================================================================
-    # k_means_cluster_analysis(params, train_data, original_data)
-    # print(f"{MAGENTA}Inferred value of k_kmeans = {params["k_kmeans"]}{RESET}\n")
-    # gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn")
-    # print(f"{MAGENTA}Inferred value of k_gmm = {params["k_gmm"]}{RESET}\n")
+    k_means_cluster_analysis(params, train_data, original_data)
+    # Looking at the silhouette score and inertia score we identify the value of k_kmeans (we want more silhouette score and less inertia score)
+    print(f"{MAGENTA}Inferred value of k_kmeans = {params["k_kmeans"]}{RESET}\n")
+    gmm_cluster_analysis(params, train_data, original_data, model_type="sklearn")
+    print(f"{MAGENTA}Inferred value of k_gmm = {params["k_gmm"]}{RESET}\n")
+    compare_kmeans_gmm(params, train_data, original_data)
 
     # =================================================================
     #                  8 - Hierarchical Clustering
     # =================================================================
-    # hierarchical_clustering(params, original_data, train_data)
+    hierarchical_clustering(params, original_data, train_data)
 
     # =================================================================
     #                  9.1 & 9.2 - Spotify Dataset

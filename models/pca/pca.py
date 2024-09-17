@@ -41,5 +41,10 @@ class PCA:
         self.transformed_data = np.matmul(centered_data, self.principle_components.T)
         return self.transformed_data
     
-    def checkPCA(self):
-        return self.transformed_data.shape[1] == self.n_components
+    def checkPCA(self, transformed_data):
+        reconstructed_data = np.matmul(transformed_data, self.principle_components) + self.mean_of_data
+        reconstruction_error = np.mean((self.data - reconstructed_data) ** 2)
+        if reconstruction_error < 0.1:
+            return True
+        else:
+            return False
