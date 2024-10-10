@@ -1,0 +1,19 @@
+{"time":"2024-10-10T13:40:52.133151+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-10T13:40:52.133178+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241010_134052-u00tt0q9/logs/debug-core.log"}
+{"time":"2024-10-10T13:40:52.184554+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-10T13:40:52.194811+05:30","level":"INFO","msg":"created new stream","id":"u00tt0q9"}
+{"time":"2024-10-10T13:40:52.194845+05:30","level":"INFO","msg":"stream: started","id":"u00tt0q9"}
+{"time":"2024-10-10T13:40:52.194849+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:40:52.194862+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:40:52.194901+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:40:52.845487+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-10T13:40:52.846837+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-10T13:41:20.254121+05:30","level":"INFO","msg":"stream: closing","id":"u00tt0q9"}
+{"time":"2024-10-10T13:41:20.255097+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-10T13:41:20.255125+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-10T13:41:24.887819+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-10T13:41:26.925568+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:41:26.925609+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:41:26.925618+05:30","level":"ERROR","msg":"runfiles: CreateRunFiles returned error: api: failed sending: POST https://api.wandb.ai/graphql giving up after 1 attempt(s): context canceled"}
+{"time":"2024-10-10T13:41:26.925647+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"u00tt0q9"}}
+{"time":"2024-10-10T13:41:26.925729+05:30","level":"INFO","msg":"stream: closed","id":"u00tt0q9"}

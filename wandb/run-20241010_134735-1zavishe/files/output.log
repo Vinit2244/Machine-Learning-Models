@@ -1,0 +1,48 @@
+[32mModel Training completed successfully in time 27.262135982513428 s![0m
+
+
+    [35mModel Params:[0m
+        Learning Rate: [32m0.001[0m
+        Activation Function: [32msigmoid[0m
+        Optimiser: [32mbatch[0m
+        Epochs: [32m100[0m
+        Batch Size: [32m20[0m
+        Layers: [32m[11, 15, 15, 10][0m
+
+    [35mFinal Metrics:[0m
+        Test Accuracy: [32m5.848%[0m
+
+        Macro Test Precision: [32m19.231%[0m
+
+        Macro Test Recall: [32m2.09%[0m
+
+        Macro Test F1 Score: [32m3.553%[0m
+
+        -----------------------------------------------------------
+
+        Micro Test Precision: [32m[0.0, 0.0, 0.9999999999, 0.0, 0.0, 0.0, 0.9230769230733729, 0.0, 0.0, 0.0][0m
+
+        Micro Test Recall: [32m[0.0, 0.0, 0.024390243902379535, 0.0, 0.0, 0.0, 0.18461538461524263, 0.0, 0.0, 0.0][0m
+
+        Micro Test F1 Score: [32m[0.0, 0.0, 0.047619047614172336, 0.0, 0.0, 0.0, 0.30769230766413547, 0.0, 0.0, 0.0][0m
+
+Traceback (most recent call last):
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py", line 452, in <module>
+    MLPSingleClassClassification()
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py", line 292, in MLPSingleClassClassification
+    metrics_arr = classifier_model.fit(X_train, y_train, X_val, y_val)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 136, in fit
+    self.train(X, y)
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 125, in train
+    if self.gradient_check(X, y, gradients_w) == True:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 236, in gradient_check
+    numgrad_w = self.numgrad(X, y)
+                ^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 225, in numgrad
+    op2 = self.forward_prop(X)[-1]
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 100, in forward_prop
+    activations.append(Z)
+KeyboardInterrupt

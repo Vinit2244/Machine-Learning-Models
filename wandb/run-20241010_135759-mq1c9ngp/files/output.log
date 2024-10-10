@@ -1,0 +1,28 @@
+[32mModel Training completed successfully in time 21.279627084732056 s![0m
+
+
+    [35mModel Params:[0m
+        Learning Rate: [32m0.001[0m
+        Activation Function: [32mtanh[0m
+        Optimiser: [32mbatch[0m
+        Epochs: [32m100[0m
+        Batch Size: [32m20[0m
+        Layers: [32m[11, 15, 15, 10][0m
+
+    [35mFinal Metrics:[0m
+        Test Accuracy: [32m5.848%[0m
+
+        Macro Test Precision: [32m9.246%[0m
+
+        Macro Test Recall: [32m8.842%[0m
+
+        Macro Test F1 Score: [32m7.566%[0m
+
+        -----------------------------------------------------------
+
+        Micro Test Precision: [32m[0.0, 0.0, 0.0, 0.3333333333222222, 0.0, 0.32203389830453893, 0.26923076922973377, 0.0, 0.0, 0.0][0m
+
+        Micro Test Recall: [32m[0.0, 0.0, 0.0, 0.03703703703689987, 0.0, 0.5428571428555918, 0.30434782608563327, 0.0, 0.0, 0.0][0m
+
+        Micro Test F1 Score: [32m[0.0, 0.0, 0.0, 0.06666666664822223, 0.0, 0.4042553191013355, 0.285714285663307, 0.0, 0.0, 0.0][0m
+

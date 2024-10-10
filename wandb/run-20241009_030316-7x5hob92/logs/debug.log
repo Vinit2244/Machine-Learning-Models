@@ -1,0 +1,393 @@
+2024-10-09 03:03:16,264 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:03:16,269 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:03:16,269 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:03:16,269 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030316-7x5hob92/logs/debug.log
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030316-7x5hob92/logs/debug-internal.log
+2024-10-09 03:03:16,270 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:03:16,271 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'relu', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:03:16,271 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:03:16,637 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:03:16,637 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:03:16,637 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:03:16,637 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:03:16,637 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030316-09k82sym/logs/debug.log
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030316-09k82sym/logs/debug-internal.log
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:03:16,638 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'relu', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:03:16,639 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:03:18,206 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030318-3nmqhy8c/logs/debug.log
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030318-3nmqhy8c/logs/debug-internal.log
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'relu', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:03:18,207 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:03:26,957 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:03:26,960 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:03:26,960 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:03:26,960 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030326-6dgncqkf/logs/debug.log
+2024-10-09 03:03:26,961 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030326-6dgncqkf/logs/debug-internal.log
+2024-10-09 03:03:26,962 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:03:26,962 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'relu', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:03:26,962 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:05:37,019 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:37,023 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:37,024 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030537-s9mcyg9b/logs/debug.log
+2024-10-09 03:05:37,024 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030537-s9mcyg9b/logs/debug-internal.log
+2024-10-09 03:05:37,024 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:05:37,024 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'tanh', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:05:37,024 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:05:37,349 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:05:37,350 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030537-j079cfvc/logs/debug.log
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030537-j079cfvc/logs/debug-internal.log
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'tanh', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:05:37,351 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:05:40,006 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:05:40,006 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:05:40,006 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030540-ytc0l1mv/logs/debug.log
+2024-10-09 03:05:40,007 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030540-ytc0l1mv/logs/debug-internal.log
+2024-10-09 03:05:40,008 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:05:40,008 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'tanh', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:05:40,008 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:05:48,921 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:05:48,924 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030548-ptvbh2es/logs/debug.log
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030548-ptvbh2es/logs/debug-internal.log
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'tanh', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:05:48,925 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:07:41,290 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:07:41,294 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:41,295 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:41,296 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030741-zjj8omyx/logs/debug.log
+2024-10-09 03:07:41,296 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030741-zjj8omyx/logs/debug-internal.log
+2024-10-09 03:07:41,296 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:07:41,296 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'linear', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:07:41,296 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:07:41,583 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:07:41,584 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:41,585 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:41,585 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030741-8e4inaoh/logs/debug.log
+2024-10-09 03:07:41,585 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030741-8e4inaoh/logs/debug-internal.log
+2024-10-09 03:07:41,585 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:07:41,585 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'linear', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:07:41,586 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:07:42,811 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:07:42,812 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030742-kh0boip1/logs/debug.log
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030742-kh0boip1/logs/debug-internal.log
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'linear', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:07:42,813 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:07:49,817 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:07:49,817 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:07:49,817 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:07:49,817 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:07:49,817 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:07:49,818 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:07:49,818 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:49,818 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:07:49,818 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030749-kydot1ax/logs/debug.log
+2024-10-09 03:07:49,819 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030749-kydot1ax/logs/debug-internal.log
+2024-10-09 03:07:49,819 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:07:49,819 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.01, 'activation_func': 'linear', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:07:49,819 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:09:28,641 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:09:28,647 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:09:28,648 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:09:28,648 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:09:28,648 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:09:28,648 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:09:28,648 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:28,649 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:28,649 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030928-050c5x67/logs/debug.log
+2024-10-09 03:09:28,649 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030928-050c5x67/logs/debug-internal.log
+2024-10-09 03:09:28,649 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:09:28,649 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'sigmoid', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:09:28,650 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:09:29,168 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:09:29,168 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:09:29,168 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:09:29,168 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:09:29,169 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:09:29,169 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:09:29,169 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:29,169 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:29,169 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030929-azh08ckm/logs/debug.log
+2024-10-09 03:09:29,170 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030929-azh08ckm/logs/debug-internal.log
+2024-10-09 03:09:29,170 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:09:29,170 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'sigmoid', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:09:29,170 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:09:32,171 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:09:32,171 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:09:32,171 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:09:32,171 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:09:32,172 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:09:32,172 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:09:32,172 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:32,172 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:32,173 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030932-ky739r36/logs/debug.log
+2024-10-09 03:09:32,173 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030932-ky739r36/logs/debug-internal.log
+2024-10-09 03:09:32,173 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:09:32,173 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'sigmoid', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:09:32,173 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:09:44,903 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:09:44,905 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:09:44,905 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:09:44,905 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:09:44,905 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:09:44,906 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:09:44,906 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:44,906 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:09:44,906 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030944-72eq2yb5/logs/debug.log
+2024-10-09 03:09:44,907 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_030944-72eq2yb5/logs/debug-internal.log
+2024-10-09 03:09:44,907 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:09:44,907 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'sigmoid', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:09:44,907 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:12:56,182 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:12:56,190 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:12:56,190 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:12:56,190 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:12:56,190 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:12:56,190 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:12:56,191 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:56,191 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:56,191 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031256-96iqp5nt/logs/debug.log
+2024-10-09 03:12:56,191 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031256-96iqp5nt/logs/debug-internal.log
+2024-10-09 03:12:56,192 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:12:56,192 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'relu', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:12:56,192 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:12:56,563 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:12:56,563 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:12:56,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:12:56,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:12:56,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:12:56,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:12:56,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:56,565 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:56,565 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031256-9dk8ezyy/logs/debug.log
+2024-10-09 03:12:56,565 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031256-9dk8ezyy/logs/debug-internal.log
+2024-10-09 03:12:56,565 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:12:56,566 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'relu', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:12:56,566 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:12:58,164 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:12:58,164 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:12:58,165 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:12:58,165 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:12:58,165 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:12:58,165 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:12:58,166 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:58,166 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:12:58,166 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031258-hfptphpy/logs/debug.log
+2024-10-09 03:12:58,167 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031258-hfptphpy/logs/debug-internal.log
+2024-10-09 03:12:58,167 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:12:58,167 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'relu', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:12:58,167 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:13:06,889 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:13:06,895 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:13:06,895 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:13:06,895 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:13:06,895 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:13:06,896 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:13:06,896 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:13:06,896 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:13:06,896 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031306-qx5az30q/logs/debug.log
+2024-10-09 03:13:06,897 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031306-qx5az30q/logs/debug-internal.log
+2024-10-09 03:13:06,897 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:13:06,897 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'relu', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:13:06,898 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:15:15,215 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:15:15,221 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:15:15,222 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:15:15,222 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:15:15,222 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:15:15,222 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:15:15,223 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:15,223 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:15,223 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031515-o7l1psyp/logs/debug.log
+2024-10-09 03:15:15,223 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031515-o7l1psyp/logs/debug-internal.log
+2024-10-09 03:15:15,224 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:15:15,224 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'tanh', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:15:15,224 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:15:15,550 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:15:15,551 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:15:15,551 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:15:15,551 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:15:15,551 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:15:15,552 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:15:15,552 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:15,552 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:15,552 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031515-dcdqhmwm/logs/debug.log
+2024-10-09 03:15:15,553 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031515-dcdqhmwm/logs/debug-internal.log
+2024-10-09 03:15:15,553 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:15:15,553 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'tanh', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:15:15,553 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:15:18,217 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:15:18,217 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:15:18,217 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:15:18,218 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:15:18,218 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:15:18,218 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:15:18,218 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:18,218 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:18,219 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031518-9gpdoxi4/logs/debug.log
+2024-10-09 03:15:18,219 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031518-9gpdoxi4/logs/debug-internal.log
+2024-10-09 03:15:18,219 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:15:18,219 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'tanh', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:15:18,220 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:15:27,086 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:15:27,087 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:15:27,087 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:15:27,087 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:15:27,088 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:15:27,088 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:15:27,088 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:27,088 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:15:27,089 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031527-55d2wzmo/logs/debug.log
+2024-10-09 03:15:27,089 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031527-55d2wzmo/logs/debug-internal.log
+2024-10-09 03:15:27,089 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:15:27,090 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'tanh', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:15:27,090 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:17:19,029 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:17:19,037 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:17:19,037 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:17:19,037 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:17:19,037 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:17:19,038 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:17:19,038 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:19,038 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:19,038 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031719-9yw2e5zq/logs/debug.log
+2024-10-09 03:17:19,039 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031719-9yw2e5zq/logs/debug-internal.log
+2024-10-09 03:17:19,039 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:17:19,039 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'linear', 'optimiser': 'sgd', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:17:19,039 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:17:19,324 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:17:19,324 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:17:19,324 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:17:19,325 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:17:19,325 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:17:19,325 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:17:19,325 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:19,326 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:19,326 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031719-ncgz6igi/logs/debug.log
+2024-10-09 03:17:19,326 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031719-ncgz6igi/logs/debug-internal.log
+2024-10-09 03:17:19,326 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:17:19,327 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'linear', 'optimiser': 'batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:17:19,327 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:17:20,562 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:17:20,563 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:17:20,563 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:17:20,563 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:17:20,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:17:20,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:17:20,564 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:20,565 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:20,565 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031720-vic8ai8p/logs/debug.log
+2024-10-09 03:17:20,565 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031720-vic8ai8p/logs/debug-internal.log
+2024-10-09 03:17:20,566 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:17:20,566 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'linear', 'optimiser': 'mini_batch', 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:17:20,566 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:17:27,622 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Current SDK version is 0.18.3
+2024-10-09 03:17:27,623 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Configure stats pid to 24017
+2024-10-09 03:17:27,623 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/.config/wandb/settings
+2024-10-09 03:17:27,623 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/settings
+2024-10-09 03:17:27,624 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Loading settings from environment variables: {}
+2024-10-09 03:17:27,624 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Inferring run settings from compute environment: {'program_relpath': 'assignments/3/a3.py', 'program_abspath': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/assignments/3/a3.py', 'program': '/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py'}
+2024-10-09 03:17:27,624 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:27,624 INFO    MainThread:24017 [wandb_setup.py:_flush():79] Applying login settings: {}
+2024-10-09 03:17:27,625 INFO    MainThread:24017 [wandb_init.py:_log_setup():532] Logging user logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031727-v7arkvbn/logs/debug.log
+2024-10-09 03:17:27,625 INFO    MainThread:24017 [wandb_init.py:_log_setup():533] Logging internal logs to /Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241009_031727-v7arkvbn/logs/debug-internal.log
+2024-10-09 03:17:27,625 INFO    MainThread:24017 [wandb_init.py:init():617] calling init triggers
+2024-10-09 03:17:27,625 INFO    MainThread:24017 [wandb_init.py:init():624] wandb.init called with sweep_config: {}
+config: {'learning_rate': 0.1, 'activation_func': 'linear', 'optimiser': None, 'epochs': 100, 'batch_size': 20, 'layers': [13, 10, 10, 1]}
+2024-10-09 03:17:27,626 INFO    MainThread:24017 [wandb_init.py:init():662] wandb.init() called when a run is still active
+2024-10-09 03:19:06,590 WARNING MsgRouterThr:24017 [router.py:message_loop():77] message_loop has been closed

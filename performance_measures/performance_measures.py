@@ -28,6 +28,21 @@ class PerformanceMetrics:
         total = len(y_true)
         return n_correct / total
     
+    def get_precision_recall_f1_onehot(self, y_true, y_pred):
+        y_true = np.array(y_true)
+        y_pred = np.array(y_pred)
+        n_classes = y_true.shape[1]
+        y_true = np.argmax(y_true, axis=1)
+        y_pred = np.argmax(y_pred, axis=1)
+        list_of_confusion_matrices = []
+        for cls in range(n_classes):
+            confusion_matrix = self.confusion_matrix(cls, y_true, y_pred)
+            list_of_confusion_matrices.append(confusion_matrix)
+        list_of_precisions = self.precision(list_of_confusion_matrices)
+        list_of_recalls = self.recall(list_of_confusion_matrices)
+        list_of_f1_scores = self.f1_score(list_of_precisions, list_of_recalls)
+        return list_of_precisions, list_of_recalls, list_of_f1_scores
+
     # Does not return matrix values in percentages - as usual confusion matrix has, but returns the counts
     def confusion_matrix(self, cls, y_true, y_pred):
         y_true = np.array(y_true)
@@ -73,3 +88,28 @@ class PerformanceMetrics:
             f1 = (2 * precision * recall) / (precision + recall + 1e-10) # 1e-10 is added to avoid division by zero
             list_of_f1_scores.append(f1)
         return list_of_f1_scores
+    
+    def cross_entropy(self, y_true, y_hat):
+        y_true = np.array(y_true)
+        y_hat = np.array(y_hat)
+        cross_entropy = -np.mean(y_true * np.log(y_hat + 1e-10))
+        return cross_entropy
+    
+    def RMSE(self, y_true, y_hat):
+        mse = self.MSE(y_true, y_hat)
+        return np.sqrt(mse)
+    
+    def MAE(self, y_true, y_hat):
+        y_true = np.array(y_true)
+        y_hat = np.array(y_hat)
+        mae = np.mean(np.abs(y_true - y_hat))
+        return mae
+    
+    def R2(self, y_true, y_hat):
+        y_true = np.array(y_true)
+        y_hat = np.array(y_hat)
+        mean = np.mean(y_true)
+        ss_total = np.sum((y_true - mean) ** 2)
+        ss_res = np.sum((y_true - y_hat) ** 2)
+        r2 = 1 - (ss_res / (ss_total + 1e-10))
+        return r2

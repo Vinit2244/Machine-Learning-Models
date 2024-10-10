@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py", line 454, in <module>
+    MLPSingleClassClassification()
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/./assignments/3/a3.py", line 292, in MLPSingleClassClassification
+    metrics_arr = classifier_model.fit(X_train, y_train, X_val, y_val)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 136, in fit
+    self.train(X, y)
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 125, in train
+    if self.gradient_check(X, y, gradients_w) == True:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 236, in gradient_check
+    numgrad_w = self.numgrad(X, y)
+                ^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 220, in numgrad
+    op1 = self.forward_prop(X)[-1]
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 99, in forward_prop
+    Z = self.activation_func(Z)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py", line 71, in sigmoid
+    return 1 / (1 + np.exp(-x))
+                    ^^^^^^^^^^
+KeyboardInterrupt
