@@ -24,7 +24,7 @@ class MLP(PerformanceMetrics):
     def __init__(self, n_ip: int=0, neurons_per_hidden_layer: list=[], n_op: int=0,
                  learning_rate: int=0.01, activation_func: str='relu', 
                  optimiser: str='sgd', batch_size: int=32, epochs: int=100,
-                 loss: str='mse', seed=None):
+                 loss: str='mse', seed=None, logistic_reg=False):
         # Initialize parameters
         self.n_ip = n_ip
         self.n_op = n_op
@@ -48,11 +48,12 @@ class MLP(PerformanceMetrics):
         self.epochs = epochs
         self.loss = loss
         self.epsilon = 1e-7
+        self.logistic_reg = logistic_reg
         
         # Initialize weights and biases for the network
         self.weights = []
         self.biases = []
-        if neurons_per_hidden_layer != [] and n_op != 0:
+        if n_ip != 0 and n_op != 0:
             self.init_weights(seed)
 
     def softmax(self, x):
@@ -183,6 +184,7 @@ class MLP(PerformanceMetrics):
                     self.train(X_batch, y_batch)
                 if X_val is not None and y_val is not None:
                     metrics_arr.append(self.calc_metrics(X, y, X_val, y_val, multi_class))
+            
                 
                 # Early stopping
                 if early_stopping:
@@ -334,7 +336,16 @@ class MLP(PerformanceMetrics):
     def calc_metrics(self, X_train, y_train, X_val, y_val, multi_class=False):
         y_hat_train = self.predict(X_train, multi_class)
         y_hat_val = self.predict(X_val, multi_class)
-        if self.n_op == 1:
+        if self.logistic_reg:
+            y_hat_train = self.sigmoid(y_hat_train)
+            y_hat_val = self.sigmoid(y_hat_val)
+            return {
+                "mse_train": self.MSE(y_train, y_hat_train),
+                "cross_entropy_train": self.cross_entropy(y_train, y_hat_train),
+                "mse_val": self.MSE(y_val, y_hat_val),
+                "cross_entropy_val": self.cross_entropy(y_val, y_hat_val),
+            }
+        elif self.n_op == 1:
             return {
                 "mse_train": self.MSE(y_train, y_hat_train),
                 "mse_val": self.MSE(y_val, y_hat_val),

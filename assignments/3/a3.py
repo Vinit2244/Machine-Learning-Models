@@ -467,8 +467,8 @@ def plot_effect_of_tuning(model_type, best_model_params, loss_dict):
     for idx, af in enumerate(activation_funcs):
         ax = axes[idx//2, idx%2]
         train_loss_per_epoch, val_loss_per_epoch = loss_dict[f"{optimiser}_{lr}_{af}_{batch_size}_{"_".join([str(x) for x in layers])}"]
-        ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss {af}")
-        ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss {af}")
+        ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss")
+        ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss")
         ax.set_xlabel("Epochs")
         ax.set_ylabel("Loss")
         ax.set_title(f"activation function = {af}")
@@ -481,8 +481,8 @@ def plot_effect_of_tuning(model_type, best_model_params, loss_dict):
     for idx, lr in enumerate(learning_rates):
         ax = axes[idx//2, idx%2]
         train_loss_per_epoch, val_loss_per_epoch = loss_dict[f"{optimiser}_{lr}_{act_func}_{batch_size}_{"_".join([str(x) for x in layers])}"]
-        ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss LR={lr}")
-        ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss LR={lr}")
+        ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss")
+        ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss")
         ax.set_xlabel("Epochs")
         ax.set_ylabel("Loss")
         ax.set_title(f"learning rate = {lr}")
@@ -496,8 +496,8 @@ def plot_effect_of_tuning(model_type, best_model_params, loss_dict):
         for idx, batch_size in enumerate(batch_size_arr):
             ax = axes[idx//2, idx%2]
             train_loss_per_epoch, val_loss_per_epoch = loss_dict[f"{optimiser}_{lr}_{act_func}_{batch_size}_{"_".join([str(x) for x in layers])}"]
-            ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss Batch={batch_size}")
-            ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss Batch={batch_size}")
+            ax.plot(range(epochs), train_loss_per_epoch, label=f"Training Loss")
+            ax.plot(range(epochs), val_loss_per_epoch, label=f"Validation Loss")
             ax.set_xlabel("Epochs")
             ax.set_ylabel("Loss")
             ax.set_title(f"batch size = {batch_size}")
@@ -622,11 +622,11 @@ def MLPRegression():
     data = df.to_numpy()
 
     # Describe the dataset using mean, standard deviation, min and max values of each feature
-    # describe_dataset(data, headers)
+    describe_dataset(data, headers)
 
     # Plotting histograms of data features
-    # plot_feature_distribution_histograms(data, headers, save_as="HousingData", n_rows=4, n_cols=4, n_range=14)
-    # print(f"{GREEN}Histograms of data features saved successfully for HousingData Dataset!{RESET}\n")
+    plot_feature_distribution_histograms(data, headers, save_as="HousingData", n_rows=4, n_cols=4, n_range=14)
+    print(f"{GREEN}Histograms of data features saved successfully for HousingData Dataset!{RESET}\n")
 
     # Splitting the data into train, test and validation sets
     train_data, test_data, val_data = split_data(data, train_percent=TRAIN_PERCENT, test_percent=TEST_PERCENT, val_percent=VAL_PERCENT)
@@ -656,6 +656,88 @@ def MLPRegression():
     print(f"Test Mean Squared Error: {GREEN}{test_MSE}{RESET}")
     print(f"Test Mean Absolute Error: {GREEN}{test_MAE}{RESET}")
 
+    # =================================================================
+    #               3.5 MSE vs BCE
+    # =================================================================
+    # Reading the dataset
+    data_path = "./data/external/diabetes.csv"
+    df = pd.read_csv(data_path)
+
+    # Handle missing values by filling in mean values
+    df.fillna(df.mean(), inplace=True)
+
+    headers = df.columns.to_numpy()
+    data = df.to_numpy()
+
+    data = np.float64(data)
+
+    train_data, test_data, val_data = split_data(data, train_percent=TRAIN_PERCENT, test_percent=TEST_PERCENT, val_percent=VAL_PERCENT)
+    print(f"{GREEN}Partitioned the diabetes dataset in {TRAIN_PERCENT}:{TEST_PERCENT}:{VAL_PERCENT}!{RESET}\n")
+
+    train_features, train_labels = train_data[:, :-1], train_data[:, -1].reshape(-1, 1)
+    test_features, test_labels = test_data[:, :-1], test_data[:, -1].reshape(-1, 1)
+    val_features, val_labels = val_data[:, :-1], val_data[:, -1].reshape(-1, 1)
+
+    normalised_train_features, standardised_train_features = normalise_and_standardise(train_features)
+    normalised_test_features, standardised_test_features = normalise_and_standardise(test_features)
+    normalised_val_features, standardised_val_features = normalise_and_standardise(val_features)
+
+    X_train, y_train = standardised_train_features, train_labels
+    X_test, y_test = standardised_test_features, test_labels
+    X_val, y_val = standardised_val_features, val_labels
+
+    layers = [8, 1]
+    epochs = 100
+    lr = 0.01
+    batch_size = 32
+    act_func = "sigmoid"
+    optimiser = "mini_batch"
+
+    train_loss_mse = list()
+    val_loss_mse = list()
+    train_loss_bce = list()
+    val_loss_bce = list()
+
+    print(f"{MAGENTA}Model Hyperparameters are as follows:{RESET}")
+    print(f"\tLearning Rate: {GREEN}{lr}{RESET}")
+    print(f"\tActivation Function: {GREEN}{act_func}{RESET}")
+    print(f"\tOptimiser: {GREEN}{optimiser}{RESET}")
+    print(f"\tEpochs: {GREEN}{epochs}{RESET}")
+    print(f"\tBatch Size: {GREEN}{batch_size}{RESET}")
+    print(f"\tLayers: {GREEN}{layers}{RESET}")
+    print()
+
+    logistic_reg_model = MLP(n_ip=layers[0], neurons_per_hidden_layer=[], n_op=layers[-1], learning_rate=lr, activation_func=act_func, optimiser=optimiser, epochs=epochs, batch_size=batch_size, logistic_reg=True)
+    start_time = time.time()
+    metrics_arr = logistic_reg_model.fit(X_train, y_train, X_val, y_val)
+    end_time = time.time()
+    print(f"{GREEN}Model fitted in time {end_time - start_time} s!{RESET}\n")
+
+    for metric in metrics_arr:
+        train_loss_mse.append(metric["mse_train"])
+        val_loss_mse.append(metric["mse_val"])
+        train_loss_bce.append(metric["cross_entropy_train"])
+        val_loss_bce.append(metric["cross_entropy_val"])
+
+    fig, axes = plt.subplots(1, 2, figsize=(15, 8))
+    axes[0].plot(np.arange(epochs), train_loss_bce, label="Train set BCE loss")
+    axes[0].plot(np.arange(epochs), val_loss_bce, label="Val set BCE loss")
+    axes[0].set_title("Cross Entropy Loss vs Epochs")
+    axes[0].set_xlabel("Epochs")
+    axes[0].set_ylabel("Cross Entropy Loss")
+    axes[0].legend()
+
+    axes[1].plot(np.arange(epochs), train_loss_mse, label="Train set MSE loss")
+    axes[1].plot(np.arange(epochs), val_loss_mse, label="Val set MSE loss")
+    axes[1].set_title("Mean Squared Error vs Epochs")
+    axes[1].set_xlabel("Epochs")
+    axes[1].set_ylabel("Mean Squared Error")
+    axes[1].legend()
+    
+    plt.tight_layout()
+    plt.savefig(f"./assignments/3/figures/mse_vs_bce.png")
+    print(f"{GREEN}MSE and BCE plot for diabetes data saved successfully!{RESET}")
+
 def SpotifyDataset():
     # =================================================================
     #               4.1 Dataset Analysis and Preprocessing 
@@ -684,6 +766,9 @@ def SpotifyDataset():
     model.save_model("./autoencoder_weights_spotify.txt")
     end_time = time.time()
     print(f"{GREEN}Model fitted in time {end_time - start_time} s!{RESET}\n")
+
+    reconstruction_error = model.compute_loss(features, model.predict(features))
+    print(f"{GREEN}Reconstruction Error: {reconstruction_error}{RESET}\n")
 
     reduced_train_features = model.get_latent(train_features)
     reduced_test_features = model.get_latent(test_features)
@@ -734,10 +819,66 @@ def SpotifyDataset():
     Time taken: {round(time_diff, 4)} seconds
     ---------------------------------------------------------------------\n""")
 
+    # =================================================================
+    #               4.4 Training MLP classifier on Spotify dataset
+    # =================================================================
+    print(f"{GREEN}Single Class Classification on Spotify Dataset{RESET}\n")
+    # Conveting all the labels into one-hot encoding
+    unique_labels = list()
+    for row in train_labels:
+        for label in row:
+            if label not in unique_labels:
+                unique_labels.append(label)
+    for row in test_labels:
+        for label in row:
+            if label not in unique_labels:
+                unique_labels.append(label)
+    for row in val_labels:
+        for label in row:
+            if label not in unique_labels:
+                unique_labels.append(label)
+
+    unique_labels.sort()
+    n_classes = len(unique_labels)
+    one_hot_train_labels = np.zeros((len(train_labels), n_classes))
+    one_hot_test_labels = np.zeros((len(test_labels), n_classes))
+    one_hot_val_labels = np.zeros((len(val_labels), n_classes))
+
+    for i in range(len(train_labels)):
+        for label in train_labels[i]:
+            one_hot_train_labels[i][unique_labels.index(label)] = 1
+    for i in range(len(test_labels)):
+        for label in test_labels[i]:
+            one_hot_test_labels[i][unique_labels.index(label)] = 1
+    for i in range(len(val_labels)):
+        for label in val_labels[i]:
+            one_hot_val_labels[i][unique_labels.index(label)] = 1
+
+    # Custom hyperparameters
+    lr = 0.01
+    act_func = "sigmoid"
+    optimiser = None
+    epochs = 100
+    batch_size = None
+    layers = [14, 32, 64, 128, n_classes]
+
+    # Defining and training model
+    model = MLP(n_ip=layers[0], neurons_per_hidden_layer=layers[1:-1], n_op=layers[-1], learning_rate=lr, activation_func=act_func, optimiser=optimiser, epochs=epochs, batch_size=batch_size, loss="cross_entropy")
+    start_time = time.time()
+    model.fit(train_features, one_hot_train_labels, val_features, one_hot_val_labels)
+    end_time = time.time()
+    print(f"{GREEN}Model fitted in time {end_time - start_time} s!{RESET}")
+
+    # Calculating precision, recall and f1 scores for each of the classes
+    test_p, test_r, test_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_single_class(one_hot_test_labels, model.predict(test_features))
+
+    # Calculating and printing the accuracy, macro precision, macro recall and macro f1 score
+    print_aprf1("single_class_classifier", lr, act_func, optimiser, epochs, batch_size, layers, model, test_features, one_hot_test_labels, test_p, test_r, test_f1)
+
 if __name__ == "__main__":
     if USE_WANDB:
         wandb.login()
-    # MLPSingleClassClassification() 
-    # MLPMultiClassClassification()
-    # MLPRegression()
+    MLPSingleClassClassification() 
+    MLPMultiClassClassification()
+    MLPRegression()
     SpotifyDataset()
