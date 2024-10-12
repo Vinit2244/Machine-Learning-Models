@@ -23,3 +23,10 @@ config: {'learning_rate': 0.01, 'activation_func': 'tanh', 'optimiser': 'batch',
 2024-10-10 13:59:27,611 INFO    MainThread:41916 [wandb_run.py:_redirect():2378] Wrapping output streams.
 2024-10-10 13:59:27,611 INFO    MainThread:41916 [wandb_run.py:_redirect():2403] Redirects installed.
 2024-10-10 13:59:27,612 INFO    MainThread:41916 [wandb_init.py:init():907] run started, returning control to user process
+2024-10-10 13:59:49,221 INFO    MainThread:41916 [wandb_run.py:_finish():2164] finishing run vinitmehta-iiit-hyderabad/assignment3-MLPClassifier_SingleClass/ixglyd5c
+2024-10-10 13:59:49,221 INFO    MainThread:41916 [wandb_run.py:_atexit_cleanup():2428] got exitcode: 0
+2024-10-10 13:59:49,221 INFO    MainThread:41916 [wandb_run.py:_restore():2410] restore
+2024-10-10 13:59:49,221 INFO    MainThread:41916 [wandb_run.py:_restore():2416] restore done
+2024-10-10 14:00:04,861 INFO    MainThread:41916 [wandb_run.py:_footer_history_summary_info():4049] rendering history
+2024-10-10 14:00:04,862 INFO    MainThread:41916 [wandb_run.py:_footer_history_summary_info():4081] rendering summary
+2024-10-10 14:00:04,873 INFO    MainThread:41916 [wandb_run.py:_footer_sync_info():4008] logging synced files

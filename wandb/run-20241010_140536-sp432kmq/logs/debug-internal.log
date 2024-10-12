@@ -1,0 +1,18 @@
+{"time":"2024-10-10T14:05:36.291158+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-10T14:05:36.291183+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241010_140536-sp432kmq/logs/debug-core.log"}
+{"time":"2024-10-10T14:05:36.291305+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-10T14:05:36.296706+05:30","level":"INFO","msg":"created new stream","id":"sp432kmq"}
+{"time":"2024-10-10T14:05:36.296737+05:30","level":"INFO","msg":"stream: started","id":"sp432kmq"}
+{"time":"2024-10-10T14:05:36.296742+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:05:36.296762+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:05:36.296835+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:05:37.039073+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-10T14:05:37.03945+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-10T14:06:14.485921+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-10T14:06:14.486126+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-10T14:06:16.552812+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-10T14:06:18.465824+05:30","level":"INFO","msg":"stream: closing","id":"sp432kmq"}
+{"time":"2024-10-10T14:06:18.465866+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:06:18.465898+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:06:18.46589+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"sp432kmq"}}
+{"time":"2024-10-10T14:06:18.466084+05:30","level":"INFO","msg":"stream: closed","id":"sp432kmq"}

@@ -28,7 +28,7 @@ class PerformanceMetrics:
         total = len(y_true)
         return n_correct / total
     
-    def get_precision_recall_f1_onehot(self, y_true, y_pred):
+    def get_precision_recall_f1_onehot_single_class(self, y_true, y_pred):
         y_true = np.array(y_true)
         y_pred = np.array(y_pred)
         n_classes = y_true.shape[1]
@@ -38,6 +38,33 @@ class PerformanceMetrics:
         for cls in range(n_classes):
             confusion_matrix = self.confusion_matrix(cls, y_true, y_pred)
             list_of_confusion_matrices.append(confusion_matrix)
+        list_of_precisions = self.precision(list_of_confusion_matrices)
+        list_of_recalls = self.recall(list_of_confusion_matrices)
+        list_of_f1_scores = self.f1_score(list_of_precisions, list_of_recalls)
+        return list_of_precisions, list_of_recalls, list_of_f1_scores
+
+    def get_precision_recall_f1_onehot_multi_class(self, y_true, y_pred):
+        y_true = np.array(y_true)
+        y_pred = np.array(y_pred)
+
+        y_pred = np.where(y_pred > 0.5, 1, 0)
+
+        n_classes = y_pred.shape[1]
+        list_of_confusion_matrices = [np.zeros((2, 2)) for _ in range(n_classes)]
+        for cls in range(n_classes):
+            y_true_cls = y_true[:, cls]
+            y_pred_cls = y_pred[:, cls]
+            for i in range(len(y_true_cls)):
+                if y_true_cls[i] == 1:
+                    if y_pred_cls[i] == 1:
+                        list_of_confusion_matrices[cls][0][0] += 1
+                    else:
+                        list_of_confusion_matrices[cls][0][1] += 1
+                else:
+                    if y_pred_cls[i] == 1:
+                        list_of_confusion_matrices[cls][1][0] += 1
+                    else:
+                        list_of_confusion_matrices[cls][1][1] += 1
         list_of_precisions = self.precision(list_of_confusion_matrices)
         list_of_recalls = self.recall(list_of_confusion_matrices)
         list_of_f1_scores = self.f1_score(list_of_precisions, list_of_recalls)
@@ -113,3 +140,11 @@ class PerformanceMetrics:
         ss_res = np.sum((y_true - y_hat) ** 2)
         r2 = 1 - (ss_res / (ss_total + 1e-10))
         return r2
+
+    def hamming_loss(self, y_true, y_hat):
+        y_true = np.array(y_true)
+        y_hat = np.array(y_hat)
+        differences = np.not_equal(y_true, y_hat)
+        total_loss = np.sum(differences)
+        hamming_loss = total_loss / y_true.shape[0]
+        return hamming_loss

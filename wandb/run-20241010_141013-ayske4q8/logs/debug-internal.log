@@ -1,0 +1,18 @@
+{"time":"2024-10-10T14:10:13.379295+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-10T14:10:13.379324+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241010_141013-ayske4q8/logs/debug-core.log"}
+{"time":"2024-10-10T14:10:13.379469+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-10T14:10:13.38403+05:30","level":"INFO","msg":"created new stream","id":"ayske4q8"}
+{"time":"2024-10-10T14:10:13.38407+05:30","level":"INFO","msg":"stream: started","id":"ayske4q8"}
+{"time":"2024-10-10T14:10:13.384071+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:13.384095+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:13.384131+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:14.133725+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-10T14:10:14.134039+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-10T14:10:55.100534+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-10T14:10:55.100775+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-10T14:10:57.384455+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-10T14:10:59.566597+05:30","level":"INFO","msg":"stream: closing","id":"ayske4q8"}
+{"time":"2024-10-10T14:10:59.56664+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:59.566687+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:59.566698+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ayske4q8"}}
+{"time":"2024-10-10T14:10:59.566913+05:30","level":"INFO","msg":"stream: closed","id":"ayske4q8"}
