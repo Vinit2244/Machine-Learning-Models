@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:41:15.551386+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:41:15.551403+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_174115-sc74dpcc/logs/debug-core.log"}
+{"time":"2024-10-12T17:41:15.551495+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:41:15.555043+05:30","level":"INFO","msg":"created new stream","id":"sc74dpcc"}
+{"time":"2024-10-12T17:41:15.555081+05:30","level":"INFO","msg":"stream: started","id":"sc74dpcc"}
+{"time":"2024-10-12T17:41:15.555082+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:15.555114+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:15.555114+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:15.995489+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:41:15.99571+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:41:16.728748+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:41:16.7288+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:41:19.155455+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:41:20.658526+05:30","level":"INFO","msg":"stream: closing","id":"sc74dpcc"}
+{"time":"2024-10-12T17:41:20.658561+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:20.658588+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:20.658598+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"sc74dpcc"}}
+{"time":"2024-10-12T17:41:20.658778+05:30","level":"INFO","msg":"stream: closed","id":"sc74dpcc"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:47:54.124991+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:47:54.12502+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_174754-u7elkalm/logs/debug-core.log"}
+{"time":"2024-10-12T17:47:54.125109+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:47:54.12942+05:30","level":"INFO","msg":"created new stream","id":"u7elkalm"}
+{"time":"2024-10-12T17:47:54.129447+05:30","level":"INFO","msg":"stream: started","id":"u7elkalm"}
+{"time":"2024-10-12T17:47:54.129449+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:47:54.129477+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:47:54.129474+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:47:55.994654+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:47:55.995094+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:47:57.38946+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:47:57.389489+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:47:59.758413+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:48:01.270433+05:30","level":"INFO","msg":"stream: closing","id":"u7elkalm"}
+{"time":"2024-10-12T17:48:01.270585+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:48:01.270615+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:48:01.270634+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"u7elkalm"}}
+{"time":"2024-10-12T17:48:01.270833+05:30","level":"INFO","msg":"stream: closed","id":"u7elkalm"}

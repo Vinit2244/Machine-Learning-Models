@@ -1,0 +1,23 @@
+{"time":"2024-10-12T15:37:31.599421+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T15:37:31.599444+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_153731-kiib5vdy/logs/debug-core.log"}
+{"time":"2024-10-12T15:37:31.599529+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T15:37:31.603654+05:30","level":"INFO","msg":"created new stream","id":"kiib5vdy"}
+{"time":"2024-10-12T15:37:31.603687+05:30","level":"INFO","msg":"stream: started","id":"kiib5vdy"}
+{"time":"2024-10-12T15:37:31.603688+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:37:31.603719+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:37:31.603715+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:37:32.018579+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T15:37:32.019482+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T15:37:33.382564+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T15:37:33.382594+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T15:37:53.863507+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.20.10.2:57943->35.186.228.49:443: read: operation timed out"}
+{"time":"2024-10-12T15:37:53.863517+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.20.10.2:57943->35.186.228.49:443: read: operation timed out"}
+{"time":"2024-10-12T15:37:55.910139+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/vinitmehta-iiit-hyderabad/assignment3-MLPClassifier_SingleClass/kiib5vdy/file_stream\": dial tcp 35.186.228.49:443: connect: operation timed out"}
+{"time":"2024-10-12T15:37:57.761599+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T15:39:13.232397+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/vinitmehta-iiit-hyderabad/assignment3-MLPClassifier_SingleClass/kiib5vdy/file_stream\": dial tcp 35.186.228.49:443: connect: operation timed out"}
+{"time":"2024-10-12T15:40:33.745925+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/vinitmehta-iiit-hyderabad/assignment3-MLPClassifier_SingleClass/kiib5vdy/file_stream\": dial tcp 35.186.228.49:443: connect: operation timed out"}
+{"time":"2024-10-12T15:40:39.077642+05:30","level":"INFO","msg":"stream: closing","id":"kiib5vdy"}
+{"time":"2024-10-12T15:40:39.077813+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:40:39.077765+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:40:39.077809+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"kiib5vdy"}}
+{"time":"2024-10-12T15:40:39.077952+05:30","level":"INFO","msg":"stream: closed","id":"kiib5vdy"}

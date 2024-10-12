@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:04:43.891765+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:04:43.891785+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_160443-lftr9mi1/logs/debug-core.log"}
+{"time":"2024-10-12T16:04:43.891867+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:04:43.895408+05:30","level":"INFO","msg":"created new stream","id":"lftr9mi1"}
+{"time":"2024-10-12T16:04:43.895438+05:30","level":"INFO","msg":"stream: started","id":"lftr9mi1"}
+{"time":"2024-10-12T16:04:43.895441+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:43.89547+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:43.895469+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:44.988679+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:04:44.988917+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:04:47.845064+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:04:47.84509+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:04:49.776511+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:04:51.275741+05:30","level":"INFO","msg":"stream: closing","id":"lftr9mi1"}
+{"time":"2024-10-12T16:04:51.275757+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:51.275772+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:51.275772+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"lftr9mi1"}}
+{"time":"2024-10-12T16:04:51.275847+05:30","level":"INFO","msg":"stream: closed","id":"lftr9mi1"}

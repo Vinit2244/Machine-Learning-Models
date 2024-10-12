@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:31:22.961807+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:31:22.961832+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_163122-ddlkmmix/logs/debug-core.log"}
+{"time":"2024-10-12T16:31:22.961952+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:31:22.965633+05:30","level":"INFO","msg":"created new stream","id":"ddlkmmix"}
+{"time":"2024-10-12T16:31:22.965674+05:30","level":"INFO","msg":"stream: started","id":"ddlkmmix"}
+{"time":"2024-10-12T16:31:22.965679+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:22.965702+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:22.965746+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:23.410615+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:31:23.410898+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:31:24.023716+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:31:24.023819+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:31:26.589637+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:31:28.094991+05:30","level":"INFO","msg":"stream: closing","id":"ddlkmmix"}
+{"time":"2024-10-12T16:31:28.095127+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:28.095163+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:28.095179+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ddlkmmix"}}
+{"time":"2024-10-12T16:31:28.095325+05:30","level":"INFO","msg":"stream: closed","id":"ddlkmmix"}

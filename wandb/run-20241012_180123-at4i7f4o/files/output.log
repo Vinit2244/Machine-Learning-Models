@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/performance_measures/performance_measures.py:8: RuntimeWarning: overflow encountered in square
+  mse = np.mean(y_error ** 2)
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/env/lib/python3.12/site-packages/numpy/_core/_methods.py:136: RuntimeWarning: overflow encountered in reduce
+  ret = umr_sum(arr, axis, dtype, out, keepdims, where=where)
+Model Training completed successfully in time 0.025125741958618164 s!

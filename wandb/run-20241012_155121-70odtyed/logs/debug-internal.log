@@ -1,0 +1,19 @@
+{"time":"2024-10-12T15:51:21.413978+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T15:51:21.413999+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_155121-70odtyed/logs/debug-core.log"}
+{"time":"2024-10-12T15:51:21.414086+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T15:51:21.417721+05:30","level":"INFO","msg":"created new stream","id":"70odtyed"}
+{"time":"2024-10-12T15:51:21.41776+05:30","level":"INFO","msg":"stream: started","id":"70odtyed"}
+{"time":"2024-10-12T15:51:21.417762+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:21.417786+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:21.417829+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:31.226569+05:30","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp 35.186.228.49:443: connect: operation timed out"}
+{"time":"2024-10-12T15:51:33.995864+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T15:51:33.99634+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T15:51:35.380424+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T15:51:35.380475+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T15:51:36.716028+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T15:51:38.163978+05:30","level":"INFO","msg":"stream: closing","id":"70odtyed"}
+{"time":"2024-10-12T15:51:38.164054+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:38.164088+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:38.164075+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"70odtyed"}}
+{"time":"2024-10-12T15:51:38.164606+05:30","level":"INFO","msg":"stream: closed","id":"70odtyed"}

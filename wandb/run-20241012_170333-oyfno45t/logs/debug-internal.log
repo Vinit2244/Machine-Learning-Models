@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:03:33.255366+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:03:33.256055+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170333-oyfno45t/logs/debug-core.log"}
+{"time":"2024-10-12T17:03:33.256157+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:03:33.259642+05:30","level":"INFO","msg":"created new stream","id":"oyfno45t"}
+{"time":"2024-10-12T17:03:33.259679+05:30","level":"INFO","msg":"stream: started","id":"oyfno45t"}
+{"time":"2024-10-12T17:03:33.259679+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:33.259726+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:33.259706+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:33.832339+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:03:33.832588+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:03:35.095904+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:03:35.095937+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:03:37.063691+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:03:38.559435+05:30","level":"INFO","msg":"stream: closing","id":"oyfno45t"}
+{"time":"2024-10-12T17:03:38.55948+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:38.559548+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:38.559758+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"oyfno45t"}}
+{"time":"2024-10-12T17:03:38.559838+05:30","level":"INFO","msg":"stream: closed","id":"oyfno45t"}

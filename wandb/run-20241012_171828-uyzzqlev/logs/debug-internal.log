@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:18:28.949759+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:18:28.949783+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_171828-uyzzqlev/logs/debug-core.log"}
+{"time":"2024-10-12T17:18:28.949885+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:18:28.955317+05:30","level":"INFO","msg":"created new stream","id":"uyzzqlev"}
+{"time":"2024-10-12T17:18:28.955356+05:30","level":"INFO","msg":"stream: started","id":"uyzzqlev"}
+{"time":"2024-10-12T17:18:28.955363+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:28.9554+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:28.95538+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:29.417091+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:18:29.417312+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:18:31.240118+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:18:31.24015+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:18:32.526311+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:18:34.015297+05:30","level":"INFO","msg":"stream: closing","id":"uyzzqlev"}
+{"time":"2024-10-12T17:18:34.015334+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:34.015377+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:34.015475+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"uyzzqlev"}}
+{"time":"2024-10-12T17:18:34.015665+05:30","level":"INFO","msg":"stream: closed","id":"uyzzqlev"}

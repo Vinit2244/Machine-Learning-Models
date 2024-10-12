@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:59:59.882033+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:59:59.882054+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_175959-ihpgp66g/logs/debug-core.log"}
+{"time":"2024-10-12T17:59:59.882173+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:59:59.886228+05:30","level":"INFO","msg":"created new stream","id":"ihpgp66g"}
+{"time":"2024-10-12T17:59:59.886257+05:30","level":"INFO","msg":"stream: started","id":"ihpgp66g"}
+{"time":"2024-10-12T17:59:59.886262+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T17:59:59.886287+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T17:59:59.886287+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T18:00:00.391746+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:00:00.392018+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:00:01.040786+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:00:01.040845+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:00:02.603588+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:00:04.148204+05:30","level":"INFO","msg":"stream: closing","id":"ihpgp66g"}
+{"time":"2024-10-12T18:00:04.148241+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T18:00:04.148262+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T18:00:04.148269+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ihpgp66g"}}
+{"time":"2024-10-12T18:00:04.148655+05:30","level":"INFO","msg":"stream: closed","id":"ihpgp66g"}

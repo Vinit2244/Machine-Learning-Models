@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:24:11.727642+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:24:11.72767+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_172411-yhm3v4eh/logs/debug-core.log"}
+{"time":"2024-10-12T17:24:11.727774+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:24:11.731783+05:30","level":"INFO","msg":"created new stream","id":"yhm3v4eh"}
+{"time":"2024-10-12T17:24:11.731824+05:30","level":"INFO","msg":"stream: started","id":"yhm3v4eh"}
+{"time":"2024-10-12T17:24:11.731818+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:11.731877+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:11.731894+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:12.230317+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:24:12.230668+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:24:13.554869+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:24:13.554901+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:24:14.917922+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:24:16.413212+05:30","level":"INFO","msg":"stream: closing","id":"yhm3v4eh"}
+{"time":"2024-10-12T17:24:16.413236+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:16.413269+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:16.413256+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"yhm3v4eh"}}
+{"time":"2024-10-12T17:24:16.413468+05:30","level":"INFO","msg":"stream: closed","id":"yhm3v4eh"}

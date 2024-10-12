@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:58: RuntimeWarning: invalid value encountered in subtract
+  exps = np.exp(x - np.max(x, axis=1, keepdims=True))
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:98: RuntimeWarning: invalid value encountered in add
+  Z = np.dot(Z, self.weights[i]) + self.biases[i]
+Model Training completed successfully in time 0.04160904884338379 s!

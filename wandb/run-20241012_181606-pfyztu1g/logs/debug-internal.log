@@ -1,0 +1,18 @@
+{"time":"2024-10-12T18:16:06.142687+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T18:16:06.142712+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_181606-pfyztu1g/logs/debug-core.log"}
+{"time":"2024-10-12T18:16:06.142894+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T18:16:06.147932+05:30","level":"INFO","msg":"created new stream","id":"pfyztu1g"}
+{"time":"2024-10-12T18:16:06.147962+05:30","level":"INFO","msg":"stream: started","id":"pfyztu1g"}
+{"time":"2024-10-12T18:16:06.147967+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:06.14799+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:06.147997+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:06.747327+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:16:06.747762+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:16:07.489047+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:16:07.489152+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:16:08.838715+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:16:10.348179+05:30","level":"INFO","msg":"stream: closing","id":"pfyztu1g"}
+{"time":"2024-10-12T18:16:10.348204+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:10.348249+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:10.34827+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"pfyztu1g"}}
+{"time":"2024-10-12T18:16:10.348373+05:30","level":"INFO","msg":"stream: closed","id":"pfyztu1g"}

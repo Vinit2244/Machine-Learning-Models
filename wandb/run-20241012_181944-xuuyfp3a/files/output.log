@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:118: RuntimeWarning: invalid value encountered in multiply
+  err = np.dot(err, self.weights[i].T) * self.activation_func_derivative(activation)
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:119: RuntimeWarning: invalid value encountered in add
+  final_gradients_w[i] = gradients_wi if final_gradients_w[i] is None else final_gradients_w[i] + gradients_wi
+Model Training completed successfully in time 0.6365811824798584 s!

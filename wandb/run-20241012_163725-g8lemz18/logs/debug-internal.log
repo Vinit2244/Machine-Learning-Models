@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:37:25.847953+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:37:25.847979+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_163725-g8lemz18/logs/debug-core.log"}
+{"time":"2024-10-12T16:37:25.84807+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:37:25.851403+05:30","level":"INFO","msg":"created new stream","id":"g8lemz18"}
+{"time":"2024-10-12T16:37:25.851435+05:30","level":"INFO","msg":"stream: started","id":"g8lemz18"}
+{"time":"2024-10-12T16:37:25.851437+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:25.851465+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:25.851497+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:26.276393+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:37:26.276655+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:37:27.683498+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:37:27.683526+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:37:29.670787+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:37:31.12949+05:30","level":"INFO","msg":"stream: closing","id":"g8lemz18"}
+{"time":"2024-10-12T16:37:31.129526+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:31.129562+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:31.129557+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"g8lemz18"}}
+{"time":"2024-10-12T16:37:31.129799+05:30","level":"INFO","msg":"stream: closed","id":"g8lemz18"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:08:21.812814+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:08:21.812832+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170821-wekibjye/logs/debug-core.log"}
+{"time":"2024-10-12T17:08:21.812921+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:08:21.816202+05:30","level":"INFO","msg":"created new stream","id":"wekibjye"}
+{"time":"2024-10-12T17:08:21.816239+05:30","level":"INFO","msg":"stream: started","id":"wekibjye"}
+{"time":"2024-10-12T17:08:21.816242+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:21.816272+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:21.816271+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:22.358931+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:08:22.359311+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:08:23.665209+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:08:23.665233+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:08:26.058173+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:08:27.584397+05:30","level":"INFO","msg":"stream: closing","id":"wekibjye"}
+{"time":"2024-10-12T17:08:27.584426+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:27.584466+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:27.584459+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"wekibjye"}}
+{"time":"2024-10-12T17:08:27.584664+05:30","level":"INFO","msg":"stream: closed","id":"wekibjye"}

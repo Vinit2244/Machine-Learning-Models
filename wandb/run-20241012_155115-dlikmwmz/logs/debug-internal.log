@@ -1,0 +1,18 @@
+{"time":"2024-10-12T15:51:15.914408+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T15:51:15.914426+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_155115-dlikmwmz/logs/debug-core.log"}
+{"time":"2024-10-12T15:51:15.914511+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T15:51:15.91943+05:30","level":"INFO","msg":"created new stream","id":"dlikmwmz"}
+{"time":"2024-10-12T15:51:15.919457+05:30","level":"INFO","msg":"stream: started","id":"dlikmwmz"}
+{"time":"2024-10-12T15:51:15.919468+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:15.919485+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:15.919492+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:16.411169+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T15:51:16.411477+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T15:51:17.844228+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T15:51:17.844249+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T15:51:19.73302+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T15:51:21.193341+05:30","level":"INFO","msg":"stream: closing","id":"dlikmwmz"}
+{"time":"2024-10-12T15:51:21.193355+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:21.193368+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:21.193379+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"dlikmwmz"}}
+{"time":"2024-10-12T15:51:21.193456+05:30","level":"INFO","msg":"stream: closed","id":"dlikmwmz"}

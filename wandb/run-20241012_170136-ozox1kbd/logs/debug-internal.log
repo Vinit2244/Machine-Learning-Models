@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:01:36.645734+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:01:36.645755+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170136-ozox1kbd/logs/debug-core.log"}
+{"time":"2024-10-12T17:01:36.645861+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:01:36.650859+05:30","level":"INFO","msg":"created new stream","id":"ozox1kbd"}
+{"time":"2024-10-12T17:01:36.650904+05:30","level":"INFO","msg":"stream: started","id":"ozox1kbd"}
+{"time":"2024-10-12T17:01:36.650922+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:36.65094+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:36.650911+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:37.069439+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:01:37.069686+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:01:40.094122+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:01:40.09415+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:01:41.571334+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:01:43.058274+05:30","level":"INFO","msg":"stream: closing","id":"ozox1kbd"}
+{"time":"2024-10-12T17:01:43.058387+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:43.058438+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:43.058678+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ozox1kbd"}}
+{"time":"2024-10-12T17:01:43.058725+05:30","level":"INFO","msg":"stream: closed","id":"ozox1kbd"}

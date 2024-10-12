@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:42:54.458119+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:42:54.458144+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_164254-cpzf82rc/logs/debug-core.log"}
+{"time":"2024-10-12T16:42:54.458234+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:42:54.461848+05:30","level":"INFO","msg":"created new stream","id":"cpzf82rc"}
+{"time":"2024-10-12T16:42:54.46189+05:30","level":"INFO","msg":"stream: started","id":"cpzf82rc"}
+{"time":"2024-10-12T16:42:54.461886+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:54.461937+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:54.461934+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:54.888194+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:42:54.888483+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:42:56.110909+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:42:56.111009+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:42:57.343538+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:42:58.821703+05:30","level":"INFO","msg":"stream: closing","id":"cpzf82rc"}
+{"time":"2024-10-12T16:42:58.821744+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:58.821782+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:58.821791+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"cpzf82rc"}}
+{"time":"2024-10-12T16:42:58.822019+05:30","level":"INFO","msg":"stream: closed","id":"cpzf82rc"}

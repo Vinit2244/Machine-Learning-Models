@@ -1,0 +1,18 @@
+{"time":"2024-10-12T18:15:22.899498+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T18:15:22.899519+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_181522-isuc157i/logs/debug-core.log"}
+{"time":"2024-10-12T18:15:22.899671+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T18:15:22.904494+05:30","level":"INFO","msg":"created new stream","id":"isuc157i"}
+{"time":"2024-10-12T18:15:22.904527+05:30","level":"INFO","msg":"stream: started","id":"isuc157i"}
+{"time":"2024-10-12T18:15:22.904563+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:22.904544+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:22.904579+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:23.458173+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:15:23.45908+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:15:24.100737+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:15:24.100777+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:15:25.503476+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:15:27.210051+05:30","level":"INFO","msg":"stream: closing","id":"isuc157i"}
+{"time":"2024-10-12T18:15:27.210095+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:27.21016+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:27.210439+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"isuc157i"}}
+{"time":"2024-10-12T18:15:27.21048+05:30","level":"INFO","msg":"stream: closed","id":"isuc157i"}

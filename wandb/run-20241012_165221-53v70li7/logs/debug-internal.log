@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:52:21.601009+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:52:21.601027+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_165221-53v70li7/logs/debug-core.log"}
+{"time":"2024-10-12T16:52:21.601119+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:52:21.604677+05:30","level":"INFO","msg":"created new stream","id":"53v70li7"}
+{"time":"2024-10-12T16:52:21.60471+05:30","level":"INFO","msg":"stream: started","id":"53v70li7"}
+{"time":"2024-10-12T16:52:21.604725+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:21.604772+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:21.604742+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:22.06331+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:52:22.063683+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:52:25.078463+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:52:25.078499+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:52:26.390054+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:52:27.846507+05:30","level":"INFO","msg":"stream: closing","id":"53v70li7"}
+{"time":"2024-10-12T16:52:27.846547+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:27.846591+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:27.846897+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"53v70li7"}}
+{"time":"2024-10-12T16:52:27.846923+05:30","level":"INFO","msg":"stream: closed","id":"53v70li7"}

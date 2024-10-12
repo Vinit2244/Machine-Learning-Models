@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:02:25.894972+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:02:25.895+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_160225-7htk91qs/logs/debug-core.log"}
+{"time":"2024-10-12T16:02:25.895145+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:02:25.899731+05:30","level":"INFO","msg":"created new stream","id":"7htk91qs"}
+{"time":"2024-10-12T16:02:25.899777+05:30","level":"INFO","msg":"stream: started","id":"7htk91qs"}
+{"time":"2024-10-12T16:02:25.89976+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:25.899801+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:25.899785+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:26.439077+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:02:26.439351+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:02:29.938956+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:02:29.938984+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:02:31.304563+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:02:32.881187+05:30","level":"INFO","msg":"stream: closing","id":"7htk91qs"}
+{"time":"2024-10-12T16:02:32.881246+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:32.881381+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:32.881456+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"7htk91qs"}}
+{"time":"2024-10-12T16:02:32.881594+05:30","level":"INFO","msg":"stream: closed","id":"7htk91qs"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:35:17.961244+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:35:17.961292+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_173517-tsg38t9v/logs/debug-core.log"}
+{"time":"2024-10-12T17:35:17.961482+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:35:17.972484+05:30","level":"INFO","msg":"created new stream","id":"tsg38t9v"}
+{"time":"2024-10-12T17:35:17.97253+05:30","level":"INFO","msg":"stream: started","id":"tsg38t9v"}
+{"time":"2024-10-12T17:35:17.972567+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:17.97257+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:17.97257+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:18.396707+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:35:18.397061+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:35:19.105021+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:35:19.105064+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:35:21.059386+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:35:22.506317+05:30","level":"INFO","msg":"stream: closing","id":"tsg38t9v"}
+{"time":"2024-10-12T17:35:22.506355+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:22.506386+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:22.506425+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"tsg38t9v"}}
+{"time":"2024-10-12T17:35:22.506706+05:30","level":"INFO","msg":"stream: closed","id":"tsg38t9v"}

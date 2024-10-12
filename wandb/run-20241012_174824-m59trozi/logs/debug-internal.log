@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:48:24.81132+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:48:24.811339+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_174824-m59trozi/logs/debug-core.log"}
+{"time":"2024-10-12T17:48:24.811468+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:48:24.817063+05:30","level":"INFO","msg":"created new stream","id":"m59trozi"}
+{"time":"2024-10-12T17:48:24.817151+05:30","level":"INFO","msg":"stream: started","id":"m59trozi"}
+{"time":"2024-10-12T17:48:24.817152+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:24.817191+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:24.817198+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:25.88129+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:48:25.881507+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:48:27.184825+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:48:27.184853+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:48:29.430339+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:48:31.012751+05:30","level":"INFO","msg":"stream: closing","id":"m59trozi"}
+{"time":"2024-10-12T17:48:31.012799+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:31.012836+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:31.012847+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"m59trozi"}}
+{"time":"2024-10-12T17:48:31.013073+05:30","level":"INFO","msg":"stream: closed","id":"m59trozi"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:09:04.490946+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:09:04.490963+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170904-wech9npc/logs/debug-core.log"}
+{"time":"2024-10-12T17:09:04.49107+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:09:04.495867+05:30","level":"INFO","msg":"created new stream","id":"wech9npc"}
+{"time":"2024-10-12T17:09:04.495907+05:30","level":"INFO","msg":"stream: started","id":"wech9npc"}
+{"time":"2024-10-12T17:09:04.49591+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:04.495939+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:04.495934+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:04.938285+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:09:04.938539+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:09:06.245131+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:09:06.245151+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:09:07.55322+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:09:09.047954+05:30","level":"INFO","msg":"stream: closing","id":"wech9npc"}
+{"time":"2024-10-12T17:09:09.047999+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:09.048062+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:09.048057+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"wech9npc"}}
+{"time":"2024-10-12T17:09:09.048304+05:30","level":"INFO","msg":"stream: closed","id":"wech9npc"}

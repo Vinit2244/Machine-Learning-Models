@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:14:15.50315+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:14:15.503176+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_171415-2pcu5915/logs/debug-core.log"}
+{"time":"2024-10-12T17:14:15.50333+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:14:15.507107+05:30","level":"INFO","msg":"created new stream","id":"2pcu5915"}
+{"time":"2024-10-12T17:14:15.507151+05:30","level":"INFO","msg":"stream: started","id":"2pcu5915"}
+{"time":"2024-10-12T17:14:15.507167+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:15.507193+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:15.507321+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:15.971608+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:14:15.971918+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:14:19.224699+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:14:19.22473+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:14:20.67905+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:14:22.21085+05:30","level":"INFO","msg":"stream: closing","id":"2pcu5915"}
+{"time":"2024-10-12T17:14:22.210912+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:22.210958+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:22.211176+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"2pcu5915"}}
+{"time":"2024-10-12T17:14:22.2112+05:30","level":"INFO","msg":"stream: closed","id":"2pcu5915"}

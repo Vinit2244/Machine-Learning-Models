@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:56:13.052981+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:56:13.053012+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_175613-utx7u461/logs/debug-core.log"}
+{"time":"2024-10-12T17:56:13.053151+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:56:13.057426+05:30","level":"INFO","msg":"created new stream","id":"utx7u461"}
+{"time":"2024-10-12T17:56:13.057469+05:30","level":"INFO","msg":"stream: started","id":"utx7u461"}
+{"time":"2024-10-12T17:56:13.057454+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:13.057556+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:13.057483+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:13.509466+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:56:13.509755+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:56:14.140883+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:56:14.140927+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:56:15.35673+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:56:16.834632+05:30","level":"INFO","msg":"stream: closing","id":"utx7u461"}
+{"time":"2024-10-12T17:56:16.834674+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:16.83476+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:16.834782+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"utx7u461"}}
+{"time":"2024-10-12T17:56:16.835306+05:30","level":"INFO","msg":"stream: closed","id":"utx7u461"}

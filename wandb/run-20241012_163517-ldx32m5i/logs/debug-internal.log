@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:35:17.660165+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:35:17.660193+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_163517-ldx32m5i/logs/debug-core.log"}
+{"time":"2024-10-12T16:35:17.660278+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:35:17.663917+05:30","level":"INFO","msg":"created new stream","id":"ldx32m5i"}
+{"time":"2024-10-12T16:35:17.663958+05:30","level":"INFO","msg":"stream: started","id":"ldx32m5i"}
+{"time":"2024-10-12T16:35:17.663966+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:17.66398+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:17.663996+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:18.120401+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:35:18.120798+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:35:20.444777+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:35:20.444809+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:35:21.739726+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:35:23.327435+05:30","level":"INFO","msg":"stream: closing","id":"ldx32m5i"}
+{"time":"2024-10-12T16:35:23.327472+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:23.327543+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:23.327638+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ldx32m5i"}}
+{"time":"2024-10-12T16:35:23.327778+05:30","level":"INFO","msg":"stream: closed","id":"ldx32m5i"}

@@ -170,14 +170,13 @@ def preprocess(data):
 
     return data
 
-def convert_to_one_hot_encoding_single_class(data):
-    n_classes = len(np.unique(data))
+def one_hot_encode_single_class(data, n_classes):
     one_hot_data = np.zeros((data.shape[0], n_classes))
     for i in range(data.shape[0]):
         one_hot_data[i][int(data[i]) - 1] = 1
     return one_hot_data
 
-def one_hot_encode_multi_label(data):
+def one_hot_encode_multi_class(data):
     unique_labels = list()
     for label_row in data:
         for label in label_row:
@@ -257,9 +256,15 @@ def print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_t
     """)
 
 def init_wandb(model_type, hyperparameters, layers):
-    if model_type == "single class classifier":
+    if model_type == "single_class_classifier":
         wandb.init(
             project="assignment3-MLPClassifier_SingleClass",
+            name=f"{hyperparameters["optimiser"]}_{hyperparameters["learning_rate"]}_{hyperparameters["activation_func"]}_layers{"_".join([str(x) for x in layers])}",
+            config=hyperparameters
+        )
+    elif model_type == "multi_class_classifier":
+        wandb.init(
+            project="assignment3-MLPClassifier_MultiClass",
             name=f"{hyperparameters["optimiser"]}_{hyperparameters["learning_rate"]}_{hyperparameters["activation_func"]}_layers{"_".join([str(x) for x in layers])}",
             config=hyperparameters
         )
@@ -355,8 +360,12 @@ def run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X
     return to_return
 
 def hyperparam_tuning(model_type, n_ip, n_op, X_train, y_train, X_val, y_val, X_test, y_test):
-    layers_arr = [[n_ip, 15, 15, n_op],
-                [n_ip, 20, 20, n_op]]
+    layers_arr = [[n_ip, 32, 32, n_op],
+                  [n_ip, 32, 64, 32, 16, n_op],
+                  [n_ip, 128, n_op],
+                  [n_ip, 64, 64, n_op],
+                  [n_ip, 15, 15, n_op]
+                 ]
     
     hyperparameters_table_rows = list()
 
@@ -521,6 +530,8 @@ def MLPSingleClassClassification():
     train_data, test_data, val_data = split_data(data, train_percent=TRAIN_PERCENT, test_percent=TEST_PERCENT, val_percent=VAL_PERCENT)
     print(f"{GREEN}Partitioned the WineQT dataset in {TRAIN_PERCENT}:{TEST_PERCENT}:{VAL_PERCENT}!{RESET}\n")
     
+    n_classes = len(np.unique(train_data[:, -1]))
+
     train_feat, y_train = train_data[:, :-1], train_data[:, -1]
     test_feat, y_test = test_data[:, :-1], test_data[:, -1]
     val_feat, y_val = val_data[:, :-1], val_data[:, -1]
@@ -534,9 +545,9 @@ def MLPSingleClassClassification():
     X_train, X_test, X_val = standardised_train_data, standardised_test_data, standardised_val_data
 
     # Converting y to 1-hot encoding of 10 classes
-    y_train = convert_to_one_hot_encoding_single_class(y_train)
-    y_test = convert_to_one_hot_encoding_single_class(y_test)
-    y_val = convert_to_one_hot_encoding_single_class(y_val)
+    y_train = one_hot_encode_single_class(y_train, 10)
+    y_test = one_hot_encode_single_class(y_test, 10)
+    y_val = one_hot_encode_single_class(y_val, 10)
 
     # =================================================================
     #               2.3 Hyperparameter Tuning
@@ -569,9 +580,9 @@ def MLPMultiClassClassification():
     val_labels = [x.strip().split(" ") for x in val_labels]
 
     # One hot encoding the output labels
-    one_hot_train_labels = one_hot_encode_multi_label(train_labels)
-    one_hot_test_labels = one_hot_encode_multi_label(test_labels)
-    one_hot_val_labels = one_hot_encode_multi_label(val_labels)
+    one_hot_train_labels = one_hot_encode_multi_class(train_labels)
+    one_hot_test_labels = one_hot_encode_multi_class(test_labels)
+    one_hot_val_labels = one_hot_encode_multi_class(val_labels)
 
     # Label encoding all the categorical input features
     list_of_categorical_features = ["gender", "education", "married", "city", "occupation", "most bought item"]
@@ -608,11 +619,11 @@ def MLPRegression():
     data = df.to_numpy()
 
     # Describe the dataset using mean, standard deviation, min and max values of each feature
-    describe_dataset(data, headers)
+    # describe_dataset(data, headers)
 
     # Plotting histograms of data features
-    plot_feature_distribution_histograms(data, headers, save_as="HousingData", n_rows=4, n_cols=4, n_range=14)
-    print(f"{GREEN}Histograms of data features saved successfully for HousingData Dataset!{RESET}\n")
+    # plot_feature_distribution_histograms(data, headers, save_as="HousingData", n_rows=4, n_cols=4, n_range=14)
+    # print(f"{GREEN}Histograms of data features saved successfully for HousingData Dataset!{RESET}\n")
 
     # Splitting the data into train, test and validation sets
     train_data, test_data, val_data = split_data(data, train_percent=TRAIN_PERCENT, test_percent=TEST_PERCENT, val_percent=VAL_PERCENT)
@@ -711,6 +722,6 @@ if __name__ == "__main__":
     if USE_WANDB:
         wandb.login()
     # MLPSingleClassClassification() 
-    MLPMultiClassClassification()
-    # MLPRegression()
+    # MLPMultiClassClassification()
+    MLPRegression()
     # SpotifyDataset()

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:12:20.778099+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:12:20.778118+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_171220-878rwb83/logs/debug-core.log"}
+{"time":"2024-10-12T17:12:20.778205+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:12:20.781881+05:30","level":"INFO","msg":"created new stream","id":"878rwb83"}
+{"time":"2024-10-12T17:12:20.781929+05:30","level":"INFO","msg":"stream: started","id":"878rwb83"}
+{"time":"2024-10-12T17:12:20.78194+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:20.781947+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:20.782011+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:21.259166+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:12:21.259399+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:12:23.064593+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:12:23.064622+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:12:24.521794+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:12:25.962083+05:30","level":"INFO","msg":"stream: closing","id":"878rwb83"}
+{"time":"2024-10-12T17:12:25.962126+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:25.962171+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:25.962154+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"878rwb83"}}
+{"time":"2024-10-12T17:12:25.962524+05:30","level":"INFO","msg":"stream: closed","id":"878rwb83"}

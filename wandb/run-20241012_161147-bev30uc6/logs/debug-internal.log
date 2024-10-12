@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:11:47.537434+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:11:47.53746+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_161147-bev30uc6/logs/debug-core.log"}
+{"time":"2024-10-12T16:11:47.537555+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:11:47.540932+05:30","level":"INFO","msg":"created new stream","id":"bev30uc6"}
+{"time":"2024-10-12T16:11:47.540972+05:30","level":"INFO","msg":"stream: started","id":"bev30uc6"}
+{"time":"2024-10-12T16:11:47.540973+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:47.540997+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:47.541+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:47.991453+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:11:47.991892+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:11:50.387944+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:11:50.387975+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:11:52.366698+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:11:53.870074+05:30","level":"INFO","msg":"stream: closing","id":"bev30uc6"}
+{"time":"2024-10-12T16:11:53.870165+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:53.870257+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:53.870269+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"bev30uc6"}}
+{"time":"2024-10-12T16:11:53.870554+05:30","level":"INFO","msg":"stream: closed","id":"bev30uc6"}

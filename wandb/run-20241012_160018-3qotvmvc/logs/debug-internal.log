@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:00:18.799965+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:00:18.799986+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_160018-3qotvmvc/logs/debug-core.log"}
+{"time":"2024-10-12T16:00:18.800071+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:00:18.803395+05:30","level":"INFO","msg":"created new stream","id":"3qotvmvc"}
+{"time":"2024-10-12T16:00:18.803428+05:30","level":"INFO","msg":"stream: started","id":"3qotvmvc"}
+{"time":"2024-10-12T16:00:18.803432+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:18.80346+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:18.803488+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:20.257222+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:00:20.257529+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:00:24.959024+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:00:24.95921+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:00:26.67888+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:00:28.212628+05:30","level":"INFO","msg":"stream: closing","id":"3qotvmvc"}
+{"time":"2024-10-12T16:00:28.212704+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:28.212761+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:28.213128+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"3qotvmvc"}}
+{"time":"2024-10-12T16:00:28.213162+05:30","level":"INFO","msg":"stream: closed","id":"3qotvmvc"}

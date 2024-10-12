@@ -1,0 +1,3 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/performance_measures/performance_measures.py:122: RuntimeWarning: invalid value encountered in log
+  cross_entropy = -np.mean(y_true * np.log(y_hat + 1e-10))
+Model Training completed successfully in time 1.1068720817565918 s!

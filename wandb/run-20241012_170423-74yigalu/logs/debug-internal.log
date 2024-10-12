@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:04:23.439691+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:04:23.439707+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170423-74yigalu/logs/debug-core.log"}
+{"time":"2024-10-12T17:04:23.439805+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:04:23.443345+05:30","level":"INFO","msg":"created new stream","id":"74yigalu"}
+{"time":"2024-10-12T17:04:23.443388+05:30","level":"INFO","msg":"stream: started","id":"74yigalu"}
+{"time":"2024-10-12T17:04:23.443404+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:23.443481+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:23.443426+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:23.865356+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:04:23.865595+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:04:25.1753+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:04:25.175338+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:04:26.446628+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:04:27.948679+05:30","level":"INFO","msg":"stream: closing","id":"74yigalu"}
+{"time":"2024-10-12T17:04:27.9487+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:27.948742+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:27.948747+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"74yigalu"}}
+{"time":"2024-10-12T17:04:27.948858+05:30","level":"INFO","msg":"stream: closed","id":"74yigalu"}

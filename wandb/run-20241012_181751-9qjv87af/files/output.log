@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:119: RuntimeWarning: invalid value encountered in add
+  final_gradients_w[i] = gradients_wi if final_gradients_w[i] is None else final_gradients_w[i] + gradients_wi
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:120: RuntimeWarning: invalid value encountered in add
+  final_gradients_b[i] = gradients_bi if final_gradients_b[i] is None else final_gradients_b[i] + gradients_bi
+Model Training completed successfully in time 0.5719180107116699 s!

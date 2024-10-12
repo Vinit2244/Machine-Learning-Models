@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:53:14.111115+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:53:14.111135+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_175314-ba748fx7/logs/debug-core.log"}
+{"time":"2024-10-12T17:53:14.111225+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:53:14.114925+05:30","level":"INFO","msg":"created new stream","id":"ba748fx7"}
+{"time":"2024-10-12T17:53:14.114974+05:30","level":"INFO","msg":"stream: started","id":"ba748fx7"}
+{"time":"2024-10-12T17:53:14.114975+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:14.115014+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:14.115042+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:14.584909+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:53:14.585246+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:53:15.324532+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:53:15.324645+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:53:16.632551+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:53:18.15078+05:30","level":"INFO","msg":"stream: closing","id":"ba748fx7"}
+{"time":"2024-10-12T17:53:18.150837+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:18.150872+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:18.150902+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ba748fx7"}}
+{"time":"2024-10-12T17:53:18.151038+05:30","level":"INFO","msg":"stream: closed","id":"ba748fx7"}

@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/performance_measures/performance_measures.py:8: RuntimeWarning: overflow encountered in square
+  mse = np.mean(y_error ** 2)
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:118: RuntimeWarning: invalid value encountered in multiply
+  err = np.dot(err, self.weights[i].T) * self.activation_func_derivative(activation)
+Model Training completed successfully in time 0.6889469623565674 s!

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:42:30.39829+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:42:30.398476+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_164230-gfbseu8v/logs/debug-core.log"}
+{"time":"2024-10-12T16:42:30.398592+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:42:30.408914+05:30","level":"INFO","msg":"created new stream","id":"gfbseu8v"}
+{"time":"2024-10-12T16:42:30.408953+05:30","level":"INFO","msg":"stream: started","id":"gfbseu8v"}
+{"time":"2024-10-12T16:42:30.408947+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:30.408995+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:30.40897+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:30.809383+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:42:30.810372+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:42:32.174639+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:42:32.174664+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:42:33.436742+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:42:34.904664+05:30","level":"INFO","msg":"stream: closing","id":"gfbseu8v"}
+{"time":"2024-10-12T16:42:34.904707+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:34.904745+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:34.904738+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"gfbseu8v"}}
+{"time":"2024-10-12T16:42:34.904967+05:30","level":"INFO","msg":"stream: closed","id":"gfbseu8v"}

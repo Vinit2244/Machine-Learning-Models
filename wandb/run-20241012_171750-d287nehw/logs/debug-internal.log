@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:17:50.951322+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:17:50.951389+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_171750-d287nehw/logs/debug-core.log"}
+{"time":"2024-10-12T17:17:50.951554+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:17:50.955666+05:30","level":"INFO","msg":"created new stream","id":"d287nehw"}
+{"time":"2024-10-12T17:17:50.955702+05:30","level":"INFO","msg":"stream: started","id":"d287nehw"}
+{"time":"2024-10-12T17:17:50.955744+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:50.95573+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:50.955741+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:51.428786+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:17:51.429041+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:17:53.323474+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:17:53.323501+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:17:54.69525+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:17:56.151954+05:30","level":"INFO","msg":"stream: closing","id":"d287nehw"}
+{"time":"2024-10-12T17:17:56.151973+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:56.151988+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:56.151996+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"d287nehw"}}
+{"time":"2024-10-12T17:17:56.152055+05:30","level":"INFO","msg":"stream: closed","id":"d287nehw"}

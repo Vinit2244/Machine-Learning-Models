@@ -1,0 +1,18 @@
+{"time":"2024-10-12T15:35:00.102539+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T15:35:00.102574+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_153500-hhp909np/logs/debug-core.log"}
+{"time":"2024-10-12T15:35:00.102716+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T15:35:00.106426+05:30","level":"INFO","msg":"created new stream","id":"hhp909np"}
+{"time":"2024-10-12T15:35:00.106459+05:30","level":"INFO","msg":"stream: started","id":"hhp909np"}
+{"time":"2024-10-12T15:35:00.106462+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:00.106479+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:00.106483+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:00.544706+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T15:35:00.544944+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T15:35:01.271435+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T15:35:01.271526+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T15:35:02.79473+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T15:35:04.28932+05:30","level":"INFO","msg":"stream: closing","id":"hhp909np"}
+{"time":"2024-10-12T15:35:04.289343+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:04.289355+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:04.289358+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"hhp909np"}}
+{"time":"2024-10-12T15:35:04.289694+05:30","level":"INFO","msg":"stream: closed","id":"hhp909np"}

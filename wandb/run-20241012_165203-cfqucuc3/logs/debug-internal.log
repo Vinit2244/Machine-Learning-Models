@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:52:03.117249+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:52:03.117267+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_165203-cfqucuc3/logs/debug-core.log"}
+{"time":"2024-10-12T16:52:03.117361+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:52:03.123884+05:30","level":"INFO","msg":"created new stream","id":"cfqucuc3"}
+{"time":"2024-10-12T16:52:03.123925+05:30","level":"INFO","msg":"stream: started","id":"cfqucuc3"}
+{"time":"2024-10-12T16:52:03.123924+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:03.123931+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:03.123982+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:03.600954+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:52:03.601329+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:52:06.616762+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:52:06.61679+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:52:08.067357+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:52:09.548559+05:30","level":"INFO","msg":"stream: closing","id":"cfqucuc3"}
+{"time":"2024-10-12T16:52:09.548617+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:09.548936+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:09.548979+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"cfqucuc3"}}
+{"time":"2024-10-12T16:52:09.549324+05:30","level":"INFO","msg":"stream: closed","id":"cfqucuc3"}

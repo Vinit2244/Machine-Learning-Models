@@ -1,0 +1,18 @@
+{"time":"2024-10-12T18:10:34.33892+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T18:10:34.338943+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_181034-garbbpsg/logs/debug-core.log"}
+{"time":"2024-10-12T18:10:34.339076+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T18:10:34.343086+05:30","level":"INFO","msg":"created new stream","id":"garbbpsg"}
+{"time":"2024-10-12T18:10:34.343125+05:30","level":"INFO","msg":"stream: started","id":"garbbpsg"}
+{"time":"2024-10-12T18:10:34.34313+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:34.343158+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:34.343156+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:40.743435+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:10:40.743887+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:10:41.791617+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:10:41.791693+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:10:44.061212+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:10:45.767349+05:30","level":"INFO","msg":"stream: closing","id":"garbbpsg"}
+{"time":"2024-10-12T18:10:45.767397+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:45.767445+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:45.76747+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"garbbpsg"}}
+{"time":"2024-10-12T18:10:45.767683+05:30","level":"INFO","msg":"stream: closed","id":"garbbpsg"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:49:07.604266+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:49:07.604289+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_164907-vs3wl1fc/logs/debug-core.log"}
+{"time":"2024-10-12T16:49:07.604385+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:49:07.607998+05:30","level":"INFO","msg":"created new stream","id":"vs3wl1fc"}
+{"time":"2024-10-12T16:49:07.608069+05:30","level":"INFO","msg":"stream: started","id":"vs3wl1fc"}
+{"time":"2024-10-12T16:49:07.608074+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:07.608098+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:07.608104+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:08.031267+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:49:08.03182+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:49:10.569445+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:49:10.569566+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:49:11.860755+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:49:13.331361+05:30","level":"INFO","msg":"stream: closing","id":"vs3wl1fc"}
+{"time":"2024-10-12T16:49:13.331437+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:13.331479+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:13.331466+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"vs3wl1fc"}}
+{"time":"2024-10-12T16:49:13.331815+05:30","level":"INFO","msg":"stream: closed","id":"vs3wl1fc"}

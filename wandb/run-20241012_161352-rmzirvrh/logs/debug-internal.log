@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:13:52.307755+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:13:52.307782+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_161352-rmzirvrh/logs/debug-core.log"}
+{"time":"2024-10-12T16:13:52.307875+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:13:52.311352+05:30","level":"INFO","msg":"created new stream","id":"rmzirvrh"}
+{"time":"2024-10-12T16:13:52.31138+05:30","level":"INFO","msg":"stream: started","id":"rmzirvrh"}
+{"time":"2024-10-12T16:13:52.311383+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:52.311411+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:52.311411+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:52.73253+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:13:52.732786+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:13:54.192394+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:13:54.19243+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:13:55.495534+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:13:56.987365+05:30","level":"INFO","msg":"stream: closing","id":"rmzirvrh"}
+{"time":"2024-10-12T16:13:56.987392+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:56.987451+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:56.987434+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"rmzirvrh"}}
+{"time":"2024-10-12T16:13:56.987669+05:30","level":"INFO","msg":"stream: closed","id":"rmzirvrh"}

@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:09:03.952185+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:09:03.952217+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_160903-acu5gbrd/logs/debug-core.log"}
+{"time":"2024-10-12T16:09:03.952311+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:09:03.955814+05:30","level":"INFO","msg":"created new stream","id":"acu5gbrd"}
+{"time":"2024-10-12T16:09:03.955849+05:30","level":"INFO","msg":"stream: started","id":"acu5gbrd"}
+{"time":"2024-10-12T16:09:03.955847+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:03.955865+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:03.955878+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:04.474773+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:09:04.475016+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:09:07.989772+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:09:07.989805+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:09:10.153653+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:09:11.687738+05:30","level":"INFO","msg":"stream: closing","id":"acu5gbrd"}
+{"time":"2024-10-12T16:09:11.687781+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:11.687822+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:11.688002+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"acu5gbrd"}}
+{"time":"2024-10-12T16:09:11.688084+05:30","level":"INFO","msg":"stream: closed","id":"acu5gbrd"}

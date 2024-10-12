@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:54:21.70167+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:54:21.70169+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_175421-kvfh4z72/logs/debug-core.log"}
+{"time":"2024-10-12T17:54:21.701777+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:54:21.706924+05:30","level":"INFO","msg":"created new stream","id":"kvfh4z72"}
+{"time":"2024-10-12T17:54:21.706964+05:30","level":"INFO","msg":"stream: started","id":"kvfh4z72"}
+{"time":"2024-10-12T17:54:21.706981+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:21.706996+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:21.707006+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:22.13571+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:54:22.135944+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:54:22.807177+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:54:22.807267+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:54:24.851258+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:54:26.923874+05:30","level":"INFO","msg":"stream: closing","id":"kvfh4z72"}
+{"time":"2024-10-12T17:54:26.923927+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:26.923976+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:26.924019+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"kvfh4z72"}}
+{"time":"2024-10-12T17:54:26.924246+05:30","level":"INFO","msg":"stream: closed","id":"kvfh4z72"}

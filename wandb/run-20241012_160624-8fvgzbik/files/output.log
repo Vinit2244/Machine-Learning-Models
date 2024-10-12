@@ -1,0 +1,5 @@
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:58: RuntimeWarning: invalid value encountered in subtract
+  exps = np.exp(x - np.max(x, axis=1, keepdims=True))
+/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:120: RuntimeWarning: invalid value encountered in add
+  final_gradients_b[i] = gradients_bi if final_gradients_b[i] is None else final_gradients_b[i] + gradients_bi
+Model Training completed successfully in time 2.7403080463409424 s!

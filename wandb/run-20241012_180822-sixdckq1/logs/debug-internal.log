@@ -1,0 +1,18 @@
+{"time":"2024-10-12T18:08:22.936535+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T18:08:22.936561+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_180822-sixdckq1/logs/debug-core.log"}
+{"time":"2024-10-12T18:08:22.936673+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T18:08:22.94077+05:30","level":"INFO","msg":"created new stream","id":"sixdckq1"}
+{"time":"2024-10-12T18:08:22.940805+05:30","level":"INFO","msg":"stream: started","id":"sixdckq1"}
+{"time":"2024-10-12T18:08:22.940808+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:22.940837+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:22.940871+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:23.466869+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:08:23.467157+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:08:24.459945+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:08:24.459969+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:08:25.698603+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:08:27.246652+05:30","level":"INFO","msg":"stream: closing","id":"sixdckq1"}
+{"time":"2024-10-12T18:08:27.246687+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:27.246713+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:27.24672+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"sixdckq1"}}
+{"time":"2024-10-12T18:08:27.246862+05:30","level":"INFO","msg":"stream: closed","id":"sixdckq1"}

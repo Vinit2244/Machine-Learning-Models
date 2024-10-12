@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:06:23.498447+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:06:23.498478+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170623-bdrl7een/logs/debug-core.log"}
+{"time":"2024-10-12T17:06:23.498577+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:06:23.502626+05:30","level":"INFO","msg":"created new stream","id":"bdrl7een"}
+{"time":"2024-10-12T17:06:23.502663+05:30","level":"INFO","msg":"stream: started","id":"bdrl7een"}
+{"time":"2024-10-12T17:06:23.502695+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:23.502665+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:23.50269+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:23.988783+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:06:23.989075+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:06:25.296859+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:06:25.296882+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:06:27.380915+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:06:29.057333+05:30","level":"INFO","msg":"stream: closing","id":"bdrl7een"}
+{"time":"2024-10-12T17:06:29.057359+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:29.0574+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:29.057424+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"bdrl7een"}}
+{"time":"2024-10-12T17:06:29.057527+05:30","level":"INFO","msg":"stream: closed","id":"bdrl7een"}

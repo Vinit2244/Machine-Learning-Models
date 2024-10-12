@@ -52,7 +52,8 @@ class MLP(PerformanceMetrics):
         # Initialize weights and biases for the network
         self.weights = []
         self.biases = []
-        self.init_weights(seed)
+        if neurons_per_hidden_layer != [] and n_op != 0:
+            self.init_weights(seed)
 
     def softmax(self, x):
         exps = np.exp(x - np.max(x, axis=1, keepdims=True))
@@ -351,31 +352,56 @@ class MLP(PerformanceMetrics):
             f.write(f"input: {self.n_ip}\n")
             f.write(f"hidden: {self.neurons_per_hidden_layer}\n")
             f.write(f"output: {self.n_op}\n")
+            
+            # Save weights
             for i, weight_array in enumerate(self.weights):
                 f.write(f'Weight {i}:\n')
                 np.savetxt(f, weight_array, fmt='%.6f')
                 f.write('\n')
 
+            # Save biases
+            for i, bias_array in enumerate(self.biases):
+                f.write(f'Bias {i}:\n')
+                np.savetxt(f, bias_array, fmt='%.6f')
+                f.write('\n')
+
     def load_model(self, file_path):
         self.weights = []
+        self.biases = []
 
         with open(file_path, 'r') as f:
             lines = f.readlines()
-            
+
             self.n_ip = int(lines[0].split(":")[1].strip())
             self.neurons_per_hidden_layer = eval(lines[1].split(":")[1].strip())
             self.n_op = int(lines[2].split(":")[1].strip())
 
             current_weight = []
+            current_bias = []
+            is_weight = True  # Flag to know if we're reading weights or biases
+
             for line in lines[3:]:
                 if line.startswith('Weight'):
                     if current_weight:
                         self.weights.append(np.array(current_weight))
                         current_weight = []
+                    is_weight = True
+                elif line.startswith('Bias'):
+                    if current_bias:
+                        self.biases.append(np.array(current_bias))
+                        current_bias = []
+                    is_weight = False
                 else:
                     stripped_line = line.strip()
                     if stripped_line:
-                        current_weight.append([float(x) for x in stripped_line.split()])
+                        if is_weight:
+                            current_weight.append([float(x) for x in stripped_line.split()])
+                        else:
+                            current_bias.append([float(x) for x in stripped_line.split()])
 
+            # Append the last set of weights and biases
             if current_weight:
                 self.weights.append(np.array(current_weight))
+            if current_bias:
+                self.biases.append(np.array(current_bias))
+

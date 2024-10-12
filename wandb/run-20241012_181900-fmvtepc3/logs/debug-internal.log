@@ -1,0 +1,18 @@
+{"time":"2024-10-12T18:19:00.951945+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T18:19:00.951969+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_181900-fmvtepc3/logs/debug-core.log"}
+{"time":"2024-10-12T18:19:00.95211+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T18:19:00.958761+05:30","level":"INFO","msg":"created new stream","id":"fmvtepc3"}
+{"time":"2024-10-12T18:19:00.958801+05:30","level":"INFO","msg":"stream: started","id":"fmvtepc3"}
+{"time":"2024-10-12T18:19:00.95883+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:00.958862+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:00.958889+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:01.397749+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T18:19:01.397994+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T18:19:02.570865+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T18:19:02.570897+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T18:19:04.548282+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T18:19:05.987263+05:30","level":"INFO","msg":"stream: closing","id":"fmvtepc3"}
+{"time":"2024-10-12T18:19:05.987326+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:05.987376+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:05.987568+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"fmvtepc3"}}
+{"time":"2024-10-12T18:19:05.987626+05:30","level":"INFO","msg":"stream: closed","id":"fmvtepc3"}

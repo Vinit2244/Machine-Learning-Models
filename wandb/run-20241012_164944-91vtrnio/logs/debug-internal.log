@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:49:44.261739+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:49:44.261758+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_164944-91vtrnio/logs/debug-core.log"}
+{"time":"2024-10-12T16:49:44.26187+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:49:44.265519+05:30","level":"INFO","msg":"created new stream","id":"91vtrnio"}
+{"time":"2024-10-12T16:49:44.265554+05:30","level":"INFO","msg":"stream: started","id":"91vtrnio"}
+{"time":"2024-10-12T16:49:44.265559+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:44.265606+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:44.265611+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:44.705979+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:49:44.706252+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:49:47.498137+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:49:47.498161+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:49:48.890522+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:49:50.544858+05:30","level":"INFO","msg":"stream: closing","id":"91vtrnio"}
+{"time":"2024-10-12T16:49:50.544899+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:50.544968+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:50.544965+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"91vtrnio"}}
+{"time":"2024-10-12T16:49:50.545186+05:30","level":"INFO","msg":"stream: closed","id":"91vtrnio"}

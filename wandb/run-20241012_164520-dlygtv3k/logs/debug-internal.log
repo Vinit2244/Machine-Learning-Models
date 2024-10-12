@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:45:20.035267+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:45:20.035286+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_164520-dlygtv3k/logs/debug-core.log"}
+{"time":"2024-10-12T16:45:20.035371+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:45:20.039194+05:30","level":"INFO","msg":"created new stream","id":"dlygtv3k"}
+{"time":"2024-10-12T16:45:20.039229+05:30","level":"INFO","msg":"stream: started","id":"dlygtv3k"}
+{"time":"2024-10-12T16:45:20.039231+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:20.03925+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:20.039264+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:20.507202+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:45:20.507685+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:45:21.660496+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:45:21.660526+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:45:23.658165+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:45:25.19236+05:30","level":"INFO","msg":"stream: closing","id":"dlygtv3k"}
+{"time":"2024-10-12T16:45:25.192403+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:25.192443+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:25.192435+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"dlygtv3k"}}
+{"time":"2024-10-12T16:45:25.192693+05:30","level":"INFO","msg":"stream: closed","id":"dlygtv3k"}

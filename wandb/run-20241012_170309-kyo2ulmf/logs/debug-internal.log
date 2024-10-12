@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:03:09.93991+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:03:09.939934+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170309-kyo2ulmf/logs/debug-core.log"}
+{"time":"2024-10-12T17:03:09.940038+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:03:09.943912+05:30","level":"INFO","msg":"created new stream","id":"kyo2ulmf"}
+{"time":"2024-10-12T17:03:09.943957+05:30","level":"INFO","msg":"stream: started","id":"kyo2ulmf"}
+{"time":"2024-10-12T17:03:09.943985+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:09.943972+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:09.944032+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:10.916628+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:03:10.91686+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:03:13.353978+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:03:13.354016+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:03:16.949423+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:03:18.421532+05:30","level":"INFO","msg":"stream: closing","id":"kyo2ulmf"}
+{"time":"2024-10-12T17:03:18.421552+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:18.421571+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:18.421586+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"kyo2ulmf"}}
+{"time":"2024-10-12T17:03:18.421712+05:30","level":"INFO","msg":"stream: closed","id":"kyo2ulmf"}

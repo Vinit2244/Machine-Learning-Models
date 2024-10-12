@@ -1,0 +1,18 @@
+{"time":"2024-10-12T16:12:29.799699+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T16:12:29.799832+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_161229-iea4fcph/logs/debug-core.log"}
+{"time":"2024-10-12T16:12:29.799936+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T16:12:29.804288+05:30","level":"INFO","msg":"created new stream","id":"iea4fcph"}
+{"time":"2024-10-12T16:12:29.804321+05:30","level":"INFO","msg":"stream: started","id":"iea4fcph"}
+{"time":"2024-10-12T16:12:29.804319+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:29.804337+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:29.804362+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:30.289784+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T16:12:30.290596+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T16:12:31.606843+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T16:12:31.606871+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T16:12:32.822771+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T16:12:34.305549+05:30","level":"INFO","msg":"stream: closing","id":"iea4fcph"}
+{"time":"2024-10-12T16:12:34.305571+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:34.305594+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:34.305606+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"iea4fcph"}}
+{"time":"2024-10-12T16:12:34.305733+05:30","level":"INFO","msg":"stream: closed","id":"iea4fcph"}

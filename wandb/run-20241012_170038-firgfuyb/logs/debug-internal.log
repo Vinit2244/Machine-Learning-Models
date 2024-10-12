@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:00:38.297786+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:00:38.297806+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_170038-firgfuyb/logs/debug-core.log"}
+{"time":"2024-10-12T17:00:38.297901+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:00:38.301635+05:30","level":"INFO","msg":"created new stream","id":"firgfuyb"}
+{"time":"2024-10-12T17:00:38.301666+05:30","level":"INFO","msg":"stream: started","id":"firgfuyb"}
+{"time":"2024-10-12T17:00:38.301669+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:38.301693+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:38.301694+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:38.828648+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:00:38.82893+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:00:41.490407+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:00:41.490438+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:00:42.849254+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:00:44.340114+05:30","level":"INFO","msg":"stream: closing","id":"firgfuyb"}
+{"time":"2024-10-12T17:00:44.340171+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:44.340207+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:44.340203+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"firgfuyb"}}
+{"time":"2024-10-12T17:00:44.340425+05:30","level":"INFO","msg":"stream: closed","id":"firgfuyb"}

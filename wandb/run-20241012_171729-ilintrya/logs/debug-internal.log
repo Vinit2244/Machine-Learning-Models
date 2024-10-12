@@ -1,0 +1,18 @@
+{"time":"2024-10-12T17:17:29.532604+05:30","level":"INFO","msg":"using version","core version":"0.18.3"}
+{"time":"2024-10-12T17:17:29.53263+05:30","level":"INFO","msg":"created symlink","path":"/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/wandb/run-20241012_171729-ilintrya/logs/debug-core.log"}
+{"time":"2024-10-12T17:17:29.532787+05:30","level":"ERROR","msg":"dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information"}
+{"time":"2024-10-12T17:17:29.536644+05:30","level":"INFO","msg":"created new stream","id":"ilintrya"}
+{"time":"2024-10-12T17:17:29.536677+05:30","level":"INFO","msg":"stream: started","id":"ilintrya"}
+{"time":"2024-10-12T17:17:29.536678+05:30","level":"INFO","msg":"handler: started","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:29.536709+05:30","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:29.536706+05:30","level":"INFO","msg":"sender: started","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:29.95862+05:30","level":"INFO","msg":"wandb-core","!BADKEY":null}
+{"time":"2024-10-12T17:17:29.958901+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-10-12T17:17:31.696413+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-10-12T17:17:31.696442+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-10-12T17:17:33.150803+05:30","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-10-12T17:17:34.64123+05:30","level":"INFO","msg":"stream: closing","id":"ilintrya"}
+{"time":"2024-10-12T17:17:34.641269+05:30","level":"INFO","msg":"handler: closed","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:34.641345+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:34.641468+05:30","level":"INFO","msg":"sender: closed","stream_id":{"value":"ilintrya"}}
+{"time":"2024-10-12T17:17:34.641623+05:30","level":"INFO","msg":"stream: closed","id":"ilintrya"}
