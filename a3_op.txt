@@ -43215,3 +43215,28 @@ Best Model Params:
 Evaluating the model:
 Test Mean Squared Error: 0.8415349147424741
 Test Mean Absolute Error: 0.7279360883424967
+
+Model fitted in time 219.11086797714233 s!
+
+Reduced the data to 4 dimensions using AutoEncoder!
+
+Running KNN model on the reduced dataset
+
+    k = 50, Distance Metric = euclidean
+    Validation Metrics
+                Accuracy:        9.89%
+
+                Precision
+                        Macro:  0.07851979923371719    
+                        Micro:  0.09889512769425739
+
+                Recall 
+                        Macro:   0.06132171691564495
+                        Micro:   0.09889512769425739
+
+                F1 Score
+                        Macro:   0.06290537877128856
+                        Micro:   0.09889512764425738
+
+    Time taken: 190.3851 seconds
+    ---------------------------------------------------------------------

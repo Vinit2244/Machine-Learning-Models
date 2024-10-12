@@ -168,6 +168,9 @@ def preprocess(data):
         std = data[col].std()
         data[col] = (data[col] - mean) / std
 
+    data.iloc[:, :-1] = data.iloc[:, :-1].apply(pd.to_numeric, errors='coerce')
+    data.dropna(inplace=True)
+
     return data
 
 def one_hot_encode_single_class(data, n_classes):
@@ -663,18 +666,29 @@ def SpotifyDataset():
     data = spotify_dataset.to_numpy()
 
     features = data[:, :-1]
+    features = np.float64(features)
 
     train_data, test_data, val_data = split_data(data, TRAIN_PERCENT, TEST_PERCENT, VAL_PERCENT, shuffle=True)
     train_features, train_labels = train_data[:, :-1], train_data[:, -1].reshape(-1, 1)
     test_features, test_labels = test_data[:, :-1], test_data[:, -1].reshape(-1, 1)
     val_features, val_labels = val_data[:, :-1], val_data[:, -1].reshape(-1, 1)
 
-    model = AutoEncoder(n_ip=14, neurons_per_hidden_layer=[32, 16, 4, 16, 32], n_op=14, learning_rate=0.01, activation_func="sigmoid", optimiser="sgd", epochs=100, batch_size=32)
+    train_features = np.float64(train_features)
+    test_features = np.float64(test_features)
+    val_features = np.float64(val_features)
 
+    model = AutoEncoder(n_ip=14, neurons_per_hidden_layer=[32, 16, 4, 16, 32], n_op=14, learning_rate=0.01, activation_func="sigmoid", optimiser="batch", epochs=100, batch_size=32)
+
+    start_time = time.time()
     model.fit(features)
+    model.save_model("./autoencoder_weights_spotify.txt")
+    end_time = time.time()
+    print(f"{GREEN}Model fitted in time {end_time - start_time} s!{RESET}\n")
+
     reduced_train_features = model.get_latent(train_features)
     reduced_test_features = model.get_latent(test_features)
     reduced_val_features = model.get_latent(val_features)
+    print(f"{GREEN}Reduced the data to 4 dimensions using AutoEncoder!{RESET}\n")
 
     reduced_train_data_with_labels = np.hstack((reduced_train_features, train_labels))
     reduced_test_data_with_labels = np.hstack((reduced_test_features, test_labels))
@@ -685,6 +699,8 @@ def SpotifyDataset():
     for i in range(n_features):
         new_header.append(f"Feature {i+1}")
     new_header.append("track_genre")
+
+    print(f"{GREEN}Running KNN model on the reduced dataset{RESET}")
 
     # Initial model's hyperparameters
     distance_metric = "euclidean"
@@ -704,7 +720,7 @@ def SpotifyDataset():
     # Printing metrics
     print(f"""
     k = {k}, Distance Metric = {distance_metric}
-    Validation Metrics for Dataset 1
+    Validation Metrics
                 Accuracy:        {round(metrics['accuracy'] * 100, 3)}%\n
                 Precision
                         Macro:  {metrics['macro_precision']}    
@@ -723,5 +739,5 @@ if __name__ == "__main__":
         wandb.login()
     # MLPSingleClassClassification() 
     # MLPMultiClassClassification()
-    MLPRegression()
-    # SpotifyDataset()
+    # MLPRegression()
+    SpotifyDataset()
