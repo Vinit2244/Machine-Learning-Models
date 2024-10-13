@@ -1,25 +1,6 @@
 import numpy as np
 from performance_measures.performance_measures import PerformanceMetrics
 
-"""
-For testing:
-
-self.weights = [
-    np.array([[1,2,3,4],
-              [1,2,3,4],
-              [1,2,3,4]]),
-    np.array([[1],
-              [1],
-              [1],
-              [1]])
-]
-
-self.biases = [
-    np.array([[0,0,0,0]]),
-    np.array([[0]])
-]
-"""
-
 class MLP(PerformanceMetrics):
     def __init__(self, n_ip: int=0, neurons_per_hidden_layer: list=[], n_op: int=0,
                  learning_rate: int=0.01, activation_func: str='relu', 
@@ -31,6 +12,7 @@ class MLP(PerformanceMetrics):
         self.n_hidden_layers = len(neurons_per_hidden_layer)
         self.neurons_per_hidden_layer = neurons_per_hidden_layer
         self.learning_rate = learning_rate
+        self.af = activation_func
         if activation_func == "sigmoid":
             self.activation_func = self.sigmoid
             self.activation_func_derivative = self.sigmoid_derivative
@@ -157,7 +139,7 @@ class MLP(PerformanceMetrics):
             for epoch in range(self.epochs):
                 self.train(X, y)
                 if X_val is not None and y_val is not None:
-                    metrics_arr.append(self.calc_metrics(X, y, X_val, y_val, multi_class))
+                    metrics_arr.append(self.calc_metrics(epoch, X, y, X_val, y_val, multi_class))
 
                 # Early stopping
                 if early_stopping:
@@ -183,7 +165,7 @@ class MLP(PerformanceMetrics):
                     y_batch = y[i:i+self.batch_size]
                     self.train(X_batch, y_batch)
                 if X_val is not None and y_val is not None:
-                    metrics_arr.append(self.calc_metrics(X, y, X_val, y_val, multi_class))
+                    metrics_arr.append(self.calc_metrics(epoch, X, y, X_val, y_val, multi_class))
             
                 
                 # Early stopping
@@ -210,7 +192,7 @@ class MLP(PerformanceMetrics):
                 y_point = np.array([y[random_idx]])
                 self.train(X_point, y_point)
                 if X_val is not None and y_val is not None:
-                    metrics_arr.append(self.calc_metrics(X, y, X_val, y_val, multi_class))
+                    metrics_arr.append(self.calc_metrics(epoch, X, y, X_val, y_val, multi_class))
 
                 # Early stopping
                 if early_stopping:
@@ -235,7 +217,7 @@ class MLP(PerformanceMetrics):
                     y_point = np.array([y[idx]])
                     self.train(X_point, y_point)
                 if X_val is not None and y_val is not None:
-                    metrics_arr.append(self.calc_metrics(X, y, X_val, y_val, multi_class))
+                    metrics_arr.append(self.calc_metrics(epoch, X, y, X_val, y_val, multi_class))
 
                 # Early stopping
                 if early_stopping:
@@ -333,7 +315,7 @@ class MLP(PerformanceMetrics):
             y = np.argmax(y, axis=1)
             return np.mean(y == y_hat)
 
-    def calc_metrics(self, X_train, y_train, X_val, y_val, multi_class=False):
+    def calc_metrics(self, epoch, X_train, y_train, X_val, y_val, multi_class=False):
         y_hat_train = self.predict(X_train, multi_class)
         y_hat_val = self.predict(X_val, multi_class)
         if self.logistic_reg:
@@ -344,11 +326,13 @@ class MLP(PerformanceMetrics):
                 "cross_entropy_train": self.cross_entropy(y_train, y_hat_train),
                 "mse_val": self.MSE(y_val, y_hat_val),
                 "cross_entropy_val": self.cross_entropy(y_val, y_hat_val),
+                "epoch": epoch
             }
         elif self.n_op == 1:
             return {
                 "mse_train": self.MSE(y_train, y_hat_train),
                 "mse_val": self.MSE(y_val, y_hat_val),
+                "epoch": epoch
             }
         else:
             return {
@@ -356,14 +340,25 @@ class MLP(PerformanceMetrics):
                 "accuracy_train": self.compute_acc(y_train, y_hat_train, multi_class),
                 "loss_val": self.compute_loss(y_val, y_hat_val),
                 "accuracy_val": self.compute_acc(y_val, y_hat_val, multi_class),
+                "epoch": epoch
             }
 
     def save_model(self, file_path):
         with open(file_path, 'w') as f:
+            # Save architecture-related attributes
             f.write(f"input: {self.n_ip}\n")
             f.write(f"hidden: {self.neurons_per_hidden_layer}\n")
             f.write(f"output: {self.n_op}\n")
-            
+
+            # Save hyperparameters and other model attributes
+            f.write(f"learning_rate: {self.learning_rate}\n")
+            f.write(f"activation_function: {self.af}\n")
+            f.write(f"optimiser: {self.optimiser}\n")
+            f.write(f"batch_size: {self.batch_size}\n")
+            f.write(f"epochs: {self.epochs}\n")
+            f.write(f"loss: {self.loss}\n")
+            f.write(f"logistic_reg: {self.logistic_reg}\n")
+
             # Save weights
             for i, weight_array in enumerate(self.weights):
                 f.write(f'Weight {i}:\n')
@@ -383,15 +378,28 @@ class MLP(PerformanceMetrics):
         with open(file_path, 'r') as f:
             lines = f.readlines()
 
+            # Load architecture-related attributes
             self.n_ip = int(lines[0].split(":")[1].strip())
             self.neurons_per_hidden_layer = eval(lines[1].split(":")[1].strip())
             self.n_op = int(lines[2].split(":")[1].strip())
+
+            # Load hyperparameters and other model attributes
+            self.learning_rate = float(lines[3].split(":")[1].strip())
+            self.af = lines[4].split(":")[1].strip()
+            self.optimiser = lines[5].split(":")[1].strip()
+            if lines[6].split(":")[1].strip() == "None":
+                self.batch_size = None
+            else:
+                self.batch_size = int(lines[6].split(":")[1].strip())
+            self.epochs = int(lines[7].split(":")[1].strip())
+            self.loss = lines[8].split(":")[1].strip()
+            self.logistic_reg = lines[9].split(":")[1].strip().lower() == 'true'
 
             current_weight = []
             current_bias = []
             is_weight = True  # Flag to know if we're reading weights or biases
 
-            for line in lines[3:]:
+            for line in lines[10:]:
                 if line.startswith('Weight'):
                     if current_weight:
                         self.weights.append(np.array(current_weight))
