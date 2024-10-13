@@ -17,17 +17,41 @@ from models.MLP.MLP import MLP
 from models.AutoEncoder.AutoEncoder import AutoEncoder
 from performance_measures.performance_measures import PerformanceMetrics
 
-USE_WANDB = False
-
 TRAIN_PERCENT = 70
 TEST_PERCENT = 15
 VAL_PERCENT = 15
 
-optimisers = ["batch", "sgd", "mini_batch", None]
-learning_rates = [0.001, 0.01, 0.1, 1]
+optimisers = ["batch", "sgd", "mini_batch 16", "mini_batch 32", "mini_batch 64", "mini_batch 128", None]
 activation_funcs = ["sigmoid", "tanh", "relu", "linear"]
+learning_rates = [0.001, 0.01, 0.1, 1]
 epochs = 100
-batch_size_arr = [16, 32, 64, 128]
+
+X_train_single_class = None
+y_train_single_class = None
+X_test_single_class = None
+y_test_single_class = None
+X_val_single_class = None
+y_val_single_class = None
+
+X_train_multi_class = None
+y_train_multi_class = None
+X_test_multi_class = None
+y_test_multi_class = None
+X_val_multi_class = None
+y_val_multi_class = None
+
+X_train_regressor = None
+y_train_regressor = None
+X_test_regressor = None
+y_test_regressor = None
+X_val_regressor = None
+y_val_regressor = None
+
+hyperparameters_table_rows = None
+best_model_params = None
+best_model_metric = None
+best_model_metrics = None
+loss_dict = None
 
 # Colors for printing for better readability
 BLUE = "\033[34m"
@@ -35,29 +59,6 @@ GREEN = "\033[32m"
 RED = "\033[31m"
 MAGENTA = "\033[35m"
 RESET = "\033[0m"
-"""
-Testing code:
-
-X = np.array(
-    [np.array([1, 2, 3]),
-    np.array([4, 5, 6]),
-    np.array([7, 8, 9])]
-)
-
-regressor_model = MLP_Regression(
-    n_ip=3, 
-    neurons_per_hidden_layer=[4], 
-    n_op=1,
-    learning_rate=0.01,
-    activation_func="linear",
-    optimiser="batch",
-    epochs=1,
-    batch_size=10
-)
-
-prediction = regressor_model.predict(X)
-print(prediction)
-"""
 
 # Returns the train, test, val split (in that order)
 def split_data(data, train_percent, test_percent, val_percent=None, shuffle=True, seed=42):
@@ -203,14 +204,14 @@ def label_encode(data):
         data[i] = unique_labels.index(data[i])
     return data
 
-def print_aprf1(model_type, lr, act_func, optimiser, epochs, batch_size, layers, model, X_test, y_test, test_p, test_r, test_f1):
+def print_aprf1(model_type, lr, act_func, optimiser, epochs, batch_size, layers, model, X_val, y_val, val_p, val_r, val_f1):
     if model_type == "single_class_classifier":
-        accuracy = round(model.compute_acc(y_test, model.forward_prop(X_test)[-1]) * 100, 3)
+        accuracy = round(model.compute_acc(y_val, model.forward_prop(X_val)[-1]) * 100, 3)
     elif model_type == "multi_class_classifier":
-        accuracy = round(model.compute_acc(y_test, model.forward_prop(X_test)[-1], multi_class=True) * 100, 3)
-    macro_precision = round(np.mean(test_p) * 100, 3)
-    macro_recall = round(np.mean(test_r) * 100, 3)
-    macro_f1 = round(np.mean(test_f1), 3)
+        accuracy = round(model.compute_acc(y_val, model.forward_prop(X_val)[-1], multi_class=True) * 100, 3)
+    macro_precision = round(np.mean(val_p) * 100, 3)
+    macro_recall = round(np.mean(val_r) * 100, 3)
+    macro_f1 = round(np.mean(val_f1), 3)
     
     print(f"""
     {MAGENTA}Model Params:{RESET}
@@ -222,25 +223,25 @@ def print_aprf1(model_type, lr, act_func, optimiser, epochs, batch_size, layers,
         Layers: {GREEN}{layers}{RESET}
 
     {MAGENTA}Final Metrics:{RESET}
-        Test Accuracy: {GREEN}{accuracy}%{RESET}
+        Validation Accuracy: {GREEN}{accuracy}%{RESET}
 
-        Macro Test Precision: {GREEN}{macro_precision}%{RESET}
+        Macro Validation Precision: {GREEN}{macro_precision}%{RESET}
 
-        Macro Test Recall: {GREEN}{macro_recall}%{RESET}
+        Macro Validation Recall: {GREEN}{macro_recall}%{RESET}
 
-        Macro Test F1 Score: {GREEN}{macro_f1}{RESET}
+        Macro Validation F1 Score: {GREEN}{macro_f1}{RESET}
 
         -----------------------------------------------------------
 
-        Micro Test Precision: {GREEN}{[float(x) for x in test_p]}{RESET}
+        Micro Validation Precision: {GREEN}{[float(x) for x in val_p]}{RESET}
 
-        Micro Test Recall: {GREEN}{[float(x) for x in test_r]}{RESET}
+        Micro Validation Recall: {GREEN}{[float(x) for x in val_r]}{RESET}
 
-        Micro Test F1 Score: {GREEN}{[float(x) for x in test_f1]}{RESET}
+        Micro Validation F1 Score: {GREEN}{[float(x) for x in val_f1]}{RESET}
     """)
     return [accuracy, macro_precision, macro_recall, macro_f1]
 
-def print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_test, rmse_test, r2_test):
+def print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_val, rmse_val, r2_val):
     print(f"""
     {MAGENTA}Model Params:{RESET}
         Learning Rate: {GREEN}{lr}{RESET}
@@ -251,38 +252,12 @@ def print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_t
         Layers: {GREEN}{layers}{RESET}
 
     {MAGENTA}Final Metrics:{RESET}
-        Test Mean Squared Error: {GREEN}{mse_test}{RESET}
+        Validation Mean Squared Error: {GREEN}{mse_val}{RESET}
 
-        Test Root Mean Squared Error: {GREEN}{rmse_test}{RESET}
+        Validation Root Mean Squared Error: {GREEN}{rmse_val}{RESET}
 
-        Test R2 Score: {GREEN}{r2_test}{RESET}
+        Validation R2 Score: {GREEN}{r2_val}{RESET}
     """)
-
-def init_wandb(model_type, hyperparameters, layers):
-    if model_type == "single_class_classifier":
-        wandb.init(
-            project="assignment3-MLPClassifier_SingleClass",
-            name=f"{hyperparameters["optimiser"]}_{hyperparameters["learning_rate"]}_{hyperparameters["activation_func"]}_layers{"_".join([str(x) for x in layers])}",
-            config=hyperparameters
-        )
-    elif model_type == "multi_class_classifier":
-        wandb.init(
-            project="assignment3-MLPClassifier_MultiClass",
-            name=f"{hyperparameters["optimiser"]}_{hyperparameters["learning_rate"]}_{hyperparameters["activation_func"]}_layers{"_".join([str(x) for x in layers])}",
-            config=hyperparameters
-        )
-    elif model_type == "regressor":
-        wandb.init(
-            project="assignment3-MLPRegressor",
-            name=f"{hyperparameters["optimiser"]}_{hyperparameters["learning_rate"]}_{hyperparameters["activation_func"]}_layers{"_".join([str(x) for x in layers])}",
-            config=hyperparameters
-        )
-
-def log_wandb(metrics_arr):
-    # Logging metrics onto W&B
-    for metric in metrics_arr:
-        wandb.log(metric)
-    wandb.finish()
 
 def run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X_train, y_train, X_val, y_val, X_test, y_test, loss):
     hyperparameters = {
@@ -293,9 +268,6 @@ def run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X
         "batch_size": batch_size,
         "layers": layers
     }
-
-    if USE_WANDB:
-        init_wandb(model_type, hyperparameters, layers)
 
     # Defining the model
     model = MLP(
@@ -318,140 +290,157 @@ def run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X
     else:
         metrics_arr = model.fit(X_train, y_train, X_val, y_val)
     end_time = time.time()
-    print(f"{GREEN}Model Training completed successfully in time {end_time - start_time} s!{RESET}\n")
+    print(f"{GREEN}Model Training completed successfully in time {end_time - start_time} s!{RESET}")
 
-    if USE_WANDB:
-        log_wandb(metrics_arr)
+    for metric in metrics_arr:
+        wandb.log(metric)
 
     if model_type == "single_class_classifier" or model_type == "multi_class_classifier":
         # Saving the loss for each model so it can later be used in part 2.5
-        train_loss_arr = np.zeros(epochs)
-        val_loss_arr = np.zeros(epochs)
-        for i in range(epochs):
+        train_loss_arr = np.zeros(len(metrics_arr))
+        val_loss_arr = np.zeros(len(metrics_arr))
+        for i in range(len(metrics_arr)):
             train_loss_arr[i] = metrics_arr[i]["loss_train"]
             val_loss_arr[i] = metrics_arr[i]["loss_val"]
 
         # Calculating precision, recall and f1 scores for each of the classes
         if model_type == "single_class_classifier":
-            test_p, test_r, test_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_single_class(y_test, model.predict(X_test))
+            val_p, val_r, val_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_single_class(y_val, model.predict(X_val))
         elif model_type == "multi_class_classifier":
-            test_p, test_r, test_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_multi_class(y_test, model.predict(X_test))
+            val_p, val_r, val_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_multi_class(y_val, model.predict(X_val))
 
         # Calculating and printing the accuracy, macro precision, macro recall and macro f1 score
-        aprf1 = print_aprf1(model_type, lr, act_func, optimiser, epochs, batch_size, layers, model, X_test, y_test, test_p, test_r, test_f1)
+        aprf1 = print_aprf1(model_type, lr, act_func, optimiser, epochs, batch_size, layers, model, X_val, y_val, val_p, val_r, val_f1)
 
         # For printing a table of all the hyperparameters tested and their metrics
         table_row = [lr, act_func, optimiser, epochs, batch_size, layers, aprf1[0], aprf1[1], aprf1[2], aprf1[3]]
-        
-        to_return = {f"{optimiser}_{lr}_{act_func}_{batch_size}_{"_".join([str(x) for x in layers])}": (train_loss_arr, val_loss_arr)}, table_row, aprf1, model, hyperparameters
 
+        to_return = {f"{optimiser}_{lr}_{act_func}_{batch_size}_{"_".join([str(x) for x in layers])}": (train_loss_arr, val_loss_arr)}, table_row, aprf1, model, hyperparameters
     elif model_type == "regressor":
         # Calculating precision, recall and f1 scores for each of the classes
-        prediction = model.predict(X_test)
-        mse_test = PerformanceMetrics().MSE(y_test, prediction)
-        rmse_test = PerformanceMetrics().RMSE(y_test, prediction)
-        r2_test = PerformanceMetrics().R2(y_test, prediction)
+        prediction = model.predict(X_val)
+        mse_val = PerformanceMetrics().MSE(y_val, prediction)
+        rmse_val = PerformanceMetrics().RMSE(y_val, prediction)
+        r2_val = PerformanceMetrics().R2(y_val, prediction)
 
         # Calculating and printing the accuracy, macro precision, macro recall and macro f1 score
-        print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_test, rmse_test, r2_test)
+        print_mse_rmse_r2(lr, act_func, optimiser, epochs, batch_size, layers, mse_val, rmse_val, r2_val)
 
         # For printing a table of all the hyperparameters tested and their metrics
-        table_row = [lr, act_func, optimiser, epochs, batch_size, layers, mse_test, rmse_test, r2_test]
+        table_row = [lr, act_func, optimiser, epochs, batch_size, layers, mse_val, rmse_val, r2_val]
         
-        to_return = table_row, mse_test, model, hyperparameters
+        to_return = table_row, mse_val, model, hyperparameters
 
     return to_return
 
-def hyperparam_tuning(model_type, n_ip, n_op, X_train, y_train, X_val, y_val, X_test, y_test):
-    layers_arr = [[n_ip, 32, 32, n_op],
-                  [n_ip, 32, 64, 32, 16, n_op],
-                  [n_ip, 128, n_op],
-                  [n_ip, 64, 64, n_op],
-                  [n_ip, 15, 15, n_op]
-                 ]
+def hyperparam_tuning_single_class_classifier(config=None):
+    global X_train_single_class, y_train_single_class, X_test_single_class, y_test_single_class, X_val_single_class, y_val_single_class, hyperparameters_table_rows, best_model_params, best_model_metric, best_model_metrics, loss_dict
     
-    hyperparameters_table_rows = list()
+    with wandb.init(config=config):
+        config = wandb.config
+        run_name = f"op={config.optimiser}_lr={config.learning_rate}_af={config.activation_function}_layers={"_".join([str(x) for x in config.layers])}"
+        wandb.run.name = run_name
 
-    best_model_params = {}
-    best_model_metric = None
-    best_model_metrics = None
+        batch_size = None
+        optimiser = config.optimiser
 
-    loss_dict = {}
+        if optimiser is not None and optimiser.startswith("mini_batch"):
+            batch_size = int(optimiser.split(" ")[1])
+            optimiser = "mini_batch"
 
-    for layers in layers_arr:
-        for lr in learning_rates:
-            for act_func in activation_funcs:
-                for optimiser in optimisers:
-                    # For mini_batch optimiser we have to iterate over batch size array as well
-                    if optimiser == "mini_batch":
-                        iteration_arr_batch_size = batch_size_arr
-                    else:
-                        iteration_arr_batch_size = [None]
-                    
-                    for batch_size in iteration_arr_batch_size:
-                        if model_type == "single_class_classifier" or model_type == "multi_class_classifier":
-                            loss_d, table_row, aprf1, trained_model, hyperparameters = run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X_train, y_train, X_val, y_val, X_test, y_test, loss="cross_entropy")
-                            loss_dict.update(loss_d)
-                        
-                            # Storing the best model parameters (best model is the one with highest accuracy)
-                            if best_model_metric is None or best_model_metric < aprf1[0]:
-                                best_model_metric = aprf1[0]
-                                best_model_params = hyperparameters
-                                trained_model.save_model(f"./best_model_{model_type}.txt")
-                                # Storing accuracy, macro precision, macro recall, macro f1 and loss of the best model to be printed later
-                                best_model_metrics = aprf1 + [trained_model.compute_loss(y_test, trained_model.predict(X_test))]
+        hyperparameters = {
+            "learning_rate": config.learning_rate,
+            "activation_function": config.activation_function,
+            "optimiser": optimiser,
+            "epochs": config.epochs,
+            "batch_size": batch_size,
+            "layers": config.layers
+        }
 
-                        elif model_type == "regressor":
-                            table_row, mse_test, trained_model, hyperparameters = run_model(model_type, lr, act_func, optimiser, epochs, batch_size, layers, X_train, y_train, X_val, y_val, X_test, y_test, loss="mse")
-                            # Storing the best model parameters (best model is the one with lowest MSE)
-                            if best_model_metric is None or best_model_metric > mse_test:
-                                best_model_metric = mse_test
-                                best_model_params = hyperparameters
-                                trained_model.save_model(f"./best_model_{model_type}.txt")
-                        
-                        hyperparameters_table_rows.append(table_row)
-
-    hyperparameters_table = PrettyTable()
-    if model_type == "single class classifier":
-        hyperparameters_table.field_names = ["Learning Rate", "Activation Function", "Optimiser", "Epochs", "Batch Size", "Layers", "Accuracy", "Macro Precision", "Macro Recall", "Macro F1", "Cross Entropy Loss"]
-    elif model_type == "multi class classifier":
-        hyperparameters_table.field_names = ["Learning Rate", "Activation Function", "Optimiser", "Epochs", "Batch Size", "Layers", "Accuracy", "Macro Precision", "Macro Recall", "Macro F1", "Hamming Loss"]
-    elif model_type == "regressor":
-        hyperparameters_table.field_names = ["Learning Rate", "Activation Function", "Optimiser", "Epochs", "Batch Size", "Layers", "MSE", "RMSE", "R2"]
+        loss_d, table_row, aprf1, trained_model, hyperparameters = run_model("single_class_classifier", hyperparameters['learning_rate'], hyperparameters['activation_function'], optimiser, hyperparameters['epochs'], batch_size, hyperparameters['layers'], X_train_single_class, y_train_single_class, X_val_single_class, y_val_single_class, X_test_single_class, y_test_single_class, loss="cross_entropy")
+        loss_dict.update(loss_d)
+        aprf1.append(trained_model.compute_loss(y_val_single_class, trained_model.predict(X_val_single_class)))
     
-    for row in hyperparameters_table_rows:
-        hyperparameters_table.add_row(row)
+        # Storing the best model parameters (best model is the one with highest accuracy)
+        if best_model_metric is None or best_model_metric < aprf1[0]:
+            best_model_metric = aprf1[0]
+            best_model_params = hyperparameters
+            trained_model.save_model(f"./best_model_single_class_classifier.txt")
+            # Storing accuracy, macro precision, macro recall, macro f1 and loss of the best model to be printed later
+            best_model_metrics = aprf1
+        
+        hyperparameters_table_rows.append(table_row)
 
-    print(GREEN)
-    print("Hyperparameters Table:")
-    print(hyperparameters_table)
-    print(RESET)
+def hyperparam_tuning_multi_class_classifier(config=None):
+    global X_train_multi_class, y_train_multi_class, X_test_multi_class, y_test_multi_class, X_val_multi_class, y_val_multi_class, hyperparameters_table_rows, best_model_params, best_model_metric, best_model_metrics, loss_dict
 
-    print(f"{MAGENTA}Best Model Params:{RESET}")
-    print(best_model_params)
-    print()
+    with wandb.init(config=config):
+        config = wandb.config
+        run_name = f"op={config.optimiser}_lr={config.learning_rate}_af={config.activation_function}_layers={"_".join([str(x) for x in config.layers])}"
+        wandb.run.name = run_name
 
-    if model_type == "single_class_classifier":
-        print(f"{MAGENTA}Best Model Metrics:{RESET}")
-        print(f"Test Accuracy: {GREEN}{best_model_metrics[0]}{RESET}%")
-        print(f"Test Macro Precision: {GREEN}{best_model_metrics[1]}{RESET}%")
-        print(f"Test Macro Recall: {GREEN}{best_model_metrics[2]}{RESET}%")
-        print(f"Test Macro F1: {GREEN}{best_model_metrics[3]}{RESET}")
-        print(f"Test Loss: {GREEN}{best_model_metrics[4]}{RESET}")
-        print()
+        batch_size = None
+        optimiser = config.optimiser
 
-    elif model_type == "multi_class_classifier":
-        print(f"{MAGENTA}Best Model Metrics:{RESET}")
-        print(f"Test Accuracy: {GREEN}{best_model_metrics[0]}{RESET}%")
-        print(f"Test Macro Precision: {GREEN}{best_model_metrics[1]}{RESET}%")
-        print(f"Test Macro Recall: {GREEN}{best_model_metrics[2]}{RESET}%")
-        print(f"Test Macro F1: {GREEN}{best_model_metrics[3]}{RESET}")
-        print(f"Test Hamming Loss: {GREEN}{best_model_metrics[4]}{RESET}")
+        if optimiser is not None and optimiser.startswith("mini_batch"):
+            batch_size = int(optimiser.split(" ")[1])
+            optimiser = "mini_batch"
 
-    if model_type == "single_class_classifier":
-        return best_model_params, loss_dict
-    elif model_type == "multi_class_classifier":
-        return best_model_params, loss_dict
+        hyperparameters = {
+            "learning_rate": config.learning_rate,
+            "activation_function": config.activation_function,
+            "optimiser": optimiser,
+            "epochs": config.epochs,
+            "batch_size": batch_size,
+            "layers": config.layers
+        }
+        
+        loss_d, table_row, aprf1, trained_model, hyperparameters = run_model("multi_class_classifier", hyperparameters['learning_rate'], hyperparameters['activation_function'], optimiser, hyperparameters['epochs'], batch_size, hyperparameters['layers'], X_train_multi_class, y_train_multi_class, X_val_multi_class, y_val_multi_class, X_test_multi_class, y_test_multi_class, loss="hamming_loss")
+        loss_dict.update(loss_d)
+        aprf1.append(trained_model.compute_loss(y_val_multi_class, trained_model.predict(X_val_multi_class)))
+    
+        # Storing the best model parameters (best model is the one with highest accuracy)
+        if best_model_metric is None or best_model_metric < aprf1[0]:
+            best_model_metric = aprf1[0]
+            best_model_params = hyperparameters
+            trained_model.save_model(f"./best_model_multi_class_classifier.txt")
+            # Storing accuracy, macro precision, macro recall, macro f1 and loss of the best model to be printed later
+            best_model_metrics = aprf1
+        
+        hyperparameters_table_rows.append(table_row)
+
+def hyperparam_tuning_regressor(config=None):
+    global X_train_regressor, y_train_regressor, X_test_regressor, y_test_regressor, X_val_regressor, y_val_regressor, hyperparameters_table_rows, best_model_params, best_model_metric
+
+    with wandb.init(config=config):
+        config = wandb.config
+        run_name = f"op={config.optimiser}_lr={config.learning_rate}_af={config.activation_function}_layers={"_".join([str(x) for x in config.layers])}"
+        wandb.run.name = run_name
+
+        batch_size = None
+        optimiser = config.optimiser
+
+        if optimiser is not None and optimiser.startswith("mini_batch"):
+            batch_size = int(optimiser.split(" ")[1])
+            optimiser = "mini_batch"
+
+        hyperparameters = {
+            "learning_rate": config.learning_rate,
+            "activation_function": config.activation_function,
+            "optimiser": optimiser,
+            "epochs": config.epochs,
+            "batch_size": batch_size,
+            "layers": config.layers
+        }
+        
+        table_row, mse_test, trained_model, hyperparameters = run_model("regressor", hyperparameters['learning_rate'], hyperparameters['activation_function'], optimiser, hyperparameters['epochs'], batch_size, hyperparameters['layers'], X_train_regressor, y_train_regressor, X_val_regressor, y_val_regressor, X_test_regressor, y_test_regressor, loss="mse")
+        # Storing the best model parameters (best model is the one with lowest MSE)
+        if best_model_metric is None or best_model_metric > mse_test:
+            best_model_metric = mse_test
+            best_model_params = hyperparameters
+            trained_model.save_model(f"./best_model_regressor.txt")
+        
+        hyperparameters_table_rows.append(table_row)
 
 def plot_effect_of_tuning(model_type, best_model_params, loss_dict):
     # Hyperparameters of the best model
@@ -555,7 +544,89 @@ def MLPSingleClassClassification():
     # =================================================================
     #               2.3 Hyperparameter Tuning
     # =================================================================
-    best_model_params, loss_dict = hyperparam_tuning("single_class_classifier", 11, 10, X_train, y_train, X_val, y_val, X_test, y_test)
+    n_ip = 11
+    n_op = 10
+    sweep_config = {
+        'method': 'grid',
+        'metric': {
+            'name': 'accuracy_val',
+            'goal': 'maximize'
+        },
+        'parameters': {
+            'optimiser': {
+                'values': optimisers
+            },
+            'activation_function': {
+                'values': activation_funcs
+            },
+            'learning_rate': {
+                'values': learning_rates
+            },
+            'layers': {
+                'values': [[n_ip, 32, 32, n_op],
+                            [n_ip, 32, 64, 32, 16, n_op],
+                            [n_ip, 128, n_op],
+                            [n_ip, 64, 64, n_op],
+                            [n_ip, 15, 15, n_op]
+                        ]
+            },
+            'epochs': {
+                'value': epochs
+            }
+        }
+    }
+
+    global X_train_single_class, y_train_single_class, X_test_single_class, y_test_single_class, X_val_single_class, y_val_single_class, hyperparameters_table_rows, best_model_params, best_model_metric, best_model_metrics, loss_dict
+
+    X_train_single_class = X_train
+    y_train_single_class = y_train
+    X_test_single_class = X_test
+    y_test_single_class = y_test
+    X_val_single_class = X_val
+    y_val_single_class = y_val
+
+    hyperparameters_table_rows = list()
+
+    best_model_params = {}
+    best_model_metric = None
+    best_model_metrics = None
+
+    loss_dict = {}
+
+    sweep_id = wandb.sweep(sweep_config, project=f"Single_Class_Classifier_Sweep")
+    wandb.agent(sweep_id, hyperparam_tuning_single_class_classifier)
+
+    hyperparameters_table = PrettyTable()
+    hyperparameters_table.field_names = ["LR", "AF", "OP", "Epochs", "BS", "Layers", "Acc", "Macro P", "Macro R", "Macro F1", "Entropy Loss"]
+    for row in hyperparameters_table_rows:
+        hyperparameters_table.add_row(row)
+
+    print(GREEN)
+    print("Hyperparameters Table:")
+    print(hyperparameters_table)
+    print(RESET)
+
+    print(f"{MAGENTA}Best Model Params:{RESET}")
+    print(best_model_params)
+    print()
+
+    best_model = MLP()
+
+    best_model.load_model(f"./best_model_single_class_classifier.txt")
+    y_pred = best_model.predict(X_test_single_class)
+    test_accuracy = round(best_model.compute_acc(y_test_single_class, y_pred) * 100, 3)
+    test_p, test_r, test_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_single_class(y_test_single_class, y_pred)
+    test_loss = best_model.compute_loss(y_test_single_class, y_pred)
+    best_model_metrics = [test_accuracy, np.mean(test_p) * 100, np.mean(test_r) * 100, np.mean(test_f1), test_loss]
+
+    print(f"{MAGENTA}Best Model Metrics:{RESET}")
+    print(f"Test Accuracy: {GREEN}{best_model_metrics[0]}{RESET}%")
+    print(f"Test Macro Precision: {GREEN}{best_model_metrics[1]}{RESET}%")
+    print(f"Test Macro Recall: {GREEN}{best_model_metrics[2]}{RESET}%")
+    print(f"Test Macro F1: {GREEN}{best_model_metrics[3]}{RESET}")
+    print(f"Test Loss: {GREEN}{best_model_metrics[4]}{RESET}")
+    print()
+
     plot_effect_of_tuning("single_class_classifier", best_model_params, loss_dict)
 
 def MLPMultiClassClassification():
@@ -604,8 +675,88 @@ def MLPMultiClassClassification():
     X_test, y_test = standardised_test_features, one_hot_test_labels
     X_val, y_val = standardised_val_features, one_hot_val_labels
 
-    best_model_params, loss_dict = hyperparam_tuning("multi_class_classifier", 10, 8, X_train, y_train, X_val, y_val, X_test, y_test)
-    plot_effect_of_tuning("multi_class_classifier", best_model_params, loss_dict)
+    n_ip = 10
+    n_op = 8
+    sweep_config = {
+        'method': 'grid',
+        'metric': {
+            'name': 'accuracy_val',
+            'goal': 'maximize'
+        },
+        'parameters': {
+            'optimiser': {
+                'values': optimisers
+            },
+            'activation_function': {
+                'values': activation_funcs
+            },
+            'learning_rate': {
+                'values': learning_rates
+            },
+            'layers': {
+                'values': [[n_ip, 32, 32, n_op],
+                            [n_ip, 32, 64, 32, 16, n_op],
+                            [n_ip, 128, n_op],
+                            [n_ip, 64, 64, n_op],
+                            [n_ip, 15, 15, n_op]
+                        ]
+            },
+            'epochs': {
+                'value': epochs
+            }
+        }
+    }
+
+    global X_train_multi_class, y_train_multi_class, X_test_multi_class, y_test_multi_class, X_val_multi_class, y_val_multi_class, hyperparameters_table_rows, best_model_params, best_model_metric, best_model_metrics, loss_dict
+
+    X_train_multi_class = X_train
+    y_train_multi_class = y_train
+    X_test_multi_class = X_test
+    y_test_multi_class = y_test
+    X_val_multi_class = X_val
+    y_val_multi_class = y_val
+
+    hyperparameters_table_rows = list()
+
+    best_model_params = {}
+    best_model_metric = None
+    best_model_metrics = None
+
+    loss_dict = {}
+
+    sweep_id = wandb.sweep(sweep_config, project=f"Multi_Class_Classifier_Sweep")
+    wandb.agent(sweep_id, hyperparam_tuning_multi_class_classifier)
+
+    hyperparameters_table = PrettyTable()
+    hyperparameters_table.field_names = ["LR", "AF", "OP", "Epochs", "BS", "Layers", "Acc", "Macro P", "Macro R", "Macro F1", "Hamming Loss"]
+
+    for row in hyperparameters_table_rows:
+        hyperparameters_table.add_row(row)
+
+    print(GREEN)
+    print("Hyperparameters Table:")
+    print(hyperparameters_table)
+    print(RESET)
+
+    print(f"{MAGENTA}Best Model Params:{RESET}")
+    print(best_model_params)
+    print()
+
+    best_model = MLP(n_ip=best_model_params["layers"][0], neurons_per_hidden_layer=best_model_params["layers"][1:-1], n_op=best_model_params["layers"][-1], learning_rate=best_model_params["learning_rate"], activation_func=best_model_params["activation_func"], optimiser=best_model_params["optimiser"], epochs=best_model_params["epochs"], batch_size=best_model_params["batch_size"], loss="hamming_loss")
+    best_model.fit(X_train, y_train, X_val, y_val, multi_class=True)
+    y_pred = best_model.predict(X_test)
+    test_accuracy = round(best_model.compute_acc(y_test, y_pred, multi_class=True) * 100, 3)
+    test_p, test_r, test_f1 = PerformanceMetrics().get_precision_recall_f1_onehot_multi_class(y_test, y_pred)
+    test_loss = best_model.compute_loss(y_test, y_pred)
+    best_model_metrics = [test_accuracy, round(np.mean(test_p) * 100, 3), round(np.mean(test_r) * 100, 3), np.mean(test_f1), test_loss]
+
+    print(f"{MAGENTA}Best Model Metrics:{RESET}")
+    print(f"Test Accuracy: {GREEN}{best_model_metrics[0]}{RESET}%")
+    print(f"Test Macro Precision: {GREEN}{best_model_metrics[1]}{RESET}%")
+    print(f"Test Macro Recall: {GREEN}{best_model_metrics[2]}{RESET}%")
+    print(f"Test Macro F1: {GREEN}{best_model_metrics[3]}{RESET}")
+    print(f"Test Hamming Loss: {GREEN}{best_model_metrics[4]}{RESET}")
+    print()
 
 def MLPRegression():
     # =================================================================
@@ -646,7 +797,68 @@ def MLPRegression():
     X_test, y_test = standardised_test_data[:, :-1], standardised_test_data[:, -1].reshape(-1, 1)
     X_val, y_val = standardised_val_data[:, :-1], standardised_val_data[:, -1].reshape(-1, 1)
 
-    hyperparam_tuning("regressor", 13, 1, X_train, y_train, X_val, y_val, X_test, y_test)
+    n_ip = 13
+    n_op = 1
+    sweep_config = {
+        'method': 'grid',
+        'metric': {
+            'name': 'mse_val',
+            'goal': 'minimize'
+        },
+        'parameters': {
+            'optimiser': {
+                'values': optimisers
+            },
+            'activation_function': {
+                'values': activation_funcs
+            },
+            'learning_rate': {
+                'values': learning_rates
+            },
+            'layers': {
+                'values': [[n_ip, 32, 32, n_op],
+                            [n_ip, 32, 64, 32, 16, n_op],
+                            [n_ip, 128, n_op],
+                            [n_ip, 64, 64, n_op],
+                            [n_ip, 15, 15, n_op]
+                        ]
+            },
+            'epochs': {
+                'value': epochs
+            }
+        }
+    }
+
+    global X_train_regressor, y_train_regressor, X_test_regressor, y_test_regressor, X_val_regressor, y_val_regressor, hyperparameters_table_rows, best_model_params, best_model_metric
+
+    X_train_regressor = X_train
+    y_train_regressor = y_train
+    X_test_regressor = X_test
+    y_test_regressor = y_test
+    X_val_regressor = X_val
+    y_val_regressor = y_val
+
+    hyperparameters_table_rows = list()
+
+    best_model_params = {}
+    best_model_metric = None
+
+    sweep_id = wandb.sweep(sweep_config, project=f"Regressor_Sweep")
+    wandb.agent(sweep_id, hyperparam_tuning_regressor)
+
+    hyperparameters_table = PrettyTable()
+    hyperparameters_table.field_names = ["LR", "AF", "OP", "Epochs", "BS", "Layers", "MSE", "RMSE", "R2"]
+    for row in hyperparameters_table_rows:
+        hyperparameters_table.add_row(row)
+
+    print(GREEN)
+    print("Hyperparameters Table:")
+    print(hyperparameters_table)
+    print(RESET)
+
+    print(f"{MAGENTA}Best Model Params:{RESET}")
+    print(best_model_params)
+    print()
 
     print(f"{MAGENTA}Evaluating the model:{RESET}")
     best_model = MLP(n_op=1)
@@ -788,7 +1000,7 @@ def SpotifyDataset():
     print(f"{GREEN}Running KNN model on the reduced dataset{RESET}")
 
     # Initial model's hyperparameters
-    distance_metric = "euclidean"
+    distance_metric = "manhattan"
     k = 50
 
     knn_model = KNN(k, distance_metric)
@@ -854,7 +1066,7 @@ def SpotifyDataset():
         for label in val_labels[i]:
             one_hot_val_labels[i][unique_labels.index(label)] = 1
 
-    # Custom hyperparameters
+    Custom hyperparameters
     lr = 0.01
     act_func = "sigmoid"
     optimiser = None
@@ -876,9 +1088,8 @@ def SpotifyDataset():
     print_aprf1("single_class_classifier", lr, act_func, optimiser, epochs, batch_size, layers, model, test_features, one_hot_test_labels, test_p, test_r, test_f1)
 
 if __name__ == "__main__":
-    if USE_WANDB:
-        wandb.login()
-    MLPSingleClassClassification() 
+    wandb.login()
+    MLPSingleClassClassification()
     MLPMultiClassClassification()
     MLPRegression()
     SpotifyDataset()
