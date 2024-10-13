@@ -1,3 +1,0 @@
-/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:71: RuntimeWarning: overflow encountered in exp
-  return 1 / (1 + np.exp(-x))
-Model Training completed successfully in time 1.1114811897277832 s!

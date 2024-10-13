@@ -1,7 +1,0 @@
-/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:58: RuntimeWarning: invalid value encountered in subtract
-  exps = np.exp(x - np.max(x, axis=1, keepdims=True))
-/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:118: RuntimeWarning: invalid value encountered in multiply
-  err = np.dot(err, self.weights[i].T) * self.activation_func_derivative(activation)
-/Users/vinitmehta/Desktop/IIITH/Sem5/SMAI/Assignments/smai-m24-assignments-Vinit2244/models/MLP/MLP.py:98: RuntimeWarning: invalid value encountered in add
-  Z = np.dot(Z, self.weights[i]) + self.biases[i]
-Model Training completed successfully in time 0.07150697708129883 s!
