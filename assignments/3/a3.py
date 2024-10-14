@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../.
 
 from models.knn.knn import KNN
 from models.MLP.MLP import MLP
-from models.AutoEncoder.AutoEncoder import AutoEncoder
+from models.AutoEncoder.pca_autoencoder import AutoEncoder
 from performance_measures.performance_measures import PerformanceMetrics
 
 TRAIN_PERCENT = 70
@@ -1066,7 +1066,7 @@ def SpotifyDataset():
         for label in val_labels[i]:
             one_hot_val_labels[i][unique_labels.index(label)] = 1
 
-    Custom hyperparameters
+    # Custom hyperparameters
     lr = 0.01
     act_func = "sigmoid"
     optimiser = None
