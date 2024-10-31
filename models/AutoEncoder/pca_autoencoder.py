@@ -1,21 +1,52 @@
-import os
-import sys
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+import numpy as np
+import torch
+import torch.nn as nn
 
-from models.MLP.MLP import MLP
+class PCA_Autoencoder(nn.Module):
+    def __init__(self, n_components=None):
+        super(PCA_Autoencoder, self).__init__()
+        self.n_components = n_components
+        self.eigenvectors = None
+        self.mean = None
 
-class AutoEncoder(MLP):
-    def __init__(self, n_ip: int=0, neurons_per_hidden_layer: list=[], n_op: int=0,
-                 learning_rate: int=0.01, activation_func: str='relu', 
-                 optimiser: str='sgd', batch_size: int=32, epochs: int=100,
-                 loss: str='mse', seed=None):
-        super().__init__(n_ip, neurons_per_hidden_layer, n_op, learning_rate, activation_func, optimiser, batch_size, epochs, loss, seed)
+    def fit(self, data):
+        # Flatten the 28x28 images to a 784-dimensional vectors
+        data = data.reshape(data.shape[0], -1)  # Shape: (num_samples, 784)
 
-    def fit(self, X):
-        super().fit(X, X)
+        # Centering the data
+        self.mean = np.mean(data, axis=0)
+        centered_data = data - self.mean
 
-    def get_latent(self, X):
-        activations = super().forward_prop(X)
-        latent = activations[len(activations) // 2]
-        return latent
+        # Calculating the covariance matrix
+        covariance_matrix = np.cov(centered_data, rowvar=False)
 
+        # Computing eigenvalues and eigenvectors
+        eigenvalues, eigenvectors = np.linalg.eig(covariance_matrix)
+
+        # Sorting eigenvalues and eigenvectors in descending order
+        sorted_indices = np.argsort(eigenvalues)[::-1]
+        eigenvalues = eigenvalues[sorted_indices]
+        eigenvectors = eigenvectors[:, sorted_indices]
+
+        # Keep only the top n_components eigenvectors
+        if self.n_components:
+            eigenvectors = eigenvectors[:, :self.n_components]
+
+        # Store the eigenvectors as a torch tensor
+        self.eigenvectors = torch.tensor(eigenvectors, dtype=torch.float32)
+        self.mean = torch.tensor(self.mean, dtype=torch.float32)
+
+    def encode(self, data):
+        # Flatten images and center data
+        data = data.reshape(data.shape[0], -1)
+        centered_data = torch.tensor(data, dtype=torch.float32) - self.mean
+        # Project data onto the eigenvectors
+        return torch.matmul(centered_data, self.eigenvectors).numpy()
+
+    def forward(self, encoded_data):
+        if self.eigenvectors is None:
+            raise ValueError("PCA model is not fitted yet.")
+        # Reconstruct data by reversing the projection
+        reconstructed_data = torch.matmul(encoded_data, self.eigenvectors.T) + self.mean
+        # Reshape back to the original 28x28 image shape
+        return reconstructed_data.view(-1, 28, 28).numpy()
