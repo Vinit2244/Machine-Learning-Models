@@ -1,6 +1,9 @@
 import numpy as np
 import random
 from scipy.stats import multivariate_normal
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.animation import FuncAnimation
+import matplotlib.pyplot as plt
 
 class GMM:
     def __init__(self, k, seed=None, epsilon=1e-10):
@@ -10,7 +13,7 @@ class GMM:
         self.means = None               # Means of each cluster
         self.cov_matrices = None        # Covariance matrices of each cluster (full covariance matrix)
         self.responsibility_mat = None  # Responsibility matrix
-        self.arr_likelihood = []        # Likelihood of the model
+        self.arr_log_likelihood = []        # Likelihood of the model
         self.seed = seed                # Seed for reproducibility
         self.epsilon = epsilon
 
@@ -116,16 +119,16 @@ class GMM:
             # Updating Weights
             self.weights = np.array(list_of_N) / total_number_of_points
 
-            likelihood = self.getLikelihood()
-            self.arr_likelihood.append(likelihood)
+            log_likelihood = self.get_log_likelihood()
+            self.arr_log_likelihood.append(log_likelihood)
 
             epochs_taken += 1
 
             # Check for convergence
-            if len(self.arr_likelihood) < 2:
+            if len(self.arr_log_likelihood) < 2:
                 continue
             else:
-                if abs(self.arr_likelihood[-1] - self.arr_likelihood[-2]) < 1e-10:
+                if abs(self.arr_log_likelihood[-1] - self.arr_log_likelihood[-2]) < 1:
                     break
                 else:
                     continue
@@ -147,6 +150,79 @@ class GMM:
         log_likelihood = self.get_log_likelihood()
         return np.exp(log_likelihood)
     
+    def visualise(self, x_range=(-3, 3), y_range=(-3, 3), grid_density=100, save_as=None, plot_type='contour'):
+        if self.data.shape[1] != 2:
+            raise ValueError("Visualization is only supported for 2D data.")
+        
+        # Create grid for contour plotting
+        x = np.linspace(x_range[0], x_range[1], grid_density)
+        y = np.linspace(y_range[0], y_range[1], grid_density)
+        X, Y = np.meshgrid(x, y)
+        pos = np.dstack((X, Y))
+
+        # Initialize a combined density for plotting multiple Gaussians
+        Z_total = np.zeros(X.shape)
+
+        for mean, cov in zip(self.means, self.cov_matrices):
+            rv = multivariate_normal(mean, cov)
+            Z_total += rv.pdf(pos)
+
+        if plot_type == 'contour':
+            # Create a figure with side-by-side subplots
+            fig, axes = plt.subplots(1, 2, figsize=(16, 8))
+
+            # Type 1: Standard contour plot
+            axes[0].set_title('2D Contour Plot of GMM (Type 1)')
+            for mean, cov in zip(self.means, self.cov_matrices):
+                rv = multivariate_normal(mean, cov)
+                axes[0].contour(X, Y, rv.pdf(pos), levels=10, cmap='viridis')
+            if self.data is not None:
+                axes[0].scatter(self.data[:, 0], self.data[:, 1], c='red', s=10, label='Data Points')
+            axes[0].set_xlabel('X-axis')
+            axes[0].set_ylabel('Y-axis')
+            axes[0].legend()
+            axes[0].grid(True)
+
+            # Type 2: Filled contour plot
+            axes[1].set_title('2D Filled Contour Plot of GMM (Type 2)')
+            c = axes[1].contourf(X, Y, Z_total, levels=50, cmap='viridis')
+            fig.colorbar(c, ax=axes[1], label='Density')
+            if self.data is not None:
+                axes[1].scatter(self.data[:, 0], self.data[:, 1], c='black', s=5, alpha=0.5)
+            axes[1].set_xlabel('X')
+            axes[1].set_ylabel('Y')
+
+            # Adjust layout and show or save the plot
+            plt.tight_layout()
+            if save_as is None:
+                plt.show()
+            else:
+                plt.savefig(save_as)
+                plt.close()
+
+        elif plot_type == '3d':
+            # 3D plot
+            fig = plt.figure()
+            ax = fig.add_subplot(111, projection='3d')
+            ax.plot_surface(X, Y, Z_total, cmap='viridis', edgecolor='none')
+            ax.set_xlabel('X-axis')
+            ax.set_ylabel('Y-axis')
+            ax.set_zlabel('Density')
+            plt.title("3D Density Plot of GMM")
+
+            if save_as is None:
+                plt.show()
+            else:
+                # Create a rotating animation and save as GIF
+                def update(frame):
+                    ax.view_init(elev=30, azim=frame)
+                    return ax,
+
+                frames = np.arange(0, 360, 2)
+                ani = FuncAnimation(fig, update, frames=frames, interval=50)
+                ani.save(save_as, writer='pillow')
+                plt.close()
+
     # Returns log likelihood of the fitted model
     def get_log_likelihood(self):
         overall_log_likelihood = 0
