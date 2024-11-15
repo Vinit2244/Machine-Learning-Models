@@ -1,3 +1,5 @@
 env/
 data/external/
 data/interim/
+*.gif
+__pycache__/

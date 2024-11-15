@@ -95,16 +95,16 @@ def generate_mfcc_plots_from_csvs(save_csv_path, save_plot_path):
             plt.close(fig)
 
 if __name__ == "__main__":
-    # # =============================================================================
-    # #                            Generate synthetic data
-    # # =============================================================================
-    # x_large, y_large = generate_circle_points(num_points=3000, radius=2, noise=0.2)
-    # x_small, y_small = generate_circle_points(num_points=500, radius=0.25, center=(1, 1), noise=0.05)
-    # x = np.concatenate([x_large, x_small])
-    # y = np.concatenate([y_large, y_small])
-    # data = np.column_stack([x, y])
-    # print(f"{GREEN}Synthetic Data Generated{RESET}")
-    # print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+    # =============================================================================
+    #                            Generate synthetic data
+    # =============================================================================
+    x_large, y_large = generate_circle_points(num_points=3000, radius=2, noise=0.2)
+    x_small, y_small = generate_circle_points(num_points=500, radius=0.25, center=(1, 1), noise=0.05)
+    x = np.concatenate([x_large, x_small])
+    y = np.concatenate([y_large, y_small])
+    data = np.column_stack([x, y])
+    print(f"{GREEN}Synthetic Data Generated{RESET}")
+    print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
 
     # # =============================================================================
     # #                            Visualize synthetic data
@@ -135,26 +135,25 @@ if __name__ == "__main__":
     # print(f"{GREEN}KDE contour plot saved in time {round(end_time - start_time, 3)}s{RESET}")
     # print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
 
-    # # =============================================================================
-    # #                            Apply GMM on synthetic data
-    # # =============================================================================
-    # for n_components in range(2, 6):
-    #     print(f"{MAGENTA}Fitting GMM with n_components = {n_components}{RESET}")
-    #     gmm_model = GMM(n_components)
-    #     gmm_model.load_data(data)
-    #     start_time = time.time()
-    #     epochs_taken = gmm_model.fit()
-    #     end_time = time.time()
-    #     print(f"{GREEN}GMM fitted, epochs taken = {epochs_taken}{RESET}")
-    #     print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
-    #     overall_log_likelihood = round(gmm_model.get_log_likelihood(), 5)
-    #     print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
-    #     gmm_model.visualise(save_as=f"./assignments/5/figures/kde_vs_gmm/gmm_3d_{n_components}.png", plot_type='3d')
-    #     print(f"{GREEN}GMM 3D Plot saved{RESET}")
-    #     gmm_model.visualise(save_as=f"./assignments/5/figures/kde_vs_gmm/gmm_contour_{n_components}.png", plot_type='contour')
-    #     print(f"{GREEN}GMM Contour Plot saved\n{RESET}")
-
-    # print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
+    # =============================================================================
+    #                            Apply GMM on synthetic data
+    # =============================================================================
+    for n_components in range(2, 6):
+        print(f"{MAGENTA}Fitting GMM with n_components = {n_components}{RESET}")
+        gmm_model = GMM(n_components)
+        gmm_model.load_data(data)
+        start_time = time.time()
+        epochs_taken = gmm_model.fit()
+        end_time = time.time()
+        print(f"{GREEN}GMM fitted, epochs taken = {epochs_taken}{RESET}")
+        print(f"\t{GREEN}Time taken to fit: {round(end_time - start_time, 5)} s{RESET}")
+        overall_log_likelihood = round(gmm_model.get_log_likelihood(), 5)
+        print(f"\t{GREEN}Final Log Likelihood: {overall_log_likelihood}{RESET}")
+        gmm_model.visualise(save_as=f"./assignments/5/figures/kde_vs_gmm/gmm_3d_{n_components}.gif", plot_type='3d')
+        print(f"{GREEN}GMM 3D Plot saved{RESET}")
+        gmm_model.visualise(save_as=f"./assignments/5/figures/kde_vs_gmm/gmm_contour_{n_components}.png", plot_type='contour')
+        print(f"{GREEN}GMM Contour Plot saved\n{RESET}")
+    print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
 
     # # =============================================================================
     # #                    Save MFCCs to CSVs and generate heatmaps
@@ -181,4 +180,3 @@ if __name__ == "__main__":
     # end_time = time.time()
     # print(f"{GREEN}All MFCC heatmaps generated and saved in time {round(end_time - start_time, 3)}s{RESET}")
     # print(f"\n{BLUE}------------------------------------------------------------------------------------------------------{RESET}\n")
-    pass
